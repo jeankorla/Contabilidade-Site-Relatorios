@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html  >
 <head>
-  <!-- Site made with Mobirise Website Builder v5.9.0, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
@@ -77,8 +76,8 @@
         <div class="container">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="index.html">
-                        <img src="assets/images/design-sem-nome-10.png" alt="Mobirise Website Builder" style="height: 3rem;">
+                    <a href="/">
+                        <img src="assets/images/design-sem-nome-10.png" style="height: 3rem;">
                     </a>
                 </span>
                 
@@ -92,9 +91,9 @@
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="index.html"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="abertura.html">Abertura de empresa</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="trocar.html">Trocar de contador</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="cliente.html">Área do Cliente</a>
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="/"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/trocar">Trocar de contador</a></li>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/cliente">Área do cliente</a>
                         <li class="nav-item"><a class="nav-link link text-white display-4">(13) 3361-4324</a>
 
                     </li></ul>
@@ -104,7 +103,6 @@
         </div>
     </nav>
 </section>
-
 <section data-bs-version="5.1" class="header14 cid-sFzxmVl7J6" id="header14-1f">
 
     
@@ -140,7 +138,7 @@
                 <div class="wrapper">
                     <h3 class="mbr-section-title mb-4 mbr-fonts-style display-2"><span style="color: black;"><strong>Abrir minha Empresa</strong></span></h3>
                     <p class="mbr-text mb-4 mbr-fonts-style display-4">
-                        Visit our Help Center to get started developing websites with Mobirise. Use Help Center to find answers to your questions. Contact us directly at info@site.com</p>
+                       Abra sua empresa conosco e desfrute de um processo simples, ágil e totalmente confiável. Nossa expertise em contabilidade garante o suporte necessário para que seu negócio comece com o pé direito. Vamos juntos construir o seu sucesso!</p>
                     <div class="mbr-section-btn"><a class="btn btn display-4" href="abertura.html" style="background-color: #FF931E !important; color: white !important; ">Vamos Começar</a></div>
                 </div>
             </div>
@@ -149,8 +147,8 @@
                     <h3 class="mbr-section-title mbr-fonts-style mb-4 display-2">
                         <span style="color: black;"><strong>Trocar de Contador</strong></span></h3>
                     <p class="mbr-text mbr-fonts-style mb-4 display-4">
-                        Beautiful website blocks, templates and themes help you to start easily. Expand your Mobirise experience with Code Editor, Form Builder and other extensions.</p>
-                    <div class="mbr-section-btn"><a class="btn btn display-4" href="trocar.html" style="background-color: #FF931E !important; color: white !important; ">Rápido e Fácil</a></div>
+                       Pensando em mudar de contador? Faça a transição conosco e experimente um serviço de contabilidade de excelência. Nos comprometemos a tornar esse processo suave para você, garantindo que cada detalhe seja cuidado. Dê um upgrade no gerenciamento contábil do seu negócio!.</p>
+                    <div class="mbr-section-btn"><a class="btn btn display-4" href="trocar.html" style="background-color: #FF931E !important; color: white !important; ">Rápido e Seguro</a></div>
                 </div>
             </div>
         </div>
@@ -358,7 +356,7 @@
     </div>
 </section>
 
-<section data-bs-version="5.1" class="list1 cid-tT9wnz143X" id="list01-a">
+<!-- <section data-bs-version="5.1" class="list1 cid-tT9wnz143X" id="list01-a">
 	
 	
 	<div class="container">
@@ -441,7 +439,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <section data-bs-version="5.1" class="features23 cid-sFAyHxWQ1N" id="features24-20">
 
@@ -547,8 +545,8 @@
                     </div>
 
                     <div class="text-box">
-                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Envio e validação de documentos</strong></h4>
-                        <h5 class="mbr-text mbr-black mbr-fonts-style display-4">Nesta etapa, iremos encaminhar uma ficha na qual faremos o preenchimento em conjunto. Em seguida, será enviado a lista de documentos que iremos precisar.</h5>
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Sem Dor de Cabeça</strong></h4>
+                        <h5 class="mbr-text mbr-black mbr-fonts-style display-4">Mudar de contador pode parecer um desafio, mas com nossa equipe torna-se uma transição suave. Facilitamos todo o processo de transferência, para que você não tenha preocupações.</h5>
                     </div>
                 </div>
                 <!-- <span mbr-icon class="mbr-iconfont mobi-mbri-devices mobi-mbri"></span> -->
@@ -561,8 +559,8 @@
                         </div>
                     </div>
                     <div class="text-box">
-                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Envio e validação de documentos</strong></h4>
-                        <h5 class="mbr-text mbr-black mbr-fonts-style display-4">Nesta etapa, iremos encaminhar uma ficha na qual faremos o preenchimento em conjunto. Em seguida, será enviado a lista de documentos que iremos precisar.</h5>
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Atendimento Personalizado</strong></h4>
+                        <h5 class="mbr-text mbr-black mbr-fonts-style display-4">Com anos de experiência no mercado, oferecemos um atendimento personalizado e dedicado a entender as necessidades específicas do seu negócio. Nosso compromisso é estar ao seu lado em cada etapa.</h5>
                     </div>
                 </div>
             </div>
@@ -574,8 +572,8 @@
                         </div>
                     </div>
                     <div class="text-box">
-                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Envio e validação de documentos</strong></h4>
-                        <h5 class="mbr-text mbr-black mbr-fonts-style display-4">Consultoria completa em todos os regimes tributários, compreendendo qual se adequa melhor ao seu perfil: Lucro Real, Lucro Presumido ou Simples Nacional.</h5>
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Soluções Atualizadas</strong></h4>
+                        <h5 class="mbr-text mbr-black mbr-fonts-style display-4">Ao trocar de contabilidade conosco, você terá acesso às soluções mais atualizadas do mercado, garantindo que seu negócio esteja sempre em conformidade e aproveite as melhores práticas contábeis.</h5>
                     </div>
                 </div>
             </div>

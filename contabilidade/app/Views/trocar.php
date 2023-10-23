@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html  >
 <head>
-  <!-- Site made with Mobirise Website Builder v5.9.0, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
@@ -24,23 +23,23 @@
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
 <head>
-  <!-- Site made with Mobirise Website Builder v5.9.0, https://mobirise.com -->
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/design-sem-nome-10.png" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo base_url('/public_html/assets/images/design-sem-nome-10.png" type="image/x-icon')?>">
   <meta name="description" content="">
   
   
   <title>cliente</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/web/public/assets/mobirise-icons2/mobirise2.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/bootstrap/css/bootstrap.min.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/bootstrap/css/bootstrap-grid.min.css')?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/bootstrap/css/bootstrap-reboot.min.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/dropdown/css/style.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/socicon/css/styles.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/theme/css/style.css') ?>">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
@@ -49,62 +48,127 @@
   
   
     <style>
-/* Estilo padrão para tela grande */
-.responsive-grid {
-    display: grid;
-    grid-template-columns: 45vw 55vw;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+.scale-down {
+    transform: scale(0.8);
+    transform-origin: center; /* centralizar o ponto de origem da transformação */
+}
+.jean{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.pedro{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+.w50{
+    width: 50%;
+    float: left;
+    padding-right: 15px;
+}
+.box{
+    display: flex;
+    width: 1300px;
+    z-index: 1;
+}
+.img-box{
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px  0 0 20px;
+}
+.img-box img{
     width: 100%;
 }
-
-/* Estilo para telas menores que 768px */
-@media (max-width: 768px) {
-    .responsive-grid {
-        grid-template-columns: 1fr;
+.form-box{
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(40px);
+    padding: 30px 40px;
+    width: 50%;
+    border-radius: 0 20px 20px 0;
+}
+.form-box h2{
+    font-size: 30px;
+}
+.form-box p{
+    font-weight: bold;
+    color: #3D3D3D;
+}
+.form-box p a{
+    color: #FF931E;
+    text-decoration: none;
+}
+.form-box form{
+    margin: 20px 0;
+}
+form .input-group{
+    margin-bottom: 15px;
+    height: 12vh;
+}
+form .input-group label{
+   
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+form .input-group input{
+    width: 100%;
+    height: 47px;
+    background-color: rgba(255, 255, 255, 0.32);
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid transparent;
+    padding: 15px;
+    font-size: 15px;
+    color: #616161;
+    transition: all 0.4s ease;
+}
+form .input-group input:focus{
+    border-color: #ff008869;
+}
+form .input-group button{
+    width: 100%;
+    height: 47px;
+    background: #FF931E;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    margin-top: 15px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+@media (max-width:930px) {
+    .img-box{
+        display: none;
     }
-
-    /* Ajustes para a imagem */
-    #tutorial-image img {
-        width: 70vw !important; /* Ajustando o tamanho da imagem */
-        height: 25vh !important;
-        margin-top: -5rem;
+    .box{
+        width: 700px;
     }
-
-    /* Ajustes para o formulário */
-    #form-content {
-        margin-top: -5rem !important;
-        padding: 1rem;
+    .form-box{
+        width: 100%;
+        border-radius: 20px;
     }
-    #form-content .card {
-        width: 85vw !important; 
-        height: 90vh !important;
-    }
-    /* Ajuste o tamanho da fonte e largura para os rótulos e inputs dentro do card */
-    #form-content .card .form-label,
-    #form-content .card input.form-control,
-    #form-content .card select.form-control {
-        font-size: 0.8rem;
-        width: 100%; /* faz com que os inputs ocupem toda a largura do card */
-        margin-bottom: 1rem !important;
-    }
-    #NAME{
-
-        font-size: 5px !important;
+}
+@media (max-width:500px) {
+    .w50{
+        width: 100%;
+        padding: 0;
     }
 }
 
-@media (max-width: 380px) {
-     #form-content .card {
-        width: 85vw !important; 
-        height: 120vh !important;
-    }
-}
-
-@media (max-width: 300px) {
-     #form-content .card {
-        width: 85vw !important; 
-        height: 120vh !important;
-    }
-}
 
 .jp1 {
     animation:slide 3s ease-in-out infinite alternate;
@@ -183,14 +247,14 @@
 </head>
 <body>
   
-  <section data-bs-version="5.1" class="menu menu2 cid-sFCw1qGFAI" once="menu" id="menu2-23">
+ <section data-bs-version="5.1" class="menu menu2 cid-sFCw1qGFAI" once="menu" id="menu2-23">
     
     <nav class="navbar navbar-dropdown navbar-expand-lg">
         <div class="container">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="index.html">
-                        <img src="assets/images/design-sem-nome-10.png" alt="Mobirise Website Builder" style="height: 3rem;">
+                    <a href="/">
+                        <img src="assets/images/design-sem-nome-10.png" style="height: 3rem;">
                     </a>
                 </span>
                 
@@ -204,9 +268,9 @@
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="index.html"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="abertura.html">Abertura de empresa</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="trocar.html">Trocar de contador</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="cliente.html">Área do Cliente</a>
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="/"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/trocar">Trocar de contador</a></li>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/cliente">Área do cliente</a>
                         <li class="nav-item"><a class="nav-link link text-white display-4">(13) 3361-4324</a>
 
                     </li></ul>
@@ -227,55 +291,63 @@
     <div class="jp1 jp2"></div>
     <div class="jp1 jp3"></div>
 
-
-
-    <div class="justify-content-center responsive-grid">
-      
-      <!-- Imagem de tutorial -->
-        <div id="tutorial-image" style=" padding: 5rem; display: flex; justify-content: center; align-items: center; z-index: 1; margin-top: 5rem;">
-          <img src="img/tutorial.jpg"
-            style="width: 50vw; height: 50vh;"
-            alt="Logo">
+    <div class="jean scale-down">
+        <div class="pedro">
+     <div class="box" style="margin-top: 5rem; ">
+        <div class="img-box">
+            <img src="img/tutorial.jpg">
         </div>
-
-
-
-        <!-- Formulario -->
-        <div id="form-content" style=" padding: 5rem; z-index: 1; margin-top: 5rem;" >
-          <div class="card mx-auto w-100 shadow-lg" style="border-radius: 30px; background-color: #024A7F">
-            <div class="card-body py-5 px-md-5">
-              <h1 class="text-center text-white mb-5">Abertura de Empresa</h1>
-
-              <form action="" method="post" >
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="NAME">Nome</label>
-                  <input type="text" id="NAME" name="NAME" class="form-control" />
-                  
+        <div class="form-box">
+            <h2>Criar Conta</h2>
+            <p> Já é um membro? <a href="#"> Login </a> </p>
+            <form action="#">
+                <div class="input-group">
+                    <label for="nome"> Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Digite o seu nome completo" required>
                 </div>
 
-               
-                <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="EMAIL">E-mail</label>
-                  <input type="email" id="EMAIL" name="EMAIL" class="form-control" />
-                  
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite o seu email" required>
                 </div>
 
-                <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="CPF">CPF</label>
-                  <input type="number" id="CPF" name="CPF" class="form-control" />
-                  
+                <div class="input-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" placeholder="Digite o seu telefone" required>
                 </div>
 
-                <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="TEL">Telefone</label>
-                  <input type="number" id="TEL" name="TEL" class="form-control" />
-                  
+                <div class="input-group">
+                    <label for="Cnpj">CNPJ</label>
+                    <input type="number" id="Cnpj" placeholder="Digite seu Cnpj" required>
                 </div>
-                
-            <div class="form-outline mb-4 text-white">
+
+                <div class="input-group">
+                    <label for="nome_empresa">Nome da empresa</label>
+                    <input type="text" id="nome_empresa" placeholder="Digite o Nome de sua empresa" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="faturamento">Faturamento Médio mensal</label>
+                    <input type="text" id="faturamento" placeholder="Faturamento mensal da empresa" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="funcionarios">Quantidade de funcionários</label>
+                    <input type="text" id="funcionarios" placeholder="Quantidade de funcionários da empresa" required>
+                </div>
+
+                <div class="">
+              <label for="tributacao">Tributação</label>
+              <select class="input-group form-control" id="tributacao" style="background-color: rgba(255, 255, 255, 0.32);">
+                 <option value="simples">Simples Nacional</option>
+                <option value="presumido">Lucro Presumido</option>
+                <option value="real">Lucro Real</option>
+              </select>
+            </div>
+
+                 <div class="">
               <label for="estado">Estado:</label>
-              <select class="form-control" id="estado">
+              <select class="input-group form-control" id="estado" style="background-color: rgba(255, 255, 255, 0.32);">
                  <option value="SP">São Paulo</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -307,25 +379,14 @@
               </select>
             </div>
 
-                <!-- Exibe a mensagem de erro, caso exista -->
-                <!-- <?php if (session()->has('error')): ?>
-                  <div class="alert alert-danger" role="alert">
-                    <?= session('error') ?>
-                  </div>
-                <?php endif; ?> -->
+                <div class="input-group">
+                    <button>Cadastrar</button>
+                </div>
 
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4" style="background-color: #bfa96c">
-                  Sign in
-                </button>
-
-              </form>
-
-
-
-            </div>
-          </div>
+            </form>
         </div>
+    </div>
+    </div>
     </div>
 </section>
 

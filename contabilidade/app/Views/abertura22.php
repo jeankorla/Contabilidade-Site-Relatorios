@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html  >
 <head>
-  <!-- Site made with Mobirise Website Builder v5.9.0, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
@@ -24,7 +23,7 @@
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
 <head>
-  <!-- Site made with Mobirise Website Builder v5.9.0, https://mobirise.com -->
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
@@ -56,6 +55,13 @@
     width: 100%;
 }
 
+ #form-content .card .form-label,
+    #form-content .card input.form-control,
+    #form-content .card select.form-control {
+        font-size: 0.9rem;
+        width: 100%; /* faz com que os inputs ocupem toda a largura do card */
+    }
+
 /* Estilo para telas menores que 768px */
 @media (max-width: 768px) {
     .responsive-grid {
@@ -76,7 +82,7 @@
     }
     #form-content .card {
         width: 85vw !important; 
-        height: 145vh !important;
+        height: 80vh !important;
     }
     /* Ajuste o tamanho da fonte e largura para os rótulos e inputs dentro do card */
     #form-content .card .form-label,
@@ -86,23 +92,19 @@
         width: 100%; /* faz com que os inputs ocupem toda a largura do card */
         margin-bottom: 1rem !important;
     }
-    #NAME{
-
-        font-size: 5px !important;
-    }
 }
 
 @media (max-width: 380px) {
      #form-content .card {
         width: 85vw !important; 
-        height: 185vh !important;
+        height: 105vh !important;
     }
 }
 
 @media (max-width: 300px) {
      #form-content .card {
         width: 85vw !important; 
-        height: 160vh !important;
+        height: 110vh !important;
     }
 }
 
@@ -189,8 +191,8 @@
         <div class="container">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="index.html">
-                        <img src="assets/images/design-sem-nome-10.png" alt="Mobirise Website Builder" style="height: 3rem;">
+                    <a href="/">
+                        <img src="assets/images/design-sem-nome-10.png" style="height: 3rem;">
                     </a>
                 </span>
                 
@@ -204,9 +206,9 @@
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="index.html"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="abertura.html">Abertura de empresa</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="trocar.html">Trocar de contador</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="cliente.html">Área do Cliente</a>
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="/"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/trocar">Trocar de contador</a></li>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/cliente">Área do cliente</a>
                         <li class="nav-item"><a class="nav-link link text-white display-4">(13) 3361-4324</a>
 
                     </li></ul>
@@ -241,66 +243,39 @@
 
 
         <!-- Formulario -->
-        <div id="form-content" style=" padding: 5rem; z-index: 1; margin-top: 5rem;" >
+        <div id="form-content" style=" padding: 2rem; z-index: 1; margin-top: 5rem;" >
           <div class="card mx-auto w-100 shadow-lg" style="border-radius: 30px; background-color: #024A7F">
             <div class="card-body py-5 px-md-5">
-              <h1 class="text-center text-white mb-5">Abertura de Empresa</h1>
+              <h1 class="text-center text-white mb-3">Abertura de Empresa</h1>
 
               <form action="" method="post" >
-               
-                <div class="form-outline mb-4">
+                <!-- Email input -->
+                <div class="form-outline mb-1">
                   <label class="form-label text-white" for="NAME">Nome</label>
                   <input type="text" id="NAME" name="NAME" class="form-control" />
                   
                 </div>
 
                
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-1">
                   <label class="form-label text-white" for="EMAIL">E-mail</label>
-                  <input type="email" id="EMAIL" name="EMAIL" class="form-control" />
+                  <input type="email" id="EMAIL" name="EMAIL" class="form-control" style="margin: 0 auto !important;" />
                   
                 </div>
 
-                <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="CNPJ">CNPJ</label>
-                  <input type="number" id="CNPJ" name="CNPJ" class="form-control" />
+                <div class="form-outline mb-1">
+                  <label class="form-label text-white" for="CPF">CPF</label>
+                  <input type="number" id="CPF" name="CPF" class="form-control" />
                   
                 </div>
 
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-1">
                   <label class="form-label text-white" for="TEL">Telefone</label>
                   <input type="number" id="TEL" name="TEL" class="form-control" />
                   
                 </div>
-
-                 <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="NAME_EMPRESA">Nome da Empresa</label>
-                  <input type="text" id="NAME_EMPRESA" name="NAME_EMPRESA" class="form-control" />
-                  
-                </div>
-
-                <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="FATURA">Faturamento médio mensal</label>
-                  <input type="number" id="FATURA" name="FATURA" class="form-control" />
-                  
-                </div>
-
-                <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="FUNCIONARIOS">Quantidade de Funcionarios</label>
-                  <input type="number" id="FUNCIONARIOS" name="FUNCIONARIOS" class="form-control" />
-                  
-                </div>
-
-                 <div class="form-outline mb-4 text-white">
-              <label for="TRIBUTACAO">Tributação</label>
-              <select class="form-control" id="TRIBUTACAO">
-                 <option value="Simples">Simples Nacional</option>
-                <option value="Presumido">Lucro Presumido</option>
-                <option value="Real">Lucro Real</option>
-                 </select>
-            </div>
-
-            <div class="form-outline mb-4 text-white">
+                
+            <div class="form-outline mb-1 text-white">
               <label for="estado">Estado:</label>
               <select class="form-control" id="estado">
                  <option value="SP">São Paulo</option>
@@ -342,8 +317,8 @@
                 <?php endif; ?> -->
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4" style="background-color: #bfa96c">
-                  Sign in
+                <button type="submit" class="btn btn-primary btn-block mt-3" style="background-color: #bfa96c">
+                  Enviar
                 </button>
 
               </form>
