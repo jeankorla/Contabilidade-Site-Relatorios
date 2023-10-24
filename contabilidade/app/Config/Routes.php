@@ -12,5 +12,7 @@ $routes->get('/abertura', 'Home::abertura');
 
 $routes->get('/cliente', 'Home::cliente');
 
+$routes->get('/login', 'logincontroller::index');
+
 
 $routes->setAutoRoute(true);

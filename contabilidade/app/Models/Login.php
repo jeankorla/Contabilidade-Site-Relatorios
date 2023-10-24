@@ -40,4 +40,17 @@ class Login extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public function getUser($username, $password)
+    {
+        return $this->where('username', $username)
+                    ->where('password', $password) // NOTA: Por favor, não armazene senhas em texto simples!
+                    ->first();
+    }
+    public function updateUsername($id, $newUsername) {
+        return $this->update($id, ['username' => $newUsername]);
+    }
+    
+    public function updatePassword($id, $newPassword) {
+        return $this->update($id, ['password' => $newPassword]);
+    }
 }
