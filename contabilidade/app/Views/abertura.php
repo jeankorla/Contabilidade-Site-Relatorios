@@ -54,14 +54,14 @@
     transform: scale(0.8);
     transform-origin: center; /* centralizar o ponto de origem da transformação */
 }
-.jean{
+.tudo{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     
 }
-.pedro{
+.tudo-body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -290,39 +290,46 @@ form .input-group button{
     <div class="jp1 jp2"></div>
     <div class="jp1 jp3"></div>
 
-    <div class="jean scale-down">
-        <div class="pedro">
-     <div class="box" style="margin-top: 5rem; ">
+    <div class="tudo scale-down">
+        <div class="tudo-body">
+     <div class="box" style="margin-top: 1rem; ">
         <div class="img-box">
             <img src="img/tutorial.jpg">
         </div>
         <div class="form-box">
-            <h2>Criar Conta</h2>
-            <p> Já é um membro? <a href="#"> Login </a> </p>
-            <form action="#">
+            <h2>Abrir Empresa</h2>
+            <p> Já é cliente? Faça <a href="#"> Login </a> </p>
+            <form action="<?php echo base_url('abrircontroller/store') ?>" method="post">
+             <!-- Exibe a mensagem de sucesso, caso exista -->
+            <?php if (session()->has('success')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session('success') ?>
+            </div>
+            <?php endif; ?>
+
                 <div class="input-group">
                     <label for="nome"> Nome Completo</label>
-                    <input type="text" id="nome" placeholder="Digite o seu nome completo" required>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required>
                 </div>
 
                 <div class="input-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="Digite o seu email" required>
+                    <input type="email" id="email" name="email" placeholder="Digite o seu email" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" placeholder="Digite o seu telefone" required>
+                    <label for="tel">Telefone</label>
+                    <input type="text" id="tel" name="tel" placeholder="Digite o seu telefone" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="Cpf">CPF</label>
-                    <input type="number" id="Cpf" placeholder="Digite seu Cpf" required>
+                    <label for="cpf">CPF</label>
+                    <input type="number" id="cpf" name="cpf" placeholder="Digite seu Cpf" required>
                 </div>
 
                  <div class="">
               <label for="estado">Estado:</label>
-              <select class="input-group form-control" id="estado" style="background-color: rgba(255, 255, 255, 0.32);">
+              <select class="input-group form-control" id="estado" name="estado" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
                  <option value="SP">São Paulo</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -355,7 +362,7 @@ form .input-group button{
             </div>
 
                 <div class="input-group">
-                    <button>Cadastrar</button>
+                    <button type="submit">Cadastrar</button>
                 </div>
 
             </form>
