@@ -62,17 +62,22 @@
         Configurações
       </button>
       
-      <!-- Formulário de pesquisa -->
-      <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+    
+    </div>
+  </div>
+</nav>
+
+  <!-- Formulário de pesquisa -->
+      <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" >
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="configModalLabel">Configurações</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
         <!-- Formulário para atualizar o nome de usuário -->
-        <form action="<?= base_url('logincontroller/updateUsername') ?>" method="post">
+        <form action="<?= base_url('logincontroller/updateUsername') ?>" method="post" >
             <div class="mb-3">
                 <label for="newUsername" class="form-label">Novo nome de usuário:</label>
                 <input type="text" class="form-control" id="newUsername" name="newUsername" required>
@@ -95,9 +100,6 @@
     </div>
   </div>
 </div>
-    </div>
-  </div>
-</nav>
 
 
 <section >
@@ -114,20 +116,37 @@
 
 
     <!-- Botões -->
-<button class="btn btn-primary" id="btnShowDiv1" style="z-index: 2;">Mostrar Div 1</button>
-<button id="btnShowDiv2"  style="z-index: 2;">Mostrar Div 2</button>
+<button class="btn btn-success" id="btnShowDiv1" style="z-index: 0; margin: 0 10px;">Trocar</button>
 
+<button class="btn btn-danger" id="btnShowDiv2"  style="z-index: 0; margin: 0 10px;">Abertura</button>
 
 
 
 
 </div>
-<div id="div1" style="display:block;">
+<div id="div1" class="mt-3" style="display:block;">
 <div class="container d-flex justify-content-center align-items-center ">
   <div class="card" style="border-radius: 2vh; width: 100%;">
     <div class="card-body m-lg-5 text-center">
       
       <div class="table-responsive"> <!-- Adicione esta div -->
+       <!-- Exibe a mensagem de erro, caso exista -->
+            <?php if (session()->has('error')) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= session('error') ?>
+            </div>
+            <?php endif; ?>
+
+              <!-- Exibe a mensagem de erro, caso exista -->
+            <?php if (session()->has('success')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session('success') ?>
+            </div>
+            <?php endif; ?>
+
+              <!-- Submit button -->
+
+
 
       <div class="mb-3">
         <h1>Troca de Contabilidade</h1>
@@ -142,34 +161,40 @@
               <th style="text-align: center;">Ações</th>
               <th>Nome</th>
               <th>Data</th>
-              <th>INDICE_POUPANCA</th>
-              <th>INDICE_LIQUIDEZ_CORRENTE</th>
-              <th>INDICE_ENDIVIDAMENTO</th>
-              <th>INDICE_COBERTURA</th>
-              <th>PATRIMONIO_LIQUIDO</th>              
+              <th>E-mail</th>
+              <th>Contato</th>
+              <th>Cnpj</th>
+              <th>Nome da Empresa</th>
+              <th>Faturamento</th> 
+              <th>Funcionarios</th>  
+              <th>Tributação</th>   
+              <th>Estado</th>           
             </tr>
           </thead>
           <tbody>
-         
+         <?php foreach($trocar as $t) : ?>
               <tr>
-                <td></td>
+                <td><?php echo $t['id'] ?></td>
                 <td>
                   <div style="display: flex; gap: 10px">
-                    <a href="<?php echo base_url('/autenticacao/gerar/') ?>" class="btn btn-primary">Relatório</a>
-                    <a href="<?= base_url('autenticacao/edit/') ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?= base_url("autenticacao/excluir/") ?>" class="btn btn-danger">Excluir</a>
+                    <a href="" class="btn btn-primary">Relatório</a>
+                    <a href="<?php echo base_url('admincontroller/editarTrocar/' . $t['id']) ?>" class="btn btn-warning">Editar</a>
+                    <a href="" class="btn btn-danger">Excluir</a>
                   </div>
                 </td>
 
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?php echo $t['nome'] ?></td>
+                <td><?php echo $t['created_at'] ?></td>
+                <td><?php echo $t['email'] ?></td>
+                <td><?php echo $t['tel'] ?></td>
+                <td><?php echo $t['cnpj'] ?></td>
+                <td><?php echo $t['nome_empresa'] ?></td>
+                <td><?php echo $t['faturamento'] ?></td>
+                <td><?php echo $t['funcionarios'] ?></td>
+                <td><?php echo $t['tributacao'] ?></td>
+                <td><?php echo $t['estado'] ?></td>
                 </tr>
-            
+            <?php endforeach; ?>
 
             </tbody>
 
@@ -188,7 +213,7 @@
 
 
 
-<div id="div2" style="display:none;">
+<div id="div2" class="mt-3" style="display:none;">
 <div class="container d-flex justify-content-center align-items-center ">
   <div class="card" style="border-radius: 2vh; width: 100%;">
     <div class="card-body m-lg-5 text-center">
@@ -197,7 +222,7 @@
 
       <div class="mb-3">
         <h1>Abertura de Empresa</h1>
-        <label for="pesquisa" class="form-label">Pesquisarrrrrrrrrrrrr:</label>
+        <label for="pesquisa" class="form-label">Pesquisar:</label>
         <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
       </div>
 
@@ -208,34 +233,32 @@
               <th style="text-align: center;">Ações</th>
               <th>Nome</th>
               <th>Data</th>
-              <th>INDICE_POUPANCA</th>
-              <th>INDICE_LIQUIDEZ_CORRENTE</th>
-              <th>INDICE_ENDIVIDAMENTO</th>
-              <th>INDICE_COBERTURA</th>
-              <th>PATRIMONIO_LIQUIDO</th>              
+              <th>E-mail</th>
+              <th>Contato</th>
+              <th>Cpf</th>
+              <th>Estado</th>          
             </tr>
           </thead>
           <tbody>
-         
+          <?php foreach($abrir as $a) : ?>
               <tr>
-                <td></td>
+                <td><?php echo $a['id'] ?></td>
                 <td>
                   <div style="display: flex; gap: 10px">
-                    <a href="<?php echo base_url('/autenticacao/gerar/') ?>" class="btn btn-primary">Relatório</a>
-                    <a href="<?= base_url('autenticacao/edit/') ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?= base_url("autenticacao/excluir/") ?>" class="btn btn-danger">Excluir</a>
+                    <a href="" class="btn btn-primary">Relatório</a>
+                    <a href="<?php echo base_url('admincontroller/editarAbrir/' . $a['id']) ?>" class="btn btn-warning">Editar</a>
+                    <a href="" class="btn btn-danger">Excluir</a>
                   </div>
                 </td>
 
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?php echo $a['nome']  ?></td>
+                <td><?php echo $a['created_at']  ?></td>
+                <td><?php echo $a['email']  ?></td>
+                <td><?php echo $a['tel']  ?></td>
+                <td><?php echo $a['cpf']  ?></td>
+                <td><?php echo $a['estado']  ?></td>
                 </tr>
-            
+            <?php endforeach; ?>
 
             </tbody>
 
