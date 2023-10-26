@@ -2,3 +2,5 @@ contabilidade/writable/debugbar/
 contabilidade/writable/logs/
 contabilidade/writable/session/
 contabilidade/.env
+contabilidade/app/Config/App.php
+contabilidade/app/Config/Paths.php
