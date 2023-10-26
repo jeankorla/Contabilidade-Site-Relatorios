@@ -1,0 +1,408 @@
+INFO - 2023-10-24 12:35:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-24 12:36:13 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'scia97_jean'@'179.228.216.64' (using password: YES) in C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('50.116.86.134', 'scia97_jean', Object(SensitiveParameterValue), 'scia97_contabil...', 3306, '', 0)
+#1 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sc...', Array, false)
+#4 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\app\Controllers\AbrirController.php(31): CodeIgniter\Model->insert(Array)
+#8 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\AbrirController->store()
+#9 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AbrirController))
+#10 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\NOTE-JEAN\Desktop\contabilidade\public_html\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-J...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'179.228.216.64' (using password: YES) in C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sc...', Array, false)
+#3 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#4 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#5 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, true)
+#6 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\app\Controllers\AbrirController.php(31): CodeIgniter\Model->insert(Array)
+#7 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\AbrirController->store()
+#8 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AbrirController))
+#9 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\NOTE-JEAN\Desktop\contabilidade\public_html\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-J...')
+#12 {main}
+CRITICAL - 2023-10-24 12:36:13 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'179.228.216.64' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `scia97_contabilidade_relatorio` (`nome`, `email`, `tel`, `cpf`, `estado`, `created_at`, `updated_at`) VALUES (:nome:, :email:, :tel:, :cpf:, :estado:, :created_at:, :updated_at:)', [...], false)
+ 3 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], true)
+ 6 APPPATH\Controllers\AbrirController.php(31): CodeIgniter\Model->insert([...])
+ 7 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AbrirController->store()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AbrirController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 12:36:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-24 12:36:32 --> mysqli_sql_exception: Table 'scia97_contabilidade_relatorio.scia97_contabilidade_relatorio' doesn't exist in C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sc...', 0)
+#1 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sc...')
+#2 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sc...')
+#3 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sc...', Array, false)
+#4 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\app\Controllers\AbrirController.php(31): CodeIgniter\Model->insert(Array)
+#8 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\AbrirController->store()
+#9 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AbrirController))
+#10 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\NOTE-JEAN\Desktop\contabilidade\public_html\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-J...')
+#13 {main}
+CRITICAL - 2023-10-24 12:36:32 --> Table 'scia97_contabilidade_relatorio.scia97_contabilidade_relatorio' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `scia97_contabilidade_relatorio` (`nome`, `email`, `tel`, `cpf`, `estado`, `created_at`, `updated_at`) VALUES (:nome:, :email:, :tel:, :cpf:, :estado:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\AbrirController.php(31): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AbrirController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AbrirController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 12:37:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-24 12:37:44 --> mysqli_sql_exception: Column 'nome' cannot be null in C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ab...', 0)
+#1 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ab...')
+#2 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ab...')
+#3 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ab...', Array, false)
+#4 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\app\Controllers\AbrirController.php(31): CodeIgniter\Model->insert(Array)
+#8 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\AbrirController->store()
+#9 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AbrirController))
+#10 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\NOTE-JEAN\Desktop\contabilidade\public_html\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-J...')
+#13 {main}
+CRITICAL - 2023-10-24 12:37:44 --> Column 'nome' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `abrir_empresa` (`nome`, `email`, `tel`, `cpf`, `estado`, `created_at`, `updated_at`) VALUES (:nome:, :email:, :tel:, :cpf:, :estado:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\AbrirController.php(31): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AbrirController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AbrirController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 12:38:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 12:38:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 12:38:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 12:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 12:39:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 12:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 13:09:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 13:09:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 13:10:14 --> Class "App\Controllers\Trocar" not found
+in APPPATH\Controllers\TrocarController.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\TrocarController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TrocarController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 13:10:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 13:10:46 --> Call to undefined method App\Models\Trocar::inset
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\TrocarController.php(36): CodeIgniter\Model->__call('inset', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\TrocarController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TrocarController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 13:11:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-24 13:11:42 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'scia97_jean'@'187.21.239.113' (using password: YES) in C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('50.116.86.134', 'scia97_jean', Object(SensitiveParameterValue), 'scia97_contabil...', 3306, '', 0)
+#1 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tr...', Array, false)
+#4 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\app\Controllers\TrocarController.php(36): CodeIgniter\Model->insert(Array)
+#8 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\TrocarController->store()
+#9 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TrocarController))
+#10 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\NOTE-JEAN\Desktop\contabilidade\public_html\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-J...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'187.21.239.113' (using password: YES) in C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tr...', Array, false)
+#3 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#4 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#5 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, true)
+#6 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\app\Controllers\TrocarController.php(36): CodeIgniter\Model->insert(Array)
+#7 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\TrocarController->store()
+#8 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TrocarController))
+#9 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\NOTE-JEAN\Desktop\contabilidade\public_html\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\NOTE-JEAN\Desktop\contabilidade\contabilidade\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-J...')
+#12 {main}
+CRITICAL - 2023-10-24 13:11:42 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'187.21.239.113' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `trocar_contabilidade` (`nome`, `email`, `tel`, `cnpj`, `nome_empresa`, `faturamento`, `funcionarios`, `tributacao`, `estado`, `created_at`, `updated_at`) VALUES (:nome:, :email:, :tel:, :cnpj:, :nome_empresa:, :faturamento:, :funcionarios:, :tributacao:, :estado:, :created_at:, :updated_at:)', [...], false)
+ 3 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], true)
+ 6 APPPATH\Controllers\TrocarController.php(36): CodeIgniter\Model->insert([...])
+ 7 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\TrocarController->store()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TrocarController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 13:11:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 13:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 13:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:35:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:36:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:36:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:36:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:38:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:40:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 19:40:52 --> Class "App\Controllers\UsuarioModel" not found
+in APPPATH\Controllers\LoginController.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\LoginController->login()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 19:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:41:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 19:41:48 --> Class "App\Controllers\UsuarioModel" not found
+in APPPATH\Controllers\LoginController.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\LoginController->login()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 19:42:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:42:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 19:42:26 --> Call to undefined method App\Models\Login::getUser
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\LoginController.php(23): CodeIgniter\Model->__call('getUser', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\LoginController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 19:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 19:45:50 --> Call to undefined method App\Models\Login::getUser
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\LoginController.php(23): CodeIgniter\Model->__call('getUser', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\LoginController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 19:45:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:46:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:46:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 19:46:10 --> Call to undefined method App\Models\Login::getUser
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\LoginController.php(23): CodeIgniter\Model->__call('getUser', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\LoginController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 19:46:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:47:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:47:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 19:47:17 --> Undefined array key "ID"
+in APPPATH\Controllers\LoginController.php on line 28.
+ 1 APPPATH\Controllers\LoginController.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ID"', 'C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Controllers\\LoginController.php', 28)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\LoginController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 19:47:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:50:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 19:58:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 19:58:40 --> Class "App\Controllers\UsuarioModel" not found
+in APPPATH\Controllers\LoginController.php on line 63.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\LoginController->updatePassword()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 19:58:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 19:58:59 --> Call to undefined method App\Models\Login::updatePassword
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\LoginController.php(64): CodeIgniter\Model->__call('updatePassword', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\LoginController->updatePassword()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:00:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:00:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:03:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:03:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:03:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:03:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:08:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:08:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:08:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:09:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 20:34:15 --> Class "App\Controllers\Trocar" not found
+in APPPATH\Controllers\AdminController.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AdminController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 20:34:19 --> Class "App\Controllers\Trocar" not found
+in APPPATH\Controllers\AdminController.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AdminController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:34:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:34:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:34:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 20:34:24 --> Class "App\Controllers\Trocar" not found
+in APPPATH\Controllers\AdminController.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AdminController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:34:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:35:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:35:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 20:36:58 --> Undefined variable $data
+in APPPATH\Views\admin.php on line 137.
+ 1 APPPATH\Views\admin.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('admin', [...], true)
+ 5 APPPATH\Controllers\AdminController.php(25): view('admin', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AdminController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 20:37:08 --> Undefined variable $data
+in APPPATH\Views\admin.php on line 137.
+ 1 APPPATH\Views\admin.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('admin', [...], true)
+ 5 APPPATH\Controllers\AdminController.php(25): view('admin', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AdminController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:37:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 20:37:26 --> Undefined variable $item
+in APPPATH\Views\admin.php on line 139.
+ 1 APPPATH\Views\admin.php(139): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $item', 'C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php', 139)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('admin', [...], true)
+ 5 APPPATH\Controllers\AdminController.php(25): view('admin', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AdminController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:37:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 20:37:40 --> Undefined variable $item
+in APPPATH\Views\admin.php on line 139.
+ 1 APPPATH\Views\admin.php(139): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $item', 'C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php', 139)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('admin', [...], true)
+ 5 APPPATH\Controllers\AdminController.php(25): view('admin', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AdminController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:37:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-24 20:37:52 --> Undefined variable $item
+in APPPATH\Views\admin.php on line 148.
+ 1 APPPATH\Views\admin.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $item', 'C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php', 148)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\contabilidade\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('admin', [...], true)
+ 5 APPPATH\Controllers\AdminController.php(25): view('admin', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\AdminController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\NOTE-JEAN\\Desktop\\contabilidade\\public_html\\index.php')
+INFO - 2023-10-24 20:38:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:38:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:38:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:49:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:49:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:52:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:52:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:53:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:53:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:53:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:54:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:54:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:55:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:55:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:56:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:56:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:56:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:57:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:57:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:57:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:57:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:57:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:59:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:59:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:59:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 20:59:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 21:01:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-24 21:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
