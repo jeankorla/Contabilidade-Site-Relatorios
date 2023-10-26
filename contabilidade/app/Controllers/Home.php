@@ -11,6 +11,8 @@ class Home extends BaseController
     public function abertura()
     {
         return view('abertura');
+
+        //testeeeeeeeeeeeeeeee de deploy
     }
  
      public function trocar()
