@@ -14,5 +14,7 @@ $routes->get('/cliente', 'Home::cliente');
 
 $routes->get('/login', 'logincontroller::index');
 
+//teste deploy
+
 
 $routes->setAutoRoute(true);
