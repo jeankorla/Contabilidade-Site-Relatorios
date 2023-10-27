@@ -208,7 +208,7 @@
 					<div class="mbr-section-btn mb-4"><a class="btn custom-btn-outline display-7" href="https://mobiri.se">Nosso App</a></div>
 				</div>
 			</div>
-			<div class="mbr-figure col-12 col-md-8"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/-BSQlJxCDcI?rel=0&amp;amp;mute=1&amp;showinfo=0&amp;autoplay=1&amp;loop=1&amp;playlist=-BSQlJxCDcI" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+			<div class="mbr-figure col-12 col-md-8"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/P7I1HRSvWJU?si=iuOeNWFC3j246Y8P" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
 		</div>
     </div>
 	</div>
