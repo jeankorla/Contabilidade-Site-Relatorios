@@ -45,12 +45,11 @@ class TrocarController extends BaseController
     {
         $email = \Config\Services::email();
 
-        $email->setFrom('jean@sccontab.com.br', 'Jean SC'); // E-mail e nome do remetente
+        $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade'); // E-mail e nome do remetente
         $email->setTo($destinatarioEmail); // E-mail do destinatário
 
         $email->setSubject('Bem vindo a Spolaor ' . $nome); // Assunto do e-mail
-        $email->setMessage('é um prazer ter voce como nosso futuro cliente, que esse vinculo da Spolaor Contabilidade com a ' . $nome_empresa . ' possa ser grandioso, segue abaixo
-        os serviços que faremos para tornar o futuro da sua empresa melhor'); // Corpo do e-mail
+        $email->setMessage('É um imenso prazer dar as boas-vindas à ' . $nome_empresa . ' como nosso futuro cliente na Spolaor Contabilidade. Estamos entusiasmados com a parceria promissora que se inicia. A seguir, apresentamos os serviços que oferecemos para alavancar o sucesso da sua empresa.'); // Corpo do e-mail
 
         // Anexando o arquivo
         $pathToAttachment = WRITEPATH . 'uploads/proposta_trocar.pdf';
