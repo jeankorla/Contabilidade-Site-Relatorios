@@ -97,7 +97,7 @@
     backdrop-filter: blur(40px);
     padding: 30px 40px;
     width: 50%;
-    border-radius: 0 20px 20px 0;
+    border-radius: 20px 20px 20px 20px;
 }
 .form-box h2{
     font-size: 30px;
