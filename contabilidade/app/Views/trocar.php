@@ -290,13 +290,13 @@ form .input-group button{
     <div class="jp1"></div>
     <div class="jp1 jp2"></div>
     <div class="jp1 jp3"></div>
-
+<!-- 
     <div class="tudo scale-down">
         <div class="tudo-body">
      <div class="box" style="margin-top: -1rem; ">
         <div class="img-box">
             <img src="img/tutorial.jpg">
-        </div>
+        </div> -->
         <div class="form-box">
             <h2>Trocar de Contabilidade</h2>
             <p> Já é cliente? Faça <a href="/cliente"> Login </a> </p>
