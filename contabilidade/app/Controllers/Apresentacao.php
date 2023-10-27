@@ -2,7 +2,7 @@
 
 use CodeIgniter\Controller;
 
-class apresentacao extends Controller
+class Apresentacao extends Controller
 {
     public function index()
     {

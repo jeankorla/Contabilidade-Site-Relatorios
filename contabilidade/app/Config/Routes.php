@@ -14,4 +14,7 @@ $routes->get('/cliente', 'Home::cliente');
 
 $routes->get('/login', 'logincontroller::index');
 
+$routes->get('/apresentacao', 'Apresentacao::index');
+$routes->get('/proposta', 'Proposta::index');
+
 $routes->setAutoRoute(true);

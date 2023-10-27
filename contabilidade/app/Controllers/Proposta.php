@@ -2,7 +2,7 @@
 
 use CodeIgniter\Controller;
 
-class proposta extends Controller
+class Proposta extends Controller
 {
     public function index()
     {
