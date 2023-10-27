@@ -205,7 +205,7 @@
 						<strong>Para Você que Já é nosso cliente</strong></h2>
 					<p class="mbr-text mb-4 mbr-fonts-style display-7" style="color: white;">
 						Para você, nosso estimado cliente, preparamos um passo a passo para esclarecer dúvidas sobre a utilização do nosso aplicativo. Desenvolvemos este aplicativo para proporcionar um contato mais eficiente e facilitado com você. Somos a Spolaor Contabilidade, parte integrante da Spolaor Company. Tudo o que você precisa, em um único lugar!</p>
-					<div class="mbr-section-btn mb-4"><a class="btn custom-btn-outline display-7" href="https://mobiri.se">Nosso App</a></div>
+					<!-- <div class="mbr-section-btn mb-4"><a class="btn custom-btn-outline display-7" href="https://mobiri.se">Nosso App</a></div> -->
 				</div>
 			</div>
 			<div class="mbr-figure col-12 col-md-8"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/P7I1HRSvWJU?si=iuOeNWFC3j246Y8P" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
