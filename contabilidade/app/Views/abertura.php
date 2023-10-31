@@ -299,7 +299,7 @@ form .input-group button{
         <div class="form-box">
             <h2>Abrir Empresa</h2>
             <p> Já é cliente? Faça <a href="#"> Login </a> </p>
-            <form action="<?php echo base_url('abrircontroller/store') ?>" method="post">
+            <form action="<?php echo base_url('AbrirController/store') ?>" method="post">
              <!-- Exibe a mensagem de sucesso, caso exista -->
             <?php if (session()->has('success')) : ?>
             <div class="alert alert-success" role="alert">
