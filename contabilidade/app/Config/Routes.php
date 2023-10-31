@@ -12,7 +12,7 @@ $routes->get('/abertura', 'Home::abertura');
 
 $routes->get('/cliente', 'Home::cliente');
 
-$routes->get('/login', 'logincontroller::index');
+$routes->get('/login', 'LoginController::index');
 
 $routes->get('/apresentacao', 'Apresentacao::index');
 $routes->get('/proposta', 'Proposta::index');
