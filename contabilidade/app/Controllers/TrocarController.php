@@ -42,31 +42,51 @@ class TrocarController extends BaseController
     }
 
      public function sendEmail($nome, $destinatarioEmail, $nome_empresa)
-    {
-        $email = \Config\Services::email();
+{
+    $email = \Config\Services::email();
 
-        $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade'); // E-mail e nome do remetente
-        $email->setTo($destinatarioEmail); // E-mail do destinatário
+    $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
+    $email->setTo($destinatarioEmail);
 
-        $email->setSubject('Bem vindo a Spolaor ' . $nome); // Assunto do e-mail
-        $email->setMessage('É um imenso prazer dar as boas-vindas à ' . $nome_empresa . ' como nosso futuro cliente na Spolaor Contabilidade. Estamos entusiasmados com a parceria promissora que se inicia. A seguir, apresentamos os serviços que oferecemos para alavancar o sucesso da sua empresa.'); // Corpo do e-mail
+    $email->setSubject('Bem vindo a Spolaor ' . $nome);
 
-        // Anexando o arquivo
-        $pathToAttachment = WRITEPATH . 'uploads/proposta_trocar.pdf';
+    // Definir o tipo de e-mail como HTML
+    $email->setMailType('html');
 
-        // Verificando se o arquivo existe
-        if (!file_exists($pathToAttachment)) {
-            echo "Erro: O arquivo 'documento.pdf' não foi encontrado no caminho especificado.";
-            return; // Encerra a execução do método aqui
-        }
-        
-        $email->attach($pathToAttachment);
+    // Corpo do e-mail em HTML
+    $htmlContent = "
+    <html>
+    <head>
+        <title>Bem vindo a Spolaor</title>
+    </head>
+    <body>
+        <div>
+            <h1>É um imenso prazer dar as boas-vindas à {$nome_empresa} como nosso futuro cliente na Spolaor Contabilidade.</h1>
+        </div>
+        <div><h2>Estamos entusiasmados com a parceria promissora que se inicia. A seguir, apresentamos os serviços que oferecemos para alavancar o sucesso da sua empresa. </h2> </div>
+        <div style='margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;'>
+            <img alt='' src='https://scia.com.br/assinatura/ass.png'>
+        </div>
+    </body>
+    </html>";
 
-        if ($email->send()) {
-            echo "E-mail enviado com sucesso!";
-        } else {
-            $data = $email->printDebugger(['headers']);
-            print_r($data); // Mostra informações sobre possíveis erros
-        }
+    $email->setMessage($htmlContent);
+
+    // Anexando o arquivo
+    $pathToAttachment = WRITEPATH . 'uploads/proposta_trocar.pdf';
+
+    if (!file_exists($pathToAttachment)) {
+        echo "Erro: O arquivo 'proposta_trocar.pdf' não foi encontrado no caminho especificado.";
+        return; // Encerra a execução do método aqui
     }
+
+    $email->attach($pathToAttachment);
+
+    if ($email->send()) {
+        echo "E-mail enviado com sucesso!";
+    } else {
+        $data = $email->printDebugger(['headers', 'subject', 'body']);
+        print_r($data); // Mostra informações sobre possíveis erros
+    }
+}
 }
