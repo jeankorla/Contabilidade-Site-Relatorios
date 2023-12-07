@@ -29,7 +29,7 @@ class LoginController extends BaseController
             // Limpa todas as outras variáveis de sessão
             session()->remove(['otherSessionVariable1', 'otherSessionVariable2']);
             // Redireciona para a tela "index"
-            return redirect()->to('admincontroller');
+            return redirect()->to('AdminController');
         } else {
             // Caso o login falhe, redireciona de volta para a tela de login
             return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
