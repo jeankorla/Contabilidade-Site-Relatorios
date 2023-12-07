@@ -46,7 +46,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #024A7F; z-index: 1;">
   <div class="container-fluid navbar-container">
-    <a class="navbar-brand" href="<?= base_url('admincontroller') ?>">
+    <a class="navbar-brand" href="<?= base_url('AdminController') ?>">
         <img class="img-fluid" src="<?php echo base_url('img/logo-nav.svg') ?>" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +77,7 @@
       </div>
       <div class="modal-body" >
         <!-- Formulário para atualizar o nome de usuário -->
-        <form action="<?= base_url('logincontroller/updateUsername') ?>" method="post" >
+        <form action="<?= base_url('LoginController/updateUsername') ?>" method="post" >
             <div class="mb-3">
                 <label for="newUsername" class="form-label">Novo nome de usuário:</label>
                 <input type="text" class="form-control" id="newUsername" name="newUsername" required>
@@ -86,7 +86,7 @@
         </form>
 
         <!-- Formulário para atualizar a senha -->
-        <form action="<?= base_url('logincontroller/updatePassword') ?>" method="post" class="mt-3">
+        <form action="<?= base_url('LoginController/updatePassword') ?>" method="post" class="mt-3">
             <div class="mb-3">
                 <label for="newPassword" class="form-label">Nova senha:</label>
                 <input type="password" class="form-control" id="newPassword" name="newPassword" required>
@@ -178,7 +178,7 @@
                 <td>
                   <div style="display: flex; gap: 10px">
                     <a href="" class="btn btn-primary">Relatório</a>
-                    <a href="<?php echo base_url('admincontroller/editarTrocar/' . $t['id']) ?>" class="btn btn-warning">Editar</a>
+                    <a href="<?php echo base_url('AdminController/editarTrocar/' . $t['id']) ?>" class="btn btn-warning">Editar</a>
                     <a href="" class="btn btn-danger">Excluir</a>
                   </div>
                 </td>
@@ -246,7 +246,7 @@
                 <td>
                   <div style="display: flex; gap: 10px">
                     <a href="" class="btn btn-primary">Relatório</a>
-                    <a href="<?php echo base_url('admincontroller/editarAbrir/' . $a['id']) ?>" class="btn btn-warning">Editar</a>
+                    <a href="<?php echo base_url('AdminController/editarAbrir/' . $a['id']) ?>" class="btn btn-warning">Editar</a>
                     <a href="" class="btn btn-danger">Excluir</a>
                   </div>
                 </td>
