@@ -173,15 +173,20 @@
           </thead>
           <tbody>
          <?php foreach($trocar as $t) : ?>
-              <tr>
-                <td><?php echo $t['id'] ?></td>
-                <td>
-                  <div style="display: flex; gap: 10px">
-                    <a href="" class="btn btn-primary">Relatório</a>
-                    <a href="<?php echo base_url('AdminController/editarTrocar/' . $t['id']) ?>" class="btn btn-warning">Editar</a>
-                    <a href="" class="btn btn-danger">Excluir</a>
-                  </div>
-                </td>
+             <tr>
+        <td><?php echo $t['id'] ?></td>
+        <td>
+            <div style="display: flex; gap: 10px">
+                <a href="" class="btn btn-primary">Relatório</a>
+                <a href="<?php echo base_url('AdminController/editarTrocar/' . $t['id']) ?>" class="btn btn-warning">Editar</a>
+                <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
+                <a href="<?php echo base_url('AdminController/excluirTrocar/' . $t['id']) ?>" 
+                   class="btn btn-danger" 
+                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($t['nome']); ?>?');">
+                   Excluir
+                </a>
+            </div>
+        </td>
 
                 <td><?php echo $t['nome'] ?></td>
                 <td><?php echo $t['created_at'] ?></td>
@@ -242,14 +247,19 @@
           <tbody>
           <?php foreach($abrir as $a) : ?>
               <tr>
-                <td><?php echo $a['id'] ?></td>
-                <td>
-                  <div style="display: flex; gap: 10px">
-                    <a href="" class="btn btn-primary">Relatório</a>
-                    <a href="<?php echo base_url('AdminController/editarAbrir/' . $a['id']) ?>" class="btn btn-warning">Editar</a>
-                    <a href="" class="btn btn-danger">Excluir</a>
-                  </div>
-                </td>
+        <td><?php echo $a['id'] ?></td>
+        <td>
+            <div style="display: flex; gap: 10px">
+                <a href="" class="btn btn-primary">Relatório</a>
+                <a href="<?php echo base_url('AdminController/editarAbrir/' . $a['id']) ?>" class="btn btn-warning">Editar</a>
+                <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
+                <a href="<?php echo base_url('AdminController/excluirAbrir/' . $a['id']) ?>" 
+                   class="btn btn-danger" 
+                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($a['nome']); ?>?');">
+                   Excluir
+                </a>
+            </div>
+        </td>
 
                 <td><?php echo $a['nome']  ?></td>
                 <td><?php echo $a['created_at']  ?></td>

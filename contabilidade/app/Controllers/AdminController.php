@@ -85,5 +85,31 @@ class AdminController extends BaseController
         return redirect()->to('admincontroller')->with('success', 'Registro atualizado com sucesso.');
     }
 
+    public function excluirTrocar($id = null)
+    {
+        $trocarModel = new Trocar();
 
+        // Verifique se o registro existe.
+        if ($trocarModel->find($id)) {
+            // Exclua o registro.
+            $trocarModel->delete($id);
+            return redirect()->to('admincontroller')->with('success', 'Registro de troca excluído com sucesso.');
+        } else {
+            return redirect()->back()->with('error', 'Registro de troca não encontrado.');
+        }
+    }
+
+    public function excluirAbrir($id = null)
+    {
+        $abrirModel = new Abrir();
+
+        // Verifique se o registro existe.
+        if ($abrirModel->find($id)) {
+            // Exclua o registro.
+            $abrirModel->delete($id);
+            return redirect()->to('admincontroller')->with('success', 'Registro de abertura excluído com sucesso.');
+        } else {
+            return redirect()->back()->with('error', 'Registro de abertura não encontrado.');
+        }
+    }
 }
