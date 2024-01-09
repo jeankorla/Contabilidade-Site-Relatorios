@@ -54,7 +54,7 @@ class AdminController extends BaseController
         $trocarModel->update($id, $data);
 
         // Redirecione de volta com uma mensagem de sucesso.
-        return redirect()->to('admincontroller')->with('success', 'Registro atualizado com sucesso.');
+        return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
     }
 
     
@@ -82,7 +82,7 @@ class AdminController extends BaseController
         $abrirModel->update($id, $data);
 
         // Redirecione de volta com uma mensagem de sucesso.
-        return redirect()->to('admincontroller')->with('success', 'Registro atualizado com sucesso.');
+        return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
     }
 
     public function excluirTrocar($id = null)
@@ -93,7 +93,7 @@ class AdminController extends BaseController
         if ($trocarModel->find($id)) {
             // Exclua o registro.
             $trocarModel->delete($id);
-            return redirect()->to('admincontroller')->with('success', 'Registro de troca excluído com sucesso.');
+            return redirect()->to('AdminController')->with('success', 'Registro de troca excluído com sucesso.');
         } else {
             return redirect()->back()->with('error', 'Registro de troca não encontrado.');
         }
@@ -107,7 +107,7 @@ class AdminController extends BaseController
         if ($abrirModel->find($id)) {
             // Exclua o registro.
             $abrirModel->delete($id);
-            return redirect()->to('admincontroller')->with('success', 'Registro de abertura excluído com sucesso.');
+            return redirect()->to('AdminController')->with('success', 'Registro de abertura excluído com sucesso.');
         } else {
             return redirect()->back()->with('error', 'Registro de abertura não encontrado.');
         }
