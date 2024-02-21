@@ -325,7 +325,7 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu Cnpj" required>
+                    <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" required oninput="aplicarMascaraCNPJ(this)">
                 </div>
 
                 <div class="input-group">
@@ -488,6 +488,18 @@ form .input-group button{
      </section>
 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script> 
-  
+  <script>
+function aplicarMascaraCNPJ(input) {
+    var valor = input.value;
+
+    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+    valor = valor.replace(/^(\d{2})(\d)/, "$1.$2"); // Coloca ponto entre o segundo e o terceiro dígitos
+    valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3"); // Coloca ponto entre o quinto e o sexto dígitos
+    valor = valor.replace(/\.(\d{3})(\d)/, ".$1/$2"); // Coloca uma barra entre o oitavo e o nono dígitos
+    valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); // Coloca um hífen depois do bloco de quatro dígitos
+
+    input.value = valor; // Atualiza o valor do input
+}
+</script>
 </body>
 </html>
