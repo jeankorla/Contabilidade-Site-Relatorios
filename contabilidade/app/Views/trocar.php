@@ -320,7 +320,7 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="tel">Telefone</label>
-                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" required>
+                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required>
                 </div>
 
                 <div class="input-group">
@@ -522,5 +522,33 @@ function formatarMoeda() {
     elemento.value = 'R$ ' + valor;
 }
 </script>
+
+<script>
+function mascaraTelefone(event) {
+    var valor = event.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+    var tamanho = valor.length;
+
+    // Adiciona parênteses ao DDD
+    if (tamanho > 2) {
+        valor = '(' + valor.substring(0,2) + ') ' + valor.substring(2);
+    }
+    // Adiciona hífen entre o quarto e quinto dígitos para telefones fixos ou entre o quinto e sexto dígitos para celulares
+    if (tamanho > 6) {
+        if (tamanho > 10) {
+            valor = valor.replace(/(.{4})$/, '-$1'); // Celular
+        } else {
+            valor = valor.replace(/(.{4})$/, '-$1'); // Fixo
+        }
+    }
+
+    // Limita o tamanho do valor para se adequar ao maior formato
+    if (tamanho > 11) {
+        valor = valor.substring(0, valor.length - 1);
+    }
+
+    event.target.value = valor; // Atualiza o valor do input
+}
+</script>
+
 </body>
 </html>
