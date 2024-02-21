@@ -436,7 +436,7 @@ form .input-group button{
                     
                     
                 <div class="soc-item">
-                        <a href="https://www.facebook.com/spolaorcontabilidade/?paipv=0&eav=AfZgEast7gbz-AXXb65BoXmkE4Zm5qg-N_8k_BbPJ_4-nM1TF-0gjeER-aScEh12YVE&_rdr" target="_blank">
+                        <a href="https://www.facebook.com/p/Spolaor-Contabilidade-100083009544080/" target="_blank">
                             <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
                         </a>
                     </div><div class="soc-item">
@@ -455,7 +455,7 @@ form .input-group button{
             </div>
             <div class="row row-copirayt">
                 <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-                    © Copyright 2025 SpolaorCompany. All Rights Reserved.
+                    © Copyright 2024 SpolaorCompany. All Rights Reserved.
                 </p>
             </div>
         </div>

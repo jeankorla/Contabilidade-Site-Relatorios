@@ -139,7 +139,7 @@
                     <h3 class="mbr-section-title mb-4 mbr-fonts-style display-2"><span style="color: black;"><strong>Abrir minha Empresa</strong></span></h3>
                     <p class="mbr-text mb-4 mbr-fonts-style display-4">
                        Abra sua empresa conosco e desfrute de um processo simples, ágil e totalmente confiável. Nossa expertise em contabilidade garante o suporte necessário para que seu negócio comece com o pé direito. Vamos juntos construir o seu sucesso!</p>
-                    <div class="mbr-section-btn"><a class="btn btn display-4" href="abertura.html" style="background-color: #FF931E !important; color: white !important; ">Vamos Começar</a></div>
+                    <div class="mbr-section-btn"><a class="btn btn display-4" href="/abertura" style="background-color: #FF931E !important; color: white !important; ">Vamos Começar</a></div>
                 </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -148,7 +148,7 @@
                         <span style="color: black;"><strong>Trocar de Contador</strong></span></h3>
                     <p class="mbr-text mbr-fonts-style mb-4 display-4">
                        Pensando em mudar de contador? Faça a transição conosco e experimente um serviço de contabilidade de excelência. Nos comprometemos a tornar esse processo suave para você, garantindo que cada detalhe seja cuidado. Dê um upgrade no gerenciamento contábil do seu negócio!.</p>
-                    <div class="mbr-section-btn"><a class="btn btn display-4" href="trocar.html" style="background-color: #FF931E !important; color: white !important; ">Rápido e Seguro</a></div>
+                    <div class="mbr-section-btn"><a class="btn btn display-4" href="/trocar" style="background-color: #FF931E !important; color: white !important; ">Rápido e Seguro</a></div>
                 </div>
             </div>
         </div>
@@ -651,7 +651,7 @@
                     
                     
                 <div class="soc-item">
-                        <a href="https://www.facebook.com/spolaorcontabilidade/?paipv=0&eav=AfZgEast7gbz-AXXb65BoXmkE4Zm5qg-N_8k_BbPJ_4-nM1TF-0gjeER-aScEh12YVE&_rdr" target="_blank">
+                        <a href="https://www.facebook.com/p/Spolaor-Contabilidade-100083009544080/" target="_blank">
                             <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
                         </a>
                     </div><div class="soc-item">
@@ -670,7 +670,7 @@
             </div>
             <div class="row row-copirayt">
                 <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-                    © Copyright 2025 SpolaorCompany. All Rights Reserved.
+                    © Copyright 2024 SpolaorCompany. All Rights Reserved.
                 </p>
             </div>
         </div>
