@@ -335,7 +335,7 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="faturamento">Faturamento Médio mensal</label>
-                    <input type="text" id="faturamento" name="faturamento" placeholder="Faturamento mensal da empresa" onkeyup="formatarMoeda();" required>
+                    <input type="text" id="faturamento" name="faturamento" placeholder="Faturamento mensal da empresa" onkeyup="formatarMoeda();" required maxlength="18">
                 </div>
 
                 <div class="input-group">
