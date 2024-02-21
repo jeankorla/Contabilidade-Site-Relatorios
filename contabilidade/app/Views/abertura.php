@@ -309,12 +309,12 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="nome"> Nome Completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="255">
                 </div>
 
                 <div class="input-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Digite o seu email" required>
+                    <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255">
                 </div>
 
                 <div class="input-group">
