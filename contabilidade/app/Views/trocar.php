@@ -505,22 +505,22 @@ function aplicarMascaraCNPJ(input) {
 <script>
 function formatarMoeda() {
     var elemento = document.getElementById('faturamento');
-    var valor = elemento.value;
-
-    valor = valor + '';
-    valor = parseInt(valor.replace(/[\D]+/g, ''));
-    valor = valor + '';
-    valor = valor.replace(/([0-9]{2})$/g, ",$1");
-
-    if (valor.length > 6) {
-        valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+    var valor = elemento.value.replace(/\D/g, ''); // Remove tudo o que não é dígito
+    valor = parseInt(valor, 10) / 100; // Divide por 100 para mover os dois últimos dígitos para depois da vírgula
+    
+    // Verifica se o valor é NaN, se for, retorna vazio
+    if (isNaN(valor)) {
+        elemento.value = '';
+        return;
     }
 
-    if(valor == 'NaN') valor = '';
+    // Converte para string e usa expressão regular para formatar
+    valor = valor.toFixed(2); // Garante duas casas decimais
+    valor = valor.replace('.', ','); // Troca ponto por vírgula
+    valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'); // Adiciona ponto como separador de milhares
 
     elemento.value = 'R$ ' + valor;
 }
-
 </script>
 </body>
 </html>
