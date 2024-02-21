@@ -325,7 +325,7 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" required oninput="aplicarMascaraCNPJ(this)">
+                    <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" required oninput="aplicarMascaraCNPJ(this)" maxlength="14">
                 </div>
 
                 <div class="input-group">
