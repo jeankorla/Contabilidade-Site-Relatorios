@@ -265,7 +265,7 @@
 
     
 
-    <div class="container">
+   <div class="container">
         <div class="row align-center mbr-white">
             
             <div class="row social-row">
@@ -277,11 +277,11 @@
                     
                     
                 <div class="soc-item">
-                        <a href="https://www.facebook.com/p/Spolaor-Contabilidade-100083009544080/" target="_blank">
+                        <a href="https://www.facebook.com/SCspolaorCompany/" target="_blank">
                             <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
                         </a>
                     </div><div class="soc-item">
-                        <a href="https://www.instagram.com/sccontab/" target="_blank">
+                        <a href="https://www.instagram.com/spolaorcompany/" target="_blank">
                             <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
                         </a>
                     </div><div class="soc-item">
@@ -289,7 +289,7 @@
                             <span class="mbr-iconfont mbr-iconfont-social socicon-whatsapp socicon"></span>
                         </a>
                     </div><div class="soc-item">
-                        <a href="https://www.linkedin.com/company/spolaor-contabilidade/mycompany/" target="_blank">
+                        <a href="https://www.linkedin.com/company/spolaor-contabilidade/mycompany/?viewAsMember=true" target="_blank">
                             <span class="mbr-iconfont mbr-iconfont-social socicon-linkedin socicon"></span>
                         </a>
                     </div></div>
