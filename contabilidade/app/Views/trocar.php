@@ -335,12 +335,12 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="faturamento">Faturamento Médio mensal</label>
-                    <input type="text" id="faturamento" name="faturamento" placeholder="Faturamento mensal da empresa" required>
+                    <input type="text" id="faturamento" name="faturamento" placeholder="Faturamento mensal da empresa" onkeyup="formatarMoeda();" required>
                 </div>
 
                 <div class="input-group">
                     <label for="funcionarios">Quantidade de funcionários</label>
-                    <input type="text" id="funcionarios" name="funcionarios" placeholder="Quantidade de funcionários da empresa" required>
+                    <input type="text" id="funcionarios" name="funcionarios" placeholder="Quantidade de funcionários da empresa" required maxlength="5">
                 </div>
 
                 <div class="">
@@ -500,6 +500,27 @@ function aplicarMascaraCNPJ(input) {
 
     input.value = valor; // Atualiza o valor do input
 }
+</script>
+
+<script>
+function formatarMoeda() {
+    var elemento = document.getElementById('faturamento');
+    var valor = elemento.value;
+
+    valor = valor + '';
+    valor = parseInt(valor.replace(/[\D]+/g, ''));
+    valor = valor + '';
+    valor = valor.replace(/([0-9]{2})$/g, ",$1");
+
+    if (valor.length > 6) {
+        valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+    }
+
+    if(valor == 'NaN') valor = '';
+
+    elemento.value = 'R$ ' + valor;
+}
+
 </script>
 </body>
 </html>
