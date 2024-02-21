@@ -324,7 +324,7 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="cpf">CPF</label>
-                    <input type="number" id="cpf" name="cpf" placeholder="Digite seu Cpf" required>
+                    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required oninput="aplicarMascaraCPF(this)">
                 </div>
 
                  <div class="">
@@ -463,6 +463,17 @@ form .input-group button{
      </section>
 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script> 
-  
+  <script>
+function aplicarMascaraCPF(input) {
+    var valor = input.value;
+
+    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após o terceiro dígito
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após os seis primeiros dígitos
+    valor = valor.replace(/(\d{3})(\d)/, "$1-$2"); // Coloca um hífen após os nove primeiros dígitos
+
+    input.value = valor; // Atualiza o valor do input
+}
+</script>
 </body>
 </html>
