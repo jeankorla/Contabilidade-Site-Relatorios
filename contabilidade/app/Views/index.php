@@ -70,7 +70,7 @@
 </head>
 <body>
   
-  <section data-bs-version="5.1" class="menu menu2 cid-sFCw1qGFAI" once="menu" id="menu2-23">
+ <section data-bs-version="5.1" class="menu menu2 cid-sFCw1qGFAI" once="menu" id="menu2-23">
     
     <nav class="navbar navbar-dropdown navbar-expand-lg">
         <div class="container">
@@ -91,7 +91,7 @@
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="/"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
                     <li class="nav-item"><a class="nav-link link text-white display-4" href="/trocar">Trocar de contador</a></li>
                     <li class="nav-item"><a class="nav-link link text-white display-4" href="/cliente">Área do cliente</a>
                         <li class="nav-item"><a class="nav-link link text-white display-4">(13) 3361-4324</a>
