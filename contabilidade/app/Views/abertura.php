@@ -324,7 +324,7 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required oninput="aplicarMascaraCPF(this)">
+                    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required oninput="aplicarMascaraCPF(this)" maxlength="14">
                 </div>
 
                  <div class="">
