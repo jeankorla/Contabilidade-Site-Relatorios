@@ -43,7 +43,7 @@ class AbrirController extends BaseController
     $email = \Config\Services::email();
 
     $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
-    $email->setTo($destinatarioEmail);
+    $email->setTo($data['email']);
 
     $email->setSubject('Bem vindo a Spolaor ' . $data['nome']);
 
