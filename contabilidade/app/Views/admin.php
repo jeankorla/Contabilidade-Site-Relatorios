@@ -177,7 +177,7 @@
         <td><?php echo $t['id'] ?></td>
         <td>
             <div style="display: flex; gap: 10px">
-                <a href="" class="btn btn-primary">Relatório</a>
+                <a href="" class="btn btn-primary">Proposta</a>
                 <a href="<?php echo base_url('AdminController/editarTrocar/' . $t['id']) ?>" class="btn btn-warning">Editar</a>
                 <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
                 <a href="<?php echo base_url('AdminController/excluirTrocar/' . $t['id']) ?>" 
@@ -250,7 +250,7 @@
         <td><?php echo $a['id'] ?></td>
         <td>
             <div style="display: flex; gap: 10px">
-                <a href="" class="btn btn-primary">Relatório</a>
+                <a href="" class="btn btn-primary">Proposta</a>
                 <a href="<?php echo base_url('AdminController/editarAbrir/' . $a['id']) ?>" class="btn btn-warning">Editar</a>
                 <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
                 <a href="<?php echo base_url('AdminController/excluirAbrir/' . $a['id']) ?>" 
