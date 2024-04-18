@@ -58,7 +58,7 @@ class AbrirController extends BaseController
     </head>
     <body>
         <div>
-            <h1>É um imenso prazer dar as boas-vindas à {$data['nome_empresa']} como nosso futuro cliente na Spolaor Contabilidade.</h1>
+            <h1>É um imenso prazer dar as boas-vindas à {$data['nome']} como nosso futuro cliente na Spolaor Contabilidade.</h1>
         </div>
         <div><h2>Estamos entusiasmados com a parceria promissora que se inicia. A seguir, apresentamos os serviços que oferecemos para alavancar o sucesso da sua empresa.
         
