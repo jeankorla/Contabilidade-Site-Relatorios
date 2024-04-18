@@ -80,12 +80,12 @@ class TrocarController extends BaseController
     // Anexando o arquivo
     // $pathToAttachment = WRITEPATH . 'uploads/proposta_trocar.pdf';
 
-    if (!file_exists($pathToAttachment)) {
-        echo "Erro: O arquivo 'proposta_trocar.pdf' não foi encontrado no caminho especificado.";
-        return; // Encerra a execução do método aqui
-    }
+    // if (!file_exists($pathToAttachment)) {
+    //     echo "Erro: O arquivo 'proposta_trocar.pdf' não foi encontrado no caminho especificado.";
+    //     return; // Encerra a execução do método aqui
+    // }
 
-    $email->attach($pathToAttachment);
+    // $email->attach($pathToAttachment);
 
     if ($email->send()) {
         echo "E-mail enviado com sucesso!";
