@@ -320,7 +320,7 @@ form .input-group button{
 
                 <div class="input-group">
                     <label for="tel">Telefone</label>
-                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required>
+                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="14">
                 </div>
 
                 <div class="input-group">
