@@ -532,18 +532,21 @@ function mascaraTelefone(event) {
     if (tamanho > 2) {
         valor = '(' + valor.substring(0,2) + ') ' + valor.substring(2);
     }
-    // Adiciona hífen entre o quarto e quinto dígitos para telefones fixos ou entre o quinto e sexto dígitos para celulares
+
+    // Decide a posição do hífen baseado na quantidade de dígitos
+    // Telefones fixos possuem o formato (XX) XXXX-XXXX
+    // Telefones celulares possuem o formato (XX) XXXXX-XXXX
     if (tamanho > 6) {
-        if (tamanho > 10) {
-            valor = valor.replace(/(.{4})$/, '-$1'); // Celular
-        } else {
-            valor = valor.replace(/(.{4})$/, '-$1'); // Fixo
+        if (tamanho >= 11) {  // Para celulares com 11 dígitos
+            valor = valor.replace(/(\d{4})$/, '-$1'); // Coloca o hífen antes dos últimos quatro dígitos
+        } else {  // Para telefones fixos com menos de 11 dígitos
+            valor = valor.replace(/(\d{4})$/, '-$1'); // Coloca o hífen antes dos últimos quatro dígitos
         }
     }
 
-    // Limita o tamanho do valor para se adequar ao maior formato
+    // Limita o tamanho do valor para se adequar ao formato de celular com DDD
     if (tamanho > 11) {
-        valor = valor.substring(0, valor.length - 1);
+        valor = valor.substring(0, valor.length - (tamanho - 11));
     }
 
     event.target.value = valor; // Atualiza o valor do input
