@@ -67,7 +67,8 @@ class TrocarController extends BaseController
         </div>
         <div><h2>Estamos entusiasmados com a parceria promissora que se inicia. A seguir, apresentamos os serviços que oferecemos para alavancar o sucesso da sua empresa.
         
-        Segue nossa apresentação: https://sccontab.com.br/apresentacao
+        <p>Veja nossa apresentação:</p>
+        <p><a href='https://sccontab.com.br/apresentacao'>Clique aqui para acessar a Apresentação</a></p>
         </h2> </div>
         <div style='margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;'>
             <img alt='' src='https://scia.com.br/assinatura/ass.png'>
