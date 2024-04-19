@@ -78,18 +78,16 @@ class AdminController extends BaseController
     {
         $abrirModel = new Abrir();
 
-        // Receba os dados do formulário
+        // Verifica se os dados foram recebidos corretamente
         $data = $this->request->getPost();
+        var_dump($data);
         dd($data);
+
         exit;
-        // Verifique se os dados foram recebidos corretamente
+
         if (empty($data)) {
             return redirect()->back()->with('error', 'Nenhum dado recebido para atualização.');
         }
-
-        // Converta valores numéricos de string para int ou float conforme necessário
-        $data['nfe'] = intval($data['nfe']); // Converte para inteiro
-        $data['lancamento'] = intval($data['lancamento']); // Converte para inteiro
 
         // Atualize o registro com os novos dados.
         $abrirModel->update($id, $data);
@@ -97,7 +95,6 @@ class AdminController extends BaseController
         // Redirecione de volta com uma mensagem de sucesso.
         return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
     }
-
 
     public function excluirTrocar($id = null)
     {
