@@ -241,6 +241,8 @@
               <th>E-mail</th>
               <th>Contato</th>
               <th>Cpf</th>
+              <th>Nfe</th>
+              <th>Lançamento</th>
               <th>Estado</th>          
             </tr>
           </thead>
@@ -266,6 +268,8 @@
                 <td><?php echo $a['email']  ?></td>
                 <td><?php echo $a['tel']  ?></td>
                 <td><?php echo $a['cpf']  ?></td>
+                <td><?php echo $a['nfe']  ?></td>
+                <td><?php echo $a['lancamento']  ?></td>
                 <td><?php echo $a['estado']  ?></td>
                 </tr>
             <?php endforeach; ?>
