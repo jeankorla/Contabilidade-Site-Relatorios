@@ -59,7 +59,7 @@ class AdminController extends BaseController
 
     
      public function editarAbrir($id = null)
-    {
+    {   
         $abrirModel = new Abrir();
 
         // Busque o registro pelo ID.
@@ -76,22 +76,30 @@ class AdminController extends BaseController
 
     public function atualizarAbrir($id = null)
     {
-        $abrirModel = new Abrir();
 
-        // Verifica se os dados foram recebidos corretamente
-        $data = $this->request->getPost();
-        // var_dump($data);
-        // dd($data);
+        $nome = $this->request->getPost('nome');
+        $email = $this->request->getPost('email');
+        $tel = $this->request->getPost('tel');
+        $cpf = $this->request->getPost('cpf');
+        $nfe = $this->request->getPost('nfe');
+        $lancamento = $this->request->getPost('lancamento');
+        $estado = $this->request-> getPost('estado');
 
-        // exit;
+        $abrirModel = new Abrir;
 
-        if (empty($data)) {
-            return redirect()->back()->with('error', 'Nenhum dado recebido para atualização.');
-        }
+        $data = [
+            
+            'nome' => $nome,
+            'email' => $email,
+            'tel' => $tel,
+            'cpf' => $cpf,
+            'nfe' => $nfe,
+            'lancamento' => $lancamento,
+            'estado' => $estado
+        ];
 
-        // Atualize o registro com os novos dados.
         $abrirModel->update($id, $data);
-
+        
         // Redirecione de volta com uma mensagem de sucesso.
         return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
     }
