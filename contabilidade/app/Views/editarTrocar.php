@@ -238,12 +238,12 @@ form .input-group button{
 
     <div class="mb-3">
       <label for="tel" class="form-label text-white">Contato:</label>
-      <input type="text" id="tel" class="form-control" name="tel" value="<?= $registro['tel'] ?>">
+      <input type="text" id="tel" class="form-control" name="tel" value="<?= $registro['tel'] ?>" oninput="mascaraTelefone(event);" maxlength="15">
     </div>
 
      <div class="mb-3">
       <label for="cnpj" class="form-label text-white">Cnpj:</label>
-      <input type="text" id="cnpj" class="form-control" name="cnpj" value="<?= $registro['cnpj'] ?>">
+      <input type="text" id="cnpj" class="form-control" name="cnpj" value="<?= $registro['cnpj'] ?>" oninput="aplicarMascaraCNPJ(this)" maxlength="18">
     </div>
 
      <div class="mb-3">
@@ -253,7 +253,7 @@ form .input-group button{
 
     <div class="mb-3">
       <label for="faturamento" class="form-label text-white">Faturamento:</label>
-      <input type="text" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>">
+      <input type="text" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>" onkeyup="formatarMoeda();" maxlength="18">
     </div>
 
     <div class="mb-3">
@@ -288,3 +288,79 @@ form .input-group button{
 </div>
 
 </section>
+
+<script>
+    document.getElementById('tributacao').addEventListener('change', function() {
+        var simplesNacionalSelected = this.value === 'Simples Nacional';
+        document.getElementById('notas-fiscais').style.display = simplesNacionalSelected ? 'block' : 'none';
+        document.getElementById('lancamentos').style.display = simplesNacionalSelected ? 'block' : 'none';
+    });
+</script>
+
+  <script>
+function aplicarMascaraCNPJ(input) {
+    var valor = input.value;
+
+    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+    valor = valor.replace(/^(\d{2})(\d)/, "$1.$2"); // Coloca ponto entre o segundo e o terceiro dígitos
+    valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3"); // Coloca ponto entre o quinto e o sexto dígitos
+    valor = valor.replace(/\.(\d{3})(\d)/, ".$1/$2"); // Coloca uma barra entre o oitavo e o nono dígitos
+    valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); // Coloca um hífen depois do bloco de quatro dígitos
+
+    input.value = valor; // Atualiza o valor do input
+}
+</script>
+
+<script>
+function formatarMoeda() {
+    var elemento = document.getElementById('faturamento');
+    var valor = elemento.value.replace(/\D/g, ''); // Remove tudo o que não é dígito
+    valor = parseInt(valor, 10) / 100; // Divide por 100 para mover os dois últimos dígitos para depois da vírgula
+    
+    // Verifica se o valor é NaN, se for, retorna vazio
+    if (isNaN(valor)) {
+        elemento.value = '';
+        return;
+    }
+
+    // Converte para string e usa expressão regular para formatar
+    valor = valor.toFixed(2); // Garante duas casas decimais
+    valor = valor.replace('.', ','); // Troca ponto por vírgula
+    valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'); // Adiciona ponto como separador de milhares
+
+    elemento.value = 'R$ ' + valor;
+}
+</script>
+
+<script>
+function mascaraTelefone(event) {
+    var valor = event.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+    var tamanho = valor.length;
+
+    // Adiciona parênteses ao DDD
+    if (tamanho > 2) {
+        valor = '(' + valor.substring(0,2) + ') ' + valor.substring(2);
+    }
+
+    // Decide a posição do hífen baseado na quantidade de dígitos
+    // Telefones fixos possuem o formato (XX) XXXX-XXXX
+    // Telefones celulares possuem o formato (XX) XXXXX-XXXX
+    if (tamanho > 6) {
+        if (tamanho >= 11) {  // Para celulares com 11 dígitos
+            valor = valor.replace(/(\d{4})$/, '-$1'); // Coloca o hífen antes dos últimos quatro dígitos
+        } else {  // Para telefones fixos com menos de 11 dígitos
+            valor = valor.replace(/(\d{4})$/, '-$1'); // Coloca o hífen antes dos últimos quatro dígitos
+        }
+    }
+
+    // Limita o tamanho do valor para se adequar ao formato de celular com DDD
+    if (tamanho > 11) {
+        valor = valor.substring(0, valor.length - (tamanho - 11));
+    }
+
+    event.target.value = valor; // Atualiza o valor do input
+}
+</script>
+
+</body>
+</html>
