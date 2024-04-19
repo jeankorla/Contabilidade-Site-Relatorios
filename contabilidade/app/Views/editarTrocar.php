@@ -220,7 +220,7 @@ form .input-group button{
 
     <div class="container form-box mb-5" style="z-index: 2;">
       <div class="card-header">
-    <form action="<?= base_url('admincontroller/atualizarTrocar/' . $registro['id']) ?>" method="post" >
+    <form action="<?= base_url('AdminController/atualizarTrocar/' . $registro['id']) ?>" method="post" >
     <div class="form-group">
 
     <legend class="text-white">Editar Lead Troca de Contabilidade</legend>
