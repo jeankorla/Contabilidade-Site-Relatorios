@@ -73,6 +73,7 @@ class AdminController extends BaseController
         // Carregue a view com o registro para edição.
         return view('editarAbrir', ['registro' => $registro]);
     }
+    
     public function atualizarAbrir($id = null)
     {
         $abrirModel = new Abrir();

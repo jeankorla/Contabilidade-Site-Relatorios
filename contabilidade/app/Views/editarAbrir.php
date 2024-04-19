@@ -246,6 +246,16 @@ form .input-group button{
       <input type="text" id="cpf" class="form-control" name="cpf" value="<?= $registro['cpf'] ?>">
     </div>
 
+     <div class="mb-3">
+      <label for="nfe" class="form-label text-white">Quantidade de Notas-Fiscais  - mês (Entrada/Saída/Serviços):</label>
+      <input type="text" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
+    </div>
+
+     <div class="mb-3">
+      <label for="lancamento" class="form-label text-white">Quantidade de Lançamentos Contábeis:</label>
+      <input type="text" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
+    </div>
+
     <div class="mb-3">
       <label for="estado" class="form-label text-white">Estado:</label>
       <input type="text" id="estado" class="form-control" name="estado" value="<?= $registro['estado'] ?>">
