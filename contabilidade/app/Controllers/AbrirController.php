@@ -16,6 +16,7 @@ class AbrirController extends BaseController
         $tel = $this->request->getPost('tel');
         $cpf = $this->request->getPost('cpf');
         $nfe = $this->request->getPost('nfe');
+        $lancamento = $this->request->getPost('lancamento');
         $estado = $this->request-> getPost('estado');
 
         $abrirModel = new Abrir;
@@ -27,6 +28,7 @@ class AbrirController extends BaseController
             'tel' => $tel,
             'cpf' => $cpf,
             'nfe' => $nfe,
+            'lancamento' => $lancamento,
             'estado' => $estado
         ];
 

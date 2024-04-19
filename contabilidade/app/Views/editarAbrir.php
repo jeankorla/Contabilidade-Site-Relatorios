@@ -248,12 +248,12 @@ form .input-group button{
 
      <div class="mb-3">
       <label for="nfe" class="form-label text-white">Quantidade de Notas-Fiscais  - mês (Entrada/Saída/Serviços):</label>
-      <input type="number" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
+      <input type="text" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
     </div>
 
      <div class="mb-3">
       <label for="lancamento" class="form-label text-white">Quantidade de Lançamentos Contábeis:</label>
-      <input type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
+      <input type="text" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
     </div>
 
     <div class="mb-3">

@@ -322,9 +322,6 @@ form .input-group button{
                     <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
                 </div>
 
-                <!--  HIDDEN  -->
-                <input type="text" class="hidden" id="nfe" name="nfe" maxlength="15" value="0">
-
                 <div class="input-group">
                     <label for="cpf">CPF</label>
                     <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required oninput="aplicarMascaraCPF(this)" maxlength="14">
@@ -362,6 +359,11 @@ form .input-group button{
                 <option value="Tocantins">Tocantins</option>
               </select>
             </div>
+
+
+                 <!-- HIDDEN 
+                <input type="text" class="hidden" id="nfe" name="nfe" maxlength="15" value="0">
+                <input type="text" class="hidden" id="lancamento" name="lancamento" maxlength="15" value="0"> -->
 
                 <div class="input-group">
                     <button type="submit">Cadastrar</button>

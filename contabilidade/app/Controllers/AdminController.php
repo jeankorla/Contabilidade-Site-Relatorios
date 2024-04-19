@@ -73,18 +73,23 @@ class AdminController extends BaseController
         // Carregue a view com o registro para edição.
         return view('editarAbrir', ['registro' => $registro]);
     }
-    
+
     public function atualizarAbrir($id = null)
-    {
-        $abrirModel = new Abrir();
+{
+    $abrirModel = new Abrir();
 
-        // Atualize o registro com os novos dados.
-        $data = $this->request->getPost();
-        $abrirModel->update($id, $data);
-
-        // Redirecione de volta com uma mensagem de sucesso.
-        return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
+    // Verifica se os dados foram recebidos corretamente
+    $data = $this->request->getPost();
+    if (empty($data)) {
+        return redirect()->back()->with('error', 'Nenhum dado recebido para atualização.');
     }
+
+    // Atualize o registro com os novos dados.
+    $abrirModel->update($id, $data);
+
+    // Redirecione de volta com uma mensagem de sucesso.
+    return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
+}
 
     public function excluirTrocar($id = null)
     {
