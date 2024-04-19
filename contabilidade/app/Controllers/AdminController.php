@@ -90,21 +90,28 @@ class AdminController extends BaseController
 
 public function atualizarAbrir($id = null)
 {
-    $abrirModel = new Abrir();
+        $nome = $this->request->getPost('nome');
+        $email = $this->request->getPost('email');
+        $tel = $this->request->getPost('tel');
+        $cpf = $this->request->getPost('cpf');
+        $nfe = $this->request->getPost('nfe');
+        $lancamento = $this->request->getPost('lancamento');
+        $estado = $this->request-> getPost('estado');
 
-    // Atualize o registro com os novos dados.
-    $data = [
+        $abrirModel = new Abrir;
 
-        $nome = $this->request->getPost('nome'),
-        $email = $this->request->getPost('email'),
-        $tel = $this->request->getPost('tel'),
-        $cpf = $this->request->getPost('cpf'),
-        $nfe = $this->request->getPost('nfe'),
-        $lancamento = $this->request->getPost('lancamento'),
-        $estado = $this->request->getPost('estado'),
+        $nfe = $this->request->getPost('nfe');
+        $lancamento = $this->request->getPost('lancamento');
 
-
-    ];
+        $data = [
+            'nome' => $nome,
+            'email' => $email,
+            'tel' => $tel,
+            'cpf' => $cpf,
+            'estado' => $estado,
+            'nfe' => $nfe,
+            'lancamento' => $lancamento,
+        ];
 
     $abrirModel->update($id, $data);
 

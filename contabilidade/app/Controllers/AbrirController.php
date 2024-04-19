@@ -36,8 +36,6 @@ class AbrirController extends BaseController
 
         $abrirModel->insert($data);
 
-        $abrirModel->insert($data);
-
         $this->sendEmail($data);
         $this->notifyManagement($data);
         
