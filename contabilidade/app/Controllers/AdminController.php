@@ -147,9 +147,16 @@ public function atualizarAbrir($id = null)
         if ($abrirModel->find($id)) {
             // Exclua o registro.
             $abrirModel->delete($id);
-            return redirect()->to('AdminController')->with('success', 'Registro de abertura excluído com sucesso.');
+            
+            // Retorne a visualização com o JavaScript embutido
+            return view('sua_pagina')->with('success', 'Registro de abertura excluído com sucesso.')
+                                    ->with('js', "<script>
+                                                        document.getElementById('div2').style.display = 'block';
+                                                        document.getElementById('div1').style.display = 'none';
+                                                    </script>");
         } else {
             return redirect()->back()->with('error', 'Registro de abertura não encontrado.');
         }
     }
+
 }
