@@ -149,7 +149,7 @@ public function atualizarAbrir($id = null)
             $abrirModel->delete($id);
             
             // Retorne a visualização com o JavaScript embutido
-            return view('admin')->with('success', 'Registro de abertura excluído com sucesso.')
+            return redirect()->to('AdminController')->with('success', 'Registro de abertura excluído com sucesso.')
                                     ->with('js', "<script>
                                                         document.getElementById('div2').style.display = 'block';
                                                         document.getElementById('div1').style.display = 'none';
