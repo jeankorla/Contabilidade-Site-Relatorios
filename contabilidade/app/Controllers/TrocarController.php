@@ -17,8 +17,8 @@ class TrocarController extends BaseController
         $faturamento = $this->request->getPost('faturamento');
         $funcionarios = $this->request->getPost('funcionarios');
         $tributacao = $this->request->getPost('tributacao');
-        $tributacao = $this->request->getPost('nfe');
-        $tributacao = $this->request->getPost('lancamento');
+        $nfe = $this->request->getPost('nfe');
+        $lancamento = $this->request->getPost('lancamento');
         $estado = $this->request->getPost('estado');
 
         $trocarModel = new Trocar;
