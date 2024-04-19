@@ -80,7 +80,9 @@ class AdminController extends BaseController
 
     // Verifica se os dados foram recebidos corretamente
     $data = $this->request->getPost();
+    var_dump($data);
     dd($data);
+
     if (empty($data)) {
         return redirect()->back()->with('error', 'Nenhum dado recebido para atualização.');
     }
