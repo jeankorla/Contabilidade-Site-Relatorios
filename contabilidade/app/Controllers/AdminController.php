@@ -83,6 +83,8 @@ class AdminController extends BaseController
     var_dump($data);
     dd($data);
 
+    exit;
+
     if (empty($data)) {
         return redirect()->back()->with('error', 'Nenhum dado recebido para atualização.');
     }
