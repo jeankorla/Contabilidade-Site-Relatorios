@@ -238,12 +238,12 @@ form .input-group button{
 
     <div class="mb-3">
       <label for="tel" class="form-label text-white">Contato:</label>
-      <input type="text" id="tel" class="form-control" name="tel" value="<?= $registro['tel'] ?>">
+      <input type="text" id="tel" class="form-control" name="tel" oninput="mascaraTelefone(event);" value="<?= $registro['tel'] ?>">
     </div>
 
      <div class="mb-3">
       <label for="cpf" class="form-label text-white">Cpf:</label>
-      <input type="text" id="cpf" class="form-control" name="cpf" value="<?= $registro['cpf'] ?>">
+      <input type="text" id="cpf" class="form-control" name="cpf" oninput="aplicarMascaraCPF(this)" value="<?= $registro['cpf'] ?>">
     </div>
 
      <div class="mb-3">
@@ -268,3 +268,47 @@ form .input-group button{
 </div>
 
 </section>
+
+<script>
+function aplicarMascaraCPF(input) {
+    var valor = input.value;
+
+    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após o terceiro dígito
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após os seis primeiros dígitos
+    valor = valor.replace(/(\d{3})(\d)/, "$1-$2"); // Coloca um hífen após os nove primeiros dígitos
+
+    input.value = valor; // Atualiza o valor do input
+}
+</script>
+
+<script>
+function mascaraTelefone(event) {
+    var valor = event.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+    var tamanho = valor.length;
+
+    // Adiciona parênteses ao DDD
+    if (tamanho > 2) {
+        valor = '(' + valor.substring(0,2) + ') ' + valor.substring(2);
+    }
+    // Adiciona hífen entre o quarto e quinto dígitos para telefones fixos ou entre o quinto e sexto dígitos para celulares
+    if (tamanho > 6) {
+        if (tamanho > 10) {
+            valor = valor.replace(/(.{4})$/, '-$1'); // Celular
+        } else {
+            valor = valor.replace(/(.{4})$/, '-$1'); // Fixo
+        }
+    }
+
+    // Limita o tamanho do valor para se adequar ao maior formato
+    if (tamanho > 11) {
+        valor = valor.substring(0, valor.length - 1);
+    }
+
+    event.target.value = valor; // Atualiza o valor do input
+}
+</script>
+
+
+</body>
+</html>
