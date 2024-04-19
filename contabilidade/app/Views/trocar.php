@@ -120,7 +120,7 @@ form .input-group{
 form .input-group label{
    
     font-weight: bold;
-    
+    display: block;
     margin-bottom: 5px;
 }
 form .input-group input{
@@ -352,12 +352,12 @@ form .input-group button{
                     </select>
                 </div>
 
-                <div class="input-group" id="notas-fiscais" style="display: none;">
+                <div class="input-group" >
                     <label for="nfe">Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços):</label>
                     <input type="text" id="nfe" class="form-control" name="nfe" placeholder="Quantidade de Notas Fiscais por mês" maxlength="10">
                 </div>
 
-                <div class="input-group" id="lancamentos"  style="display: none;">
+                <div class="input-group" >
                     <label for="lancamento">Quantidade de Lançamentos Contábeis:</label>
                     <input type="text" id="lancamento" class="form-control" name="lancamento" placeholder="Quantidade de Lancamentos Contábeis" maxlength="10">
                 </div>
@@ -498,14 +498,6 @@ form .input-group button{
      </section>
 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script> 
-  
-  <script>
-    document.getElementById('tributacao').addEventListener('change', function() {
-        var simplesNacionalSelected = this.value === 'Simples Nacional';
-        document.getElementById('notas-fiscais').style.display = simplesNacionalSelected ? 'block' : 'none';
-        document.getElementById('lancamentos').style.display = simplesNacionalSelected ? 'block' : 'none';
-    });
-</script>
 
   <script>
 function aplicarMascaraCNPJ(input) {
