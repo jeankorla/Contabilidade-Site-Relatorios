@@ -359,7 +359,7 @@ form .input-group button{
 
                 <div class="input-group" id="lancamento"  style="display: none;">
                     <label for="lancamento">Quantidade de Lançamentos Contábeis:</label>
-                    <input type="text" id="lancamento" class="form-control" name="lancamento" placeholder="Quantidade de Lancamentos Contábeis" maxlength="10">
+                    <input type="text" id="lancamentos" class="form-control" name="lancamento" placeholder="Quantidade de Lancamentos Contábeis" maxlength="10">
                 </div>
 
                  <div class="">
