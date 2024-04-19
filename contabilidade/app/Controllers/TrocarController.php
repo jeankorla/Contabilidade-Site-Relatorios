@@ -30,6 +30,8 @@ class TrocarController extends BaseController
             'faturamento' => $faturamento,
             'funcionarios' => $funcionarios,
             'tributacao' => $tributacao,
+            'nfe' => $nfe,
+            'lancamento' => $lancamento,
             'estado' => $estado
         ];
 
@@ -125,6 +127,8 @@ public function notifyManagement($data)
             <li>Faturamento Anual: {$data['faturamento']}</li>
             <li>Número de Funcionários: {$data['funcionarios']}</li>
             <li>Tributação: {$data['tributacao']}</li>
+            <li>Quantidade de Notas-Fiscais  - mês (Entrada/Saída/Serviços): {$data['nfe']}</li>
+            <li>Quantidade de Lançamentos Contábeis: {$data['lancamento']}</li>
             <li>Estado: {$data['estado']}</li>
         </ul>
         <p>Para mais detalhes ou para tomar os próximos passos, por favor, acesse nossa plataforma de gestão:</p>

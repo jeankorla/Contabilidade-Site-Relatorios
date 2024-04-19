@@ -344,13 +344,23 @@ form .input-group button{
                 </div>
 
                 <div class="">
-              <label for="tributacao">Tributação</label>
-              <select class="input-group form-control" id="tributacao" name="tributacao" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
-                 <option value="Simples Nacional">Simples Nacional</option>
-                <option value="Lucro Presumido">Lucro Presumido</option>
-                <option value="Lucro Real">Lucro Real</option>
-              </select>
-            </div>
+                    <label for="tributacao">Tributação</label>
+                    <select class="input-group form-control" id="tributacao" name="tributacao" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
+                        <option value="Simples Nacional">Simples Nacional</option>
+                        <option value="Lucro Presumido">Lucro Presumido</option>
+                        <option value="Lucro Real">Lucro Real</option>
+                    </select>
+                </div>
+
+                <div class="mb-3" id="notas-fiscais" style="display: none;">
+                    <label for="nfe" class="form-label text-white">Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços):</label>
+                    <input type="text" id="nfe" class="form-control" name="nfe" placeholder="Quantidade de Notas Fiscais por mês" maxlength="10">
+                </div>
+
+                <div class="mb-3" id="lancamentos" style="display: none;">
+                    <label for="lancamento" class="form-label text-white">Quantidade de Lançamentos Contábeis:</label>
+                    <input type="text" id="lancamento" class="form-control" name="lancamento" placeholder="Quantidade de Lancamentos Contábeis" maxlength="10">
+                </div>
 
                  <div class="">
               <label for="estado">Estado:</label>
@@ -488,6 +498,15 @@ form .input-group button{
      </section>
 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script> 
+  
+  <script>
+    document.getElementById('tributacao').addEventListener('change', function() {
+        var simplesNacionalSelected = this.value === 'Simples Nacional';
+        document.getElementById('notas-fiscais').style.display = simplesNacionalSelected ? 'block' : 'none';
+        document.getElementById('lancamentos').style.display = simplesNacionalSelected ? 'block' : 'none';
+    });
+</script>
+
   <script>
 function aplicarMascaraCNPJ(input) {
     var valor = input.value;
