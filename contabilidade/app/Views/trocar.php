@@ -120,7 +120,7 @@ form .input-group{
 form .input-group label{
    
     font-weight: bold;
-    display: block;
+    
     margin-bottom: 5px;
 }
 form .input-group input{
