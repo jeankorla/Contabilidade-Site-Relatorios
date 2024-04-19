@@ -347,7 +347,7 @@ form .input-group button{
                     <label for="tributacao">Tributação</label>
                     <select class="input-group form-control" id="tributacao" name="tributacao" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
                         <option value="Simples Nacional">Simples Nacional</option>
-                        <option value="Lucro Presumido">Lucro Presumido</option>
+                        <option value="Lucro Presumido" selected>Lucro Presumido</option>
                         <option value="Lucro Real">Lucro Real</option>
                     </select>
                 </div>
