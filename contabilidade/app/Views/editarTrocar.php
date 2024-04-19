@@ -253,7 +253,7 @@ form .input-group button{
 
     <div class="mb-3">
       <label for="faturamento" class="form-label text-white">Faturamento:</label>
-      <input type="number" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>">
+      <input type="text" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>">
     </div>
 
     <div class="mb-3">
