@@ -238,12 +238,12 @@ form .input-group button{
 
     <div class="mb-3">
       <label for="tel" class="form-label text-white">Contato:</label>
-      <input type="text" id="tel" class="form-control" name="tel" oninput="mascaraTelefone(event);" value="<?= $registro['tel'] ?>">
+      <input type="text" id="tel" class="form-control" name="tel" oninput="mascaraTelefone(event);" value="<?= $registro['tel'] ?>" maxlength="15">
     </div>
 
      <div class="mb-3">
       <label for="cpf" class="form-label text-white">Cpf:</label>
-      <input type="text" id="cpf" class="form-control" name="cpf" oninput="aplicarMascaraCPF(this)" value="<?= $registro['cpf'] ?>">
+      <input type="text" id="cpf" class="form-control" name="cpf" oninput="aplicarMascaraCPF(this)" value="<?= $registro['cpf'] ?>" maxlength="14">
     </div>
 
      <div class="mb-3">
