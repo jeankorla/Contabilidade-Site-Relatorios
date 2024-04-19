@@ -352,12 +352,12 @@ form .input-group button{
                     </select>
                 </div>
 
-                <div class="input-group" style="display: none;">
+                <div class="input-group" id="notas-fiscais" style="display: none;">
                     <label for="nfe" class="form-label text-white">Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços):</label>
                     <input type="text" id="nfe" class="form-control" name="nfe" placeholder="Quantidade de Notas Fiscais por mês" maxlength="10">
                 </div>
 
-                <div class="input-group"  style="display: none;">
+                <div class="input-group" id="lancamento"  style="display: none;">
                     <label for="lancamento" class="form-label text-white">Quantidade de Lançamentos Contábeis:</label>
                     <input type="text" id="lancamento" class="form-control" name="lancamento" placeholder="Quantidade de Lancamentos Contábeis" maxlength="10">
                 </div>
