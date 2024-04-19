@@ -253,22 +253,22 @@ form .input-group button{
 
     <div class="mb-3">
       <label for="faturamento" class="form-label text-white">Faturamento:</label>
-      <input type="text" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>">
+      <input type="number" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>">
     </div>
 
     <div class="mb-3">
       <label for="funcionarios" class="form-label text-white">Funcionarios:</label>
-      <input type="text" id="funcionarios" class="form-control" name="funcionarios" value="<?= $registro['funcionarios'] ?>">
+      <input type="number" id="funcionarios" class="form-control" name="funcionarios" value="<?= $registro['funcionarios'] ?>">
     </div>
 
     <div class="mb-3">
       <label for="nfe" class="form-label text-white">Quantidade de Notas-Fiscais  - mês (Entrada/Saída/Serviços):</label>
-      <input type="text" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
+      <input type="number" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
     </div>
 
     <div class="mb-3">
       <label for="lancamento" class="form-label text-white">Quantidade de Lançamentos Contábeis: </label>
-      <input type="text" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
+      <input type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
     </div>
 
     <div class="mb-3">
