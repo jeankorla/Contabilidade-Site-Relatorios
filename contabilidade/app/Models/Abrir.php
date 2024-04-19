@@ -14,7 +14,7 @@ class Abrir extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nome', 'email', 'tel', 'cpf', 'estado'
+        'nome', 'email', 'tel', 'cpf', 'nfe', 'lancamento', 'estado'
     ];
 
     // Dates

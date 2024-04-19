@@ -21,16 +21,20 @@ class AbrirController extends BaseController
 
         $abrirModel = new Abrir;
 
+        $nfe = $this->request->getPost('nfe');
+        $lancamento = $this->request->getPost('lancamento');
+
         $data = [
-            
             'nome' => $nome,
             'email' => $email,
             'tel' => $tel,
             'cpf' => $cpf,
-            'nfe' => $nfe,
-            'lancamento' => $lancamento,
-            'estado' => $estado
+            'estado' => $estado,
+            'nfe' => null, // Definindo como NULL
+            'lancamento' => null, // Definindo como NULL
         ];
+
+        $abrirModel->insert($data);
 
         $abrirModel->insert($data);
 

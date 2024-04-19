@@ -360,11 +360,6 @@ form .input-group button{
               </select>
             </div>
 
-
-                 <!-- HIDDEN 
-                <input type="text" class="hidden" id="nfe" name="nfe" maxlength="15" value="0">
-                <input type="text" class="hidden" id="lancamento" name="lancamento" maxlength="15" value="0"> -->
-
                 <div class="input-group">
                     <button type="submit">Cadastrar</button>
                 </div>

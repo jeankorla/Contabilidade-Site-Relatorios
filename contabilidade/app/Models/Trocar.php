@@ -14,7 +14,7 @@ class Trocar extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nome', 'email', 'tel', 'cnpj', 'nome_empresa', 'faturamento', 'funcionarios', 'tributacao', 'estado'
+        'nome', 'email', 'tel', 'cnpj', 'nome_empresa', 'faturamento', 'nfe', 'lancamento', 'funcionarios', 'tributacao', 'estado'
     ];
 
     // Dates

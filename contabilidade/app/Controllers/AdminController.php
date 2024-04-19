@@ -57,52 +57,37 @@ class AdminController extends BaseController
         return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
     }
 
-    
-     public function editarAbrir($id = null)
-    {   
-        $abrirModel = new Abrir();
+    public function editarAbrir($id = null)
+{
+    $abrirModel = new Abrir();
 
-        // Busque o registro pelo ID.
-        $registro = $abrirModel->find($id);
+    // Busque o registro pelo ID.
+    $registro = $abrirModel->find($id);
 
-        // Se não encontrarmos um registro com esse ID, retornamos para a lista com uma mensagem.
-        if (!$registro) {
-            return redirect()->back()->with('error', 'Registro não encontrado.');
-        }
-
-        // Carregue a view com o registro para edição.
-        return view('editarAbrir', ['registro' => $registro]);
+    // Se não encontrarmos um registro com esse ID, retorne para a lista com uma mensagem.
+    if (!$registro) {
+        return redirect()->back()->with('error', 'Registro não encontrado.');
     }
 
-    public function atualizarAbrir($id = null)
-    {
+    // Carregue a view com o registro para edição.
+    return view('editarAbrir', ['registro' => $registro]);
+}
 
-        $nome = $this->request->getPost('nome');
-        $email = $this->request->getPost('email');
-        $tel = $this->request->getPost('tel');
-        $cpf = $this->request->getPost('cpf');
-        $nfe = $this->request->getPost('nfe');
-        $lancamento = $this->request->getPost('lancamento');
-        $estado = $this->request-> getPost('estado');
+public function atualizarAbrir($id = null)
+{
+    $abrirModel = new Abrir();
 
-        $abrirModel = new Abrir;
+    // Atualize o registro com os novos dados.
+    $data = [
+        'nfe' => $this->request->getPost('nfe'),
+        'lancamento' => $this->request->getPost('lancamento'),
+    ];
 
-        $data = [
-            
-            'nome' => $nome,
-            'email' => $email,
-            'tel' => $tel,
-            'cpf' => $cpf,
-            'nfe' => $nfe,
-            'lancamento' => $lancamento,
-            'estado' => $estado
-        ];
+    $abrirModel->update($id, $data);
 
-        $abrirModel->update($id, $data);
-        
-        // Redirecione de volta com uma mensagem de sucesso.
-        return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
-    }
+    // Redirecione de volta com uma mensagem de sucesso.
+    return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
+}
 
     public function excluirTrocar($id = null)
     {
