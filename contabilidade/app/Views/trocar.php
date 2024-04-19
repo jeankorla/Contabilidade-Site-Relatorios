@@ -357,7 +357,7 @@ form .input-group button{
                     <input type="text" id="nfe" name="nfe" placeholder="Quantidade de Notas Fiscais por mês" maxlength="10">
                 </div>
 
-                <div class="input-group" id="lancamento"  style="display: none;">
+                <div class="input-group" id="lancamentos"  style="display: none;">
                     <label for="lancamento">Quantidade de Lançamentos Contábeis:</label>
                     <input type="text" id="lancamento" name="lancamento" placeholder="Quantidade de Lancamentos Contábeis" maxlength="10">
                 </div>
