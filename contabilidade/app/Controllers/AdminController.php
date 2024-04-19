@@ -50,6 +50,21 @@ class AdminController extends BaseController
         $trocarModel = new Trocar();
 
         // Atualize o registro com os novos dados.
+        $data = [
+            $nome = $this->request->getPost('nome'),
+            $email = $this->request->getPost('email'),
+            $tel = $this->request->getPost('tel'),
+            $cnpj = $this->request->getPost('cnpj'),
+            $nome_empresa = $this->request->getPost('nome_empresa'),
+            $faturamento = $this->request->getPost('faturamento'),
+            $funcionarios = $this->request->getPost('funcionarios'),
+            $nfe = $this->request->getPost('nfe'),
+            $lancamento = $this->request->getPost('lancamento'),
+            $tributacao = $this->request->getPost('tributacao'),
+            $estado = $this->request->getPost('estado'),
+        ];
+
+        // Atualize o registro com os novos dados.
         $data = $this->request->getPost();
         $trocarModel->update($id, $data);
 
@@ -79,8 +94,16 @@ public function atualizarAbrir($id = null)
 
     // Atualize o registro com os novos dados.
     $data = [
-        'nfe' => $this->request->getPost('nfe'),
-        'lancamento' => $this->request->getPost('lancamento'),
+
+        $nome = $this->request->getPost('nome'),
+        $email = $this->request->getPost('email'),
+        $tel = $this->request->getPost('tel'),
+        $cpf = $this->request->getPost('cpf'),
+        $nfe = $this->request->getPost('nfe'),
+        $lancamento = $this->request->getPost('lancamento'),
+        $estado = $this->request->getPost('estado'),
+
+
     ];
 
     $abrirModel->update($id, $data);
