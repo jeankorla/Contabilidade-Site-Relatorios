@@ -310,7 +310,7 @@ form .input-group button{
             <?php endif; ?>
                 <div class="input-group">
                     <label for="nome"> Nome Completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="255">
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
                 </div>
 
                 <div class="input-group">
