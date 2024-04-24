@@ -29,11 +29,6 @@
   <link rel="shortcut icon" href="<?php echo base_url('/public_html/assets/images/design-sem-nome-10.png" type="image/x-icon')?>">
   <meta name="description" content="">
   <script src="https://www.google.com/recaptcha/enterprise.js?render=6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s"></script>
-  <script>
-        function onSubmit(token) {
-            document.getElementById("form-trocar").submit();
-        }
-    </script>
   
   <title>cliente</title>
   <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/web/public/assets/mobirise-icons2/mobirise2.css') ?>">
@@ -304,7 +299,7 @@ form .input-group button{
         <div class="form-box">
             <h2>Trocar de Contabilidade</h2>
             <p> Já é cliente? Faça <a href="/cliente"> Login </a> </p>
-            <form action="<?php echo base_url('TrocarController/store') ?>" method="post" id="form-trocar">
+            <form action="<?php echo base_url('TrocarController/store') ?>" method="post">
                 <!-- Exibe a mensagem de sucesso, caso exista -->
             <?php if (session()->has('success')) : ?>
             <div class="alert alert-success" role="alert">
@@ -399,10 +394,7 @@ form .input-group button{
             </div>
 
                 <div class="input-group">
-                    <button class="g-recaptcha" 
-                    data-sitekey="6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s" 
-                    data-callback='onSubmit' 
-                    data-action='submit'>Cadastrar</button>
+                    <button type="submit">Cadastrar</button>
                 </div>
 
             </form>
