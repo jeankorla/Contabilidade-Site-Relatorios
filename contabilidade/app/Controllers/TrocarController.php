@@ -10,16 +10,23 @@ class TrocarController extends BaseController
 {
    public function store() {
     $recaptchaResponse = $this->request->getPost('recaptchaResponse', FILTER_SANITIZE_STRING);
-    $curl = service('curlrequest');
+    $curl = service('curlrequest', [
+        'baseURI' => 'https://recaptchaenterprise.googleapis.com',
+        'http_errors' => true,
+        'timeout' => 30,
+        'verify' => false  // Desativando a verificação de SSL
+    ]);
 
     $response = $curl->post(
-        "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s",
+        "/v1/projects/your-project-id/assessments?key=6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk",
         [
-            'headers' => ['Content-Type' => 'application/json'],
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ],
             'body' => json_encode([
                 'event' => [
                     'token' => $recaptchaResponse,
-                    'siteKey' => '6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s'
+                    'siteKey' => '6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk'
                 ]
             ])
         ]
@@ -29,10 +36,6 @@ class TrocarController extends BaseController
 
     if (isset($result['error'])) {
         return redirect()->back()->with('error', 'Erro na verificação do reCAPTCHA: ' . $result['error']['message']);
-    }
-
-    if ($result['riskAnalysis']['score'] < 0.5) {
-        return redirect()->back()->with('error', 'Falha na verificação do reCAPTCHA');
     }
 
         
