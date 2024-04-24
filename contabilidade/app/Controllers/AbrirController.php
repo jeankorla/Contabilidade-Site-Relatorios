@@ -57,57 +57,6 @@ class AbrirController extends BaseController
     $email->setMailType('html');
 
     // Corpo do e-mail em HTML
-    $htmlContent = "
-    <html>
-    <head>
-        <title>Bem vindo a Spolaor</title>
-    </head>
-    <body>
-        <div>
-            <h1>É um imenso prazer dar as boas-vindas à {$data['nome']} como nosso futuro cliente na Spolaor Contabilidade.</h1>
-        </div>
-        <div><h2>Estamos entusiasmados com a parceria promissora que se inicia. A seguir, apresentamos os serviços que oferecemos para alavancar o sucesso da sua empresa.
-        
-        <p>Veja nossa apresentação:</p>
-        <p><a href='https://sccontab.com.br/apresentacao'>Clique aqui para acessar a Apresentação</a></p>
-        </h2> </div>
-        <div style='margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;'>
-            <img alt='' src='https://scia.com.br/assinatura/ass.png'>
-        </div>
-    </body>
-    </html>";
-
-    $email->setMessage($htmlContent);
-
-    // Anexando o arquivo
-    // $pathToAttachment = WRITEPATH . 'uploads/proposta_trocar.pdf';
-
-    // if (!file_exists($pathToAttachment)) {
-    //     echo "Erro: O arquivo 'proposta_trocar.pdf' não foi encontrado no caminho especificado.";
-    //     return; // Encerra a execução do método aqui
-    // }
-
-    // $email->attach($pathToAttachment);
-
-    if ($email->send()) {
-        echo "E-mail enviado com sucesso!";
-    } else {
-        $data = $email->printDebugger(['headers', 'subject', 'body']);
-        print_r($data); // Mostra informações sobre possíveis erros
-    }
-}
-
-public function notifyManagement($data)
-{
-    $email = \Config\Services::email();
-
-    $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
-    $email->setTo('ti@sccontab.com.br');
-
-    $email->setSubject('Novo Registro de Cliente - ABERTURA DE EMPRESA');
-
-    $email->setMailType('html');
-
     $htmlContent = '
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="pt">
@@ -320,11 +269,61 @@ public function notifyManagement($data)
         </div>
         </body>
         </html>
-        HTML;';
+        ';
 
+    $email->setMessage($htmlContent);
 
+    // Anexando o arquivo
+    // $pathToAttachment = WRITEPATH . 'uploads/proposta_trocar.pdf';
 
+    // if (!file_exists($pathToAttachment)) {
+    //     echo "Erro: O arquivo 'proposta_trocar.pdf' não foi encontrado no caminho especificado.";
+    //     return; // Encerra a execução do método aqui
+    // }
 
+    // $email->attach($pathToAttachment);
+
+    if ($email->send()) {
+        echo "E-mail enviado com sucesso!";
+    } else {
+        $data = $email->printDebugger(['headers', 'subject', 'body']);
+        print_r($data); // Mostra informações sobre possíveis erros
+    }
+}
+
+public function notifyManagement($data)
+{
+    $email = \Config\Services::email();
+
+    $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
+    $email->setTo('ti@sccontab.com.br');
+
+    $email->setSubject('Novo Registro de Cliente - ABERTURA DE EMPRESA');
+
+    $email->setMailType('html');
+
+    $htmlContent = "
+    <html>
+    <head>
+        <title>Novo Cliente Registrado</title>
+    </head>
+    <body>
+        <h1>Notificação de Novo Cliente - ABERTURA DE EMPRESA</h1>
+        <p>Prezada Diretoria,</p>
+        <p>Informamos que um novo cliente se registrou em nosso site de ABERTURA DE EMPRESA com os seguintes detalhes:</p>
+        <ul>
+            <li>Nome: {$data['nome']}</li>
+            <li>Email: {$data['email']}</li>
+            <li>Telefone: {$data['tel']}</li>
+            <li>CPF: {$data['cpf']}</li>
+            <li>Estado: {$data['estado']}
+        <p>Para mais detalhes ou para tomar os próximos passos, por favor, acesse nossa plataforma de gestão:</p>
+        <p><a href='https://sccontab.com.br/LoginController'>Clique aqui para acessar a plataforma</a></p>
+        <p></p>
+        <p>Atenciosamente,</p>
+        <p>Equipe Spolaor Contabilidade</p>
+    </body>
+    </html>";
 
     $email->setMessage($htmlContent);
 
