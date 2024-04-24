@@ -39,7 +39,7 @@ class TrocarController extends BaseController
 
         $trocarModel->insert($data);
 
-        $this->sendEmail($data, $nome, $destinatarioEmail, $nome_empresa);
+        $this->sendEmail($data);
 
         $this->notifyManagement($data);
 
@@ -47,14 +47,14 @@ class TrocarController extends BaseController
 
     }
 
-     public function sendEmail($nome, $destinatarioEmail, $nome_empresa, $data)
+     public function sendEmail($data)
 {
     $email = \Config\Services::email();
 
     $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
-    $email->setTo($destinatarioEmail);
+    $email->setTo($data['email']);
 
-    $email->setSubject('Bem vindo a Spolaor ' . $nome);
+    $email->setSubject('Bem vindo a Spolaor ' . $data['nome']);
 
     // Definir o tipo de e-mail como HTML
     $email->setMailType('html');
