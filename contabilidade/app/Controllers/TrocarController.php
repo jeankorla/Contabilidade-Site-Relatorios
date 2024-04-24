@@ -189,7 +189,7 @@ class TrocarController extends BaseController
                                 <td class="es-m-p0r" valign="top" align="center" style="padding:0;Margin:0;width:560px">
                                     <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                     <tr>
-                                        <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://eihdwwg.stripocdn.email/content/guids/CABINET_e0d282ff953091d0719f5ba0c48eb3ddc3b084d2afaa71d82540dc0cba1d575c/images/design_sem_nome_38.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="560" height="315"></td>
+                                        <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://sccontab.com.br/img/header_email.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="560" height="315"></td>
                                     </tr>
                                     </table></td>
                                 </tr>
@@ -227,7 +227,7 @@ class TrocarController extends BaseController
                                 <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
                                     <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                     <tr>
-                                        <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://eihdwwg.stripocdn.email/content/guids/CABINET_e0d282ff953091d0719f5ba0c48eb3ddc3b084d2afaa71d82540dc0cba1d575c/images/design_sem_nome_41.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="200" height="200"></td>
+                                        <td align="center" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src=https://sccontab.com.br/img/logo_email.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="200" height="200"></td>
                                     </tr>
                                     </table></td>
                                 </tr>
