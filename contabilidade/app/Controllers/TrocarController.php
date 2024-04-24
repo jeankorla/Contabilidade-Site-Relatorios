@@ -13,13 +13,13 @@ class TrocarController extends BaseController
     $curl = service('curlrequest');
 
     $response = $curl->post(
-        "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk",
+        "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s",
         [
             'headers' => ['Content-Type' => 'application/json'],
             'body' => json_encode([
                 'event' => [
                     'token' => $recaptchaResponse,
-                    'siteKey' => '6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk'
+                    'siteKey' => '6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s'
                 ]
             ])
         ]
