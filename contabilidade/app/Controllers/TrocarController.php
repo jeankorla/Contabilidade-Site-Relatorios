@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Trocar;
-use App\Controllers\Services;
+use Config\Services;
 
 class TrocarController extends BaseController
 {
