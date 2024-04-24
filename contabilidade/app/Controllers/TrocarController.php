@@ -11,13 +11,13 @@ class TrocarController extends BaseController
    public function store() {
         $recaptchaResponse = $this->request->getPost('recaptchaResponse');
         $response = Services::curlrequest()->post(
-            "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=YOUR_API_KEY",
+            "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk",
             [
                 'headers' => ['Content-Type' => 'application/json'],
                 'body' => json_encode([
                     'event' => [
                         'token' => $recaptchaResponse,
-                        'siteKey' => 'SEU_SITE_KEY'
+                        'siteKey' => '6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk'
                     ]
                 ])
             ]
