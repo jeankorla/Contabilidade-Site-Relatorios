@@ -509,7 +509,7 @@ form .input-group button{
   function onClick(e) {
     e.preventDefault();
     grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s', {action: 'LOGIN'});
+      const token = await grecaptcha.enterprise.execute('6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk', {action: 'LOGIN'});
     });
   }
 </script>

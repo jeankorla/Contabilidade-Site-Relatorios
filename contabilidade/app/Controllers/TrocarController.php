@@ -7,31 +7,25 @@ use App\Models\Trocar;
 
 class TrocarController extends BaseController
 {
-   public function store()
-    {
-        helper(['form', 'url']);
-
-        $recaptchaResponse = $this->request->getPost('g-recaptcha-response');
-        $userIP = $this->request->getIPAddress();
-        $secretKey = 'SUA_SECRET_KEY_AQUI';
-
+   public function store() {
+        $recaptchaResponse = $this->request->getPost('recaptchaResponse');
         $response = Services::curlrequest()->post(
-            "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=API_KEY",
+            "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=YOUR_API_KEY",
             [
                 'headers' => ['Content-Type' => 'application/json'],
-                'json' => [
+                'body' => json_encode([
                     'event' => [
                         'token' => $recaptchaResponse,
-                        'siteKey' => '6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk',
+                        'siteKey' => 'SEU_SITE_KEY'
                     ]
-                ]
+                ])
             ]
         );
 
         $result = json_decode($response->getBody());
 
-        if ($result->riskAnalysis->score < 0.5) {
-            return redirect()->back()->with('error', 'Captcha Validation Failed');
+        if ($result->score < 0.5) {
+            return redirect()->back()->with('error', 'Falha na verificação do reCAPTCHA');
         }
         
         $nome = $this->request->getPost('nome');
