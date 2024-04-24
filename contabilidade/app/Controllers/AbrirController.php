@@ -114,9 +114,9 @@ public function notifyManagement($data)
         <title>Novo Cliente Registrado</title>
     </head>
     <body>
-        <h1>Notificação de Novo Cliente</h1>
+        <h1>Notificação de Novo Cliente - ABERTURA DE EMPRESA</h1>
         <p>Prezada Diretoria,</p>
-        <p>Informamos que um novo cliente se registrou em nosso site de TROCA DE CONTADOR com os seguintes detalhes:</p>
+        <p>Informamos que um novo cliente se registrou em nosso site de ABERTURA DE EMPRESA com os seguintes detalhes:</p>
         <ul>
             <li>Nome: {$data['nome']}</li>
             <li>Email: {$data['email']}</li>

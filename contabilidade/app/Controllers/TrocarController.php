@@ -117,7 +117,7 @@ public function notifyManagement($data)
         <title>Novo Cliente Registrado</title>
     </head>
     <body>
-        <h1>Notificação de Novo Cliente</h1>
+        <h1>Notificação de Novo Cliente - TROCA DE CONTADOR</h1>
         <p>Prezada Diretoria,</p>
         <p>Informamos que um novo cliente se registrou em nosso site de TROCA DE CONTADOR com os seguintes detalhes:</p>
         <ul>
