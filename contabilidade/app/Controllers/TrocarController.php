@@ -47,7 +47,7 @@ class TrocarController extends BaseController
 
     }
 
-     public function sendEmail($nome, $destinatarioEmail, $nome_empresa)
+     public function sendEmail($nome, $destinatarioEmail, $nome_empresa, $data)
 {
     $email = \Config\Services::email();
 
