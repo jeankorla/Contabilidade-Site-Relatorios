@@ -343,7 +343,7 @@ form .input-group button{
                     <input type="number" id="funcionarios" name="funcionarios" placeholder="Quantidade de funcionários da empresa" required maxlength="5">
                 </div>
 
-                 <div class="input-group">
+                 <div class="">
         <label for="tributacao">Tributação</label>
         <select class="input-group form-control" id="tributacao" name="tributacao">
             <option value="Simples Nacional">Simples Nacional</option>
