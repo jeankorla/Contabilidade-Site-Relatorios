@@ -290,9 +290,9 @@ form .input-group button{
 
 
 
-    <div class="jp1"></div>
+    <!-- <div class="jp1"></div>
     <div class="jp1 jp2"></div>
-    <div class="jp1 jp3"></div>
+    <div class="jp1 jp3"></div> -->
 
     <div class="tudo scale-down">
         <div class="tudo-body">
