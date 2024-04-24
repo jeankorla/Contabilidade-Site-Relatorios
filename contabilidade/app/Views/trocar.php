@@ -28,7 +28,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="<?php echo base_url('/public_html/assets/images/design-sem-nome-10.png" type="image/x-icon')?>">
   <meta name="description" content="">
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s"></script>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk"></script>
   <script>
         function onSubmit(token) {
             document.getElementById("form-trocar").submit();
