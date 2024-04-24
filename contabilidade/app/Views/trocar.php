@@ -400,7 +400,7 @@ form .input-group button{
 
                 <div class="input-group">
                     <button class="g-recaptcha" 
-            data-sitekey="6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s" 
+            data-sitekey="6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk" 
             data-callback='onSubmit' 
             data-action='submit'>Cadastrar</button>
                 </div>

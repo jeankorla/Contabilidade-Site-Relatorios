@@ -22,7 +22,7 @@ class TrocarController extends BaseController
                 'json' => [
                     'event' => [
                         'token' => $recaptchaResponse,
-                        'siteKey' => '6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s',
+                        'siteKey' => '6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk',
                     ]
                 ]
             ]
