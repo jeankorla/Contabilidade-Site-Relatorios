@@ -9,25 +9,28 @@ use Config\Services;
 class TrocarController extends BaseController
 {
    public function store() {
-        $recaptchaResponse = $this->request->getPost('recaptchaResponse');
-        $response = Services::curlrequest()->post(
-            "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk",
-            [
-                'headers' => ['Content-Type' => 'application/json'],
-                'body' => json_encode([
-                    'event' => [
-                        'token' => $recaptchaResponse,
-                        'siteKey' => '6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk'
-                    ]
-                ])
-            ]
-        );
+    $recaptchaResponse = $this->request->getPost('recaptchaResponse');
+    $curl = service('curlrequest');  // Usando o helper service() para obter a instância de CurlRequest
 
-        $result = json_decode($response->getBody());
+    $response = $curl->post(
+        "https://recaptchaenterprise.googleapis.com/v1/projects/your-project-id/assessments?key=6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk",
+        [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'event' => [
+                    'token' => $recaptchaResponse,
+                    'siteKey' => '6LciusQpAAAAAFanq3a9Mb_dTzj4LZ17CNf2hCEk'
+                ]
+            ])
+        ]
+    );
 
-        if ($result->score < 0.5) {
-            return redirect()->back()->with('error', 'Falha na verificação do reCAPTCHA');
-        }
+    $result = json_decode($response->getBody());
+
+    if ($result->score < 0.5) {
+        return redirect()->back()->with('error', 'Falha na verificação do reCAPTCHA');
+    }
+
         
         $nome = $this->request->getPost('nome');
         $destinatarioEmail = $this->request->getPost('email');
