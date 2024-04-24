@@ -28,7 +28,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="<?php echo base_url('/public_html/assets/images/design-sem-nome-10.png" type="image/x-icon')?>">
   <meta name="description" content="">
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s"></script>
+  
   
   <title>cliente</title>
   <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/web/public/assets/mobirise-icons2/mobirise2.css') ?>">
@@ -497,15 +497,6 @@ form .input-group button{
 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script> 
   
-  <script>
-  function onClick(e) {
-    e.preventDefault();
-    grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s', {action: 'LOGIN'});
-    });
-  }
-</script>
-
   <script>
         document.getElementById('tributacao').addEventListener('change', function() {
             var isSimplesNacional = this.value === 'Simples Nacional';
