@@ -22,15 +22,18 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
-<head>
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="<?php echo base_url('/public_html/assets/images/design-sem-nome-10.png" type="image/x-icon')?>">
   <meta name="description" content="">
-  
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s"></script>
+  <script>
+        function onSubmit(token) {
+            document.getElementById("form-trocar").submit();
+        }
+    </script>
   
   <title>cliente</title>
   <link rel="stylesheet" href="<?php echo base_url('/public_html/assets/web/public/assets/mobirise-icons2/mobirise2.css') ?>">
@@ -301,7 +304,7 @@ form .input-group button{
         <div class="form-box">
             <h2>Trocar de Contabilidade</h2>
             <p> Já é cliente? Faça <a href="/cliente"> Login </a> </p>
-            <form action="<?php echo base_url('TrocarController/store') ?>" method="post">
+            <form action="<?php echo base_url('TrocarController/store') ?>" method="post" id="form-trocar">
                 <!-- Exibe a mensagem de sucesso, caso exista -->
             <?php if (session()->has('success')) : ?>
             <div class="alert alert-success" role="alert">
@@ -396,7 +399,10 @@ form .input-group button{
             </div>
 
                 <div class="input-group">
-                    <button type="submit">Cadastrar</button>
+                    <button class="g-recaptcha" 
+            data-sitekey="6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s" 
+            data-callback='onSubmit' 
+            data-action='submit'>Cadastrar</button>
                 </div>
 
             </form>
@@ -499,6 +505,15 @@ form .input-group button{
 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script> 
   
+  <script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LciusQpAAAAAG6cruBg2-5L4DUu8Md88c7OPK7s', {action: 'LOGIN'});
+    });
+  }
+</script>
+
   <script>
         document.getElementById('tributacao').addEventListener('change', function() {
             var isSimplesNacional = this.value === 'Simples Nacional';
