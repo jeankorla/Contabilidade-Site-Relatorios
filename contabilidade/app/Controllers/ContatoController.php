@@ -121,4 +121,5 @@ class ContatoController extends BaseController
             return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
         }
     }
+
 }
