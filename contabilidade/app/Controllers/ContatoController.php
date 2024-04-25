@@ -116,10 +116,9 @@ class ContatoController extends BaseController
         $emailService->setMessage($message);
 
         if ($emailService->send()) {
-            return $this->response->setJSON('Email enviado com sucesso!');
+            return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso!']);
         } else {
-            return $this->response->setJSON('Falha ao enviar o email.');
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
         }
     }
-
 }

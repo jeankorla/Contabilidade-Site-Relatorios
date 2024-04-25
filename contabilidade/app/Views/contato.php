@@ -231,14 +231,23 @@ function openResponseModal(email, name) {
     $('#responseModal').modal('show');
 }
 
+function showAlert(message, type) {
+    var alertPlaceholder = document.getElementById('alertPlaceholder');
+    var wrapper = document.createElement('div');
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    alertPlaceholder.append(wrapper);
+}
+
 function sendResponse() {
     var email = document.getElementById('recipientEmail').value;
     var message = document.getElementById('message-text').value;
-    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message }, function(data) {
+    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message }, function(response) {
         $('#responseModal').modal('hide');
-        alert(data); // Alerta com a resposta do backend
+        showAlert(response.message, response.status === 'success' ? 'success' : 'danger');
     });
 }
+
+
 </script>
 </body>
 </html>
