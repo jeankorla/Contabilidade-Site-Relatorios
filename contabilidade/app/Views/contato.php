@@ -238,19 +238,7 @@ function sendResponse() {
     var message = document.getElementById('message-text').value;
     var contactId = document.getElementById('contactId').value;
     // Certifique-se de que o URL está correto e de que a resposta esperada é JSON
-    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message, contactId: contactId  }, function(response) {
-        $('#responseModal').modal('hide');
-        
-
-
-
-
-
-        
-    }, 'json').fail(function(xhr, status, error) {
-        // Tratamento de falha na requisição AJAX
-        alert('Erro ao enviar resposta: ' + xhr.responseText);
-    });
+    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message, contactId: contactId  })
 }
 
 
