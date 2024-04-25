@@ -9,6 +9,22 @@ use App\Models\Contato;
 class ContatoController extends BaseController
 {
 
+    public function index()
+    {
+        // Verifica se o usuário está autenticado
+        if (!session()->get('isLoggedIn')) {
+            // Caso não esteja autenticado, redireciona para a tela de login
+            return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
+        }
+
+        $contatoModel = new Contato;
+
+        $contato = $contataModel->findAll();
+
+
+        return view('contato', ['contato' => $contato]);
+    }
+
     public function store() 
     {
         $name = $this->request->getPost('name');
@@ -70,6 +86,20 @@ class ContatoController extends BaseController
         } else {
             $data = $email->printDebugger(['headers', 'subject', 'body']);
             print_r($data); // Mostra informações sobre possíveis erros
+        }
+    }
+
+    public function excluirContato($id = null)
+    {
+        $contato = new Contato();
+
+        // Verifique se o registro existe.
+        if ($contato->find($id)) {
+            // Exclua o registro.
+            $contato->delete($id);
+            return redirect()->to('AdminController')->with('success', 'Registro de troca excluído com sucesso.');
+        } else {
+            return redirect()->back()->with('error', 'Registro de troca não encontrado.');
         }
     }
 }
