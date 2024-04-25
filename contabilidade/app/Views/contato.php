@@ -155,7 +155,8 @@
               <th>Nome</th>
               <th>E-mail</th>
               <th>Mensagem</th>
-              <th>Enviado em</th>         
+              <th>Enviado em</th>
+              <th>Respondido em</th>
             </tr>
           </thead>
           <tbody>
@@ -175,6 +176,14 @@
     <td><?php echo $c['email']; ?></td>
     <td><?php echo $c['textarea']; ?></td>
     <td><?php echo $c['created_at']; ?></td>
+    <td><?php
+                // Compara se created_at é exatamente igual a updated_at
+                if ($c['created_at'] === $c['updated_at']) {
+                    echo 'Não';
+                } else {
+                    echo $c['updated_at'];
+                }
+                ?></td>
 </tr>
 <?php endforeach; ?>
 
