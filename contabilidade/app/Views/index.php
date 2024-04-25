@@ -678,5 +678,37 @@
     </div>
   
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById('form5-1m'); // Certifique-se de que este ID está correto
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Recupera os dados do formulário
+            const formData = new FormData(form);
+
+            // Opção com Fetch API para enviar os dados via AJAX
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Mensagem enviada com sucesso!");
+                    form.reset(); // Reset o formulário após sucesso
+                } else {
+                    alert("Erro ao enviar a mensagem.");
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao enviar o formulário:', error);
+                alert("Erro ao enviar a mensagem.");
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
