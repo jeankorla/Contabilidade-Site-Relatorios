@@ -166,13 +166,13 @@
                 <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
                 <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']) ?>" 
                    class="btn btn-danger" 
-                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($c['nome']); ?>?');">
+                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($c['name']); ?>?');">
                    Excluir
                 </a>
             </div>
         </td>
 
-                <td><?php echo $c['nome'] ?></td>
+                <td><?php echo $c['name'] ?></td>
                 <td><?php echo $c['email'] ?></td>
                 <td><?php echo $c['textarea'] ?></td>
                 <td><?php echo $c['created_at'] ?></td>
