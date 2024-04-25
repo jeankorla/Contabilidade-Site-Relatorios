@@ -19,7 +19,7 @@ class ContatoController extends BaseController
 
         $contatoModel = new Contato;
 
-        $contato = $contataModel->findAll();
+        $contato = $contatoModel->findAll();
 
 
         return view('contato', ['contato' => $contato]);
