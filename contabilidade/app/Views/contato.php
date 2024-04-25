@@ -155,7 +155,9 @@
               <th>Nome</th>
               <th>E-mail</th>
               <th>Mensagem</th>
-              <th>Enviado em</th>         
+              <th>Enviado em</th>
+              <th>Respondido em</th>
+              <th>Resposta</th>        
             </tr>
           </thead>
           <tbody>
@@ -175,6 +177,8 @@
     <td><?php echo $c['email']; ?></td>
     <td><?php echo $c['textarea']; ?></td>
     <td><?php echo $c['created_at']; ?></td>
+    <td><?php echo $c['updated_at']; ?></td>
+    <td><?php echo $c['response']; ?></td>
 </tr>
 <?php endforeach; ?>
 

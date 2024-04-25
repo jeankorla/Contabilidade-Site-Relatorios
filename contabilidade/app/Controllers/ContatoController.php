@@ -97,7 +97,7 @@ class ContatoController extends BaseController
         if ($contato->find($id)) {
             // Exclua o registro.
             $contato->delete($id);
-            return redirect()->to('AdminController')->with('success', 'Registro de troca excluído com sucesso.');
+            return redirect()->to('ContatoController')->with('success', 'Registro de troca excluído com sucesso.');
         } else {
             return redirect()->back()->with('error', 'Registro de troca não encontrado.');
         }
@@ -326,15 +326,24 @@ class ContatoController extends BaseController
         ';
 
 
+    if ($emailService->send()) {
+        // Após enviar o e-mail, atualiza a resposta no banco de dados
+        $contatoModel = new \App\Models\Contato();
+        $contatoModel->updateResponse($contactId, $message);
 
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso e resposta atualizada no banco de dados.']);
+    } else {
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
+    }
+    }
 
-        $emailService->setMessage($htmlContent);
+    public function updateResponse($id, $response) {
+    $data = [
+        'response' => $response
+    ];
 
-        if ($emailService->send()) {
-            return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso!']);
-        } else {
-            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
-        }
+    return $this->update($id, $data);
+
     }
 
 
