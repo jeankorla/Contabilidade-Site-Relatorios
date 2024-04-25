@@ -152,8 +152,8 @@
             <label for="filterResponse" class="form-label">Filtrar Respostas:</label>
             <select id="filterResponse" class="form-select" onchange="applyFilter()">
                 <option value="all">Nenhum filtro</option>
-                <option value="not_responded">Updated_at que é igual a 'Não'</option>
-                <option value="responded">Updated_at que é diferente de 'Não'</option>
+                <option value="not_responded">Não Respondidas</option>
+                <option value="responded">Respondidas</option>
             </select>
         </div>
     </div>
