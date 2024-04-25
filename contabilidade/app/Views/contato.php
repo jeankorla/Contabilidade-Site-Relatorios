@@ -157,26 +157,25 @@
             </tr>
           </thead>
           <tbody>
-         <?php foreach($contato as $c) : ?>
-             <tr>
-        <td><?php echo $c['id'] ?></td>
-        <td>
-            <div style="display: flex; gap: 10px">
-                <a href="" class="btn btn-primary">Responder</a>
-                <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
-                <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']) ?>" 
-                   class="btn btn-danger" 
-                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($c['name']); ?>?');">
-                   Excluir
-                </a>
-            </div>
-        </td>
+         <?php foreach ($contato as $c) : ?>
+<tr>
+    <td><?php echo $c['id']; ?></td>
+    <td>
+        <div style="display: flex; justify-content: center; gap: 10px">
+            <!-- Botão Responder com ativador de modal -->
+            <button class="btn btn-primary" onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>')">Responder</button>
+            <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']); ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir o contato de <?php echo addslashes($c['name']); ?>?');">
+                Excluir
+            </a>
+        </div>
+    </td>
+    <td><?php echo $c['name']; ?></td>
+    <td><?php echo $c['email']; ?></td>
+    <td><?php echo $c['textarea']; ?></td>
+    <td><?php echo $c['created_at']; ?></td>
+</tr>
+<?php endforeach; ?>
 
-                <td><?php echo $c['name'] ?></td>
-                <td><?php echo $c['email'] ?></td>
-                <td><?php echo $c['textarea'] ?></td>
-                <td><?php echo $c['created_at'] ?></td>
-            <?php endforeach; ?>
 
             </tbody>
 
