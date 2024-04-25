@@ -110,6 +110,8 @@ class ContatoController extends BaseController
     $message = $this->request->getPost('message');
     $contactId = $this->request->getPost('contactId');
         dd($contactId);
+
+        exit;
     if (!$contactId) {
         return $this->response->setJSON(['status' => 'error', 'message' => 'Contact ID is missing.']);
     }
