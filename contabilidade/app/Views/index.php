@@ -598,23 +598,23 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="X3yOr13jnGPe6dJMhOifLfEt7Fm4zee2bm26JNN+JXaWLAgkJsIHe8Toj2T1aDzGiOebHl9U940ayf5DcVC95YKBz+emDWsv6MmWtfibLVTJGfnbDcTHB/Rfh+GRmg09">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out
-                            the form!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
+                <form action="<?php echo base_url('ContatoController/store') ?>" method="post" class="mbr-form form-with-styler" data-form-title="Form Name">
+                    <!-- Exibe a mensagem de sucesso, caso exista -->
+                    <?php if (session()->has('success')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session('success') ?>
                     </div>
+                    <?php endif; ?>
                     <div class="dragArea row">
                         <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-form5-1m">
+                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name">
                         </div>
                         <div class="col-md col-sm-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email-form5-1m">
+                            <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email">
                         </div>
                         
                         <div class="col-12 form-group mb-3" data-for="textarea">
-                            <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea-form5-1m"></textarea>
+                            <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea"></textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn custom-btn-outline display-4">Send message</button></div>
                     </div>
