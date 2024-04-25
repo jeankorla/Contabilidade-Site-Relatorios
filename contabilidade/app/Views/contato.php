@@ -139,16 +139,15 @@
 
               <!-- Submit button -->
 
-<div class="container mt-4 mb-4">
-    <div class="d-flex justify-content-end">
-        <div>
+
 
       <div class="mb-3">
         <h1>Contatos</h1>
         <label for="pesquisa" class="form-label">Pesquisar:</label>
         <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
-      </div>
 
+        <div class="d-flex justify-content-end">
+        <div>
             <label for="filterResponse" class="form-label">Filtrar Respostas:</label>
             <select id="filterResponse" class="form-select" onchange="applyFilter()">
                 <option value="all">Nenhum filtro</option>
@@ -156,8 +155,7 @@
                 <option value="responded">Respondidas</option>
             </select>
         </div>
-    </div>
-</div>
+      </div>
 
         <table class="table table-striped ">
           <thead>
