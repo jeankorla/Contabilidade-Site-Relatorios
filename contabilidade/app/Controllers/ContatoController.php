@@ -102,4 +102,24 @@ class ContatoController extends BaseController
             return redirect()->back()->with('error', 'Registro de troca não encontrado.');
         }
     }
+
+    public function sendResponse()
+    {
+        $email = $this->request->getPost('email');
+        $message = $this->request->getPost('message');
+
+        $emailService = \Config\Services::email();
+
+        $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
+        $emailService->setTo($email);
+        $emailService->setSubject('Resposta do seu contato');
+        $emailService->setMessage($message);
+
+        if ($emailService->send()) {
+            return $this->response->setJSON('Email enviado com sucesso!');
+        } else {
+            return $this->response->setJSON('Falha ao enviar o email.');
+        }
+    }
+
 }

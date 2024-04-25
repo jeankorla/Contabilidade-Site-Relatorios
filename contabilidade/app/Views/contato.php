@@ -162,7 +162,7 @@
         <td><?php echo $c['id'] ?></td>
         <td>
             <div style="display: flex; gap: 10px">
-                <a href="" class="btn btn-primary">Proposta</a>
+                <a href="" class="btn btn-primary">Responder</a>
                 <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
                 <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']) ?>" 
                    class="btn btn-danger" 
@@ -193,8 +193,51 @@
 
 </section>
 
+<!-- Modal de Resposta -->
+<div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="responseModalLabel">Responder a Mensagem</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="responseForm">
+            <div class="mb-3">
+                <label for="recipientEmail" class="col-form-label">Para:</label>
+                <input type="email" class="form-control" id="recipientEmail" name="recipientEmail" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label">Mensagem:</label>
+                <textarea class="form-control" id="message-text" name="messageText"></textarea>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" onclick="sendResponse()">Enviar Resposta</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
+<script>
+function openResponseModal(email, name) {
+    document.getElementById('recipientEmail').value = email;
+    document.getElementById('message-text').value = ''; // Limpa a mensagem anterior
+    $('#responseModal').modal('show');
+}
+
+function sendResponse() {
+    var email = document.getElementById('recipientEmail').value;
+    var message = document.getElementById('message-text').value;
+    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message }, function(data) {
+        $('#responseModal').modal('hide');
+        alert(data); // Alerta com a resposta do backend
+    });
+}
+</script>
 </body>
 </html>
