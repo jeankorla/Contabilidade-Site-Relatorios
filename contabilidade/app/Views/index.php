@@ -598,7 +598,8 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="X3yOr13jnGPe6dJMhOifLfEt7Fm4zee2bm26JNN+JXaWLAgkJsIHe8Toj2T1aDzGiOebHl9U940ayf5DcVC95YKBz+emDWsv6MmWtfibLVTJGfnbDcTHB/Rfh+GRmg09">
+                <!-- <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="X3yOr13jnGPe6dJMhOifLfEt7Fm4zee2bm26JNN+JXaWLAgkJsIHe8Toj2T1aDzGiOebHl9U940ayf5DcVC95YKBz+emDWsv6MmWtfibLVTJGfnbDcTHB/Rfh+GRmg09"> -->
+                <form action="<?php echo base_url('ContatoController/enviarEmail') ?>" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name">
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out
                             the form!</div>
