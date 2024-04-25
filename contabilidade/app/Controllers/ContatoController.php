@@ -105,8 +105,16 @@ class ContatoController extends BaseController
 
     public function sendResponse()
     {
+    // Adiciona este código para verificar se contactId está sendo recebido
+    log_message('debug', 'Received contactId: ' . $this->request->getPost('contactId'));
+
     $email = $this->request->getPost('email');
     $message = $this->request->getPost('message');
+    $contactId = $this->request->getPost('contactId');
+
+    if (!$contactId) {
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Contact ID is missing.']);
+    }
 
     $emailService = \Config\Services::email();
 
