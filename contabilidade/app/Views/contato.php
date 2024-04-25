@@ -146,7 +146,7 @@
         <label for="pesquisa" class="form-label">Pesquisar:</label>
         <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
 
-        <div class="d-flex justify-content-end">
+        
         <div>
             <label for="filterResponse" class="form-label">Filtrar Respostas:</label>
             <select id="filterResponse" class="form-select" onchange="applyFilter()">
@@ -155,7 +155,7 @@
                 <option value="responded">Respondidas</option>
             </select>
         </div>
-      </div>
+  
 
         <table class="table table-striped ">
           <thead>
