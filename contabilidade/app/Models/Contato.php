@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Abrir extends Model
+class Contato extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'contato';
