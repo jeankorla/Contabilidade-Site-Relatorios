@@ -18,7 +18,7 @@ class ContatoController extends BaseController
         $Contato = new Contato;
 
         $data = [
-            'nome' => $nome,
+            'name' => $name,
             'email' => $email,
             'textarea' => $textarea,
         ];
