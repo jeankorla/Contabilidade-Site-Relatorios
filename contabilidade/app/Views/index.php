@@ -598,8 +598,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <!-- <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="X3yOr13jnGPe6dJMhOifLfEt7Fm4zee2bm26JNN+JXaWLAgkJsIHe8Toj2T1aDzGiOebHl9U940ayf5DcVC95YKBz+emDWsv6MmWtfibLVTJGfnbDcTHB/Rfh+GRmg09"> -->
-                <form action="<?php echo base_url('ContatoController/enviarEmail') ?>" method="post" class="mbr-form form-with-styler" data-form-title="Form Name">
+                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="X3yOr13jnGPe6dJMhOifLfEt7Fm4zee2bm26JNN+JXaWLAgkJsIHe8Toj2T1aDzGiOebHl9U940ayf5DcVC95YKBz+emDWsv6MmWtfibLVTJGfnbDcTHB/Rfh+GRmg09">
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out
                             the form!</div>
@@ -678,36 +677,5 @@
     </div>
   
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById('form5-1m'); // Certifique-se de que este ID está correto
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
-
-            // Recupera os dados do formulário
-            const formData = new FormData(form);
-
-            // Opção com Fetch API para enviar os dados via AJAX
-            fetch(form.action, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Mensagem enviada com sucesso!");
-                    form.reset(); // Reset o formulário após sucesso
-                } else {
-                    alert("Erro ao enviar a mensagem.");
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao enviar o formulário:', error);
-                alert("Erro ao enviar a mensagem.");
-            });
-        });
-    });
-</script>
 </body>
 </html>
-
