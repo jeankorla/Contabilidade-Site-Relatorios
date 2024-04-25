@@ -14,7 +14,7 @@ class Contato extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'name', 'email', 'textarea', 'response'
+        'name', 'email', 'textarea', 'response', 'updated_at'
     ];
 
     // Dates

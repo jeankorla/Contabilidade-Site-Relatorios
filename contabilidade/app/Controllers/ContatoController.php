@@ -105,14 +105,14 @@ class ContatoController extends BaseController
 
     public function sendResponse()
     {
-        $email = $this->request->getPost('email');
-        $message = $this->request->getPost('message');
+    $email = $this->request->getPost('email');
+    $message = $this->request->getPost('message');
 
-        $emailService = \Config\Services::email();
+    $emailService = \Config\Services::email();
 
-        $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
-        $emailService->setTo($email);
-        $emailService->setSubject('Resposta do seu contato');
+    $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
+    $emailService->setTo($email);
+    $emailService->setSubject('Resposta do seu contato');
 
         // Corpo do e-mail em HTML
         $htmlContent = '
@@ -325,17 +325,21 @@ class ContatoController extends BaseController
         </html>
         ';
 
+    $emailService->setMessage($htmlContent);
 
+    if ($emailService->send()) {
+        // Atualiza a resposta no banco de dados e a data
+        $contatoModel = new \App\Models\Contato();
+        $contatoModel->update($this->request->getPost('contactId'), [
+            'response' => $message,
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
 
-
-        $emailService->setMessage($htmlContent);
-
-        if ($emailService->send()) {
-            return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso!']);
-        } else {
-            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
-        }
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso e resposta registrada.']);
+    } else {
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
     }
+}
 
 
 }
