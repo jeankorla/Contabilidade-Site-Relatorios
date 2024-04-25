@@ -146,6 +146,18 @@
         <label for="pesquisa" class="form-label">Pesquisar:</label>
         <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
       </div>
+<div class="container mt-4 mb-4">
+    <div class="d-flex justify-content-end">
+        <div>
+            <label for="filterResponse" class="form-label">Filtrar Respostas:</label>
+            <select id="filterResponse" class="form-select" onchange="applyFilter()">
+                <option value="all">Nenhum filtro</option>
+                <option value="not_responded">Updated_at que é igual a 'Não'</option>
+                <option value="responded">Updated_at que é diferente de 'Não'</option>
+            </select>
+        </div>
+    </div>
+</div>
 
         <table class="table table-striped ">
           <thead>
@@ -156,7 +168,7 @@
               <th>E-mail</th>
               <th>Mensagem</th>
               <th>Enviado em</th>
-              <th>Respondido em</th>
+              <th>Respondido</th>
             </tr>
           </thead>
           <tbody>
@@ -233,6 +245,41 @@
   </div>
 </div>
 
+<script>
+function applyFilter() {
+    var filter = document.getElementById('filterResponse').value;
+    var rows = document.querySelectorAll('table tbody tr');
+
+    rows.forEach(row => {
+        var respondedCell = row.cells[6].textContent; // A coluna 'Respondido' deve ser a sétima
+        switch (filter) {
+            case 'not_responded':
+                if (respondedCell.trim() === 'Não') {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+                break;
+            case 'responded':
+                if (respondedCell.trim() !== 'Não') {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+                break;
+            default:
+                row.style.display = '';
+                break;
+        }
+    });
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    applyFilter(); // Aplica o filtro inicial ao carregar a página
+});
+</script>
 
 
 <script>
