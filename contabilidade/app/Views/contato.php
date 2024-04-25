@@ -155,9 +155,7 @@
               <th>Nome</th>
               <th>E-mail</th>
               <th>Mensagem</th>
-              <th>Enviado em</th>
-              <th>Respondido em</th>
-              <th>Resposta</th>        
+              <th>Enviado em</th>         
             </tr>
           </thead>
           <tbody>
@@ -177,8 +175,6 @@
     <td><?php echo $c['email']; ?></td>
     <td><?php echo $c['textarea']; ?></td>
     <td><?php echo $c['created_at']; ?></td>
-    <td><?php echo $c['updated_at']; ?></td>
-    <td><?php echo $c['response']; ?></td>
 </tr>
 <?php endforeach; ?>
 
@@ -208,7 +204,6 @@
       </div>
       <div class="modal-body">
         <form id="responseForm">
-          <input type="hidden" id="contactId" name="contactId">
             <div class="mb-3">
                 <label for="recipientEmail" class="col-form-label">Para:</label>
                 <input type="email" class="form-control" id="recipientEmail" name="recipientEmail" readonly>
@@ -230,9 +225,8 @@
 
 
 <script>
-function openResponseModal(email, name, id) {
+function openResponseModal(email, name) {
     document.getElementById('recipientEmail').value = email;
-    document.getElementById('contactId').value = id;  // Adicione um campo oculto para armazenar o ID
     document.getElementById('message-text').value = ''; // Limpa a mensagem anterior
     $('#responseModal').modal('show');
 }
@@ -240,22 +234,18 @@ function openResponseModal(email, name, id) {
 function sendResponse() {
     var email = document.getElementById('recipientEmail').value;
     var message = document.getElementById('message-text').value;
-    var contactId = document.getElementById('contactId').value; // Capta o ID do contato
-
-    // Envia os dados, incluindo o ID do contato
-    $.post('<?= base_url("ContatoController/sendResponse") ?>', {
-        email: email,
-        message: message,
-        contactId: contactId  // Adicione isto
-    }, function(response) {
+    // Certifique-se de que o URL está correto e de que a resposta esperada é JSON
+    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message }, function(response) {
         $('#responseModal').modal('hide');
         if (response.status === 'success') {
-            alert('Email enviado com sucesso!');
-            window.location.reload();
+            // Recarrega a página ou mostra mensagem de sucesso de forma dinâmica
+            alert('Email enviado com sucesso!'); // Altere para um sistema de notificação mais robusto se necessário
+            window.location.reload(); // Opcional: remover para não recarregar a página
         } else {
-            alert('Falha ao enviar o email: ' + response.message);
+            alert('Falha ao enviar o email: ' + response.message); // Mostra a mensagem de erro do servidor
         }
     }, 'json').fail(function(xhr, status, error) {
+        // Tratamento de falha na requisição AJAX
         alert('Erro ao enviar resposta: ' + xhr.responseText);
     });
 }

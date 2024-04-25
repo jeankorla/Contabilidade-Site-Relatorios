@@ -103,17 +103,16 @@ class ContatoController extends BaseController
         }
     }
 
-   public function sendResponse()
+    public function sendResponse()
     {
-    $email = $this->request->getPost('email');
-    $message = $this->request->getPost('message');
-    $contactId = $this->request->getPost('contactId'); // Pega o ID do contato
+        $email = $this->request->getPost('email');
+        $message = $this->request->getPost('message');
 
-    $emailService = \Config\Services::email();
+        $emailService = \Config\Services::email();
 
-    $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
-    $emailService->setTo($email);
-    $emailService->setSubject('Resposta do seu contato');
+        $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
+        $emailService->setTo($email);
+        $emailService->setSubject('Resposta do seu contato');
 
         // Corpo do e-mail em HTML
         $htmlContent = '
@@ -327,24 +326,16 @@ class ContatoController extends BaseController
         ';
 
 
-    if ($emailService->send()) {
-        $contatoModel = new Contato();
-        $contatoModel->updateResponse($contactId, $message); // Atualiza o banco de dados
 
-        return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso e resposta atualizada no banco de dados.']);
-    } else {
-        return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
+
+        $emailService->setMessage($htmlContent);
+
+        if ($emailService->send()) {
+            return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso!']);
+        } else {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
+        }
     }
-}
-    public function updateResponse($id, $response) {
-    $data = [
-        'response' => $response,
-        'updated_at' => date("Y-m-d H:i:s")  // Atualiza a data e hora atual
-    ];
-
-    $contatoModel = new Contato();
-    return $contatoModel->update($id, $data);  // Garante que o ID seja passado corretamente e o modelo faça a atualização
-}
 
 
 }
