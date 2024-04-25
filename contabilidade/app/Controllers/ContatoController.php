@@ -327,9 +327,8 @@ class ContatoController extends BaseController
 
 
     if ($emailService->send()) {
-        // Após enviar o e-mail, atualiza a resposta no banco de dados
-        $contatoModel = new \App\Models\Contato();
-        $contatoModel->updateResponse($contactId, $message);
+        $contatoModel = new Contato();
+        $contatoModel->updateResponse($message);
 
         return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso e resposta atualizada no banco de dados.']);
     } else {
