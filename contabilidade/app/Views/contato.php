@@ -165,7 +165,7 @@
     <td>
         <div style="display: flex; justify-content: center; gap: 10px">
             <!-- Botão Responder com ativador de modal -->
-            <button class="btn btn-primary" onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>')">Responder</button>
+            <button class="btn btn-primary" onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>')">Responder</button>
             <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']); ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir o contato de <?php echo addslashes($c['name']); ?>?');">
                 Excluir
             </a>
@@ -204,7 +204,7 @@
       </div>
       <div class="modal-body">
         <form id="responseForm">
-          <input type="hidden" id="contactId" name="contactId">
+          
             <div class="mb-3">
                 <label for="recipientEmail" class="col-form-label">Para:</label>
                 <input type="email" class="form-control" id="recipientEmail" name="recipientEmail" readonly>
@@ -213,6 +213,7 @@
                 <label for="message-text" class="col-form-label">Mensagem:</label>
                 <textarea class="form-control" id="message-text" name="messageText"></textarea>
             </div>
+            <input type="hidden" id="contactId" name="contactId">
         </form>
       </div>
       <div class="modal-footer">
@@ -229,7 +230,7 @@
 function openResponseModal(email, name, contactId) {
     document.getElementById('recipientEmail').value = email;
     document.getElementById('message-text').value = '';
-    document.getElementById('contactId').value = contactId; // Adicione isso se não tiver um campo hidden para contactId
+    document.getElementById('contactId').value = contactId; 
     $('#responseModal').modal('show');
 }
 
@@ -237,8 +238,22 @@ function sendResponse() {
     var email = document.getElementById('recipientEmail').value;
     var message = document.getElementById('message-text').value;
     var contactId = document.getElementById('contactId').value;
+
+    // Adicionando console.log para verificar os valores antes do envio
+    console.log("Enviando resposta com os seguintes dados:", {email: email, message: message, contactId: contactId});
+
     // Certifique-se de que o URL está correto e de que a resposta esperada é JSON
-    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message, contactId: contactId  })
+    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message, contactId: contactId  }, function(response) {
+        $('#responseModal').modal('hide');
+        if (response.status === 'success') {
+            alert('Email enviado com sucesso!'); // Notificação de sucesso
+            window.location.reload(); // Opcional: remover para não recarregar a página
+        } else {
+            alert('Falha ao enviar o email: ' + response.message); // Notificação de falha
+        }
+    }, 'json').fail(function(xhr, status, error) {
+        alert('Erro ao enviar resposta: ' + xhr.responseText); // Tratamento de erro de requisição AJAX
+    });
 }
 
 
