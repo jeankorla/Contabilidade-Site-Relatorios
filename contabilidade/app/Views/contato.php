@@ -234,15 +234,22 @@ function openResponseModal(email, name) {
 function sendResponse() {
     var email = document.getElementById('recipientEmail').value;
     var message = document.getElementById('message-text').value;
+    // Certifique-se de que o URL está correto e de que a resposta esperada é JSON
     $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message }, function(response) {
         $('#responseModal').modal('hide');
         if (response.status === 'success') {
-            window.location.reload(true); // Força a recarga da página para mostrar a mensagem de sucesso
+            // Recarrega a página ou mostra mensagem de sucesso de forma dinâmica
+            alert('Email enviado com sucesso!'); // Altere para um sistema de notificação mais robusto se necessário
+            window.location.reload(); // Opcional: remover para não recarregar a página
         } else {
-            alert(response.message); // Mostra uma mensagem de erro
+            alert('Falha ao enviar o email: ' + response.message); // Mostra a mensagem de erro do servidor
         }
+    }, 'json').fail(function(xhr, status, error) {
+        // Tratamento de falha na requisição AJAX
+        alert('Erro ao enviar resposta: ' + xhr.responseText);
     });
 }
+
 
 
 </script>
