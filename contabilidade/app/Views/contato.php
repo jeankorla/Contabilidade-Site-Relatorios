@@ -147,7 +147,7 @@
         <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
 
         
-        <div>
+      
             <label for="filterResponse" class="form-label">Filtrar Respostas:</label>
             <select id="filterResponse" class="form-select" onchange="applyFilter()">
                 <option value="all">Nenhum filtro</option>
