@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d648ee3b65e8d352e12e15817702e7cd",
+    "content-hash": "313fd5a1996e034f3dec4afa2bdfb3d6",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -191,6 +191,62 @@
                 "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
             "time": "2021-05-03T11:20:27+00:00"
+        },
+        {
+            "name": "sysborg/autentiquev2",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sysborg/autentiquev2.git",
+                "reference": "10d33dfec55bfd9394eaf914a6aa507a4dfe5df6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sysborg/autentiquev2/zipball/10d33dfec55bfd9394eaf914a6aa507a4dfe5df6",
+                "reference": "10d33dfec55bfd9394eaf914a6aa507a4dfe5df6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "/src/autoloader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sysborg",
+                    "email": "contato@sysborg.com.br",
+                    "role": "Company"
+                },
+                {
+                    "name": "Anderson Matheus Arruda",
+                    "email": "andmarruda@gmail.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "Integração php com a ferramenta autentique de assinatura digital de documentos",
+            "homepage": "https://github.com/sysborg/autentiquev2",
+            "keywords": [
+                "api",
+                "assinatura documento digital",
+                "autentique",
+                "autentique php",
+                "v2"
+            ],
+            "support": {
+                "issues": "https://github.com/sysborg/autentiquev2/issues",
+                "source": "https://github.com/sysborg/autentiquev2/tree/v1.2.2"
+            },
+            "time": "2023-06-23T01:36:20+00:00"
         }
     ],
     "packages-dev": [
