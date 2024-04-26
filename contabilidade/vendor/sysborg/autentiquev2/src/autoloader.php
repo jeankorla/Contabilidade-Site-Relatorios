@@ -35,10 +35,10 @@
          * @param                   string $className
          * @return                  string
          */
-        // public static function getClassPath(string $className) : string
-        // {
-        //     return self::$loadPath[$className];
-        // }
+        public static function getClassPath(string $className) : string
+        {
+            return self::$loadPath[$className];
+        }
     }
 
     spl_autoload_register(function($cls){
