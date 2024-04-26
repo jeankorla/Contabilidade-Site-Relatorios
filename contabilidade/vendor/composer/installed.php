@@ -3,7 +3,7 @@
         'name' => 'codeigniter4/appstarter',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '8186040b0591698d497efad32fc739a6dfba0d41',
+        'reference' => '5832285701e480543a79fea380578acdc55d06ec',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'codeigniter4/appstarter' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8186040b0591698d497efad32fc739a6dfba0d41',
+            'reference' => '5832285701e480543a79fea380578acdc55d06ec',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -54,6 +54,15 @@
             'install_path' => __DIR__ . '/../fakerphp/faker',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'kint-php/kint' => array(
+            'pretty_version' => '5.1.1',
+            'version' => '5.1.1.0',
+            'reference' => '8c5ec370c3382ceae0b88e91f9bbb00e6bb4f93b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kint-php/kint',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'laminas/laminas-escaper' => array(
             'pretty_version' => '2.13.0',
