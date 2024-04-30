@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Trocar;
 use Dompdf\Dompdf;
+use sysborg\autentiquev2\autentique;
+use sysborg\autentiquev2\createDoc;
 
 class DocumentoController extends BaseController
 {
@@ -256,8 +258,40 @@ $dompdf->setPaper('A4', 'portrait');
 // Renderizar o PDF
 $dompdf->render();
 
-// Enviar o PDF gerado para o navegador
-$dompdf->stream('contrato_servicos_profissionais.pdf');
+/// Gerar o caminho do arquivo temporário
+$tempDir = sys_get_temp_dir(); // Pega o diretório temporário do sistema
+$tempFile = tempnam($tempDir, 'contrato_'); // Cria um nome de arquivo temporário
+
+// Salvar o PDF em um arquivo temporário
+file_put_contents($tempFile, $dompdf->output());
+
+        
+
+
+
+// Instanciar createDoc e configurar para sandbox
+        $createDoc = new createDoc();
+        $createDoc->name = 'Contrato de Serviços Profissionais';
+        $createDoc->file = $tempFile;
+        $createDoc->setDevMode(true); // Ativar modo sandbox
+        $createDoc->addSigners('jean@sccontab.com.br'); // Adicionar destinatário para assinatura
+
+        // Instanciar autentique e configurar o token
+        $autentique = new autentique($createDoc);
+        $autentique->token = '7d16f1a04fc31826ded1ed631bbc31678a79bbe92b7d5133a376bc397d8de817';
+
+        // Enviar o documento para assinatura
+        $response = $autentique->transmit();
+
+        // Verificar a resposta e realizar ações baseadas nela
+        if ($response) {
+            echo "Documento enviado para assinatura com sucesso!";
+        } else {
+            echo "Erro ao enviar documento: " . $autentique->curlError;
+        }
+
+        // Apagar o arquivo temporário
+        unlink($tempFile);
 
     }
 }

@@ -11,7 +11,7 @@
          */
         private array $apiInfo = [
             'url'       => 'https://api.autentique.com.br/v2/graphql',
-            'token'     => NULL,
+            'token'     => '7d16f1a04fc31826ded1ed631bbc31678a79bbe92b7d5133a376bc397d8de817',
             'devMode'   => false,
             'debug'     => false
         ];
