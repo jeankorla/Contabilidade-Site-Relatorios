@@ -175,7 +175,7 @@ class DocumentoController extends BaseController
 
 // Conteúdo da nova página com CSS para quebra de página
 $lastPageHtml = '
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -188,34 +188,40 @@ $lastPageHtml = '
         p { text-align: justify; margin: 20px; }
         .clausula { font-weight: bold; margin-top: 20px; }
         .assinatura { text-align: center; margin-top: 30px; }
-        .linha-assinatura { border-bottom: 1px solid black; width: 300px; margin: 20px auto; }
+        .linha-assinatura { border-bottom: 1px solid black; width: 300px; margin: auto; display: block; }
         .testemunhas { margin-top: 50px; }
+        .assinatura-container { display: flex; justify-content: space-around; }
+        .assinatura-box { text-align: center; width: 45%; }
     </style>
 </head>
 <body>
     <p>E, para firmeza e como prova de assim haverem contratado, firmam este instrumento particular, assinado digitalmente pelas partes contratantes e pelas testemunhas abaixo.</p>
     <p>Santos/SP, 09 de Maio de 2023.</p>
 
-    <div class="testemunhas">
-        <table>
-            <tr>
-                <td><div class="linha-assinatura"></div>SPOLAOR CONTABILIDADE LTDA - EPP</td>
-            </tr>
-            <tr>
-                <td>2- <div class="linha-assinatura"></div>PRO ATIVA ARQUITETURA LTDA.</td>
-            </tr>
-        </table>
+    <div class="assinatura-container">
+        <div class="assinatura-box">
+            <div class="linha-assinatura"></div>
+            <div>SPOLAOR CONTABILIDADE LTDA - EPP</div>
+        </div>
+        <div class="assinatura-box">
+            <div class="linha-assinatura"></div>
+            <div>PRO ATIVA ARQUITETURA LTDA.</div>
+        </div>
     </div>
 
     <div class="testemunhas">
         <h3>TESTEMUNHAS</h3>
         <table>
             <tr>
-                <td>1- <div class="linha-assinatura"></div> Amanda Cristina Machado</td>
+                <td>
+                    <div class="linha-assinatura"></div>
+                    Amanda Cristina Machado
+                </td>
                 <td>CPF: 386.895.648-45</td>
-            </tr>
-            <tr>
-                <td>2- <div class="linha-assinatura"></div> Hugo Rangel Filho</td>
+                <td>
+                    <div class="linha-assinatura"></div>
+                    Hugo Rangel Filho
+                </td>
                 <td>CPF: 026.057.688-30</td>
             </tr>
         </table>
@@ -223,6 +229,7 @@ $lastPageHtml = '
 </body>
 </html>
 ';
+
 
 
 // Concatenar o conteúdo da última página ao conteúdo principal
