@@ -197,7 +197,9 @@ $lastPageHtml = '
 <body>
     <p>E, para firmeza e como prova de assim haverem contratado, firmam este instrumento particular, assinado digitalmente pelas partes contratantes e pelas testemunhas abaixo.</p>
     <p>Santos/SP, 09 de Maio de 2023.</p>
-
+        <br/>
+        <br/>
+        <br/>
     <div class="testemunhas">
         <table>
             <tr>
@@ -212,19 +214,20 @@ $lastPageHtml = '
             </tr>
         </table>
     </div>
-
+        <br/>
+        <br/>
     <div class="testemunhas">
         <h3>TESTEMUNHAS</h3>
         <table>
             <tr>
                 <td>
                     <div class="linha-assinatura"></div>
-                    Amanda Cristina Machado
+                    Amanda Cristina Machado <br/>
                     CPF: 386.895.648-45
                 </td>
                 <td>
                     <div class="linha-assinatura"></div>
-                    Hugo Rangel Filho
+                    Hugo Rangel Filho<br/>
                     CPF: 026.057.688-30
                 </td>
             </tr>
