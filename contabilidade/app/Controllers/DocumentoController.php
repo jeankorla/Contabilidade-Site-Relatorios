@@ -91,13 +91,17 @@ class DocumentoController extends BaseController
             <p><strong>PARÁGRAFO ÚNICO.</strong>As multas decorrentes da entrega fora do prazo contratado das obrigações previstas no caput deste artigo, ou que forem decorrentes da imperfeição ou inexecução dos serviços por parte do(a) contratado(a), serão de sua responsabilidade, exceto, se causados pelo contratante por omissão de entrega ao contratado de documentos fiscais e contábeis, bem como, documentos faltantes e solicitações com antecedência de 5 (cinco) dias úteis relacionados ao departamento pessoal.</p>
 
 
-            !-- iSSO PRECISA SER EDITAVEL -->
+            
 
 
             <p><strong>CLÁUSULA SÉTIMA.</strong>O (A) contratante pagará ao contratado (a) pelos serviços prestados mensalmente os honorários mensais como pacote o valor de R$ 4.200,00 (Quatro mil e duzentos reais), para até 20 (vinte) funcionários em folha, sendo acrescido do valor de R$ 88,00 (Oitenta e oito reais) por funcionário excedente aos 20 já inclusos nos honorários mensais, conforme apontado pelo Depto. Pessoal, para cobrança no mês subsequente ao fechamento.
             Os honorários mensais terão seu vencimento todo dia 05 (cinco) de cada mês. 
             </p>
 
+
+
+
+            
             <p><strong>PARÁGRAFO PRIMEIRO.</strong>Fica acordado que as despesas acessórias supracitadas na Cláusula Sétima serão integradas ao valor dos honorários contábeis, não sendo cobradas à parte, conforme tabela vigente. 
             Em caso de novas obrigações acessórias por parte do erário público, como também, alteração contratual e encerramento de atividade, as mesmas serão cobradas à parte ou serão acrescidas nos honorários, de comum acordo entre as partes.
             </p>
@@ -112,10 +116,13 @@ class DocumentoController extends BaseController
             <p><strong>CLÁUSULA NONA.</strong>No caso de atraso no pagamento dos honorários, incidirá multa de 10% e Juros de 1% ao mês em atraso. Persistindo o atraso, por período de 3 (três) meses, o contratado (a) poderá rescindir o contrato sem prévio aviso, por motivo justificado, eximindo-se de qualquer responsabilidade técnica mensal ou anual a partir da data da rescisão.</p>
 
 
-            !-- iSSO PRECISA SER EDITAVEL -->
+            
 
 
             <p><strong>CLÁUSULA DÉCIMA.</strong>Este instrumento é feito por tempo indeterminado, iniciando-se em 04/05/2023, podendo ser rescindido em qualquer época, por qualquer uma das partes, mediante Aviso Prévio de 60 (sessenta) dias, por escrito.</p>
+
+
+
 
 
             <p><strong>PARÁGRAFO PRIMEIRO.</strongA parte que não comunicar por escrito a intenção de rescindir o contrato ou efetuá-la de forma sumária fica obrigada ao pagamento de multa compensatória no valor de uma parcela mensal dos honorários, inclusive sobre valor dos honorários do departamento pessoal quando cobrados à parte, vigentes à época, por cada mês pela falta do cumprimento do aviso prévio. Considera-se início da contagem do prazo de avio prévio, sempre primeiro dia do mês seguinte do comunicado.</p>
