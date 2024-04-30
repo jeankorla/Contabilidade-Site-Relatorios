@@ -174,27 +174,27 @@ class DocumentoController extends BaseController
 </html>
 ';
 
-// Conteúdo da nova página com CSS para quebra de página
-$lastPageHtml = '
-<div style="page-break-before: always;">
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <title>Página Final</title>
-        <style>
-            body { font-family: Arial, sans-serif; }
-            p { text-align: center; margin: 100px; }
-        </style>
-    </head>
-    <body>
-        <p>Esta é a última página e sempre será adicionada como a final do documento.</p>
-    </body>
-    </html>
-</div>';
+// // Conteúdo da nova página com CSS para quebra de página
+// $lastPageHtml = '
+// <div style="page-break-before: always;">
+//     <!DOCTYPE html>
+//     <html lang="pt-br">
+//     <head>
+//         <meta charset="UTF-8">
+//         <title>Página Final</title>
+//         <style>
+//             body { font-family: Arial, sans-serif; }
+//             p { text-align: center; margin: 100px; }
+//         </style>
+//     </head>
+//     <body>
+//         <p>Esta é a última página e sempre será adicionada como a final do documento.</p>
+//     </body>
+//     </html>
+// </div>';
 
-// Concatenar o conteúdo da última página ao conteúdo principal
-$htmlContent .= $lastPageHtml;
+// // Concatenar o conteúdo da última página ao conteúdo principal
+// $htmlContent .= $lastPageHtml;
 
 // Carregar o conteúdo HTML completo no Dompdf
 $dompdf->loadHtml($htmlContent);
