@@ -12,20 +12,34 @@ class DocumentoController extends BaseController
     {
         $trocar = new Trocar();
 
+        // Buscando os dados do cliente pelo ID.
         $cliente = $trocar->find($id);
 
-        if (!$trocar) {
+        if (!$cliente) {
             return redirect()->back()->with('error', 'Registro não encontrado.');
         }
 
+        // Criar uma instância do Dompdf
         $dompdf = new Dompdf();
 
-        $dompdf->loadHtml('hello world');
+        // Criar o conteúdo HTML incorporando os dados do cliente
+        $html = '<h1>Informações do Cliente</h1>';
+        $html .= '<table>';
+        foreach ($cliente as $campo => $valor) {
+            $html .= '<tr><td><strong>' . ucfirst($campo) . ':</strong></td><td>' . $valor . '</td></tr>';
+        }
+        $html .= '</table>';
 
+        // Carregar o conteúdo HTML no Dompdf
+        $dompdf->loadHtml($html);
+
+        // Definir o tipo de papel e orientação
         $dompdf->setPaper('A4', 'landscape');
 
+        // Renderizar o PDF
         $dompdf->render();
 
-        $dompdf->stream();
+        // Enviar o PDF gerado para o navegador
+        $dompdf->stream('documento_cliente.pdf');
     }
 }
