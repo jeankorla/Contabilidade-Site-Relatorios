@@ -58,6 +58,109 @@ class DocumentoController extends BaseController
             <p>2.1. Orientação e controle de aplicação dos dispositivos legais vigentes, sejam federais, estaduais ou municipais.</p>
             <p>2.2. Elaboração dos registros fiscais obrigatórios, eletrônicos ou não, perante os órgãos municipais, estaduais e federais, bem como as demais obrigações que se fizerem necessárias, exceto obrigações acessórias de outras áreas técnicas, tais como: Declaração Ibama, Cetesb, etc...</p>
             <p>2.3. Atendimento às demais exigências previstas na legislação, bem como aos eventuais procedimentos fiscais.</p> 
+
+
+            <p><strong>3. DEPARTAMENTO DE PESSOAL</strong></p>
+            <p>3.1. Registros de empregados e serviços correlatos. </p>
+            <p>3.2. Elaboração da folha de pagamento dos empregados e de pró-labore, bem como das guias de recolhimento dos encargos sociais e tributos afins.</p>
+            <p>3.3. Elaboração, orientação e controle da aplicação dos preceitos da Consolidação das Leis do Trabalho, bem como daqueles atinentes à Previdência Social e de outros aplicáveis às relações de trabalho mantidas pela contratante.</p> 
+
+            
+            <p><strong>CLÁUSULA SEGUNDA.</strong>O(A) contratado(a) assume inteira responsabilidade pelos serviços técnicos a que se obrigou, assim como pelas orientações que prestar.</p>
+            
+            
+            <p><strong>CLÁUSULA TERCEIRA.</strong>O(A) contratante se obriga a preparar, mensalmente, toda a documentação fisco-contábil e de pessoal, que deverá ser disponibilizada ao contratado(a) em tempo hábil, conforme cronograma pactuado entre as partes, a fim de que possa executar seus serviços na conformidade com o citado neste instrumento, tais como: Notas Fiscais de Entrada, Saída e de Serviços Prestados e Contratados, Notas de Locações Emitidas e Contratados, outros documentos em forma de faturamento e ou de reembolso à empresa, relatório de variações cambiais ativas e passivas,  Extratos de Conta Corrente e de Aplicações Financeiras, Contratos de Empréstimos, Financiamentos, Câmbio e dentre outros, Livro Caixa e de Duplicatas, Relatório de Boletos emitidos com os respectivos borderôs/francesinhas emitidos pelo banco quando de seu recebimento ou baixa e tudo pertinente a movimentação do Caixa e Banco, tais como: cópias de cheques, depósitos bancários efetuados ou recebidos identificados ou não, notas de débito ou documento fiscal de débito em C/C, etc..., bem como, o Livro de Inventário, Estoque e Produção mensal com o respectivo custo das mercadorias vendidas e ou industrializas, Bloco K e FCI quando importador, memorando de exportação, Laudos de Medicina do Trabalho, LTCAT, PCMSO, PPP, AVCB, Laudo de Vistoria Técnico do Estabelecimento da Empresa elaborado por Engenheiro, Licença do IBAMA, CETESP, Entidade de Classe e demais órgãos necessários ao início das atividades.</p>
+            <p>Reembolsar ou antecipar despesas em gerais, tais como: fotocópias, autenticações, reconhecimentos de firma, impostos, taxas e contribuições necessários às despesas judiciais ou administrativas que o CONTRATADO tiver que contrair para a realização e andamento dos trabalhos, bem como, realização de cadastros e alterações cadastrais em órgãos públicos, fornecedores e demais entidades.</p>
+
+
+            <p><strong>PARÁGRAFO PRIMEIRO.</strong>Responsabilizar-se-á o(a) contratado(a) por todos os documentos a ele(a) entregue pelo(a) contratante, enquanto permanecerem sob sua guarda para a consecução dos serviços pactuados, salvo comprovados casos fortuitos e motivos de força maior.</p>
+            
+
+            <p><strong>PARÁGRAFO SEGUNDO.</strong>O(A) Contratante tem ciência da Lei 9.613/98, alterada pela Lei 12.683/2012, especificamente no que trata da lavagem de dinheiro, regulamentada pela Resolução CFC n.º 1.445/13 do Conselho Federal de Contabilidade.</p>
+
+
+            <p><strong>CLÁUSULA QUARTA.</strong>O(A) contratante(a) se obriga, antes do encerramento do exercício social, a fornecer ao contratado(a) a Carta de Responsabilidade da Administração.</p>
+
+
+            <p><strong>CLÁUSULA QUINTA.</strong>As orientações dadas pelo(a) contratado(a) deverão ser seguidas pela contratante, eximindo-se o(a) primeiro(a) das consequências da não observância do seu cumprimento.</p>
+
+
+            <p><strong>CLÁUSULA SEXTA.</strong>O (A) contratado (a) se obriga a entregar ao contratante, mediante protocolo, com tempo hábil, os balancetes, o Balanço Patrimonial e as demais demonstrações contábeis, documentos necessários para que este efetue os devidos pagamentos e recolhimentos obrigatórios, bem como comprovante de entrega das obrigações acessórias.</p>
+
+
+            <p><strong>PARÁGRAFO ÚNICO.</strong>As multas decorrentes da entrega fora do prazo contratado das obrigações previstas no caput deste artigo, ou que forem decorrentes da imperfeição ou inexecução dos serviços por parte do(a) contratado(a), serão de sua responsabilidade, exceto, se causados pelo contratante por omissão de entrega ao contratado de documentos fiscais e contábeis, bem como, documentos faltantes e solicitações com antecedência de 5 (cinco) dias úteis relacionados ao departamento pessoal.</p>
+
+
+            !-- iSSO PRECISA SER EDITAVEL -->
+
+
+            <p><strong>CLÁUSULA SÉTIMA.</strong>O (A) contratante pagará ao contratado (a) pelos serviços prestados mensalmente os honorários mensais como pacote o valor de R$ 4.200,00 (Quatro mil e duzentos reais), para até 20 (vinte) funcionários em folha, sendo acrescido do valor de R$ 88,00 (Oitenta e oito reais) por funcionário excedente aos 20 já inclusos nos honorários mensais, conforme apontado pelo Depto. Pessoal, para cobrança no mês subsequente ao fechamento.
+            Os honorários mensais terão seu vencimento todo dia 05 (cinco) de cada mês. 
+            </p>
+
+            <p><strong>PARÁGRAFO PRIMEIRO.</strong>Fica acordado que as despesas acessórias supracitadas na Cláusula Sétima serão integradas ao valor dos honorários contábeis, não sendo cobradas à parte, conforme tabela vigente. 
+            Em caso de novas obrigações acessórias por parte do erário público, como também, alteração contratual e encerramento de atividade, as mesmas serão cobradas à parte ou serão acrescidas nos honorários, de comum acordo entre as partes.
+            </p>
+
+
+            <p><strong>PARÁGRAFO SEGUNDO:</strong>Os honorários mensais e demais honorários cobrados à parte, serão reajustados anualmente, utilizando-se com base a correção do Salário Mínimo, conforme determinações do Governo Federal.</p>
+
+
+            <p><strong>CLÁUSULA OITAVA.</strong>Todos os serviços extraordinários não contratados que forem necessários ou solicitados pelo contratante serão cobrados à parte, com preços previamente convencionados.</p>
+
+
+            <p><strong>CLÁUSULA NONA.</strong>No caso de atraso no pagamento dos honorários, incidirá multa de 10% e Juros de 1% ao mês em atraso. Persistindo o atraso, por período de 3 (três) meses, o contratado (a) poderá rescindir o contrato sem prévio aviso, por motivo justificado, eximindo-se de qualquer responsabilidade técnica mensal ou anual a partir da data da rescisão.</p>
+
+
+            !-- iSSO PRECISA SER EDITAVEL -->
+
+
+            <p><strong>CLÁUSULA DÉCIMA.</strong>Este instrumento é feito por tempo indeterminado, iniciando-se em 04/05/2023, podendo ser rescindido em qualquer época, por qualquer uma das partes, mediante Aviso Prévio de 60 (sessenta) dias, por escrito.</p>
+
+
+            <p><strong>PARÁGRAFO PRIMEIRO.</strongA parte que não comunicar por escrito a intenção de rescindir o contrato ou efetuá-la de forma sumária fica obrigada ao pagamento de multa compensatória no valor de uma parcela mensal dos honorários, inclusive sobre valor dos honorários do departamento pessoal quando cobrados à parte, vigentes à época, por cada mês pela falta do cumprimento do aviso prévio. Considera-se início da contagem do prazo de avio prévio, sempre primeiro dia do mês seguinte do comunicado.</p>
+
+
+            <p><strong>PARÁGRAFO SEGUNDO.</strong>O rompimento do vínculo contratual obriga as partes à celebração de distrato com a especificação da cessação das responsabilidades dos contratantes.</p>
+
+
+            <p><strong>PARÁGRAFO TERCEIRO.</strong>O(A) contratado(a) obriga-se a entregar os documentos, Livros Contábeis e Fiscais e/ou arquivos eletrônicos ao contratante ou a outro profissional da Contabilidade por ele(a) indicado(a), após a assinatura do distrato entre as partes, ficando sobre a responsabilidade do contratante o registro dos livros contábeis e fiscais nos órgãos competentes, tais como: JUCESP, etc....</p>
+
+
+            <p><strong>CLÁUSULA DÉCIMA PRIMEIRA.</strong>Os casos omissos serão resolvidos de comum acordo, ou, não sendo possível, na forma da legislação vigente.</p>
+
+
+            <p><strong>CLÁUSULA DÉCIMA SEGUNDA – DA LEI GERAL DE PROTEÇÃO DE DADOS (LGPD)</strong></p>
+            <p>O CONTRATANTE declara, por meio da assinatura do respectivo CONTRATO DE PRESTAÇÃO DE SERVIÇOS PROFISSIONAIS, que foi informado quanto ao tratamento de dados que será realizado pela  CONTRATADA, nos termos da Lei Geral de Proteção de Dados Pessoais (LGPD) nº 13.709/2018. Declara também ser manifestação livre, informada e inequívoca a autorização do tratamento de seus dados pessoais.
+            A CONTRATADA observará o dever de zelar estritamente pelo sigilo inerente ao Contrato de Prestação de Serviços Profissionais e pela confidencialidade quanto aos dados e informações do CONTRATANTE, empregando todos os meios e tecnologias necessárias para assegurar este direito dos usuários.
+            </p>
+
+
+            <p><strong>PARÁGRAFO PRIMEIRO:</strong>O CONTRATANTE autoriza a coleta de dados pessoais imprescindíveis a execução deste Contrato de Prestação de Serviços Profissionais, tendo sido informado quanto ao tratamento de dados que será realizado pela CONTRATADA, nos termos da Lei Geral de Proteção de Dados Pessoais (LGPD)  nº 13. 709/2018, especificamente quanto a coleta dos seguintes dados: Dados relacionados à sua identificação pessoal, a fim de que se garanta a fiel contratação pelo respectivo titular do contrato; Dados relacionados ao endereço do CONTRATANTE tendo em vista a necessidade da CONTRATADA identificar o local de cobrança dos serviços, envio de documentos/notificações e outras garantias necessárias ao fiel cumprimento do contrato ora assinado; Os dados coletados poderão ser utilizados para identificação de terrorismo, compartilhamento para órgãos de segurança, conforme solicitação legal pertinente, compartilhamento com autoridade administrativa e judicial no âmbito de suas competências com base no extrito cumprimento do dever legal, bem como com os órgãos de proteção ao crédito a fim de garantir a adimplência do CONTRATANTE perante esta CONTRATADA.</p>
+
+
+            <p><strong>PARÁGRAFO SEGUNDO:</strong>Os dados coletados com base no legítimo interesse do CONTRATANTE, bem como para garantir a fiel execução do contrato por parte da CONTRATADA, fundamentam-se no artigo 7º da LGPD, razão pela qual as finalidades descritas no Paragráfo Primeiro  não são exaustivas. A CONTRATADA informa que todos os dados pessoais solicitados e coletados são os estritamente necessários para os fins almejados neste contrato; O CONTRATANTE autoriza o compartilhamento de seus dados, para os fins descritos nesta cláusula, com terceiros legalmente legítimos para defender os interesses da CONTRATADA bem como do CONTRATANTE</p>
+
+
+            <p><strong>PARÁGRAFO TERCEIRO:</strong>O CONTRATANTE possui tempo determinado de 05 (cinco) anos conforme o Art.º 206 da Lei nº 10.406/2002 para acesso aos próprios dados armazenados, podendo também solicitar a exclusão de dados que foram previamente coletados com seu consentimento; A exclusão de dados será efetuada sem que haja prejuízo por parte da CONTRATADA, tendo em vista a necessidade de guarda de documentos por prazo determinado de 05 (cinco) anos, conforme lei civil nº 10.406/2002. 
+            Para tanto, caso o CONTRATANTE deseje efetuar a revogação de algum dado, deverá preencher uma declaração neste sentido, ciente que a revogação de determinados dados poderá importar em eventuais prejuízos na prestação de serviços.
+            </p>
+
+
+            <p><strong>PARÁGRAFO QUARTO:</strong>O CONTRATANTE autoriza, neste mesmo ato, a guarda dos documentos (contratos/documentos fiscais/notificações/protocolos/ordens de serviços) - em que neles possuam dados pessoais - por parte da CONTRATADA a fim de que ela cumpra com o determinado nas demais normas que regulam o presente contrato, bem como para o cumprimento da obrigação legal nos termos do artigo 16 da LGPD.</p>
+
+
+            <p><strong>PARÁGRAFO QUINTO:</strong>Em eventual vazamento indevido de dados a CONTRATADA se compromete a comunicar seus CONTRATANTE sobre o ocorrido, bem como sobre qual o dado vertido;</p>
+
+
+            <p><strong>PARÁGRAFO SEXTO:</strong>A CONTRATADA informa que a gerência de dados ocorrerá através de uma pasta exclusiva do CONTRANTE que colherá e tratará os dados na forma da lei; A CONTRATADA informa que efetuará a manutenção do registro das operações de tratamento de dados pessoais da forma mencionada na cláusula anterior.</p>
+
+
+            <p><strong>PARÁGRAFO SÉTIMO:</strong>Rescindido o contrato os dados pessoais coletados serão armazenados pelo tempo determinado no Paragráfo Terceiro Passado o termo de guarda pertinente a CONTRATADA se compromete a efetuar o descarte dos dados adequadamente.</p>
+
+
+            <p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong>Fica eleito o foro de <strong>Santos/SP</strong> para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p>
+
     </div>
     <!-- Continuação das cláusulas -->
     <div class="assinatura">
