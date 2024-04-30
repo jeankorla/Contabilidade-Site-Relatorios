@@ -66,6 +66,9 @@
 .custom-btn-outline2:focus, .custom-btn-outline:active {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* O foco "glow" do Bootstrap */
 }
+form .website {
+    display: none;
+}
   </style>
 </head>
 <body>
@@ -356,91 +359,6 @@
     </div>
 </section>
 
-<!-- <section data-bs-version="5.1" class="list1 cid-tT9wnz143X" id="list01-a">
-	
-	
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-md-12 col-lg-10 m-auto">
-				<div class="content">
-					<div class="mbr-section-head align-left mb-5">
-						
-						<h3 class="mbr-section-title mb-2 mbr-fonts-style display-2"><strong>Nós esclarecemos suas dúvidas</strong></h3>
-					</div>
-					<div id="bootstrap-accordion_14" class="panel-group accordionStyles accordion" role="tablist" aria-multiselectable="true">
-						<div class="card mb-3" style="background-color: #FF931E;">
-							<div class="card-header" role="tab" id="headingOne">
-								<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse1_14" aria-expanded="false" aria-controls="collapse1">
-									<h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">
-										Lorem ipsum dolor sit amet?
-									</h6>
-									<span class="sign mbr-iconfont mobi-mbri-arrow-down"></span>
-								</a>
-							</div>
-							<div id="collapse1_14" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_14">
-								<div class="panel-body">
-									<p class="mbr-fonts-style panel-text display-7">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum
-										laoreet tincidunt. Proin et sapien scelerisque, ornare lectus eget, iaculis
-										lectus. Pellentesque viverra molestie tortor. Nunc sed interdum est, in maximus
-										diam. Donec eu tellus dictum, gravida velit et, sagittis arcu. Proin et lectus
-										dapibus. Cras fringilla elit velit placerat tortor mollis cursus.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card mb-3" style="background-color: #FF931E;">
-							<div class="card-header" role="tab" id="headingOne">
-								<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse2_14" aria-expanded="false" aria-controls="collapse2">
-									<h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">
-										Pellentesque nec purus ut massa?
-									</h6>
-									<span class="sign mbr-iconfont mobi-mbri-arrow-down"></span>
-								</a>
-							</div>
-							<div id="collapse2_14" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_14">
-								<div class="panel-body">
-									<p class="mbr-fonts-style panel-text display-7">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum
-										laoreet tincidunt. Proin et sapien scelerisque, ornare lectus eget, iaculis
-										lectus. Pellentesque viverra molestie tortor. Nunc sed interdum est, in maximus
-										diam. Donec eu tellus dictum, gravida velit et, sagittis arcu. Proin et lectus
-										dapibus. Cras fringilla elit velit placerat tortor mollis cursus.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card mb-3" style="background-color: #FF931E;">
-							<div class="card-header" role="tab" id="headingOne">
-								<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse3_14" aria-expanded="false" aria-controls="collapse3">
-									<h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">
-										Mauris porttitor tempor orci vitae?
-									</h6>
-									<span class="sign mbr-iconfont mobi-mbri-arrow-down"></span>
-								</a>
-							</div>
-							<div id="collapse3_14" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_14">
-								<div class="panel-body">
-									<p class="mbr-fonts-style panel-text display-7">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum
-										laoreet tincidunt. Proin et sapien scelerisque, ornare lectus eget, iaculis
-										lectus. Pellentesque viverra molestie tortor. Nunc sed interdum est, in maximus
-										diam. Donec eu tellus dictum, gravida velit et, sagittis arcu. Proin et lectus
-										dapibus. Cras fringilla elit velit placerat tortor mollis cursus.
-									</p>
-								</div>
-							</div>
-						</div>
-						
-						
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
 <section data-bs-version="5.1" class="features23 cid-sFAyHxWQ1N" id="features24-20">
 
     
@@ -609,6 +527,9 @@
                         <div class="col-md col-sm-12 form-group mb-3" data-for="name">
                             <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name">
                         </div>
+                        
+                        <input type="text" name="website" class="website" />
+
                         <div class="col-md col-sm-12 form-group mb-3" data-for="email">
                             <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email">
                         </div>

@@ -27,25 +27,32 @@ class ContatoController extends BaseController
 
     public function store() 
     {
-        $name = $this->request->getPost('name');
-        $email = $this->request->getPost('email');
-        $textarea = $this->request->getPost('textarea');
-
-        $Contato = new Contato;
-
-        $data = [
-            'name' => $name,
-            'email' => $email,
-            'textarea' => $textarea,
-        ];
-
-        $Contato->insert($data);
-
-        $this->sendEmail($data);
-
-        return redirect()->back()->with('success', 'Formulario enviado com sucesso.')->withInput();
-
+    // Verificação de proteção antispam
+    if (isset($_POST["website"]) && $_POST["website"] !== "") {
+        // Se o campo não está vazio, é provável que seja um bot de spam
+        http_response_code(400);
+        exit;
     }
+
+    // Continua com o processamento dos dados submetidos pelo usuário
+    $name = $this->request->getPost('name');
+    $email = $this->request->getPost('email');
+    $textarea = $this->request->getPost('textarea');
+
+    $Contato = new Contato;
+
+    $data = [
+        'name' => $name,
+        'email' => $email,
+        'textarea' => $textarea,
+    ];
+
+    $Contato->insert($data);
+    $this->sendEmail($data);
+
+    return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
+    }
+
 
 
     public function sendEmail($data)
