@@ -174,17 +174,9 @@ class DocumentoController extends BaseController
 </html>
 ';
 
-    // Carregar o conteúdo HTML no Dompdf
-    $dompdf->loadHtml($htmlContent);
-
-    // Renderizar o PDF atual antes de adicionar nova página
-    $dompdf->render();
-
-    // Adicionar uma nova página
-    $dompdf->addPage();
-
-    // Conteúdo da nova página, exemplo simples
-    $lastPageHtml = '
+// Conteúdo da nova página com CSS para quebra de página
+$lastPageHtml = '
+<div style="page-break-before: always;">
     <!DOCTYPE html>
     <html lang="pt-br">
     <head>
@@ -198,16 +190,23 @@ class DocumentoController extends BaseController
     <body>
         <p>Esta é a última página e sempre será adicionada como a final do documento.</p>
     </body>
-    </html>';
+    </html>
+</div>';
 
-    // Carregar o conteúdo da última página no Dompdf
-    $dompdf->loadHtml($lastPageHtml);
+// Concatenar o conteúdo da última página ao conteúdo principal
+$htmlContent .= $lastPageHtml;
 
-    // Renderizar o PDF com a última página
-    $dompdf->render();
+// Carregar o conteúdo HTML completo no Dompdf
+$dompdf->loadHtml($htmlContent);
 
-    // Enviar o PDF gerado para o navegador
-    $dompdf->stream('contrato_servicos_profissionais.pdf');
+// Definir o tipo de papel e orientação
+$dompdf->setPaper('A4', 'portrait');
+
+// Renderizar o PDF
+$dompdf->render();
+
+// Enviar o PDF gerado para o navegador
+$dompdf->stream('contrato_servicos_profissionais.pdf');
 
     }
 }
