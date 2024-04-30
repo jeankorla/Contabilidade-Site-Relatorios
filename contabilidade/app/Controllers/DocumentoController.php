@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Trocar;
 use Dompdf\Dompdf;
+require_once __DIR__. '/../../vendor/sysborg/autentiquev2/src/autoloader.php';
 use sysborg\autentiquev2\autentique;
 use sysborg\autentiquev2\createDoc;
 
@@ -250,40 +251,32 @@ $lastPageHtml = '
 $htmlContent .= $lastPageHtml;
 
 // Carregar o conteúdo HTML completo no Dompdf
-$dompdf->loadHtml($htmlContent);
+        $dompdf->loadHtml($htmlContent);
 
-// Definir o tipo de papel e orientação
-$dompdf->setPaper('A4', 'portrait');
+        // Definir o tipo de papel e orientação
+        $dompdf->setPaper('A4', 'portrait');
 
-// Renderizar o PDF
-$dompdf->render();
+        // Renderizar o PDF
+        $dompdf->render();
 
-/// Gerar o caminho do arquivo temporário
-$tempDir = sys_get_temp_dir(); // Pega o diretório temporário do sistema
-$tempFile = tempnam($tempDir, 'contrato_'); // Cria um nome de arquivo temporário
+        // Gerar o caminho do arquivo temporário
+        $tempDir = sys_get_temp_dir(); 
+        $tempFile = tempnam($tempDir, 'contrato_');
 
-// Salvar o PDF em um arquivo temporário
-file_put_contents($tempFile, $dompdf->output());
+        // Salvar o PDF em um arquivo temporário
+        file_put_contents($tempFile, $dompdf->output());
 
-        
-
-
-
-// Instanciar createDoc e configurar para sandbox
+        // Configuração para envio do documento para assinatura
         $createDoc = new createDoc();
         $createDoc->name = 'Contrato de Serviços Profissionais';
         $createDoc->file = $tempFile;
-        $createDoc->setDevMode(false); // Ativar modo sandbox
-        $createDoc->addSigners('jean@sccontab.com.br'); // Adicionar destinatário para assinatura
+        $createDoc->setDevMode(true); // False para produção
+        $createDoc->addSigners('jean@sccontab.com.br');
 
-        // Instanciar autentique e configurar o token
         $autentique = new autentique($createDoc);
         $autentique->token = '7d16f1a04fc31826ded1ed631bbc31678a79bbe92b7d5133a376bc397d8de817';
-
-        // Enviar o documento para assinatura
         $response = $autentique->transmit();
 
-        // Verificar a resposta e realizar ações baseadas nela
         if ($response) {
             echo "Documento enviado para assinatura com sucesso!";
         } else {
@@ -292,6 +285,5 @@ file_put_contents($tempFile, $dompdf->output());
 
         // Apagar o arquivo temporário
         unlink($tempFile);
-
     }
 }
