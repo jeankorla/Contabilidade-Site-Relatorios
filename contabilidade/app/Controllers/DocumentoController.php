@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Troca;
+use App\Models\Trocar;
 use Dompdf\Dompdf;
 
 class DocumentoController extends BaseController
