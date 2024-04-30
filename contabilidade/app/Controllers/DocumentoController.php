@@ -5,9 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Trocar;
 use Dompdf\Dompdf;
-require_once __DIR__. '/../../vendor/sysborg/autentiquev2/src/autoloader.php';
-use sysborg\autentiquev2\autentique;
-use sysborg\autentiquev2\createDoc;
 
 class DocumentoController extends BaseController
 {
@@ -251,39 +248,16 @@ $lastPageHtml = '
 $htmlContent .= $lastPageHtml;
 
 // Carregar o conteúdo HTML completo no Dompdf
-        $dompdf->loadHtml($htmlContent);
+$dompdf->loadHtml($htmlContent);
 
-        // Definir o tipo de papel e orientação
-        $dompdf->setPaper('A4', 'portrait');
+// Definir o tipo de papel e orientação
+$dompdf->setPaper('A4', 'portrait');
 
-        // Renderizar o PDF
-        $dompdf->render();
+// Renderizar o PDF
+$dompdf->render();
 
-        // Gerar o caminho do arquivo temporário
-        $tempDir = sys_get_temp_dir(); 
-        $tempFile = tempnam($tempDir, 'contrato_');
+// Enviar o PDF gerado para o navegador
+$dompdf->stream('contrato_servicos_profissionais.pdf');
 
-        // Salvar o PDF em um arquivo temporário
-        file_put_contents($tempFile, $dompdf->output());
-
-        // Configuração para envio do documento para assinatura
-        $createDoc = new createDoc();
-        $createDoc->name = 'Contrato de Serviços Profissionais';
-        $createDoc->file = $tempFile;
-        $createDoc->setDevMode(false); // False para produção
-        $createDoc->addSigners('jean@sccontab.com.br');
-
-        $autentique = new autentique($createDoc);
-        $autentique->token = '7d16f1a04fc31826ded1ed631bbc31678a79bbe92b7d5133a376bc397d8de817';
-        $response = $autentique->transmit();
-
-        if ($response) {
-            echo "Documento enviado para assinatura com sucesso!";
-        } else {
-            echo "Erro ao enviar documento: " . $autentique->curlError;
-        }
-
-        // Apagar o arquivo temporário
-        unlink($tempFile);
     }
 }
