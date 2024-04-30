@@ -198,15 +198,19 @@ $lastPageHtml = '
     <p>E, para firmeza e como prova de assim haverem contratado, firmam este instrumento particular, assinado digitalmente pelas partes contratantes e pelas testemunhas abaixo.</p>
     <p>Santos/SP, 09 de Maio de 2023.</p>
 
-    <div class="assinatura-container">
-        <div class="assinatura-box">
-            <div class="linha-assinatura"></div>
-            <div>SPOLAOR CONTABILIDADE LTDA - EPP</div>
-        </div>
-        <div class="assinatura-box">
-            <div class="linha-assinatura"></div>
-            <div>PRO ATIVA ARQUITETURA LTDA.</div>
-        </div>
+    <div class="testemunhas">
+        <table>
+            <tr>
+                <td>
+                    <div class="linha-assinatura"></div>
+                   SPOLAOR CONTABILIDADE LTDA - EPP
+                </td>
+                <td>
+                    <div class="linha-assinatura"></div>
+                    PRO ATIVA ARQUITETURA LTDA.
+                </td>
+            </tr>
+        </table>
     </div>
 
     <div class="testemunhas">
@@ -216,13 +220,13 @@ $lastPageHtml = '
                 <td>
                     <div class="linha-assinatura"></div>
                     Amanda Cristina Machado
+                    CPF: 386.895.648-45
                 </td>
-                <td>CPF: 386.895.648-45</td>
                 <td>
                     <div class="linha-assinatura"></div>
                     Hugo Rangel Filho
+                    CPF: 026.057.688-30
                 </td>
-                <td>CPF: 026.057.688-30</td>
             </tr>
         </table>
     </div>
