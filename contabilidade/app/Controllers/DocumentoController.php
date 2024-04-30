@@ -207,11 +207,11 @@ $lastPageHtml = '
             <tr>
                 <td>
                     <div class="linha-assinatura"></div>
-                   SPOLAOR CONTABILIDADE LTDA - EPP
-                </td>
+                       SPOLAOR CONTABILIDADE LTDA - EPP
+                </td> 
                 <td>
                     <div class="linha-assinatura"></div>
-                    PRO ATIVA ARQUITETURA LTDA.
+                       PRO ATIVA ARQUITETURA LTDA.
                 </td>
             </tr>
         </table>
@@ -219,10 +219,10 @@ $lastPageHtml = '
         <br/>
         <br/>
     <div class="testemunhas">
-    <br/>
-    <br/>
-    <br/>
         <h3>TESTEMUNHAS</h3>
+        <br/>
+        <br/>
+        <br/>
         <table>
             <tr>
                 <td>
