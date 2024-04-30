@@ -168,8 +168,6 @@ class DocumentoController extends BaseController
 
             <p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p>
 
-            <p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p><p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong> Fica eleito o foro de <strong>Santos/SP</strong>  para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p>
-
  </div>
 </body>
 </html>
@@ -178,16 +176,52 @@ class DocumentoController extends BaseController
 // Conteúdo da nova página com CSS para quebra de página
 $lastPageHtml = '
     <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <title>Página Final</title>
-    </head>
-    <body>
-        <p>Esta é a última página e sempre será adicionada como a final do documento.</p>
-    </body>
-    </html>
-</div>';
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contrato de Prestação de Serviços Profissionais</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #dddddd; padding: 8px; text-align: left; }
+        h1, h2, h3 { text-align: center; }
+        p { text-align: justify; margin: 20px; }
+        .clausula { font-weight: bold; margin-top: 20px; }
+        .assinatura { text-align: center; margin-top: 30px; }
+        .linha-assinatura { border-bottom: 1px solid black; width: 300px; margin: 20px auto; }
+        .testemunhas { margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <p>E, para firmeza e como prova de assim haverem contratado, firmam este instrumento particular, assinado digitalmente pelas partes contratantes e pelas testemunhas abaixo.</p>
+    <p>Santos/SP, 09 de Maio de 2023.</p>
+
+    <div class="assinatura">
+        <div class="linha-assinatura"></div>
+        <div>SPOLAOR CONTABILIDADE LTDA - EPP</div>
+    </div>
+    <div class="assinatura">
+        <div class="linha-assinatura"></div>
+        <div>PRO ATIVA ARQUITETURA LTDA.</div>
+    </div>
+
+    <div class="testemunhas">
+        <h3>TESTEMUNHAS</h3>
+        <table>
+            <tr>
+                <td>1- <div class="linha-assinatura"></div> Amanda Cristina Machado</td>
+                <td>CPF: 386.895.648-45</td>
+            </tr>
+            <tr>
+                <td>2- <div class="linha-assinatura"></div> Hugo Rangel Filho</td>
+                <td>CPF: 026.057.688-30</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+';
+
 
 // Concatenar o conteúdo da última página ao conteúdo principal
 $htmlContent .= $lastPageHtml;
