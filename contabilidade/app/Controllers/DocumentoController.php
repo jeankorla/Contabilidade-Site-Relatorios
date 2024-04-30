@@ -168,29 +168,46 @@ class DocumentoController extends BaseController
 
             <p><strong>CLÁUSULA DÉCIMA TERCEIRA</strong>Fica eleito o foro de <strong>Santos/SP</strong> para o exercício e o cumprimento dos direitos e obrigações resultantes deste contrato.</p>
 
-    </div>
-    <!-- Continuação das cláusulas -->
-    <div class="assinatura">
-        <p>Santos/SP, 09 de Maio de 2023.</p>
-        <div class="linha-assinatura">SPOLAOR CONTABILIDADE LTDA - EPP</div>
-        <div class="linha-assinatura">PRO ATIVA ARQUITETURA LTDA.</div>
-    </div>
-    <div class="testemunhas">
-        <h3>Testemunhas</h3>
-        <div class="linha-assinatura">1. Amanda Cristina Machado</div>
-        <div class="linha-assinatura">2. Hugo
+
+ </div>
+</body>
+</html>
 ';
 
-        // Carregar o conteúdo HTML no Dompdf
-        $dompdf->loadHtml($htmlContent);
+    // Carregar o conteúdo HTML no Dompdf
+    $dompdf->loadHtml($htmlContent);
 
-        // Definir o tipo de papel e orientação
-        $dompdf->setPaper('A4', 'portrait');
+    // Renderizar o PDF atual antes de adicionar nova página
+    $dompdf->render();
 
-        // Renderizar o PDF
-        $dompdf->render();
+    // Adicionar uma nova página
+    $dompdf->addPage();
 
-        // Enviar o PDF gerado para o navegador
-        $dompdf->stream('contrato_servicos_profissionais.pdf');
+    // Conteúdo da nova página, exemplo simples
+    $lastPageHtml = '
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Página Final</title>
+        <style>
+            body { font-family: Arial, sans-serif; }
+            p { text-align: center; margin: 100px; }
+        </style>
+    </head>
+    <body>
+        <p>Esta é a última página e sempre será adicionada como a final do documento.</p>
+    </body>
+    </html>';
+
+    // Carregar o conteúdo da última página no Dompdf
+    $dompdf->loadHtml($lastPageHtml);
+
+    // Renderizar o PDF com a última página
+    $dompdf->render();
+
+    // Enviar o PDF gerado para o navegador
+    $dompdf->stream('contrato_servicos_profissionais.pdf');
+
     }
 }
