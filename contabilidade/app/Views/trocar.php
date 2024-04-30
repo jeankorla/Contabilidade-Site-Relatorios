@@ -241,6 +241,9 @@ form .input-group button{
 .custom-btn-outline2:focus, .custom-btn-outline:active {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* O foco "glow" do Bootstrap */
 }
+form .website {
+    display: none;
+}
   </style>
 </head>
 <body>
@@ -408,31 +411,34 @@ form .input-group button{
 
 <section data-bs-version="5.1" class="form5 cid-sFzDs3t9EG" id="form5-1m">
     
-     
-    <div class="container">
+    
+    <div class="container" id="contato">
         <div class="mbr-section-head">
             <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Entre em contato conosco</strong></h3>
             
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="X3yOr13jnGPe6dJMhOifLfEt7Fm4zee2bm26JNN+JXaWLAgkJsIHe8Toj2T1aDzGiOebHl9U940ayf5DcVC95YKBz+emDWsv6MmWtfibLVTJGfnbDcTHB/Rfh+GRmg09">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out
-                            the form!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
+                <form action="<?php echo base_url('ContatoController/store') ?>" method="post" class="mbr-form form-with-styler" data-form-title="Form Name">
+                    <!-- Exibe a mensagem de sucesso, caso exista -->
+                    <?php if (session()->has('success')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session('success') ?>
                     </div>
+                    <?php endif; ?>
                     <div class="dragArea row">
                         <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-form5-1m">
+                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name">
                         </div>
+                        
+                        <input type="text" name="website" class="website" />
+
                         <div class="col-md col-sm-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email-form5-1m">
+                            <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email">
                         </div>
                         
                         <div class="col-12 form-group mb-3" data-for="textarea">
-                            <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea-form5-1m"></textarea>
+                            <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea"></textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn custom-btn-outline display-4">Send message</button></div>
                     </div>
