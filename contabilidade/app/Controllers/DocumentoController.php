@@ -196,13 +196,15 @@ $lastPageHtml = '
     <p>E, para firmeza e como prova de assim haverem contratado, firmam este instrumento particular, assinado digitalmente pelas partes contratantes e pelas testemunhas abaixo.</p>
     <p>Santos/SP, 09 de Maio de 2023.</p>
 
-    <div class="assinatura">
-        <div class="linha-assinatura"></div>
-        <div>SPOLAOR CONTABILIDADE LTDA - EPP</div>
-    </div>
-    <div class="assinatura">
-        <div class="linha-assinatura"></div>
-        <div>PRO ATIVA ARQUITETURA LTDA.</div>
+    <div class="testemunhas">
+        <table>
+            <tr>
+                <td><div class="linha-assinatura"></div>SPOLAOR CONTABILIDADE LTDA - EPP</td>
+            </tr>
+            <tr>
+                <td>2- <div class="linha-assinatura"></div>PRO ATIVA ARQUITETURA LTDA.</td>
+            </tr>
+        </table>
     </div>
 
     <div class="testemunhas">
