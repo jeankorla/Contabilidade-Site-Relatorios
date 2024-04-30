@@ -273,7 +273,7 @@ file_put_contents($tempFile, $dompdf->output());
         $createDoc = new createDoc();
         $createDoc->name = 'Contrato de Serviços Profissionais';
         $createDoc->file = $tempFile;
-        $createDoc->setDevMode(true); // Ativar modo sandbox
+        $createDoc->setDevMode(false); // Ativar modo sandbox
         $createDoc->addSigners('jean@sccontab.com.br'); // Adicionar destinatário para assinatura
 
         // Instanciar autentique e configurar o token
