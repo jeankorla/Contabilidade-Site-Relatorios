@@ -10,9 +10,9 @@ class DocumentoController extends BaseController
 {
     public function gerarDocTroca($id = null)
     {
-        $troca = new Troca();
+        $trocar = new Trocar();
 
-        $cliente = $trocarModel->find($id);
+        $cliente = $trocar->find($id);
 
         if (!$registro) {
             return redirect()->back()->with('error', 'Registro não encontrado.');
