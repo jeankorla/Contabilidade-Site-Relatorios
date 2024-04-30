@@ -14,7 +14,7 @@ class DocumentoController extends BaseController
 
         $cliente = $trocar->find($id);
 
-        if (!$registro) {
+        if (!$trocar) {
             return redirect()->back()->with('error', 'Registro não encontrado.');
         }
 
