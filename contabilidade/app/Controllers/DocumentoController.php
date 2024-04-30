@@ -270,7 +270,7 @@ $htmlContent .= $lastPageHtml;
         $createDoc = new createDoc();
         $createDoc->name = 'Contrato de Serviços Profissionais';
         $createDoc->file = $tempFile;
-        $createDoc->setDevMode(true); // False para produção
+        $createDoc->setDevMode(false); // False para produção
         $createDoc->addSigners('jean@sccontab.com.br');
 
         $autentique = new autentique($createDoc);
