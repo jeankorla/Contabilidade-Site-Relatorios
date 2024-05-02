@@ -206,12 +206,22 @@ $pdfName = uniqid() . '.pdf';
   ' }' .
 '}';
 
-
-
-        $variables = [
-            'document' => ['name' => 'Contrato de Prestação de Serviços'],
-            'signers' => [['email' => 'jean@sccontab.com.br', 'action' => 'SIGN']],
-        ];
+$variables = [
+    'document' => [
+        'name' => 'Contrato de Prestação de Serviços'
+    ],
+    'signers' => [
+        [
+            'email' => 'marketingspolaor@outlook.com',
+            'action' => null
+        ],
+        [
+            'email' => 'jean@sccontab.com.br',
+            'action' => 'SIGN'
+        ],
+        
+    ]
+];
 
         $operations = json_encode([
             'query' => $mutation,
