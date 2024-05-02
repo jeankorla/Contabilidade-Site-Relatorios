@@ -183,11 +183,70 @@ $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
 $pdfName = uniqid() . '.pdf';
-        $pdfPath = WRITEPATH . 'uploads/' . $pdfName;
+        $pdfPath = WRITEPATH . 'contratos/' . $pdfName;
 
         file_put_contents($pdfPath, $dompdf->output());
 
         // Call createDocument directly after saving the file
-        // return $this->createDocument($pdfPath);
+        return $this->createDocument($pdfPath);
+    }
+
+    
+    public function createDocument($filePath)
+    {
+        $token = getenv('GRAPHQL_BEARER_TOKEN');
+        $url = 'https://api.autentique.com.br/v2/graphql';
+
+        $mutation = 'mutation CreateDocumentMutation($document: DocumentInput!, $signers: [SignerInput!]!, $file: Upload!) {' .
+  ' createDocument(sandbox: true, document: $document, signers: $signers, file: $file) {' .
+    ' id name refusable sortable created_at ' .
+    ' signatures {' .
+      ' public_id name email created_at action { name } link { short_link } user { id name email }' .
+    ' }' .
+  ' }' .
+'}';
+
+
+
+        $variables = [
+            'document' => ['name' => 'Contrato de Prestação de Serviços'],
+            'signers' => [['email' => 'jean@sccontab.com.br', 'action' => 'SIGN']],
+        ];
+
+        $operations = json_encode([
+            'query' => $mutation,
+            'variables' => $variables,
+        ]);
+
+        $map = json_encode(['0' => ['variables.file']]);
+
+        $boundary = uniqid();
+        $delimiter = '-------------' . $boundary;
+
+        $postdata = "--$delimiter\r\n"
+                    . "Content-Disposition: form-data; name=\"operations\"\r\n\r\n"
+                    . $operations . "\r\n"
+                    . "--$delimiter\r\n"
+                    . "Content-Disposition: form-data; name=\"map\"\r\n\r\n"
+                    . $map . "\r\n"
+                    . "--$delimiter\r\n"
+                    . "Content-Disposition: form-data; name=\"0\"; filename=\"" . basename($filePath) . "\"\r\n"
+                    . "Content-Type: application/octet-stream\r\n\r\n"
+                    . file_get_contents($filePath) . "\r\n"
+                    . "--$delimiter--";
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: multipart/form-data; boundary=' . $delimiter,
+            'Authorization: Bearer ' . $token
+        ]);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        return $this->response->setJSON(json_decode($response, true));
     }
 }
