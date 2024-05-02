@@ -188,6 +188,6 @@ $pdfName = uniqid() . '.pdf';
         file_put_contents($pdfPath, $dompdf->output());
 
         // Call createDocument directly after saving the file
-        return $this->createDocument($pdfPath);
+        // return $this->createDocument($pdfPath);
     }
 }
