@@ -9,6 +9,12 @@ class TrocarController extends BaseController
 {
     public function store()
     {
+        // Verificação de proteção antispam
+        if (isset($_POST["website2"]) && $_POST["website2"] !== "") {
+        // Se o campo não está vazio, é provável que seja um bot de spam
+        http_response_code(400);
+        exit;
+        }
         
         $nome = $this->request->getPost('nome');
         $destinatarioEmail = $this->request->getPost('email');

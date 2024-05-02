@@ -245,6 +245,9 @@ form .input-group button{
 form .website {
     display: none;
 }
+form .website2 {
+    display: none;
+}
   </style>
 </head>
 <body>
@@ -314,6 +317,8 @@ form .website {
                     <label for="nome"> Nome Completo</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
                 </div>
+
+                    <input type="text" name="website2" class="website2" />
 
                 <div class="input-group">
                     <label for="email">E-mail</label>

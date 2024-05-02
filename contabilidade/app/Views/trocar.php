@@ -244,6 +244,9 @@ form .input-group button{
 form .website {
     display: none;
 }
+form .website2 {
+    display: none;
+}
   </style>
 </head>
 <body>
@@ -318,6 +321,8 @@ form .website {
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255"> 
                 </div>
+
+                <input type="text" name="website2" class="website2" />
 
                 <div class="input-group">
                     <label for="tel">Telefone</label>
