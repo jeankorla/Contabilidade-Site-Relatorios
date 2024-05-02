@@ -213,6 +213,7 @@ $variables = [
     'signers' => [
         [
             'email' => 'marketingspolaor@outlook.com',
+            'action' => 'null',
         ],
         [
             'email' => 'jean@sccontab.com.br',
