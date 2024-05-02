@@ -5,3 +5,4 @@ contabilidade/.env
 contabilidade/app/Config/App.php
 contabilidade/app/Config/Paths.php
 contabilidade/app/Config/Email.php
+contabilidade/writable/Contratos

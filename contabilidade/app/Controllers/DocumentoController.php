@@ -173,80 +173,6 @@ class DocumentoController extends BaseController
 </html>
 ';
 
-// Conteúdo da nova página com CSS para quebra de página
-$lastPageHtml = '
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Contrato de Prestação de Serviços Profissionais</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #dddddd; padding: 8px; text-align: left; }
-        h1, h2, h3 { text-align: center; }
-        p { text-align: justify; margin: 20px; }
-        .clausula { font-weight: bold; margin-top: 20px; }
-        .assinatura { text-align: center; margin-top: 30px; }
-        .linha-assinatura { border-bottom: 1px solid black; width: 300px; margin: auto; display: block; }
-        .testemunhas { margin-top: 50px; }
-        .assinatura-container { display: flex; justify-content: space-around; }
-        .assinatura-box { text-align: center; width: 45%; }
-    </style>
-</head>
-<body>
-    <p>E, para firmeza e como prova de assim haverem contratado, firmam este instrumento particular, assinado digitalmente pelas partes contratantes e pelas testemunhas abaixo.</p>
-    <p>Santos/SP, 09 de Maio de 2023.</p>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-    <div class="testemunhas">
-        <table>
-            <tr>
-                <td>
-                    <div class="linha-assinatura"></div>
-                       SPOLAOR CONTABILIDADE LTDA - EPP
-                </td> 
-                <td>
-                    <div class="linha-assinatura"></div>
-                       PRO ATIVA ARQUITETURA LTDA.
-                </td>
-            </tr>
-        </table>
-    </div>
-        <br/>
-        <br/>
-    <div class="testemunhas">
-        <h3>TESTEMUNHAS</h3>
-        <br/>
-        <br/>
-        <br/>
-        <table>
-            <tr>
-                <td>
-                    <div class="linha-assinatura"></div>
-                    Amanda Cristina Machado <br/>
-                    CPF: 386.895.648-45
-                </td>
-                <td>
-                    <div class="linha-assinatura"></div>
-                    Hugo Rangel Filho<br/>
-                    CPF: 026.057.688-30
-                </td>
-            </tr>
-        </table>
-    </div>
-</body>
-</html>
-';
-
-
-
-// Concatenar o conteúdo da última página ao conteúdo principal
-$htmlContent .= $lastPageHtml;
-
 // Carregar o conteúdo HTML completo no Dompdf
 $dompdf->loadHtml($htmlContent);
 
@@ -256,8 +182,12 @@ $dompdf->setPaper('A4', 'portrait');
 // Renderizar o PDF
 $dompdf->render();
 
-// Enviar o PDF gerado para o navegador
-$dompdf->stream('contrato_servicos_profissionais.pdf');
+$pdfName = uniqid() . '.pdf';
+        $pdfPath = WRITEPATH . 'uploads/' . $pdfName;
 
+        file_put_contents($pdfPath, $dompdf->output());
+
+        // Call createDocument directly after saving the file
+        return $this->createDocument($pdfPath);
     }
 }
