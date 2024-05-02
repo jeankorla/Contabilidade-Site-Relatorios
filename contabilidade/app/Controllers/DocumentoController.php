@@ -212,12 +212,8 @@ $variables = [
     ],
     'signers' => [
         [
-            'email' => 'marketingspolaor@outlook.com',
-            'action' => 'NULL'  // Substitua 'SOME_ACTION' pela ação apropriada, como 'SIGN' se for necessário
-        ],
-        [
             'email' => 'jean@sccontab.com.br',
-            'action' => 'SIGN'  // Esta ação já estava correta para Jean
+            'action' => 'SIGN'
         ]
     ]
 ];
@@ -233,16 +229,16 @@ $variables = [
         $delimiter = '-------------' . $boundary;
 
         $postdata = "--$delimiter\r\n"
-            . "Content-Disposition: form-data; name=\"operations\"\r\n\r\n"
-            . json_encode(['query' => $mutation, 'variables' => $variables]) . "\r\n"
-            . "--$delimiter\r\n"
-            . "Content-Disposition: form-data; name=\"map\"\r\n\r\n"
-            . '{"0": ["variables.file"]}' . "\r\n"
-            . "--$delimiter\r\n"
-            . "Content-Disposition: form-data; name=\"0\"; filename=\"" . basename($filePath) . "\"\r\n"
-            . "Content-Type: application/octet-stream\r\n\r\n"
-            . file_get_contents($filePath) . "\r\n"
-            . "--$delimiter--";
+                    . "Content-Disposition: form-data; name=\"operations\"\r\n\r\n"
+                    . $operations . "\r\n"
+                    . "--$delimiter\r\n"
+                    . "Content-Disposition: form-data; name=\"map\"\r\n\r\n"
+                    . $map . "\r\n"
+                    . "--$delimiter\r\n"
+                    . "Content-Disposition: form-data; name=\"0\"; filename=\"" . basename($filePath) . "\"\r\n"
+                    . "Content-Type: application/octet-stream\r\n\r\n"
+                    . file_get_contents($filePath) . "\r\n"
+                    . "--$delimiter--";
 
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
