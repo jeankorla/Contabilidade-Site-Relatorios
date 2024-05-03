@@ -11,8 +11,8 @@
 
 <style>
 
-    body{
-      transform: scale(0.8);
+    html, body {
+      font-size: 80%;
     }
 
     .jp1 {
