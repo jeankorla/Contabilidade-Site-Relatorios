@@ -135,27 +135,27 @@
                 <label for="email_contato" class="form-label">Email de Contato:</label>
                 <input type="email" class="form-control" id="email_contato" name="email_contato" value="<?= $registro['email_contato'] ?>">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="tel" class="form-label">Telefone do Contato:</label>
                 <input type="text" class="form-control" id="tel" name="tel" value="<?= $registro['tel_contato'] ?>" oninput="mascaraTelefone(event);" maxlength="15">
             </div>
-            <div class="col-md-6">
-                <label for="cpf_contato" class="form-label">Cpf do Contato:</label>
+            <div class="col-md-4">
+                <label for="cpf_contato" class="form-label">CPF do Contato:</label>
                 <input type="text" id="cpf_contato" class="form-control" name="cpf_contato" oninput="aplicarMascaraCPF(this)" value="<?= $registro['cpf_contato'] ?>" maxlength="14">
             </div>
-            <div class="col-9">
+            <div class="col-4">
                 <label for="cnpj" class="form-label">CNPJ:</label>
                <input type="text" id="cnpj" class="form-control" name="cnpj" value="<?= $registro['cnpj'] ?>" oninput="aplicarMascaraCNPJ(this)" maxlength="18">
             </div>
-            <div class="col-3">
+            <div class="col-6">
                 <label for="nome_empresa" class="form-label">Nome da Empresa:</label>
                 <input type="text" id="nome_empresa" class="form-control" name="nome_empresa" value="<?= $registro['nome_empresa'] ?>">
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <label for="faturamento" class="form-label">Faturamento:</label>
                 <input type="text" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>" onkeyup="formatarMoeda();" maxlength="18">
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <label for="funcionarios" class="form-label">Funcionários:</label>
                 <input type="number" id="funcionarios" class="form-control" name="funcionarios" value="<?= $registro['funcionarios'] ?>">
             </div>
