@@ -176,9 +176,10 @@
                 <input id="input" type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
             </div>
 
+                <div class="col-md-12">
+                <h2 class="mb-5">Empresa Endereço</h2>
+                </div>
 
-
-            
                 <div class="col-md-2">
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
                 <input id="input" type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $registro['endereco_empresa_estado'] ?>">
@@ -206,11 +207,10 @@
                 <input id="input" type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $registro['endereco_empresa_cidade'] ?>">
             </div>
         
-           
 
-
-
-
+                <div class="col-md-12">
+                <h2 class="mb-5">Sócio Informações</h2>
+                </div>
            
                 <div class="col-md-7">
                 <label for="socio_nome" class="form-label">Nome do Sócio:</label>
@@ -260,6 +260,12 @@
                 <label for="socio_endereco_numero" class="form-label">Número do Sócio:</label>
                 <input id="input" type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $registro['socio_endereco_numero'] ?>">
             </div>
+
+
+            <div class="col-md-12">
+                <h2 class="mb-5">Teste</h2>
+                </div>
+
             <div class="col-md-4">
                 <label for="honorario" class="form-label">Honorário:</label>
                 <input id="input" type="text" id="honorario" class="form-control" name="honorario" value="<?= $registro['honorario'] ?>">
@@ -275,7 +281,7 @@
 
             <div class="col-md-6">
                 <label for="honorario_texto" class="form-label">Honorário Texto:</label>
-                <textarea id="honorario_texto" name="honorario_texto" rows="4" cols="50" value="<?= $registro['honorario_texto'] ?>">
+                <textarea id="honorario_texto" name="honorario_texto" rows="12" cols="50" value="<?= $registro['honorario_texto'] ?>">
                 </textarea>
             </div>
             
