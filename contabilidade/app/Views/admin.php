@@ -177,7 +177,7 @@
                 <td><?php echo $cliente['tributacao'] ?></td>
                 <td><?php echo $cliente['endereco_empresa_estado'] ?></td>
                 <td><?php echo $cliente['endereco_empresa_cidade'] ?></td>
-                <td><?php echo $cliente['created_at'] ?></td>
+                <td><?php echo date('d/m/Y', strtotime($cliente['created_at'])); ?></td>
                 </tr>
             <?php endforeach; ?>
 
