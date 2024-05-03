@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Cliente;
 
+date_default_timezone_set('America/Sao_Paulo');
+
 class ClienteController extends BaseController
 {
     public function store()

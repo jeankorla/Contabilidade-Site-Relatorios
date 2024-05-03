@@ -105,35 +105,53 @@
 </div>
 
 
+
+
+
 <section >
 
-    <div class="jp1"></div>
+
+ <div class="jp1"></div>
     <div class="jp1 jp2"></div>
     <div class="jp1 jp3"></div>
 
+   
 
-    <div id="div1" class="mt-3" style="display:block;">
-      <div class="container d-flex justify-content-center align-items-center ">
-        <div class="card" style="border-radius: 2vh; width: 100%;">
-          <div class="card-body m-lg-5 text-center">
-            <div class="table-responsive">
-
-
-      <!-- Exibe a mensagem de erro, caso exista -->
-      <?php if (session()->has('error')) : ?>
-        <div class="alert alert-danger" role="alert">
-          <?= session('error') ?>
-        </div>
-      <?php endif; ?>
+<div class="container d-flex justify-content-center align-items-center ">
 
 
 
-      <!-- Exibe a mensagem de erro, caso exista -->
-      <?php if (session()->has('success')) : ?>
-        <div class="alert alert-success" role="alert">
-          <?= session('success') ?>
-        </div>
-      <?php endif; ?>
+    <!-- Botões -->
+<button class="btn btn-success" id="btnShowDiv1" style="z-index: 0; margin: 0 10px;">Trocar</button>
+
+<button class="btn btn-danger" id="btnShowDiv2"  style="z-index: 0; margin: 0 10px;">Abertura</button>
+
+
+
+
+</div>
+<div id="div1" class="mt-3" style="display:block;">
+<div class="container d-flex justify-content-center align-items-center ">
+  <div class="card" style="border-radius: 2vh; width: 100%;">
+    <div class="card-body m-lg-5 text-center">
+      
+      <div class="table-responsive"> <!-- Adicione esta div -->
+       <!-- Exibe a mensagem de erro, caso exista -->
+            <?php if (session()->has('error')) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= session('error') ?>
+            </div>
+            <?php endif; ?>
+
+              <!-- Exibe a mensagem de erro, caso exista -->
+            <?php if (session()->has('success')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session('success') ?>
+            </div>
+            <?php endif; ?>
+
+              <!-- Submit button -->
+
 
 
       <div class="mb-3">
@@ -202,6 +220,79 @@
   </div>
 </div>
 
+
+
+
+
+<div id="div2" class="mt-3" style="display:none;">
+<div class="container d-flex justify-content-center align-items-center ">
+  <div class="card" style="border-radius: 2vh; width: 100%;">
+    <div class="card-body m-lg-5 text-center">
+      
+      <div class="table-responsive"> <!-- Adicione esta div -->
+
+      <div class="mb-3">
+        <h1>Abertura de Empresa</h1>
+        <label for="pesquisa" class="form-label">Pesquisar:</label>
+        <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
+      </div>
+
+        <table class="table table-striped ">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th style="text-align: center;">Ações</th>
+              <th>Nome</th>
+              <th>Data</th>
+              <th>E-mail</th>
+              <th>Contato</th>
+              <th>Cpf</th>
+              <th>Nfe</th>
+              <th>Lançamento</th>
+              <th>Estado</th>          
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach($abrir as $a) : ?>
+              <tr>
+        <td><?php echo $a['id'] ?></td>
+        <td>
+            <div style="display: flex; gap: 10px">
+                <a href="" class="btn btn-primary">Proposta</a>
+                <a href="<?php echo base_url('AdminController/editarAbrir/' . $a['id']) ?>" class="btn btn-warning">Editar</a>
+                <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
+                <a href="<?php echo base_url('AdminController/excluirAbrir/' . $a['id']) ?>" 
+                   class="btn btn-danger" 
+                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($a['nome']); ?>?');">
+                   Excluir
+                </a>
+            </div>
+        </td>
+
+                <td><?php echo $a['nome']  ?></td>
+                <td><?php echo $a['created_at']  ?></td>
+                <td><?php echo $a['email']  ?></td>
+                <td><?php echo $a['tel']  ?></td>
+                <td><?php echo $a['cpf']  ?></td>
+                <td><?php echo $a['nfe']  ?></td>
+                <td><?php echo $a['lancamento']  ?></td>
+                <td><?php echo $a['estado']  ?></td>
+                </tr>
+            <?php endforeach; ?>
+
+            </tbody>
+
+          </table>
+
+        </div> <!-- Fim da div .table-responsive -->
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
 </section>
 
 
@@ -209,3 +300,16 @@
 
 </body>
 </html>
+<script>
+  document.getElementById('btnShowDiv1').addEventListener('click', function() {
+    document.getElementById('div1').style.display = 'block';
+    document.getElementById('div2').style.display = 'none';
+});
+
+document.getElementById('btnShowDiv2').addEventListener('click', function() {
+    document.getElementById('div2').style.display = 'block';
+    document.getElementById('div1').style.display = 'none';
+});
+
+
+</script>
