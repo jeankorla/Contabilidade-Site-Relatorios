@@ -77,7 +77,16 @@ class ClienteController extends BaseController
 
     public function excluirCliente()
     {
+        $clienterModel = new Cliente();
 
+        // Verifique se o registro existe.
+        if ($clienteModel->find($id)) {
+            // Exclua o registro.
+            $clienteModel->delete($id);
+            return redirect()->to('AdminController')->with('success', 'Registro de troca excluído com sucesso.');
+        } else {
+            return redirect()->back()->with('error', 'Registro de troca não encontrado.');
+        }
     }
 
     public function sendEmail($data)
