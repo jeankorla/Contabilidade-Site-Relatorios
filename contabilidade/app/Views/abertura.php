@@ -368,6 +368,8 @@ form .website2 {
               </select>
             </div>
 
+            <input type="text" class="hidden" id="motivo_contato" name="motivo_contato" value="Abertura"/>
+
                 <div class="input-group">
                     <button type="submit">Cadastrar</button>
                 </div>
