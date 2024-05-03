@@ -159,7 +159,7 @@
                 <label for="funcionarios" class="form-label">Funcionários:</label>
                 <input type="number" id="funcionarios" class="form-control" name="funcionarios" value="<?= $registro['funcionarios'] ?>">
             </div>
-            <div class="col-4">
+            <div class="col-3">
                 <label for="tributacao" class="form-label">Tributação:</label>
                 <input type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $registro['tributacao'] ?>">
             </div>
@@ -167,7 +167,7 @@
                 <label for="nfe" class="form-label">Quantidade de Notas-Fiscais  - mês (Entrada/Saída/Serviços):</label>
                 <input type="number" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <label for="lancamento" class="form-label">Quantidade de Lançamentos Contábeis:</label>
                 <input type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
             </div>
