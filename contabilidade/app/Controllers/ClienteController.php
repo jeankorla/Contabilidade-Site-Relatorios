@@ -75,7 +75,7 @@ class ClienteController extends BaseController
          return view('editarCliente', ['registro' => $registro]);
     }
 
-    public function excluirCliente()
+    public function excluirCliente($id = null)
     {
         $clienterModel = new Cliente();
 
