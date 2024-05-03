@@ -174,7 +174,7 @@
 
 
 
-
+            <div class="col-md-6">
             <p class="d-inline-flex gap-1">
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                Informações Empresa
@@ -211,12 +211,19 @@
             </div>
             </div>
             </div>
-
-
-
+            </div>
 
             
             <div class="col-md-6">
+            <p class="d-inline-flex gap-1">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+               Informações Sócio
+            </button>
+            </p>
+
+            <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="col-md-6">
                 <label for="socio_nome" class="form-label">Nome do Sócio:</label>
                 <input type="text" id="socio_nome" class="form-control" name="socio_nome" value="<?= $registro['socio_nome'] ?>">
             </div>
@@ -260,6 +267,14 @@
                 <label for="socio_endereco_numero" class="form-label">Número do Sócio:</label>
                 <input type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $registro['socio_endereco_numero'] ?>">
             </div>
+            </div>
+            </div>
+            </div>
+
+
+
+            
+            
 
 
 
