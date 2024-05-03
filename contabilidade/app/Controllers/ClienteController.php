@@ -325,7 +325,7 @@ public function notifyManagement($data)
     $email->setTo('ti@sccontab.com.br');
 
     // Determinar o assunto e o conteúdo do e-mail com base no motivo
-    if ($data['motivo'] === 'Abertura') {
+    if ($data['motivo_contato'] === 'Abertura') {
         $email->setSubject('Novo Registro de Cliente - ABERTURA DE EMPRESA');
         $htmlContent = "
         <html>
@@ -349,7 +349,7 @@ public function notifyManagement($data)
             <p>Equipe Spolaor Contabilidade</p>
         </body>
         </html>";
-    } else if ($data['motivo'] === 'Troca') {
+    } else if ($data['motivo_contato'] === 'Troca') {
         $email->setSubject('Novo Registro de Cliente - TROCA DE CONTADOR');
         $htmlContent = "
         <html>
