@@ -176,6 +176,7 @@
                 <input id="input" type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
             </div>
 
+                <br>
                 <div class="col-md-12">
                 <h2 class="mb-5">Empresa Endereço</h2>
                 </div>
@@ -207,7 +208,7 @@
                 <input id="input" type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $registro['endereco_empresa_cidade'] ?>">
             </div>
         
-
+                <br>
                 <div class="col-md-12">
                 <h2 class="mb-5">Sócio Informações</h2>
                 </div>
@@ -261,7 +262,7 @@
                 <input id="input" type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $registro['socio_endereco_numero'] ?>">
             </div>
 
-
+            <br>
             <div class="col-md-12">
                 <h2 class="mb-5">Teste</h2>
                 </div>
@@ -281,7 +282,7 @@
 
             <div class="col-md-6">
                 <label for="honorario_texto" class="form-label">Honorário Texto:</label>
-                <textarea id="honorario_texto" name="honorario_texto" rows="12" cols="50" value="<?= $registro['honorario_texto'] ?>">
+                <textarea id="honorario_texto" name="honorario_texto" rows="6" cols="100" value="<?= $registro['honorario_texto'] ?>">
                 </textarea>
             </div>
             
