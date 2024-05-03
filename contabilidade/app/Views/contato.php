@@ -249,7 +249,7 @@ function applyFilter() {
     var rows = document.querySelectorAll('table tbody tr');
 
     rows.forEach(row => {
-        var respondedCell = row.cells[7].textContent; // A coluna 'Respondido' deve ser a oitava
+        var respondedCell = row.cells[5].textContent;
         switch (filter) {
             case 'not_responded':
                 if (respondedCell.trim() === 'Não') {
