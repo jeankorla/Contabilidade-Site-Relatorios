@@ -12,6 +12,11 @@
 
 
 <style>
+
+    html, body {
+      font-size: 90%;
+    }
+    
     .jp1 {
     animation:slide 3s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #024A7F 50%, #0097C4 50%);
@@ -23,24 +28,24 @@
     top:0;
     z-index:0;
     animation-duration: 5s;
-}
-
-.jp2 {
-    animation-direction:alternate-reverse;
-    animation-duration:6s;
-}
-
-.jp3 {
-    animation-duration: 7s;
-}
- @keyframes slide {
-    0% {
-        transform:translateX(-25%);
     }
-    100% {
-        transform:translateX(25%);
+
+    .jp2 {
+        animation-direction:alternate-reverse;
+        animation-duration:6s;
     }
-}
+
+    .jp3 {
+        animation-duration: 7s;
+    }
+    @keyframes slide {
+        0% {
+            transform:translateX(-25%);
+        }
+        100% {
+            transform:translateX(25%);
+        }
+    }
 
 </style>
 </head>
@@ -136,8 +141,11 @@
                 <?= session('success') ?>
             </div>
             <?php endif; ?>
-            
 
+
+      <div class="mb-3">
+        <h1>Contatos</h1>
+      </div>
 <div class="container mt-4 mb-4">
     <div class="d-flex justify-content-end">
         <div>
