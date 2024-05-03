@@ -68,12 +68,16 @@ class ClienteController extends BaseController
 
     public function editarCliente()
     {
+        $clienteModel = new Cliente();
 
+        $registro = $clienteModel->findAll();
+
+         return view('editarCliente', ['registro' => $registro]);
     }
 
     public function excluirCliente()
     {
-        
+
     }
 
 
