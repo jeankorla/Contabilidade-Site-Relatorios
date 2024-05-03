@@ -305,7 +305,7 @@ form .website2 {
         <div class="form-box">
             <h2>Trocar de Contabilidade</h2>
             <p> Já é cliente? Faça <a href="/cliente"> Login </a> </p>
-            <form action="<?php echo base_url('TrocarController/store') ?>" method="post">
+            <form action="<?php echo base_url('ClienteController/store') ?>" method="post">
                 <!-- Exibe a mensagem de sucesso, caso exista -->
             <?php if (session()->has('success')) : ?>
             <div class="alert alert-success" role="alert">

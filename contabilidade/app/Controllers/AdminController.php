@@ -18,24 +18,21 @@ class AdminController extends BaseController
             return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
         }
 
-        $trocarModel = new Trocar;
-
         $clienteModel = new Cliente;
-
-        $trocar = $trocarModel->findAll();
 
         $clientes = $clienteModel->findAll();
 
 
-        return view('admin', ['trocar' => $trocar, 'clientes' => $clientes]);
+        return view('admin', ['clientes' => $clientes]);
     }
 
-        public function editarTrocar($id = null)
+
+        public function editarCliente($id = null)
     {
-        $trocarModel = new Trocar();
+        $clienteModel = new Cliente;;
 
         // Busque o registro pelo ID.
-        $registro = $trocarModel->find($id);
+        $registro = $clienteModel->find($id);
 
         // Se não encontrarmos um registro com esse ID, retornamos para a lista com uma mensagem.
         if (!$registro) {
@@ -43,38 +40,50 @@ class AdminController extends BaseController
         }
 
         // Carregue a view com o registro para edição.
-        return view('editarTrocar', ['registro' => $registro]);
+        return view('editarCliente', ['registro' => $registro]);
     }
 
-    public function atualizarTrocar($id = null)
+    public function atualizarCliente($id = null)
     {
-        $nome = $this->request->getPost('nome');
-        $destinatarioEmail = $this->request->getPost('email');
-        $tel = $this->request->getPost('tel');
-        $cnpj = $this->request->getPost('cnpj');
-        $nome_empresa = $this->request->getPost('nome_empresa');
-        $faturamento = $this->request->getPost('faturamento');
-        $funcionarios = $this->request->getPost('funcionarios');
-        $tributacao = $this->request->getPost('tributacao');
-        $nfe = $this->request->getPost('nfe');
-        $lancamento = $this->request->getPost('lancamento');
-        $estado = $this->request->getPost('estado');
-
-        $trocarModel = new Trocar;
-
+        // Coletar todos os dados do formulário
         $data = [
-            'nome' => $nome,
-            'email' => $destinatarioEmail,
-            'tel' => $tel,
-            'cnpj' => $cnpj,
-            'nome_empresa' => $nome_empresa,
-            'faturamento' => $faturamento,
-            'funcionarios' => $funcionarios,
-            'tributacao' => $tributacao,
-            'nfe' => $nfe,
-            'lancamento' => $lancamento,
-            'estado' => $estado
+            'motivo_contato'           => $this->request->getPost('motivo_contato'),
+            'nome_contato'             => $this->request->getPost('nome_contato'),
+            'email_contato'            => $this->request->getPost('email_contato'),
+            'tel_contato'              => $this->request->getPost('tel_contato'),
+            'cpf_contato'              => $this->request->getPost('cpf_contato'),
+            'cnpj'                     => $this->request->getPost('cnpj'),
+            'nome_empresa'             => $this->request->getPost('nome_empresa'),
+            'faturamento'              => $this->request->getPost('faturamento'),
+            'funcionarios'             => $this->request->getPost('funcionarios'),
+            'tributacao'               => $this->request->getPost('tributacao'),
+            'nfe'                      => $this->request->getPost('nfe'),
+            'lancamento'               => $this->request->getPost('lancamento'),
+            'endereco_empresa_estado'  => $this->request->getPost('endereco_empresa_estado'),
+            'endereco_empresa_cep'     => $this->request->getPost('endereco_empresa_cep'),
+            'endereco_empresa_rua'     => $this->request->getPost('endereco_empresa_rua'),
+            'endereco_empresa_numero'  => $this->request->getPost('endereco_empresa_numero'),
+            'endereco_empresa_bairro'  => $this->request->getPost('endereco_empresa_bairro'),
+            'endereco_empresa_cidade'  => $this->request->getPost('endereco_empresa_cidade'),
+            'socio_nome'               => $this->request->getPost('socio_nome'),
+            'socio_nacional'           => $this->request->getPost('socio_nacional'),
+            'socio_idade'              => $this->request->getPost('socio_idade'),
+            'socio_rg'                 => $this->request->getPost('socio_rg'),
+            'socio_cpf'                => $this->request->getPost('socio_cpf'),
+            'socio_endereco_cep'       => $this->request->getPost('socio_endereco_cep'),
+            'socio_endereco_estado'    => $this->request->getPost('socio_endereco_estado'),
+            'socio_endereco_cidade'    => $this->request->getPost('socio_endereco_cidade'),
+            'socio_endereco_bairro'    => $this->request->getPost('socio_endereco_bairro'),
+            'socio_endereco_rua'       => $this->request->getPost('socio_endereco_rua'),
+            'socio_endereco_numero'    => $this->request->getPost('socio_endereco_numero'),
+            'honorario'                => $this->request->getPost('honorario'),
+            'honorario_texto'          => $this->request->getPost('honorario_texto'),
+            'inicio_contabilidade'     => $this->request->getPost('inicio_contabilidade'),
+            'competencia'              => $this->request->getPost('competencia')
         ];
+
+        // Instanciando o modelo e inserindo os dados
+        $clienteModel = new Cliente;
 
         $trocarModel->update($id, $data);
 

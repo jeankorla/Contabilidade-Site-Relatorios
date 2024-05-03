@@ -340,6 +340,11 @@ form .website2 {
                     <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Digite o nome de sua empresa" maxlength="50">
                 </div>
 
+                <div class="input-group">
+                    <label for="endereco_empresa_cidade">Cidade</label>
+                    <input type="text" id="endereco_empresa_cidade" name="endereco_empresa_cidade" placeholder="Digite a cidade de sua empresa" maxlength="50">
+                </div>
+
                  <div class="">
                     <label for="endereco_empresa_estado">Estado</label>
                     <select class="input-group form-control" id="endereco_empresa_estado" name="endereco_empresa_estado" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
