@@ -349,7 +349,7 @@ public function notifyManagement($data)
             <p>Equipe Spolaor Contabilidade</p>
         </body>
         </html>";
-    } else if ($data['motivo_contato'] === 'Troca') {
+    } else if ($data['motivo_contato'] === 'Trocar') {
         $email->setSubject('Novo Registro de Cliente - TROCA DE CONTADOR');
         $htmlContent = "
         <html>
