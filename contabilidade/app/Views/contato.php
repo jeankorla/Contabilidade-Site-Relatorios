@@ -136,16 +136,8 @@
                 <?= session('success') ?>
             </div>
             <?php endif; ?>
+            
 
-              <!-- Submit button -->
-
-
-
-      <div class="mb-3">
-        <h1>Contatos</h1>
-        <label for="pesquisa" class="form-label">Pesquisar:</label>
-        <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
-      </div>
 <div class="container mt-4 mb-4">
     <div class="d-flex justify-content-end">
         <div>
