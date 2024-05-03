@@ -117,7 +117,7 @@ class ClienteController extends BaseController
         // Instanciando o modelo e inserindo os dados
         $clienteModel = new Cliente;
 
-        $trocarModel->update($id, $data);
+        $clienteModel->update($id, $data);
 
         // Redirecione de volta com uma mensagem de sucesso.
         return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
@@ -125,7 +125,7 @@ class ClienteController extends BaseController
 
     public function excluirCliente($id = null)
     {
-        $clienterModel = new Cliente();
+        $clienteModel = new Cliente();
 
         // Verifique se o registro existe.
         if ($clienteModel->find($id)) {
