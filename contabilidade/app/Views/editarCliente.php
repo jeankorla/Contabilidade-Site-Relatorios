@@ -174,8 +174,7 @@
 
 
 
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
-            <div id="demo" class="collapse">
+            
                 <div class="col-md-12">
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
                 <input type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $registro['endereco_empresa_estado'] ?>">
@@ -202,8 +201,11 @@
                 <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
                 <input type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $registro['endereco_empresa_cidade'] ?>">
             </div>
-            </div>
+        
            
+
+
+
 
            
                 <div class="col-md-6">
