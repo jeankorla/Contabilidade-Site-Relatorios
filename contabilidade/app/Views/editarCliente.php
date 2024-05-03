@@ -163,11 +163,11 @@
                 <label for="tributacao" class="form-label">Tributação:</label>
                 <input type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $registro['tributacao'] ?>">
             </div>
-            <div class="col-6">
+            <div class="col-5">
                 <label for="nfe" class="form-label">Quantidade de Notas-Fiscais  - mês (Entrada/Saída/Serviços):</label>
                 <input type="number" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="lancamento" class="form-label">Quantidade de Lançamentos Contábeis:</label>
                 <input type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
             </div>
