@@ -16,7 +16,7 @@
     html, body {
       font-size: 90%;
     }
-    
+
     .jp1 {
     animation:slide 3s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #024A7F 50%, #0097C4 50%);
@@ -49,7 +49,7 @@
 
 </style>
 </head>
-<body style="background-color: #eee;">
+<body>
 
     <nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #024A7F; z-index: 1;">
   <div class="container-fluid navbar-container">
@@ -162,7 +162,6 @@
         <table class="table table-striped ">
           <thead>
             <tr>
-              <th>ID</th>
               <th style="text-align: center;">Ações</th>
               <th>Nome</th>
               <th>E-mail</th>
@@ -174,13 +173,12 @@
           <tbody>
          <?php foreach ($contato as $c) : ?>
 <tr>
-    <td><?php echo $c['id']; ?></td>
     <td>
         <div style="display: flex; justify-content: center; gap: 10px">
             <!-- Botão Responder com ativador de modal -->
-            <button class="btn btn-primary" onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>')">Responder</button>
+            <button class="btn btn-primary" onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>')"><i class="bi bi-send-fill"></i></button>
             <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']); ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir o contato de <?php echo addslashes($c['name']); ?>?');">
-                Excluir
+                <i class="bi bi-trash-fill"></i>
             </a>
         </div>
     </td>
