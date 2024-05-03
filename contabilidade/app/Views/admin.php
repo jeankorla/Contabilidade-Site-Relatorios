@@ -172,7 +172,7 @@
         </td>
                 <td><?php echo $cliente['motivo_contato'] ?></td>
                 <td><?php echo $cliente['nome_empresa'] ?></td>
-                <td>R$ <?php echo number_format($faturamento, 2, ',', '.'); ?></td>
+                <td>R$ <?php echo number_format($cliente['faturamento'], 2, ',', '.'); ?></td>
                 <td><?php echo $cliente['tributacao'] ?></td>
                 <td><?php echo $cliente['endereco_empresa_estado'] ?></td>
                 <td><?php echo $cliente['endereco_empresa_cidade'] ?></td>
