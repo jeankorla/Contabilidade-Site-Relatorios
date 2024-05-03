@@ -168,12 +168,12 @@
             </div>
         </td>
                 <td><?php echo $cliente['motivo_contato'] ?></td>
-                <td><?php echo $t['nome_empresa'] ?></td>
-                <td><?php echo $t['faturamento'] ?></td>
-                <td><?php echo $t['tributacao'] ?></td>
-                <td><?php echo $t['estado'] ?></td>
-                <td><?php echo $t['endereco_empresa_cidade'] ?></td>
-                <td><?php echo $t['created_at'] ?></td>
+                <td><?php echo $cliente['nome_empresa'] ?></td>
+                <td><?php echo $cliente['faturamento'] ?></td>
+                <td><?php echo $cliente['tributacao'] ?></td>
+                <td><?php echo $cliente['estado'] ?></td>
+                <td><?php echo $cliente['endereco_empresa_cidade'] ?></td>
+                <td><?php echo $cliente['created_at'] ?></td>
                 </tr>
             <?php endforeach; ?>
 
