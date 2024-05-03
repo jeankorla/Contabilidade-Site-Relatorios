@@ -40,6 +40,10 @@
         transform:translateX(25%);
     }
 }
+
+#input{
+    background-color: #eee;
+}
 </style>
 </head>
 
@@ -128,48 +132,48 @@
 
             <div class="col-md-6">
                 <label for="nome_contato" class="form-label">Nome de Contato:</label>
-                <input type="text" class="form-control" id="nome_contato" name="nome_contato" value="<?= $registro['nome_contato'] ?>">
+                <input id="input" type="text" class="form-control" id="nome_contato" name="nome_contato" value="<?= $registro['nome_contato'] ?>">
             </div>
 
             <div class="col-md-6">
                 <label for="email_contato" class="form-label">Email de Contato:</label>
-                <input type="email" class="form-control" id="email_contato" name="email_contato" value="<?= $registro['email_contato'] ?>">
+                <input id="input" type="email" class="form-control" id="email_contato" name="email_contato" value="<?= $registro['email_contato'] ?>">
             </div>
             <div class="col-md-4">
                 <label for="tel" class="form-label">Telefone do Contato:</label>
-                <input type="text" class="form-control" id="tel" name="tel" value="<?= $registro['tel_contato'] ?>" oninput="mascaraTelefone(event);" maxlength="15">
+                <input id="input" type="text" class="form-control" id="tel" name="tel" value="<?= $registro['tel_contato'] ?>" oninput=id="input" "mascaraTelefone(event);" maxlength="15">
             </div>
             <div class="col-md-4">
                 <label for="cpf_contato" class="form-label">CPF do Contato:</label>
-                <input type="text" id="cpf_contato" class="form-control" name="cpf_contato" oninput="aplicarMascaraCPF(this)" value="<?= $registro['cpf_contato'] ?>" maxlength="14">
+                <input id="input" type="text" id="cpf_contato" class="form-control" name="cpf_contato" oninput=id="input" "aplicarMascaraCPF(this)" value="<?= $registro['cpf_contato'] ?>" maxlength="14">
             </div>
             <div class="col-4">
                 <label for="cnpj" class="form-label">CNPJ:</label>
-               <input type="text" id="cnpj" class="form-control" name="cnpj" value="<?= $registro['cnpj'] ?>" oninput="aplicarMascaraCNPJ(this)" maxlength="18">
+               <input id="input" type="text" id="cnpj" class="form-control" name="cnpj" value="<?= $registro['cnpj'] ?>" oninput=id="input" "aplicarMascaraCNPJ(this)" maxlength="18">
             </div>
             <div class="col-6">
                 <label for="nome_empresa" class="form-label">Nome da Empresa:</label>
-                <input type="text" id="nome_empresa" class="form-control" name="nome_empresa" value="<?= $registro['nome_empresa'] ?>">
+                <input id="input" type="text" id="nome_empresa" class="form-control" name="nome_empresa" value="<?= $registro['nome_empresa'] ?>">
             </div>
             <div class="col-3">
                 <label for="faturamento" class="form-label">Faturamento:</label>
-                <input type="text" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>" onkeyup="formatarMoeda();" maxlength="18">
+                <input id="input" type="text" id="faturamento" class="form-control" name="faturamento" value="<?= $registro['faturamento'] ?>" onkeyup="formatarMoeda();" maxlength="18">
             </div>
             <div class="col-3">
                 <label for="funcionarios" class="form-label">Funcionários:</label>
-                <input type="number" id="funcionarios" class="form-control" name="funcionarios" value="<?= $registro['funcionarios'] ?>">
+                <input id="input" type="number" id="funcionarios" class="form-control" name="funcionarios" value="<?= $registro['funcionarios'] ?>">
             </div>
             <div class="col-3">
                 <label for="tributacao" class="form-label">Tributação:</label>
-                <input type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $registro['tributacao'] ?>">
+                <input id="input" type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $registro['tributacao'] ?>">
             </div>
             <div class="col-5">
                 <label for="nfe" class="form-label">Quantidade de Notas-Fiscais:</label>
-                <input type="number" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
+                <input id="input" type="number" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
             </div>
             <div class="col-md-4">
                 <label for="lancamento" class="form-label">Quantidade de Lançamentos Contábeis:</label>
-                <input type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
+                <input id="input" type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
             </div>
 
 
@@ -177,29 +181,29 @@
             
                 <div class="col-md-12">
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
-                <input type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $registro['endereco_empresa_estado'] ?>">
+                <input id="input" type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $registro['endereco_empresa_estado'] ?>">
             </div>
             <div class="col-12">
                 <label for="endereco_empresa_cep" class="form-label">Empresa Cep:</label>
-                <input type="text" id="endereco_empresa_cep" class="form-control" name="endereco_empresa_cep" value="<?= $registro['endereco_empresa_cep'] ?>">
+                <input id="input" type="text" id="endereco_empresa_cep" class="form-control" name="endereco_empresa_cep" value="<?= $registro['endereco_empresa_cep'] ?>">
             </div>
             <div class="form-outline">
                 <label for="endereco_empresa_rua" class="form-label">Empresa Rua:</label>
-                <input type="text" id="endereco_empresa_rua" class="form-control" name="endereco_empresa_rua" value="<?= $registro['endereco_empresa_rua'] ?>">
+                <input id="input" type="text" id="endereco_empresa_rua" class="form-control" name="endereco_empresa_rua" value="<?= $registro['endereco_empresa_rua'] ?>">
             </div>
 
              <div class="col-md-6">
                 <label for="endereco_empresa_numero" class="form-label">Empresa Numero:</label>
-                <input type="text" id="endereco_empresa_numero" class="form-control" name="endereco_empresa_numero" value="<?= $registro['endereco_empresa_numero'] ?>">
+                <input id="input" type="text" id="endereco_empresa_numero" class="form-control" name="endereco_empresa_numero" value="<?= $registro['endereco_empresa_numero'] ?>">
             </div>
 
             <div class="col-md-6">
                 <label for="endereco_empresa_bairro" class="form-label">Empresa Bairro:</label>
-                <input type="text" id="endereco_empresa_bairro" class="form-control" name="endereco_empresa_bairro" value="<?= $registro['endereco_empresa_bairro'] ?>">
+                <input id="input" type="text" id="endereco_empresa_bairro" class="form-control" name="endereco_empresa_bairro" value="<?= $registro['endereco_empresa_bairro'] ?>">
             </div>
             <div class="col-md-6">
                 <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
-                <input type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $registro['endereco_empresa_cidade'] ?>">
+                <input id="input" type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $registro['endereco_empresa_cidade'] ?>">
             </div>
         
            
@@ -210,47 +214,47 @@
            
                 <div class="col-md-6">
                 <label for="socio_nome" class="form-label">Nome do Sócio:</label>
-                <input type="text" id="socio_nome" class="form-control" name="socio_nome" value="<?= $registro['socio_nome'] ?>">
+                <input id="input" type="text" id="socio_nome" class="form-control" name="socio_nome" value="<?= $registro['socio_nome'] ?>">
             </div>
             <div class="col-9">
                 <label for="socio_nacional" class="form-label">Nacionalidade do Sócio:</label>
-                <input type="text" id="socio_nacional" class="form-control" name="socio_nacional" value="<?= $registro['socio_nacional'] ?>">
+                <input id="input" type="text" id="socio_nacional" class="form-control" name="socio_nacional" value="<?= $registro['socio_nacional'] ?>">
             </div>
             <div class="col-3">
                 <label for="socio_idade" class="form-label">Idade do Sócio:</label>
-                <input type="text" id="socio_idade" class="form-control" name="socio_idade" value="<?= $registro['socio_idade'] ?>">
+                <input id="input" type="text" id="socio_idade" class="form-control" name="socio_idade" value="<?= $registro['socio_idade'] ?>">
             </div>
             <div class="col-6">
                 <label for="socio_rg" class="form-label">RG do Sócio:</label>
-                <input type="text" id="socio_rg" class="form-control" name="socio_rg" value="<?= $registro['socio_rg'] ?>">
+                <input id="input" type="text" id="socio_rg" class="form-control" name="socio_rg" value="<?= $registro['socio_rg'] ?>">
             </div>
             <div class="col-6">
                 <label for="socio_cpf" class="form-label">CPF do Sócio:</label>
-                <input type="text" id="socio_cpf" class="form-control" name="socio_cpf" value="<?= $registro['socio_cpf'] ?>">
+                <input id="input" type="text" id="socio_cpf" class="form-control" name="socio_cpf" value="<?= $registro['socio_cpf'] ?>">
             </div>
             <div class="col-6">
                 <label for="socio_endereco_cep" class="form-label">CEP do Sócio:</label>
-                <input type="text" id="socio_endereco_cep" class="form-control" name="socio_endereco_cep" value="<?= $registro['socio_endereco_cep'] ?>">
+                <input id="input" type="text" id="socio_endereco_cep" class="form-control" name="socio_endereco_cep" value="<?= $registro['socio_endereco_cep'] ?>">
             </div>
             <div class="col-6">
                 <label for="socio_endereco_estado" class="form-label">Estado do Sócio:</label>
-                <input type="text" id="socio_endereco_estado" class="form-control" name="socio_endereco_estado" value="<?= $registro['socio_endereco_estado'] ?>">
+                <input id="input" type="text" id="socio_endereco_estado" class="form-control" name="socio_endereco_estado" value="<?= $registro['socio_endereco_estado'] ?>">
             </div>
             <div class="col-md-6">
                 <label for="socio_endereco_cidade" class="form-label">Cidade do Sócio:</label>
-                <input type="text" id="socio_endereco_cidade" class="form-control" name="socio_endereco_cidade" value="<?= $registro['socio_endereco_cidade'] ?>">
+                <input id="input" type="text" id="socio_endereco_cidade" class="form-control" name="socio_endereco_cidade" value="<?= $registro['socio_endereco_cidade'] ?>">
             </div>
             <div class="col-md-12">
                 <label for="socio_endereco_bairro" class="form-label">Bairro do Sócio:</label>
-                <input type="text" id="socio_endereco_bairro" class="form-control" name="socio_endereco_bairro" value="<?= $registro['socio_endereco_bairro'] ?>">
+                <input id="input" type="text" id="socio_endereco_bairro" class="form-control" name="socio_endereco_bairro" value="<?= $registro['socio_endereco_bairro'] ?>">
             </div>
             <div class="col-12">
                 <label for="socio_endereco_rua" class="form-label">Rua do Sócio:</label>
-                <input type="text" id="socio_endereco_rua" class="form-control" name="socio_endereco_rua" value="<?= $registro['socio_endereco_rua'] ?>">
+                <input id="input" type="text" id="socio_endereco_rua" class="form-control" name="socio_endereco_rua" value="<?= $registro['socio_endereco_rua'] ?>">
             </div>
             <div class="form-outline">
                 <label for="socio_endereco_numero" class="form-label">Número do Sócio:</label>
-                <input type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $registro['socio_endereco_numero'] ?>">
+                <input id="input" type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $registro['socio_endereco_numero'] ?>">
             </div>
            
 
@@ -263,20 +267,20 @@
 
             <div class="col-md-6">
                 <label for="honorario" class="form-label">Honorário:</label>
-                <input type="text" id="honorario" class="form-control" name="honorario" value="<?= $registro['honorario'] ?>">
+                <input id="input" type="text" id="honorario" class="form-control" name="honorario" value="<?= $registro['honorario'] ?>">
             </div>
 
             <div class="col-md-6">
                 <label for="honorario_texto" class="form-label">Honorário Texto:</label>
-                <input type="text" id="honorario_texto" class="form-control" name="honorario_texto" value="<?= $registro['honorario_texto'] ?>">
+                <input id="input" type="text" id="honorario_texto" class="form-control" name="honorario_texto" value="<?= $registro['honorario_texto'] ?>">
             </div>
             <div class="col-md-6">
                 <label for="inicio_contabilidade" class="form-label">Início na Contabilidade:</label>
-                <input type="text" id="inicio_contabilidade" class="form-control" name="inicio_contabilidade" value="<?= $registro['inicio_contabilidade'] ?>">
+                <input id="input" type="text" id="inicio_contabilidade" class="form-control" name="inicio_contabilidade" value="<?= $registro['inicio_contabilidade'] ?>">
             </div>
             <div class="col-md-6">
                 <label for="competencia" class="form-label">Competência:</label>
-                <input type="text" id="competencia" class="form-control" name="competencia" value="<?= $registro['competencia'] ?>">
+                <input id="input" type="text" id="competencia" class="form-control" name="competencia" value="<?= $registro['competencia'] ?>">
             </div>
 
             <div class="col-12">
