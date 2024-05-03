@@ -275,7 +275,8 @@
 
             <div class="col-md-6">
                 <label for="honorario_texto" class="form-label">Honorário Texto:</label>
-                <input id="input" type="textarea" id="honorario_texto" class="form-control" name="honorario_texto" value="<?= $registro['honorario_texto'] ?>">
+                <textarea id="honorario_texto" name="honorario_texto" rows="4" cols="50" value="<?= $registro['honorario_texto'] ?>">
+                </textarea>
             </div>
             
            
