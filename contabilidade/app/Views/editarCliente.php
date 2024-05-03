@@ -159,19 +159,31 @@
                 <label for="funcionarios" class="form-label">Funcionários:</label>
                 <input type="number" id="funcionarios" class="form-control" name="funcionarios" value="<?= $registro['funcionarios'] ?>">
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <label for="tributacao" class="form-label">Tributação:</label>
                 <input type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $registro['tributacao'] ?>">
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <label for="nfe" class="form-label">Quantidade de Notas-Fiscais  - mês (Entrada/Saída/Serviços):</label>
                 <input type="number" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="lancamento" class="form-label">Quantidade de Lançamentos Contábeis:</label>
                 <input type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
             </div>
-            <div class="col-md-12">
+
+
+
+
+            <p class="d-inline-flex gap-1">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+               Informações Empresa
+            </button>
+            </p>
+
+            <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="col-md-12">
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
                 <input type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $registro['endereco_empresa_estado'] ?>">
             </div>
@@ -183,8 +195,6 @@
                 <label for="endereco_empresa_rua" class="form-label">Empresa Rua:</label>
                 <input type="text" id="endereco_empresa_rua" class="form-control" name="endereco_empresa_rua" value="<?= $registro['endereco_empresa_rua'] ?>">
             </div>
-
-
 
              <div class="col-md-6">
                 <label for="endereco_empresa_numero" class="form-label">Empresa Numero:</label>
@@ -199,6 +209,13 @@
                 <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
                 <input type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $registro['endereco_empresa_cidade'] ?>">
             </div>
+            </div>
+            </div>
+
+
+
+
+            
             <div class="col-md-6">
                 <label for="socio_nome" class="form-label">Nome do Sócio:</label>
                 <input type="text" id="socio_nome" class="form-control" name="socio_nome" value="<?= $registro['socio_nome'] ?>">
