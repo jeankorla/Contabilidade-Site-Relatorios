@@ -40,32 +40,6 @@
         transform:translateX(25%);
     }
 }
-
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-  background-color: #ccc;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
 </style>
 </head>
 
@@ -198,12 +172,10 @@
                 <input type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
             </div>
 
-                
-            <div class="col-md-12">
 
-                <button type="button" class="collapsible">Open Collapsible</button>
-                    <div class="content">
 
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+            <div id="demo" class="collapse">
                 <div class="col-md-12">
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
                 <input type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $registro['endereco_empresa_estado'] ?>">
@@ -230,10 +202,8 @@
                 <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
                 <input type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $registro['endereco_empresa_cidade'] ?>">
             </div>
+            </div>
            
-         </div>
-          </div>
-
 
            
                 <div class="col-md-6">
