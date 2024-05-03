@@ -313,20 +313,20 @@ form .website2 {
             </div>
             <?php endif; ?>
                 <div class="input-group">
-                    <label for="nome"> Nome Completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
+                    <label for="nome_contato">Nome Completo</label>
+                    <input type="text" id="nome_contato" name="nome_contato" placeholder="Digite o seu nome completo" required maxlength="50">
                 </div>
 
                 <div class="input-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255"> 
+                    <label for="email_contato">E-mail</label>
+                    <input type="email" id="email_contato" name="email_contato" placeholder="Digite o seu email" required maxlength="255"> 
                 </div>
 
                 <input type="text" name="website2" class="website2" />
 
                 <div class="input-group">
-                    <label for="tel">Telefone</label>
-                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
+                    <label for="tel_contato">Telefone</label>
+                    <input type="tel_contato" id="tel_contato" name="tel_contato" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
                 </div>
 
                 <div class="input-group">
