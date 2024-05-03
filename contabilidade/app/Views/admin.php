@@ -12,7 +12,7 @@
 <style>
 
     html, body {
-      font-size: 80%;
+      font-size: 90%;
     }
 
     .jp1 {
@@ -44,7 +44,6 @@
             transform:translateX(25%);
         }
     }
-
 </style>
 </head>
 <body>
