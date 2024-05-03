@@ -4,10 +4,17 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Contato;
+use App\Controllers\EmailController;
 
 
 class ContatoController extends BaseController
 {
+    protected $emailController;
+
+    public function __construct()
+    {
+        $this->emailController = new EmailController();
+    }
 
     public function index()
     {
@@ -48,7 +55,8 @@ class ContatoController extends BaseController
     ];
 
     $Contato->insert($data);
-    $this->contatoEmailDiretoria($data);
+
+    $this->emailController->contatoEmailDiretoria($data);
 
     return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
     }
