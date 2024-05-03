@@ -13,8 +13,6 @@
 
     body{
       transform: scale(0.8);
-      transform-origin: top left;
-      background-color: #eee;
     }
 
     .jp1 {
