@@ -85,7 +85,7 @@ class ClienteController extends BaseController
     $email = \Config\Services::email();
 
     $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
-    $email->setTo($data['email']);
+    $email->setTo($data['email_contato']);
 
     $email->setSubject('Bem vindo a Spolaor ' . $data['nome']);
 
