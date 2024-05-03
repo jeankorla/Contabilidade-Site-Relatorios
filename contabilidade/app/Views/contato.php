@@ -299,7 +299,7 @@ function sendResponse() {
     console.log("Enviando resposta com os seguintes dados:", {email: email, message: message, contactId: contactId});
 
     // Certifique-se de que o URL está correto e de que a resposta esperada é JSON
-    $.post('<?= base_url("ContatoController/sendResponse") ?>', { email: email, message: message, contactId: contactId  }, function(response) {
+    $.post('<?= base_url("EmailController/contatoRespostaCliente") ?>', { email: email, message: message, contactId: contactId  }, function(response) {
         $('#responseModal').modal('hide');
         if (response.status === 'success') {
             alert('Email enviado com sucesso!'); // Notificação de sucesso

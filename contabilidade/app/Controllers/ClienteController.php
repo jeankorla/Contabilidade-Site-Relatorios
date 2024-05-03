@@ -68,8 +68,8 @@ class ClienteController extends BaseController
         $clienteModel->insert($data);
 
         // Usando métodos do EmailController
-        $this->emailController->sendEmail($data);
-        $this->emailController->notifyManagement($data);
+        $this->emailController->emailCliente($data);
+        $this->emailController->emailDiretoria($data);
 
         return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
     }
