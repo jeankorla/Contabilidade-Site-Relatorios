@@ -172,17 +172,12 @@
                 <input type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $registro['lancamento'] ?>">
             </div>
 
+                
+            <div class="col-md-12">
 
+                <button type="button" class="collapsible">Open Collapsible</button>
+                    <div class="content">
 
-            <div class="col-md-6">
-            <p class="d-inline-flex gap-1">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-               Informações Empresa
-            </button>
-            </p>
-
-            <div class="collapse" id="collapseExample">
-            <div class="card card-body">
                 <div class="col-md-12">
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
                 <input type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $registro['endereco_empresa_estado'] ?>">
@@ -209,20 +204,12 @@
                 <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
                 <input type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $registro['endereco_empresa_cidade'] ?>">
             </div>
-            </div>
-            </div>
-            </div>
+           
+         </div>
+          </div>
 
-            
-            <div class="col-md-6">
-            <p class="d-inline-flex gap-1">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-               Informações Sócio
-            </button>
-            </p>
-
-            <div class="collapse" id="collapseExample">
-            <div class="card card-body">
+          
+           
                 <div class="col-md-6">
                 <label for="socio_nome" class="form-label">Nome do Sócio:</label>
                 <input type="text" id="socio_nome" class="form-control" name="socio_nome" value="<?= $registro['socio_nome'] ?>">
@@ -267,9 +254,7 @@
                 <label for="socio_endereco_numero" class="form-label">Número do Sócio:</label>
                 <input type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $registro['socio_endereco_numero'] ?>">
             </div>
-            </div>
-            </div>
-            </div>
+           
 
 
 
