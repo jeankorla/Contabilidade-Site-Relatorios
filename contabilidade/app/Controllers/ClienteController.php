@@ -131,9 +131,9 @@ class ClienteController extends BaseController
         if ($clienteModel->find($id)) {
             // Exclua o registro.
             $clienteModel->delete($id);
-            return redirect()->to('AdminController')->with('success', 'Registro de troca excluído com sucesso.');
+            return redirect()->to('AdminController')->with('success', 'Registro excluído com sucesso.');
         } else {
-            return redirect()->back()->with('error', 'Registro de troca não encontrado.');
+            return redirect()->back()->with('error', 'Registro não encontrado.');
         }
     }
 
