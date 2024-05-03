@@ -24,7 +24,7 @@ class AdminController extends BaseController
 
         $trocar = $trocarModel->findAll();
 
-        $clientes = $clienteModel->finAll();
+        $clientes = $clienteModel->findAll();
 
 
         return view('admin', ['trocar' => $trocar, 'clientes' => $clientes]);
