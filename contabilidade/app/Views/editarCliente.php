@@ -82,7 +82,7 @@
     <div class="jp1 jp2"></div>
     <div class="jp1 jp3"></div>
 
-    <div class="container">
+    
     <div class="card mt-5 mb-5 p-5 shadow-lg">
         <div class="col-12 mb-5">
             <a class="btn btn-danger" href="#">Voltar</a>
@@ -94,7 +94,7 @@
                 <li>Erro exemplo</li>
             </ul>
         </div>
-        
+
         <form class="row g-3" action="<?= base_url('AdminController/atualizarCliente/' . $registro['id']) ?>" method="post" >
 
             <div class="col-md-6">
@@ -240,7 +240,6 @@
                 <button type="submit" class="btn btn-primary">Atualizar</button>
             </div>
         </form>
-    </div>
     </div>
 
     
