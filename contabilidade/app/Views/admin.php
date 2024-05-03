@@ -10,39 +10,46 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 <style>
+
+    body{
+      transform: scale(0.8);
+      transform-origin: top left;
+      background-color: #eee;
+    }
+
     .jp1 {
-    animation:slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #024A7F 50%, #0097C4 50%);
-    bottom:0;
-    left:-50%;
-    opacity:.5;
-    position:fixed;
-    right:-50%;
-    top:0;
-    z-index:0;
-    animation-duration: 5s;
-}
-
-.jp2 {
-    animation-direction:alternate-reverse;
-    animation-duration:6s;
-}
-
-.jp3 {
-    animation-duration: 7s;
-}
- @keyframes slide {
-    0% {
-        transform:translateX(-25%);
+      animation:slide 3s ease-in-out infinite alternate;
+      background-image: linear-gradient(-60deg, #024A7F 50%, #0097C4 50%);
+      bottom:0;
+      left:-50%;
+      opacity:.5;
+      position:fixed;
+      right:-50%;
+      top:0;
+      z-index:0;
+      animation-duration: 5s;
     }
-    100% {
-        transform:translateX(25%);
+
+    .jp2 {
+      animation-direction:alternate-reverse;
+      animation-duration:6s;
     }
-}
+
+    .jp3 {
+      animation-duration: 7s;
+    }
+    @keyframes slide {
+        0% {
+            transform:translateX(-25%);
+        }
+        100% {
+            transform:translateX(25%);
+        }
+    }
 
 </style>
 </head>
-<body style="background-color: #eee;">
+<body>
 
 
  <!-- Navbar -->
