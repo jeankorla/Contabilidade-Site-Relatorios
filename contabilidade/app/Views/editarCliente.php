@@ -10,7 +10,36 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 <style>
+.jp1 {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #024A7F 50%, #0097C4 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:0;
+    animation-duration: 5s;
+}
 
+.jp2 {
+    animation-direction:alternate-reverse;
+    animation-duration:6s;
+}
+
+.jp3 {
+    animation-duration: 7s;
+}
+
+ @keyframes slide {
+    0% {
+        transform:translateX(-25%);
+    }
+    100% {
+        transform:translateX(25%);
+    }
+}
 </style>
 </head>
 
@@ -82,7 +111,7 @@
     <div class="jp1 jp2"></div>
     <div class="jp1 jp3"></div>
 
-    
+    <div class="container">
     <div class="card mt-5 mb-5 p-5 shadow-lg">
         <div class="col-12 mb-5">
             <a class="btn btn-danger" href="#">Voltar</a>
@@ -94,7 +123,7 @@
                 <li>Erro exemplo</li>
             </ul>
         </div>
-
+        
         <form class="row g-3" action="<?= base_url('AdminController/atualizarCliente/' . $registro['id']) ?>" method="post" >
 
             <div class="col-md-6">
@@ -240,6 +269,7 @@
                 <button type="submit" class="btn btn-primary">Atualizar</button>
             </div>
         </form>
+    </div>
     </div>
 
     
