@@ -164,7 +164,7 @@
                 <input type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $registro['tributacao'] ?>">
             </div>
             <div class="col-5">
-                <label for="nfe" class="form-label">Quantidade de Notas-Fiscais  - mês (Entrada/Saída/Serviços):</label>
+                <label for="nfe" class="form-label">Quantidade de Notas-Fiscais:</label>
                 <input type="number" id="nfe" class="form-control" name="nfe" value="<?= $registro['nfe'] ?>">
             </div>
             <div class="col-md-4">
