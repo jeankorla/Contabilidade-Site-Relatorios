@@ -37,8 +37,8 @@ class AbrirController extends BaseController
             'tel' => $tel,
             'cpf' => $cpf,
             'estado' => $estado,
-            'nfe' => null, // Definindo como NULL
-            'lancamento' => null, // Definindo como NULL
+            'nfe' => null,
+            'lancamento' => null,
         ];
 
         $abrirModel->insert($data);

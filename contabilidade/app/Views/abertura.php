@@ -305,7 +305,7 @@ form .website2 {
         <div class="form-box">
             <h2>Abrir Empresa</h2>
             <p> Já é cliente? Faça <a href="#"> Login </a> </p>
-            <form action="<?php echo base_url('AbrirController/store') ?>" method="post">
+            <form action="<?php echo base_url('ClienteController/store') ?>" method="post">
              <!-- Exibe a mensagem de sucesso, caso exista -->
             <?php if (session()->has('success')) : ?>
             <div class="alert alert-success" role="alert">
@@ -314,30 +314,30 @@ form .website2 {
             <?php endif; ?>
 
                 <div class="input-group">
-                    <label for="nome"> Nome Completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
+                    <label for="nome_contato">Nome Completo</label>
+                    <input type="text" id="nome_contato" name="nome_contato" placeholder="Digite o seu nome completo" required maxlength="50">
                 </div>
 
                     <input type="text" name="website2" class="website2" />
 
                 <div class="input-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255">
+                    <label for="email_contato">E-mail</label>
+                    <input type="email" id="email_contato" name="email_contato" placeholder="Digite o seu email" required maxlength="255">
                 </div>
 
                 <div class="input-group">
-                    <label for="tel">Telefone</label>
-                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
+                    <label for="tel_contato">Telefone</label>
+                    <input type="tel" id="tel_contato" name="tel_contato" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
                 </div>
 
                 <div class="input-group">
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required oninput="aplicarMascaraCPF(this)" maxlength="14">
+                    <label for="cpf_contato">CPF</label>
+                    <input type="text" id="cpf_contato" name="cpf_contato" placeholder="Digite seu CPF" required oninput="aplicarMascaraCPF(this)" maxlength="14">
                 </div>
 
                  <div class="">
-              <label for="estado">Estado:</label>
-              <select class="input-group form-control" id="estado" name="estado" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
+              <label for="endereco_empresa_estado">Estado</label>
+              <select class="input-group form-control" id="endereco_empresa_estado" name="endereco_empresa_estado" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
                 <option value="São Paulo">São Paulo</option>
                 <option value="Acre">Acre</option>
                 <option value="Alagoas">Alagoas</option>
