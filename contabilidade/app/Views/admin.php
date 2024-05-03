@@ -137,55 +137,43 @@
 
 
       <div class="mb-3">
-        <h1>Troca de Contabilidade</h1>
-        <label for="pesquisa" class="form-label">Pesquisar:</label>
-        <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
+        <h1>Lead</h1>
       </div>
 
         <table class="table table-striped ">
           <thead>
             <tr>
-              <th>ID</th>
               <th style="text-align: center;">Ações</th>
-              <th>Nome</th>
-              <th>Data</th>
-              <th>E-mail</th>
-              <th>Contato</th>
-              <th>Cnpj</th>
-              <th>Nome da Empresa</th>
+              <th>Motivo</th>
+              <th>Empresa</th>
               <th>Faturamento</th> 
-              <th>Funcionarios</th>  
-              <th>Tributação</th>   
-              <th>Estado</th>           
+              <th>Tributação</th> 
+              <th>Estado</th> 
+              <th>Cidade</th>
+              <th>Data</th>          
             </tr>
           </thead>
           <tbody>
-         <?php foreach($trocar as $t) : ?>
+         <?php foreach($clientes as $cliente) : ?>
              <tr>
-        <td><?php echo $t['id'] ?></td>
         <td>
             <div style="display: flex; gap: 10px">
-                <a href="<?php echo base_url('DocumentoController/gerarDocTroca/' . $t['id']) ?>" class="btn btn-primary">Proposta</a>
-                <a href="<?php echo base_url('AdminController/editarTrocar/' . $t['id']) ?>" class="btn btn-warning">Editar</a>
+                <a href="<?php echo base_url('AdminController/editarCliente/' . $cliente['id']) ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                 <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
-                <a href="<?php echo base_url('AdminController/excluirTrocar/' . $t['id']) ?>" 
+                <a href="<?php echo base_url('AdminController/excluirCliente/' . $cliente['id']) ?>" 
                    class="btn btn-danger" 
-                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($t['nome']); ?>?');">
-                   Excluir
+                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($cliente['nome_empresa']); ?>?');">
+                   <i class="bi bi-trash-fill"></i>
                 </a>
             </div>
         </td>
-
-                <td><?php echo $t['nome'] ?></td>
-                <td><?php echo $t['created_at'] ?></td>
-                <td><?php echo $t['email'] ?></td>
-                <td><?php echo $t['tel'] ?></td>
-                <td><?php echo $t['cnpj'] ?></td>
+                <td><?php echo $cliente['motivo_contato'] ?></td>
                 <td><?php echo $t['nome_empresa'] ?></td>
                 <td><?php echo $t['faturamento'] ?></td>
-                <td><?php echo $t['funcionarios'] ?></td>
                 <td><?php echo $t['tributacao'] ?></td>
                 <td><?php echo $t['estado'] ?></td>
+                <td><?php echo $t['endereco_empresa_cidade'] ?></td>
+                <td><?php echo $t['created_at'] ?></td>
                 </tr>
             <?php endforeach; ?>
 

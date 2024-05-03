@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Abrir;
 use App\Models\Trocar;
+use App\Models\Cliente;
 
 
 class AdminController extends BaseController
@@ -19,14 +20,14 @@ class AdminController extends BaseController
 
         $trocarModel = new Trocar;
 
-        $abrirModel = new Abrir;
+        $clienteModel = new Cliente;
 
         $trocar = $trocarModel->findAll();
 
-        $abrir = $abrirModel->findAll();
+        $clientes = $clienteModel->finAll();
 
 
-        return view('admin', ['trocar' => $trocar, 'abrir' => $abrir]);
+        return view('admin', ['trocar' => $trocar, 'clientes' => $clientes]);
     }
 
         public function editarTrocar($id = null)

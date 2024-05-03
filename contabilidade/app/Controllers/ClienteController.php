@@ -66,5 +66,15 @@ class ClienteController extends BaseController
         return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
     }
 
+    public function editarCliente()
+    {
+
+    }
+
+    public function excluirCliente()
+    {
+        
+    }
+
 
 }
