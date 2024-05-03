@@ -175,14 +175,12 @@
 <tr>
     <td>
         <div style="display: flex; justify-content: center; gap: 10px">
-    <!-- Botão Responder com ativador de modal -->
-    <button class="btn btn-primary" onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>')">
-        <i class="bi bi-send-fill"></i>
-    </button>
-    <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']); ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir o contato de <?php echo addslashes($c['name']); ?>?');">
-        <i class="bi bi-trash-fill"></i>
-    </a>
-</div>
+            <!-- Botão Responder com ativador de modal -->
+            <button class="btn btn-primary" onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>')">Responder</button>
+            <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']); ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir o contato de <?php echo addslashes($c['name']); ?>?');">
+                <i class="bi bi-trash-fill"></i>
+            </a>
+        </div>
     </td>
     <td><?php echo $c['name']; ?></td>
     <td><?php echo $c['email']; ?></td>
