@@ -172,7 +172,7 @@
         </td>
                 <td><?php echo $cliente['motivo_contato'] ?></td>
                 <td><?php echo $cliente['nome_empresa'] ?></td>
-                <td>R$ <?php echo number_format(floatval($cliente['faturamento']), 2, ',', '.'); ?></td>
+                <td id="faturamento"><?php echo $cliente['faturamento'] ?></td>
                 <td><?php echo $cliente['tributacao'] ?></td>
                 <td><?php echo $cliente['endereco_empresa_estado'] ?></td>
                 <td><?php echo $cliente['endereco_empresa_cidade'] ?></td>
@@ -194,5 +194,31 @@
 </div>
 
 </section>
+
+
+<script>
+function formatarMoeda() {
+    var elemento = document.getElementById('faturamento');
+    var valor = elemento.textContent.replace(/\D/g, '');
+    valor = parseInt(valor, 10) / 100;
+
+    if (isNaN(valor)) {
+        elemento.textContent = '';
+        return;
+    }
+
+    valor = valor.toFixed(2);
+    valor = valor.replace('.', ',');
+    valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+
+    elemento.textContent = 'R$ ' + valor;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    formatarMoeda();
+});
+</script>
 </body>
 </html>
+
+
