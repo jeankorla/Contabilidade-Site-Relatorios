@@ -13,10 +13,13 @@ class EmpresaController extends BaseController
 {   
     public function fetchCnpjData($cnpj)
     {
+        // Remove pontos, traços e barras do CNPJ
+        $cleanCnpj = preg_replace('/[\.\/\-]/', '', $cnpj);
+
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://receitaws.com.br/v1/cnpj/" . $cnpj,
+            CURLOPT_URL => "https://receitaws.com.br/v1/cnpj/" . $cleanCnpj,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -38,6 +41,7 @@ class EmpresaController extends BaseController
             return $this->processCnpjResponse(json_decode($response, true));
         }
     }
+
 
     private function processCnpjResponse($data)
     {
