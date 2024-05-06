@@ -27,12 +27,16 @@ class ClienteController extends BaseController
 
         // Coletar todos os dados do formulário
         $data = [
-            'motivo' => $this->request->getPost('motivo'),
-            'nome'   => $this->request->getPost('nome'),
-            'email'  => $this->request->getPost('email'),
-            'tel'    => $this->request->getPost('tel'),
-            'cpf'    => $this->request->getPost('cpf'),
-            'cnpj'   => $this->request->getPost('cnpj'),
+            'motivo'                => $this->request->getPost('motivo'),
+            'nome'                  => $this->request->getPost('nome'),
+            'email'                 => $this->request->getPost('email'),
+            'tel'                   => $this->request->getPost('tel'),
+            'cpf'                   => $this->request->getPost('cpf'),
+            'cnpj'                  => $this->request->getPost('cnpj'),
+            'faturamento'           => $this->request->getPost('faturamento'),
+            'funcionarios'          => $this->request->getPost('funcionarios'),
+            'nfe'                   => $this->request->getPost('nfe'),
+            'lancamento'            => $this->request->getPost('lancamento'),
         ];
 
         // Instanciando o modelo e inserindo os dados

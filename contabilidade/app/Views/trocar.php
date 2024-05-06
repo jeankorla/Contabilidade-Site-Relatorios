@@ -313,20 +313,20 @@ form .website2 {
             </div>
             <?php endif; ?>
                 <div class="input-group">
-                    <label for="nome_contato">Nome Completo</label>
-                    <input type="text" id="nome_contato" name="nome_contato" placeholder="Digite o seu nome completo" required maxlength="50">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
                 </div>
 
                 <div class="input-group">
-                    <label for="email_contato">E-mail</label>
-                    <input type="email" id="email_contato" name="email_contato" placeholder="Digite o seu email" required maxlength="255"> 
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255"> 
                 </div>
 
                 <input type="text" name="website2" class="website2" />
 
                 <div class="input-group">
-                    <label for="tel_contato">Telefone</label>
-                    <input type="tel_contato" id="tel_contato" name="tel_contato" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
+                    <label for="tel">Telefone</label>
+                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
                 </div>
 
                 <div class="input-group">
@@ -334,10 +334,10 @@ form .website2 {
                     <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" required oninput="aplicarMascaraCNPJ(this)" maxlength="18">
                 </div>
 
-                <div class="input-group">
+                <!-- <div class="input-group">
                     <label for="nome_empresa">Nome da empresa</label>
                     <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Digite o Nome de sua empresa" required maxlength="255">
-                </div>
+                </div> -->
 
                 <div class="input-group">
                     <label for="faturamento">Faturamento Médio mensal</label>
@@ -349,26 +349,26 @@ form .website2 {
                     <input type="number" id="funcionarios" name="funcionarios" placeholder="Quantidade de funcionários da empresa" required maxlength="5">
                 </div>
 
-                 <div class="">
+                 <!-- <div class="">
         <label for="tributacao">Tributação</label>
         <select class="input-group form-control" id="tributacao" name="tributacao" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
             <option value="Simples Nacional">Simples Nacional</option>
             <option value="Lucro Presumido" selected>Lucro Presumido</option>
             <option value="Lucro Real">Lucro Real</option>
         </select>
-    </div>
+    </div> -->
 
-    <div class="input-group">
-        <label for="nfe">Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços):</label>
-        <input type="number" id="nfe" name="nfe" placeholder="Quantidade de Notas Fiscais por mês">
-    </div>
+                <div class="input-group">
+                    <label for="nfe">Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços):</label>
+                    <input type="number" id="nfe" name="nfe" placeholder="Quantidade de Notas Fiscais por mês">
+                </div>
 
-    <div class="input-group">
-        <label for="lancamento">Quantidade de Lançamentos Contábeis:</label>
-        <input type="number" id="lancamento" name="lancamento" placeholder="Quantidade de Lançamentos Contábeis">
-    </div>
+                <div class="input-group">
+                    <label for="lancamento">Quantidade de Lançamentos Contábeis:</label>
+                    <input type="number" id="lancamento" name="lancamento" placeholder="Quantidade de Lançamentos Contábeis">
+                </div>
 
-                 <div class="">
+                 <!-- <div class="">
                     <label for="endereco_empresa_estado">Estado</label>
                     <select class="input-group form-control" id="endereco_empresa_estado" name="endereco_empresa_estado" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
                         <option value="SP">São Paulo</option>
@@ -399,9 +399,9 @@ form .website2 {
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
-                </div>
+                </div> -->
 
-            <input type="text" class="hidden" id="motivo_contato" name="motivo_contato" value="Trocar"/>
+            <input type="text" class="hidden" id="motivo" name="motivo" value="Trocar"/>
 
                 <div class="input-group">
                     <button type="submit">Cadastrar</button>
@@ -510,13 +510,13 @@ form .website2 {
 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script> 
   
-  <script>
+  <!-- <script>
         document.getElementById('tributacao').addEventListener('change', function() {
             var isSimplesNacional = this.value === 'Simples Nacional';
             document.getElementById('nfe').required = isSimplesNacional;
             document.getElementById('lancamento').required = isSimplesNacional;
         });
-    </script>
+    </script> -->
 
   <script>
 function aplicarMascaraCNPJ(input) {
