@@ -81,7 +81,7 @@
       </div>
       <div class="modal-body">
         <!-- Formulário para atualizar o nome de usuário -->
-        <form action="<?= base_url('loginController/updateUsername') ?>" method="post">
+        <form action="<?= base_url('LoginController/updateUsername') ?>" method="post">
             <div class="mb-3">
                 <label for="newUsername" class="form-label">Novo nome de usuário:</label>
                 <input type="text" class="form-control" id="newUsername" name="newUsername" required>
@@ -128,7 +128,7 @@
             </ul>
         </div>
         
-        <form class="row g-3" action="<?= base_url('AdminController/atualizarCliente/' . $registro['id']) ?>" method="post" >
+        <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $registro['id']) ?>" method="post" >
 
             <div class="col-md-6">
                 <label for="nome_contato" class="form-label">Nome de Contato:</label>
