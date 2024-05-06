@@ -294,7 +294,6 @@ public function emailDiretoria($data)
                 <li>CNPJ: {$data['cnpj']}</li>
                 <li>Faturamento Anual: {$data['faturamento']}</li>
                 <li>Número de Funcionários: {$data['funcionarios']}</li>
-                <li>Tributação: {$data['tributacao']}</li>
                 <li>Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços): {$data['nfe']}</li>
                 <li>Quantidade de Lançamentos Contábeis: {$data['lancamento']}</li>
                 </li>
