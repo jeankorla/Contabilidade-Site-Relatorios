@@ -11,7 +11,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 class EmpresaController extends BaseController
 {   
-    public function fetchCnpjData($cnpj)
+    public function fetchCnpjData($cnpj, $clienteId)
     {
         // Remove pontos, traços e barras do CNPJ
         $cleanCnpj = preg_replace('/[\.\/\-]/', '', $cnpj);
@@ -38,12 +38,12 @@ class EmpresaController extends BaseController
         if ($err) {
             return "cURL Error #:" . $err;
         } else {
-            return $this->processCnpjResponse(json_decode($response, true));
+            return $this->processCnpjResponse(json_decode($response, true), $clienteId);
         }
     }
 
 
-    private function processCnpjResponse($data)
+    private function processCnpjResponse($data, $clienteId)
     {
         if ($data['status'] !== 'OK') {
             return ['error' => 'Não foi possível obter dados do CNPJ'];
@@ -51,7 +51,7 @@ class EmpresaController extends BaseController
 
         // Mapeamento de DE PARA conforme seu banco de dados
         $data = [
-
+            'cliente_id'                            => $clienteId,
             'cnpj'                                  => $data['cnpj'],
             'nome'                                  => $data['nome'],
             'email'                                 => $data['email'],
@@ -77,5 +77,7 @@ class EmpresaController extends BaseController
         $empresaModel = new Empresa();
         $empresaModel->insert($data);
     }
+
+
 
 }

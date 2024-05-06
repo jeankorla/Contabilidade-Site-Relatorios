@@ -41,11 +41,12 @@ class ClienteController extends BaseController
 
         // Instanciando o modelo e inserindo os dados
         $clienteModel = new Cliente_lead;
-        $clienteModel->insert($data);
+        $inserted = $clienteModel->insert($data);
+        $clienteId = $clienteModel->insertID();  // Captura o ID do cliente inserido
 
-        // Enviar o CNPJ para o EmpresaController
+        // Enviar o CNPJ e clienteId para o EmpresaController
         $empresaController = new EmpresaController();
-        $empresaData = $empresaController->fetchCnpjData($data['cnpj']);
+        $empresaData = $empresaController->fetchCnpjData($data['cnpj'], $clienteId);
 
         // Usando métodos do EmailController
         $this->emailController->emailCliente($data);
@@ -53,6 +54,7 @@ class ClienteController extends BaseController
 
         return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
     }
+
 
 
     public function editarCliente($id = null)
