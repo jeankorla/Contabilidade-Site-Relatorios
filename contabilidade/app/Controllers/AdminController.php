@@ -3,9 +3,14 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Abrir;
-use App\Models\Trocar;
-use App\Models\Cliente;
+
+use App\Models\Cliente_lead;
+use App\Models\Empresa;
+use App\Models\Atividade;
+use App\Models\Contabilidade;
+use App\Models\Socio;
+
+
 
 
 class AdminController extends BaseController
@@ -18,10 +23,21 @@ class AdminController extends BaseController
             return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
         }
 
-        $clienteModel = new Cliente;
-
+        $clienteModel = new Cliente_lead;
         $clientes = $clienteModel->findAll();
 
-        return view('admin', ['clientes' => $clientes]);
+        $empresaModel = new Empresa;
+        $empresas = $empresaModel->findAll();
+
+        $atividadeModel = new Empresa;
+        $atividades = $atividadeModel->findAll();
+
+        $contabilidadeModel = new Empresa;
+        $contabilidades = $contabilidadeModel->findAll();
+
+        $socioModel = new Empresa;
+        $socios = $contabilidadeModel->findAll();
+
+        return view('admin', ['clientes' => $clientes, 'empresas' => $empresas, 'atividades' => $atividades, 'contabilidades' => $contabilidades, 'socios' => $socios ]);
     }
 }

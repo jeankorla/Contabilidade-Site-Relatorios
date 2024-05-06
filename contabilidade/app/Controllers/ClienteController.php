@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Cliente;
+use App\Models\Cliente_lead;
 use App\Controllers\EmailController;
 
 date_default_timezone_set('America/Sao_Paulo');
@@ -40,7 +40,7 @@ class ClienteController extends BaseController
         ];
 
         // Instanciando o modelo e inserindo os dados
-        $clienteModel = new Cliente;
+        $clienteModel = new Cliente_lead;
         $clienteModel->insert($data);
 
         // Enviar o CNPJ para o EmpresaController
@@ -57,7 +57,7 @@ class ClienteController extends BaseController
 
     public function editarCliente($id = null)
     {
-        $clienteModel = new Cliente();
+        $clienteModel = new Cliente_lead();
 
         $registro = $clienteModel->find($id);
 
@@ -76,7 +76,7 @@ class ClienteController extends BaseController
         ];
 
         // Instanciando o modelo e inserindo os dados
-        $clienteModel = new Cliente;
+        $clienteModel = new Cliente_lead;
 
         $clienteModel->update($id, $data);
 
@@ -86,7 +86,7 @@ class ClienteController extends BaseController
 
     public function excluirCliente($id = null)
     {
-        $clienteModel = new Cliente();
+        $clienteModel = new Cliente_lead();
 
         // Verifique se o registro existe.
         if ($clienteModel->find($id)) {
