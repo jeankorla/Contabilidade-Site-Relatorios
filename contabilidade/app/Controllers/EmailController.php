@@ -292,7 +292,6 @@ public function emailDiretoria($data)
                 <li>Email: {$data['email']}</li>
                 <li>Telefone: {$data['tel']}</li>
                 <li>CNPJ: {$data['cnpj']}</li>
-                <li>Nome da Empresa: {$data['nome_empresa']}</li>
                 <li>Faturamento Anual: {$data['faturamento']}</li>
                 <li>Número de Funcionários: {$data['funcionarios']}</li>
                 <li>Tributação: {$data['tributacao']}</li>
