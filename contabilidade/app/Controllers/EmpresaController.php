@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Cliente_lead;
 use App\Models\Empresa;
 use App\Models\Socio;
+use App\Models\Atividade;
 use App\Controllers\EmailController;
 
 date_default_timezone_set('America/Sao_Paulo');
