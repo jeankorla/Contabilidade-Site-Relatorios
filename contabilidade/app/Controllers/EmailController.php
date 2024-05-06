@@ -268,7 +268,7 @@ public function emailDiretoria($data)
                 <li>Email: {$data['email']}</li>
                 <li>Telefone: {$data['tel']}</li>
                 <li>CPF: {$data['cpf']}</li>
-                <li>Estado: {$data['endereco_estado']}
+                
             </ul>
             <p>Para mais detalhes ou para tomar os próximos passos, por favor, acesse nossa plataforma de gestão:</p>
             <p><a href='https://sccontab.com.br/LoginController'>Clique aqui para acessar a plataforma</a></p>
@@ -298,7 +298,7 @@ public function emailDiretoria($data)
                 <li>Tributação: {$data['tributacao']}</li>
                 <li>Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços): {$data['nfe']}</li>
                 <li>Quantidade de Lançamentos Contábeis: {$data['lancamento']}</li>
-                <li>Estado: {$data['endereco_estado']}</li>
+                </li>
             </ul>
             <p>Para mais detalhes ou para tomar os próximos passos, por favor, acesse nossa plataforma de gestão:</p>
             <p><a href='https://sccontab.com.br/LoginController'>Clique aqui para acessar a plataforma</a></p>
