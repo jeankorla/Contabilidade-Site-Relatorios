@@ -74,13 +74,13 @@ class ClienteController extends BaseController
         return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
     }
 
-    public function editarCliente()
+    public function editarCliente($id = null)
     {
         $clienteModel = new Cliente();
 
-        $registro = $clienteModel->findAll();
+        $registro = $clienteModel->find($id);
 
-         return view('editarCliente', ['registro' => $registro]);
+        return view('editarCliente', ['registro' => $registro]);
     }
 
     public function atualizarCliente($id = null)
