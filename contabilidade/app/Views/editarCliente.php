@@ -118,7 +118,7 @@
     <div class="container">
     <div class="card mt-5 mb-5 p-5 shadow-lg">
         <div class="col-12 mb-5">
-            <a class="btn btn-danger" href="#">Voltar</a>
+            <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Voltar</a>
         </div>
         <h1 class="mb-5">Editar Cliente</h1>
 
@@ -289,7 +289,7 @@
            
 
             <div class="col-12">
-                <a class="btn btn-danger" href="#">Cancelar</a>
+                <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Atualizar</button>
             </div>
         </form>
