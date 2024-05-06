@@ -4,17 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Trocar extends Model
+class Atividade extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'trocar_contabilidade';
+    protected $table            = 'atividades_secundarias';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nome', 'email', 'tel', 'cnpj', 'nome_empresa', 'faturamento', 'nfe', 'lancamento', 'funcionarios', 'tributacao', 'estado'
+        'codigo', 'texto',
+
+        'empresa_id',
     ];
 
     // Dates

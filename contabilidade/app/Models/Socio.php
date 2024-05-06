@@ -4,17 +4,22 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Abrir extends Model
+class Socio extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'abrir_empresa';
+    protected $table            = 'socios';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nome', 'email', 'tel', 'cpf', 'nfe', 'lancamento', 'estado'
+        'nome', 'nacionalidade', 'idade', 'rg', 'cpf',
+
+        'endereco_cep', 'endereco_rua', 'endereco_numero', 'endereco_complemento',
+        'endereco_bairro', 'endereco_cidade', 'endereco_estado', 
+
+        'empresa_id',
     ];
 
     // Dates

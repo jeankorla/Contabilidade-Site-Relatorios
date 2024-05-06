@@ -314,38 +314,43 @@ form .website2 {
             <?php endif; ?>
 
                 <div class="input-group">
-                    <label for="nome_contato">Nome Completo</label>
-                    <input type="text" id="nome_contato" name="nome_contato" placeholder="Digite o seu nome completo" required maxlength="50">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
                 </div>
 
                     <input type="text" name="website2" class="website2" />
 
                 <div class="input-group">
-                    <label for="email_contato">E-mail</label>
-                    <input type="email" id="email_contato" name="email_contato" placeholder="Digite o seu email" required maxlength="255">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255">
                 </div>
 
                 <div class="input-group">
-                    <label for="tel_contato">Telefone</label>
-                    <input type="tel" id="tel_contato" name="tel_contato" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
+                    <label for="tel">Telefone</label>
+                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
                 </div>
 
                 <div class="input-group">
-                    <label for="cpf_contato">CPF</label>
-                    <input type="text" id="cpf_contato" name="cpf_contato" placeholder="Digite seu CPF" required oninput="aplicarMascaraCPF(this)" maxlength="14">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required oninput="aplicarMascaraCPF(this)" maxlength="14">
                 </div>
 
                 <div class="input-group">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" required oninput="aplicarMascaraCNPJ(this)" maxlength="18">
+                </div>
+
+                <!-- <div class="input-group">
                     <label for="nome_empresa">Nome da Empresa</label>
                     <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Digite o nome de sua empresa" maxlength="50">
-                </div>
+                </div> -->
 
-                <div class="input-group">
+                <!-- <div class="input-group">
                     <label for="endereco_empresa_cidade">Cidade</label>
                     <input type="text" id="endereco_empresa_cidade" name="endereco_empresa_cidade" placeholder="Digite a cidade de sua empresa" maxlength="50">
-                </div>
+                </div> -->
 
-                 <div class="">
+                 <!-- <div class="">
                     <label for="endereco_empresa_estado">Estado</label>
                     <select class="input-group form-control" id="endereco_empresa_estado" name="endereco_empresa_estado" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
                         <option value="SP">São Paulo</option>
@@ -376,10 +381,10 @@ form .website2 {
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
-                </div>
+                </div> -->
 
 
-            <input type="text" class="hidden" id="motivo_contato" name="motivo_contato" value="Abertura"/>
+            <input type="text" class="hidden" id="motivo" name="motivo" value="Abertura"/>
 
                 <div class="input-group">
                     <button type="submit">Cadastrar</button>
@@ -495,6 +500,20 @@ function aplicarMascaraCPF(input) {
     valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após o terceiro dígito
     valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após os seis primeiros dígitos
     valor = valor.replace(/(\d{3})(\d)/, "$1-$2"); // Coloca um hífen após os nove primeiros dígitos
+
+    input.value = valor; // Atualiza o valor do input
+}
+</script>
+
+  <script>
+function aplicarMascaraCNPJ(input) {
+    var valor = input.value;
+
+    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+    valor = valor.replace(/^(\d{2})(\d)/, "$1.$2"); // Coloca ponto entre o segundo e o terceiro dígitos
+    valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3"); // Coloca ponto entre o quinto e o sexto dígitos
+    valor = valor.replace(/\.(\d{3})(\d)/, ".$1/$2"); // Coloca uma barra entre o oitavo e o nono dígitos
+    valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); // Coloca um hífen depois do bloco de quatro dígitos
 
     input.value = valor; // Atualiza o valor do input
 }
