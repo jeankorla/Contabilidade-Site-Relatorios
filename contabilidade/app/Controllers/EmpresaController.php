@@ -72,8 +72,6 @@ class EmpresaController extends BaseController
 
         $empresaModel = new Empresa();
         $empresaModel->insert($data);
-
-        return $empresaData;
     }
 
 }
