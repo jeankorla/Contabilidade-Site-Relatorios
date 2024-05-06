@@ -12,9 +12,9 @@ class EmailController extends Controller
     $email = \Config\Services::email();
 
     $email->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
-    $email->setTo($data['email_contato']);
+    $email->setTo($data['email']);
 
-    $email->setSubject('Bem vindo a Spolaor ' . $data['nome_contato']);
+    $email->setSubject('Bem vindo a Spolaor ' . $data['nome']);
 
     // Definir o tipo de e-mail como HTML
     $email->setMailType('html');
@@ -168,7 +168,7 @@ class EmailController extends Controller
                                 <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
                                     <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                     <tr>
-                                        <td align="left" class="es-m-p0r es-m-p0l" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, , helvetica, sans-serif;line-height:24px;color:#333333;font-size:16px"><span style="font-size:15px">Olá <strong> ' . $data['nome_contato'] . '</strong>,<br><br>É um imenso prazer dar as boas-vindas a você como nosso futuro cliente na Spolaor Contabilidade.<br><br>Estamos entusiasmados com a parceria promissora que se inicia!🎉</span>&nbsp;<br><br><span style="font-size:15px">A seguir, apresentamos os serviços que oferecemos para alavancar o sucesso da sua empresa.<br>&nbsp;<br><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#5C68E2;font-size:15px" href="https://sccontab.com.br/apresentacao">Clique aqui para acessar a nossa apresentação</a></span></p><p></p><br><br>
+                                        <td align="left" class="es-m-p0r es-m-p0l" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, , helvetica, sans-serif;line-height:24px;color:#333333;font-size:16px"><span style="font-size:15px">Olá <strong> ' . $data['nome'] . '</strong>,<br><br>É um imenso prazer dar as boas-vindas a você como nosso futuro cliente na Spolaor Contabilidade.<br><br>Estamos entusiasmados com a parceria promissora que se inicia!🎉</span>&nbsp;<br><br><span style="font-size:15px">A seguir, apresentamos os serviços que oferecemos para alavancar o sucesso da sua empresa.<br>&nbsp;<br><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#5C68E2;font-size:15px" href="https://sccontab.com.br/apresentacao">Clique aqui para acessar a nossa apresentação</a></span></p><p></p><br><br>
                                         <ul>
                                             <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, , helvetica, sans-serif;line-height:24px;Margin-bottom:15px;margin-left:0;color:#333333;font-size:16px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, , helvetica, sans-serif;line-height:23px;color:#333333;font-size:15px">Em breve um dos nosso consultores entrará em contato com você 👨‍💻</p></li>
                                             <li style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, , helvetica, sans-serif;line-height:24px;Margin-bottom:15px;margin-left:0;color:#333333;font-size:16px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, , helvetica, sans-serif;line-height:23px;color:#333333;font-size:15px">Fique à vontade para vir tomar um café com a gente! ☕</p></li>
@@ -264,11 +264,11 @@ public function emailDiretoria($data)
             <p>Prezada Diretoria,</p>
             <p>Informamos que um novo cliente se registrou em nosso site de ABERTURA DE EMPRESA com os seguintes detalhes:</p>
             <ul>
-                <li>Nome: {$data['nome_contato']}</li>
-                <li>Email: {$data['email_contato']}</li>
-                <li>Telefone: {$data['tel_contato']}</li>
-                <li>CPF: {$data['cpf_contato']}</li>
-                <li>Estado: {$data['endereco_empresa_estado']}
+                <li>Nome: {$data['nome']}</li>
+                <li>Email: {$data['email']}</li>
+                <li>Telefone: {$data['tel']}</li>
+                <li>CPF: {$data['cpf']}</li>
+                <li>Estado: {$data['endereco_estado']}
             </ul>
             <p>Para mais detalhes ou para tomar os próximos passos, por favor, acesse nossa plataforma de gestão:</p>
             <p><a href='https://sccontab.com.br/LoginController'>Clique aqui para acessar a plataforma</a></p>
@@ -288,9 +288,9 @@ public function emailDiretoria($data)
             <p>Prezada Diretoria,</p>
             <p>Informamos que um novo cliente se registrou em nosso site de TROCA DE CONTADOR com os seguintes detalhes:</p>
             <ul>
-                <li>Nome: {$data['nome_contato']}</li>
-                <li>Email: {$data['email_contato']}</li>
-                <li>Telefone: {$data['tel_contato']}</li>
+                <li>Nome: {$data['nome']}</li>
+                <li>Email: {$data['email']}</li>
+                <li>Telefone: {$data['tel']}</li>
                 <li>CNPJ: {$data['cnpj']}</li>
                 <li>Nome da Empresa: {$data['nome_empresa']}</li>
                 <li>Faturamento Anual: {$data['faturamento']}</li>
@@ -298,7 +298,7 @@ public function emailDiretoria($data)
                 <li>Tributação: {$data['tributacao']}</li>
                 <li>Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços): {$data['nfe']}</li>
                 <li>Quantidade de Lançamentos Contábeis: {$data['lancamento']}</li>
-                <li>Estado: {$data['endereco_empresa_estado']}</li>
+                <li>Estado: {$data['endereco_estado']}</li>
             </ul>
             <p>Para mais detalhes ou para tomar os próximos passos, por favor, acesse nossa plataforma de gestão:</p>
             <p><a href='https://sccontab.com.br/LoginController'>Clique aqui para acessar a plataforma</a></p>
