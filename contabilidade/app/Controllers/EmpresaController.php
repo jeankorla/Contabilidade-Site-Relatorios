@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Cliente;
+use App\Models\Cliente_lead;
 use App\Models\Empresa;
+use App\Models\Socio;
 use App\Controllers\EmailController;
 
 date_default_timezone_set('America/Sao_Paulo');
@@ -50,7 +51,7 @@ class EmpresaController extends BaseController
         }
 
         // Mapeamento de DE PARA conforme seu banco de dados
-        $data = [
+        $empresaData = [
             'cliente_id'                            => $clienteId,
             'cnpj'                                  => $data['cnpj'],
             'nome'                                  => $data['nome'],
@@ -71,12 +72,47 @@ class EmpresaController extends BaseController
             'capital_social'                        => $data['capital_social'],
             'abertura'                              => $data['abertura'],
             'tipo'                                  => $data['tipo'],
-            
         ];
 
         $empresaModel = new Empresa();
-        $empresaModel->insert($data);
+        $empresaModel->insert($empresaData);
+        $empresaId = $empresaModel->insertID();  // Captura o ID da empresa inserida
+
+        // Inserção dos sócios, se houver
+        if (!empty($data['qsa'])) {
+            $this->insertSocios($data['qsa'], $empresaId);
+        }
+
+        // Inserção das atividades secundárias, se houver
+        if (!empty($data['atividades_secundarias'])) {
+            $this->insertAtividadesSecundarias($data['atividades_secundarias'], $empresaId);
+        }
     }
+
+    private function insertSocios($sociosData, $empresaId)
+    {
+        $socioModel = new Socio(); 
+        foreach ($sociosData as $socioData) {
+            $socioModel->insert([
+                'empresa_id'      => $empresaId,
+                'nome'            => $socioData['nome'],
+                'qualifica'       => $socioData['qual']
+            ]);
+        }
+    }
+
+    private function insertAtividadesSecundarias($atividadesData, $empresaId)
+    {
+        $atividadeSecundariaModel = new Atividade();  
+        foreach ($atividadesData as $atividade) {
+            $atividadeSecundariaModel->insert([
+                'empresa_id' => $empresaId,
+                'codigo'     => $atividade['code'],
+                'texto'  => $atividade['text']
+            ]);
+        }
+    }
+
 
 
 
