@@ -252,7 +252,7 @@ public function emailDiretoria($data)
     $email->setTo('ti@sccontab.com.br');
 
     // Determinar o assunto e o conteúdo do e-mail com base no motivo
-    if ($data['motivo_contato'] === 'Abertura') {
+    if ($data['motivo'] === 'Abertura') {
         $email->setSubject('Novo Registro de Cliente - ABERTURA DE EMPRESA');
         $htmlContent = "
         <html>
@@ -276,7 +276,7 @@ public function emailDiretoria($data)
             <p>Equipe Spolaor Contabilidade</p>
         </body>
         </html>";
-    } else if ($data['motivo_contato'] === 'Trocar') {
+    } else if ($data['motivo'] === 'Trocar') {
         $email->setSubject('Novo Registro de Cliente - TROCA DE CONTADOR');
         $htmlContent = "
         <html>
