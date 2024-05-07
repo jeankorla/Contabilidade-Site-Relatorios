@@ -17,7 +17,7 @@ class Socio extends Model
         'nome', 'nacionalidade', 'idade', 'rg', 'cpf',
 
         'endereco_cep', 'endereco_rua', 'endereco_numero', 'endereco_complemento',
-        'endereco_bairro', 'endereco_cidade', 'endereco_estado', 
+        'endereco_bairro', 'endereco_cidade', 'endereco_estado', 'qualifica',
 
         'empresa_id',
     ];

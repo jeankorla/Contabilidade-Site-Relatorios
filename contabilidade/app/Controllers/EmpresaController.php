@@ -95,9 +95,9 @@ class EmpresaController extends BaseController
         $socioModel = new Socio(); 
         foreach ($sociosData as $socioData) {
             $socioModel->insert([
-                'empresa_id'      => $empresaId,
-                'nome'            => $socioData['nome'],
-                'qual'            => $socioData['qual']
+                'empresa_id'           => $empresaId,
+                'nome'                 => $socioData['nome'],
+                'qualifica'            => $socioData['qual'],
             ]);
         }
     }
@@ -109,7 +109,7 @@ class EmpresaController extends BaseController
             $atividadeSecundariaModel->insert([
                 'empresa_id' => $empresaId,
                 'codigo'     => $atividade['code'],
-                'texto'  => $atividade['text']
+                'texto'      => $atividade['text']
             ]);
         }
     }
