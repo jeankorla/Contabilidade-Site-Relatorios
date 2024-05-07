@@ -180,11 +180,27 @@
                 <input id="input" type="number" id="nfe" class="form-control" name="nfe" value="<?= $data['empresa']['nfe'] ?>">
             </div>
 
-            <div class="col-md-2">
-                <label for="lancamento" class="form-label">Quantidade Lançamentos:</label>
+
+
+            <div class="col-md-3">
+                <label for="atividade_principal_codigo" class="form-label">Côdigo Atividade:</label>
+                <input id="input" type="text" id="atividade_principal_codigo" class="form-control" name="atividade_principal_codigo" value="<?= $data['empresa']['atividade_principal_codigo'] ?>">
+            </div>
+
+           
+            <div class="col-md-6">
+                <label for="atividade_principal_texto" class="form-label">Atividade Principal:</label>
+                <input id="input" type="text" id="atividade_principal_texto" class="form-control" name="atividade_principal_texto" value="<?= $data['empresa']['atividade_principal_texto'] ?>">
+            </div>
+
+
+            <div class="col-md-3">
+                <label for="lancamento" class="form-label">Lançamentos:</label>
                 <input id="input" type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $data['empresa']['lancamento'] ?>">
             </div>
 
+
+            
             <div class="col-md-3">
                 <label for="natureza_juridica" class="form-label">Natureza Jurdica:</label>
                 <input id="input" type="text" id="natureza_juridica" class="form-control" name="natureza_juridica" value="<?= $data['empresa']['natureza_juridica'] ?>">
@@ -192,16 +208,7 @@
 
 
             
-            <div class="col-md-3">
-                <label for="atividade_principal_codigo" class="form-label">Côdigo Atividade:</label>
-                <input id="input" type="text" id="atividade_principal_codigo" class="form-control" name="atividade_principal_codigo" value="<?= $data['empresa']['atividade_principal_codigo'] ?>">
-            </div>
-
-           
-            <div class="col-md-4">
-                <label for="atividade_principal_texto" class="form-label">Atividade Principal:</label>
-                <input id="input" type="text" id="atividade_principal_texto" class="form-control" name="atividade_principal_texto" value="<?= $data['empresa']['atividade_principal_texto'] ?>">
-            </div>
+            
 
 
             
