@@ -200,36 +200,37 @@
             </div>
 
 
-            
-            <div class="col-md-3">
+
+            <div class="col-md-6">
                 <label for="natureza_juridica" class="form-label">Natureza Jurdica:</label>
                 <input id="input" type="text" id="natureza_juridica" class="form-control" name="natureza_juridica" value="<?= $data['empresa']['natureza_juridica'] ?>">
             </div>
-
-
-            
-            
-
-
-            
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label for="capital_social" class="form-label">Capital Social:</label>
                 <input id="input" type="text" id="capital_social" class="form-control" name="capital_social" value="<?= $data['empresa']['capital_social'] ?>">
             </div>
-
-            
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <label for="abertura" class="form-label">Abertura:</label>
                 <input id="input" type="text" id="abertura" class="form-control" name="abertura" value="<?= $data['empresa']['abertura'] ?>">
             </div>
+            <div class="col-md-3">
+                <label for="tipo" class="form-label">Tipo:</label>
+                <input id="input" type="text" id="tipo" class="form-control" name="tipo" value="<?= $data['empresa']['tipo'] ?>">
+            </div>
+            
+            
+
+
+            
+            
+
+            
+            
 
 
 
             
-            <div class="col-md-4">
-                <label for="tipo" class="form-label">Tipo:</label>
-                <input id="input" type="text" id="tipo" class="form-control" name="tipo" value="<?= $data['empresa']['tipo'] ?>">
-            </div>
+            
 
                 <br>
                 <div class="col-md-12">
