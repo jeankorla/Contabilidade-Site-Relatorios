@@ -139,7 +139,8 @@ class ClienteController extends BaseController
     $empresaModel = new Empresa();
     $empresaModel->where('id', $empresaId)->update(null, $dataEmpresa);
 
-    // Atualizando dados do sócio-associado
+    // Atualizando ou inserindo dados do sócio-associado
+    $socioAssModel = new Socio_ass();
     $dataSocioAss = [
         'nome' => $this->request->getPost('socio_asses_nome'),
         'nacionalidade' => $this->request->getPost('socio_asses_nacional'),
@@ -156,18 +157,31 @@ class ClienteController extends BaseController
         'endereco_numero' => $this->request->getPost('socio_asses_endereco_numero'),
         'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
     ];
-    $socioAssModel = new Socio_ass();
-    $socioAssModel->where('empresa_id', $empresaId)->update(null, $dataSocioAss);
 
-    // Atualizando dados da contabilidade
+    // Se não existe, insira um novo registro associado ao `empresa_id`
+    if (!$socioAssModel->where('empresa_id', $empresaId)->first()) {
+        $dataSocioAss['empresa_id'] = $empresaId;
+        $socioAssModel->insert($dataSocioAss);
+    } else {
+        $socioAssModel->where('empresa_id', $empresaId)->update(null, $dataSocioAss);
+    }
+
+    // Atualizando ou inserindo dados da Contabilidade
+    $contabilidadeModel = new Contabilidade();
     $dataContabilidade = [
         'inicio_contabilidade' => $this->request->getPost('inicio_contabilidade'),
         'competencia' => $this->request->getPost('competencia'),
         'honorario' => $this->request->getPost('honorario'),
         'honorario_texto' => $this->request->getPost('honorario_texto'),
     ];
-    $contabilidadeModel = new Contabilidade();
-    $contabilidadeModel->where('empresa_id', $empresaId)->update(null, $dataContabilidade);
+
+    // Insira um novo registro se não existir, incluindo `empresa_id`
+    if (!$contabilidadeModel->where('empresa_id', $empresaId)->first()) {
+        $dataContabilidade['empresa_id'] = $empresaId;
+        $contabilidadeModel->insert($dataContabilidade);
+    } else {
+        $contabilidadeModel->where('empresa_id', $empresaId)->update(null, $dataContabilidade);
+    }
 
     // Atualizando os sócios
     $socioModel = new Socio();
@@ -195,6 +209,7 @@ class ClienteController extends BaseController
     // Redirecionar de volta com uma mensagem de sucesso
     return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
 }
+
 
 
     public function atualizarCliente_old($id = null)
