@@ -130,6 +130,8 @@
         
         <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $data['cliente']['id']) ?>" method="post" >
 
+        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
+
             <div class="col-md-6">
                 <label for="nome_contato" class="form-label">Nome de Contato:</label>
                 <input id="input" type="text" class="form-control" id="nome_contato" name="nome_contato" value="<?= $data['cliente']['nome'] ?>">

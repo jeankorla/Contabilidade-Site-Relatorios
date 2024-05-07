@@ -97,7 +97,12 @@ class ClienteController extends BaseController
     }
 
     public function atualizarCliente($id = null)
-{
+{   
+    $empresaId = $this->request->getPost('empresa_id');
+    if (!$empresaId) {
+        return redirect()->back()->with('error', 'ID da empresa não fornecido.');
+    }
+    
     // Atualizando dados do cliente
     $dataCliente = [
         'nome' => $this->request->getPost('nome_contato'),
