@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 <style>
+    html, body {
+      font-size: 90%;
+    }
 .jp1 {
     animation:slide 3s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #024A7F 50%, #0097C4 50%);
