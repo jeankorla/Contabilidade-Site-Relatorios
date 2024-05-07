@@ -227,6 +227,10 @@
                 <label for="tipo" class="form-label">Tipo:</label>
                 <input id="input" type="text" id="tipo" class="form-control" name="tipo" value="<?= $data['empresa']['tipo'] ?>">
             </div>
+            <div class="col-md-4">
+                <label for="porte" class="form-label">Porte:</label>
+                <input id="input" type="text" id="porte" class="form-control" name="porte" value="<?= $data['empresa']['porte'] ?>">
+            </div>
 
 
 
