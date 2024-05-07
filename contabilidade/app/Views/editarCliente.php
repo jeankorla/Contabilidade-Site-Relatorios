@@ -311,59 +311,59 @@
 
 
             <div class="col-md-12">
-                <h2 class="mb-5">Assinante</h2>
+                <h2 class="mb-5">Assina</h2>
             </div>
 
             <div class="col-md-7">
-                <label for="socio_nome" class="form-label">Nome do Sócio:</label>
-                <input id="input" type="text" id="socio_nome" class="form-control" name="socio_nome" value="<?= $data['socio_asses']['nome'] ?>">
+                <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_nome" class="form-control" name="socio_asses_nome" value="<?= $data['socio_asses']['nome'] ?? 'N/A' ?>">
             </div>
             <div class="col-3">
-                <label for="socio_nacional" class="form-label">Nacionalidade do Sócio:</label>
-                <input id="input" type="text" id="socio_nacional" class="form-control" name="socio_nacional" value="<?= $data['socio_asses']['nacionalidade'] ?>">
+                <label for="socio_asses_nacional" class="form-label">Nacionalidade do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_nacional" class="form-control" name="socio_asses_nacional" value="<?= $data['socio_asses']['nacionalidade'] ?? 'N/A' ?>">
             </div>
             <div class="col-2">
-                <label for="socio_idade" class="form-label">Idade do Sócio:</label>
-                <input id="input" type="text" id="socio_idade" class="form-control" name="socio_idade" value="<?= $data['socio_asses']['idade'] ?>">
+                <label for="socio_asses_idade" class="form-label">Idade do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_idade" class="form-control" name="socio_asses_idade" value="<?= $data['socio_asses']['idade'] ?? 'N/A' ?>">
             </div>
             <div class="col-6">
-                <label for="socio_rg" class="form-label">RG do Sócio:</label>
-                <input id="input" type="text" id="socio_rg" class="form-control" name="socio_rg" value="<?= $data['socio_asses']['rg'] ?>">
+                <label for="socio_asses_rg" class="form-label">RG do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_rg" class="form-control" name="socio_asses_rg" value="<?= $data['socio_asses']['rg'] ?? 'N/A' ?>">
             </div>
             <div class="col-6">
-                <label for="socio_cpf" class="form-label">CPF do Sócio:</label>
-                <input id="input" type="text" id="socio_cpf" class="form-control" name="socio_cpf" value="<?= $data['socio_asses']['cpf'] ?>">
+                <label for="socio_asses_cpf" class="form-label">CPF do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_cpf" class="form-control" name="socio_asses_cpf" value="<?= $data['socio_asses']['cpf']  ?? 'N/A' ?>">
             </div>
 
             
 
             <div class="col-3">
-                <label for="socio_endereco_cep" class="form-label">CEP do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_cep" class="form-control" name="socio_endereco_cep" value="<?= $data['socio_asses']['endereco_cep'] ?>">
+                <label for="socio_asses_endereco_cep" class="form-label">CEP do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_endereco_cep" class="form-control" name="socio_asses_endereco_cep" value="<?= $data['socio_asses']['endereco_cep'] ?? 'N/A' ?>">
             </div>
             <div class="col-md-6">
-                <label for="socio_endereco_cidade" class="form-label">Cidade do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_cidade" class="form-control" name="socio_endereco_cidade" value="<?= $data['socio_asses']['endereco_cidade'] ?>">
+                <label for="socio_asses_endereco_cidade" class="form-label">Cidade do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_endereco_cidade" class="form-control" name="socio_asses_endereco_cidade" value="<?= $data['socio_asses']['endereco_cidade'] ?? 'N/A' ?>">
             </div>
             <div class="col-md-5">
-                <label for="socio_endereco_bairro" class="form-label">Bairro do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_bairro" class="form-control" name="socio_endereco_bairro" value="<?= $data['socio_asses']['endereco_bairro'] ?>">
+                <label for="socio_asses_endereco_bairro" class="form-label">Bairro do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_endereco_bairro" class="form-control" name="socio_asses_endereco_bairro" value="<?= $data['socio_asses']['endereco_bairro'] ?? 'N/A' ?>">
             </div>
             <div class="col-5">
-                <label for="socio_endereco_rua" class="form-label">Rua do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_rua" class="form-control" name="socio_endereco_rua" value="<?= $data['socio_asses']['endereco_rua'] ?>">
+                <label for="socio_asses_endereco_rua" class="form-label">Rua do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_endereco_rua" class="form-control" name="socio_asses_endereco_rua" value="<?= $data['socio_asses']['endereco_rua'] ?? 'N/A' ?>">
             </div>
             <div class="col-5">
-                <label for="socio_endereco_complemento" class="form-label">Complemento do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_complemento" class="form-control" name="socio_endereco_complemento" value="<?= $data['socio_asses']['endereco_complemento'] ?>">
+                <label for="socio_asses_endereco_complemento" class="form-label">Complemento do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_endereco_complemento" class="form-control" name="socio_asses_endereco_complemento" value="<?= $data['socio_asses']['endereco_complemento'] ?? 'N/A' ?>">
             </div>
             <div class="col-md-2">
-                <label for="socio_endereco_numero" class="form-label">Número do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $data['socio_asses']['endereco_numero'] ?>">
+                <label for="socio_asses_endereco_numero" class="form-label">Número do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_endereco_numero" class="form-control" name="socio_asses_endereco_numero" value="<?= $data['socio_asses']['endereco_numero'] ?? 'N/A' ?>">
             </div>
             <div class="col-3">
-                <label for="socio_endereco_estado" class="form-label">Estado do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_estado" class="form-control" name="socio_endereco_estado" value="<?= $data['socio_asses']['endereco_estado'] ?>">
+                <label for="socio_asses_endereco_estado" class="form-label">Estado do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_endereco_estado" class="form-control" name="socio_asses_endereco_estado" value="<?= $data['socio_asses']['endereco_estado'] ?? 'N/A' ?>">
             </div>
 
             <br>
