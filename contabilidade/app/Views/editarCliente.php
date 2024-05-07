@@ -303,8 +303,8 @@
                     <input id="input" type="text" id="socio_<?= $index ?>_nome" class="form-control" name="socios[<?= $index ?>][nome]" value="<?= $socio['nome'] ?>">
                 </div>
                 <div class="col-3">
-                    <label for="socio_<?= $index ?>_qualificacao" class="form-label">Qualificação:</label>
-                    <input id="input" type="text" id="socio_<?= $index ?>_qualificacao" class="form-control" name="socios[<?= $index ?>][qual]" value="<?= $socio['qual'] ?>">
+                    <label for="socio_<?= $index ?>_qualifica" class="form-label">Qualificação:</label>
+                    <input id="input" type="text" id="socio_<?= $index ?>_qualifica" class="form-control" name="socios[<?= $index ?>][qualifica]" value="<?= $socio['qualifica'] ?>">
                 </div>
                 <hr>
             <?php endforeach; ?>
