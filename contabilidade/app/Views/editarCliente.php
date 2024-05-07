@@ -149,7 +149,8 @@
             </div>
 
 
-            <br>
+            <br><br>
+                <br>
                 <div class="col-md-12">
                 <h2 class="mb-5">Empresa Informações</h2>
                 </div>
@@ -229,6 +230,8 @@
 
 
                 <br>
+                <br>
+                <br>
                 <div class="col-md-12">
                     <h2 class="mb-5">Atividades Secundárias</h2>
                 </div>
@@ -289,6 +292,8 @@
             
             
                 <br>
+                <br>
+                <br>
             <div class="col-md-12">
                 <h2 class="mb-5">Sócios da Empresa</h2>
             </div>
@@ -305,7 +310,9 @@
                 <hr>
             <?php endforeach; ?>
 
-
+                <br>
+                <br>
+                <br>
             <div class="col-md-12">
                 <h2 class="mb-5">Sócio Assinante</h2>
             </div>
@@ -363,6 +370,8 @@
             </div>
 
             <br>
+                <br>
+                <br>
             <div class="col-md-12">
                 <h2 class="mb-5">Contabilidade</h2>
             </div>
