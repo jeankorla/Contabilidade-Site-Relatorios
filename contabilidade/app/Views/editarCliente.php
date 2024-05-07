@@ -128,7 +128,7 @@
             </ul>
         </div>
         
-        <form class="row g-3" action="" method="post" >
+        <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $registro['id']) ?>" method="post" >
 
             <div class="col-md-6">
                 <label for="nome_contato" class="form-label">Nome de Contato:</label>
@@ -165,7 +165,7 @@
             </div>
             <div class="col-4">
                 <label for="fantasia" class="form-label">Nome Fantasia:</label>
-                <input id="input" type="text" id="fantasia" class="form-control" name="fantasia" value="<?= $data['empresa']['fantasia'] ?>" onkeyup="formatarMoeda();" maxlength="18">
+                <input id="input" type="text" id="fantasia" class="form-control" name="fantasia" value="<?= $data['empresa']['fantasia'] ?>">
             </div>
 
 
