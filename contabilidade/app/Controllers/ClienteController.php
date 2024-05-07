@@ -85,12 +85,17 @@ class ClienteController extends BaseController
         $socioModel = new Socio();
         $socios = $socioModel->where('empresa_id', $empresaId)->findAll();
 
+        $socioAssList = array_values(array_filter($socioAsses, function ($sa) use ($empresa_id) {
+            return $sa['empresa_id'] == $empresa_id;
+        }));
+
         $data = [
             'cliente' => $cliente,
             'empresa' => $empresa,
             'atividades' => $atividades,
             'contabilidade' => $contabilidade,
-            'socios' => $socios
+            'socios' => $socios,
+            'socio_asses' => $socioAssList,
         ];
 
         return view('editarCliente', ['data' => $data]);
@@ -102,7 +107,7 @@ class ClienteController extends BaseController
     if (!$empresaId) {
         return redirect()->back()->with('error', 'ID da empresa não fornecido.');
     }
-    
+
     // Atualizando dados do cliente
     $dataCliente = [
         'nome' => $this->request->getPost('nome_contato'),
