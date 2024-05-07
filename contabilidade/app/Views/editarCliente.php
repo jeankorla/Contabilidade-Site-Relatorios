@@ -282,61 +282,7 @@
                 <h2 class="mb-5">Sócio Informações</h2>
                 </div>
            
-                <div class="col-md-7">
-                <label for="socio_nome" class="form-label">Nome do Sócio:</label>
-                <input id="input" type="text" id="socio_nome" class="form-control" name="socio_nome" value="<?= $data['socios']['nome'] ?>">
-            </div>
-            <div class="col-3">
-                <label for="socio_nacional" class="form-label">Nacionalidade do Sócio:</label>
-                <input id="input" type="text" id="socio_nacional" class="form-control" name="socio_nacional" value="<?= $data['socios']['nacionalidade'] ?>">
-            </div>
-            <div class="col-2">
-                <label for="socio_idade" class="form-label">Idade do Sócio:</label>
-                <input id="input" type="text" id="socio_idade" class="form-control" name="socio_idade" value="<?= $data['socios']['idade'] ?>">
-            </div>
-            <div class="col-6">
-                <label for="socio_rg" class="form-label">RG do Sócio:</label>
-                <input id="input" type="text" id="socio_rg" class="form-control" name="socio_rg" value="<?= $data['socios']['rg'] ?>">
-            </div>
-            <div class="col-6">
-                <label for="socio_cpf" class="form-label">CPF do Sócio:</label>
-                <input id="input" type="text" id="socio_cpf" class="form-control" name="socio_cpf" value="<?= $data['socios']['cpf'] ?>">
-            </div>
-            <div class="col-3">
-                <label for="socio_qualifica" class="form-label">Qualificação:</label>
-                <input id="input" type="text" id="socio_qualifica" class="form-control" name="socio_qualifica" value="<?= $registro['qualifica'] ?>">
-            </div>
-            
-
-            <div class="col-3">
-                <label for="socio_endereco_cep" class="form-label">CEP do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_cep" class="form-control" name="socio_endereco_cep" value="<?= $data['socios']['endereco_cep'] ?>">
-            </div>
-            <div class="col-md-6">
-                <label for="socio_endereco_cidade" class="form-label">Cidade do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_cidade" class="form-control" name="socio_endereco_cidade" value="<?= $data['socios']['endereco_cidade'] ?>">
-            </div>
-            <div class="col-md-5">
-                <label for="socio_endereco_bairro" class="form-label">Bairro do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_bairro" class="form-control" name="socio_endereco_bairro" value="<?= $data['socios']['endereco_bairro'] ?>">
-            </div>
-            <div class="col-5">
-                <label for="socio_endereco_rua" class="form-label">Rua do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_rua" class="form-control" name="socio_endereco_rua" value="<?= $data['socios']['endereco_rua'] ?>">
-            </div>
-            <div class="col-5">
-                <label for="socio_endereco_complemento" class="form-label">Complemento do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_complemento" class="form-control" name="socio_endereco_complemento" value="<?= $data['socios']['endereco_complemento'] ?>">
-            </div>
-            <div class="col-md-2">
-                <label for="socio_endereco_numero" class="form-label">Número do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $data['socios']['endereco_numero'] ?>">
-            </div>
-            <div class="col-3">
-                <label for="socio_endereco_estado" class="form-label">Estado do Sócio:</label>
-                <input id="input" type="text" id="socio_endereco_estado" class="form-control" name="socio_endereco_estado" value="<?= $registro['socio_endereco_estado'] ?>">
-            </div>
-            
+               
             
 
 
@@ -351,24 +297,6 @@
                 <h2 class="mb-5">Teste</h2>
                 </div>
 
-            <div class="col-md-4">
-                <label for="honorario" class="form-label">Honorário:</label>
-                <input id="input" type="text" id="honorario" class="form-control" name="honorario" value="<?= $registro['honorario'] ?>">
-            </div>
-            <div class="col-md-4">
-                <label for="inicio_contabilidade" class="form-label">Início na Contabilidade:</label>
-                <input id="input" type="text" id="inicio_contabilidade" class="form-control" name="inicio_contabilidade" value="<?= $registro['inicio_contabilidade'] ?>">
-            </div>
-             <div class="col-md-4">
-                <label for="competencia" class="form-label">Competência:</label>
-                <input id="input" type="text" id="competencia" class="form-control" name="competencia" value="<?= $registro['competencia'] ?>">
-            </div>
-
-            <div class="col-md-6">
-                <label for="honorario_texto" class="form-label">Honorário Texto:</label>
-                <textarea id="honorario_texto" name="honorario_texto" rows="6" cols="100" value="<?= $registro['honorario_texto'] ?>">
-                </textarea>
-            </div>
             
            
 
