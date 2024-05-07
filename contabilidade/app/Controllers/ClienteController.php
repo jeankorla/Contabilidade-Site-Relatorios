@@ -168,6 +168,7 @@ class ClienteController extends BaseController
             'faturamento' => $this->request->getPost('faturamento'),
             'funcionarios' => $this->request->getPost('funcionarios'),
             'tributacao' => $this->request->getPost('tributacao'),
+            'porte' => $this->request->getPost('porte'),
             'nfe' => $this->request->getPost('nfe'),
             'atividade_principal_codigo' => $this->request->getPost('atividade_principal_codigo'),
             'atividade_principal_texto' => $this->request->getPost('atividade_principal_texto'),
