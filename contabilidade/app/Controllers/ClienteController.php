@@ -30,35 +30,62 @@ class ClienteController extends BaseController
             exit;
         }
 
-        // Coletar todos os dados do formulário
+        // Coletar todos os dados do formulário para o cliente
         $data = [
-            'motivo'                => $this->request->getPost('motivo'),
-            'nome'                  => $this->request->getPost('nome'),
-            'email'                 => $this->request->getPost('email'),
-            'tel'                   => $this->request->getPost('tel'),
-            'cpf'                   => $this->request->getPost('cpf'),
-            'cnpj'                  => $this->request->getPost('cnpj'),
-            'faturamento'           => $this->request->getPost('faturamento'),
-            'funcionarios'          => $this->request->getPost('funcionarios'),
-            'nfe'                   => $this->request->getPost('nfe'),
-            'lancamento'            => $this->request->getPost('lancamento'),
+            'motivo' => $this->request->getPost('motivo'),
+            'nome' => $this->request->getPost('nome'),
+            'email' => $this->request->getPost('email'),
+            'tel' => $this->request->getPost('tel'),
+            'cpf' => $this->request->getPost('cpf'),
+            'cnpj' => $this->request->getPost('cnpj'),
+            'faturamento' => $this->request->getPost('faturamento'),
+            'funcionarios' => $this->request->getPost('funcionarios'),
+            'nfe' => $this->request->getPost('nfe'),
+            'lancamento' => $this->request->getPost('lancamento')
         ];
 
-        // Instanciando o modelo e inserindo os dados
-        $clienteModel = new Cliente_lead;
+        // Instanciar o modelo do cliente e inserir os dados
+        $clienteModel = new Cliente_lead();
         $inserted = $clienteModel->insert($data);
-        $clienteId = $clienteModel->insertID();  // Captura o ID do cliente inserido
 
-        // Enviar o CNPJ e clienteId para o EmpresaController
-        $empresaController = new EmpresaController();
-        $empresaData = $empresaController->fetchCnpjData($data['cnpj'], $clienteId);
+        // Verificar se a inserção do cliente foi bem-sucedida
+        if ($inserted === false) {
+            $errors = $clienteModel->errors();
+            return redirect()->back()->with('error', 'Erro ao registrar cliente: ' . implode(', ', $errors))->withInput();
+        }
 
-        // Usando métodos do EmailController
+        // Captura o ID do cliente inserido
+        $clienteId = $clienteModel->insertID();
+
+        // Coletar dados da empresa (se fornecidos) e associar ao cliente
+        $dataEmpresa = [
+            'nome' => $this->request->getPost('nome_empresa'),
+            'endereco_cidade' => $this->request->getPost('endereco_empresa_cidade'),
+            'endereco_estado' => $this->request->getPost('endereco_empresa_estado'),
+            'cliente_id' => $clienteId
+        ];
+
+        // Verificar se os campos obrigatórios da empresa estão preenchidos
+        if (!empty($dataEmpresa['nome']) && !empty($dataEmpresa['endereco_cidade']) && !empty($dataEmpresa['endereco_estado'])) {
+            // Instanciar o modelo da empresa e inserir os dados
+            $empresaModel = new Empresa();
+            $insertEmpresa = $empresaModel->insert($dataEmpresa);
+
+            // Verificar se a inserção foi bem-sucedida
+            if ($insertEmpresa === false) {
+                $errors = $empresaModel->errors();
+                return redirect()->back()->with('error', 'Erro ao registrar empresa: ' . implode(', ', $errors))->withInput();
+            }
+        }
+
+        // Usando métodos do EmailController (presumindo que ele esteja disponível)
         $this->emailController->emailCliente($data);
         $this->emailController->emailDiretoria($data);
 
+        // Retornar com mensagem de sucesso
         return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
     }
+
 
 
 

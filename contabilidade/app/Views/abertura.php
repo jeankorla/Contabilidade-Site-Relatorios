@@ -336,21 +336,16 @@ form .website2 {
                 </div>
 
                 <div class="input-group">
-                    <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" required oninput="aplicarMascaraCNPJ(this)" maxlength="18">
-                </div>
-
-                <!-- <div class="input-group">
                     <label for="nome_empresa">Nome da Empresa</label>
                     <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Digite o nome de sua empresa" maxlength="50">
-                </div> -->
+                </div>
 
-                <!-- <div class="input-group">
+                <div class="input-group">
                     <label for="endereco_empresa_cidade">Cidade</label>
                     <input type="text" id="endereco_empresa_cidade" name="endereco_empresa_cidade" placeholder="Digite a cidade de sua empresa" maxlength="50">
-                </div> -->
+                </div>
 
-                 <!-- <div class="">
+                 <div class="">
                     <label for="endereco_empresa_estado">Estado</label>
                     <select class="input-group form-control" id="endereco_empresa_estado" name="endereco_empresa_estado" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
                         <option value="SP">São Paulo</option>
@@ -381,7 +376,7 @@ form .website2 {
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
-                </div> -->
+                </div>
 
 
             <input type="text" class="hidden" id="motivo" name="motivo" value="Abertura"/>
@@ -500,20 +495,6 @@ function aplicarMascaraCPF(input) {
     valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após o terceiro dígito
     valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após os seis primeiros dígitos
     valor = valor.replace(/(\d{3})(\d)/, "$1-$2"); // Coloca um hífen após os nove primeiros dígitos
-
-    input.value = valor; // Atualiza o valor do input
-}
-</script>
-
-  <script>
-function aplicarMascaraCNPJ(input) {
-    var valor = input.value;
-
-    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
-    valor = valor.replace(/^(\d{2})(\d)/, "$1.$2"); // Coloca ponto entre o segundo e o terceiro dígitos
-    valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3"); // Coloca ponto entre o quinto e o sexto dígitos
-    valor = valor.replace(/\.(\d{3})(\d)/, ".$1/$2"); // Coloca uma barra entre o oitavo e o nono dígitos
-    valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); // Coloca um hífen depois do bloco de quatro dígitos
 
     input.value = valor; // Atualiza o valor do input
 }
