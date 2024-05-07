@@ -181,12 +181,11 @@
             </div>
 
             <div class="col-md-2">
-                <label for="lancamento" class="form-label">Quantidade de Lançamentos Contábeis:</label>
+                <label for="lancamento" class="form-label">Quantidade Lançamentos:</label>
                 <input id="input" type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $data['empresa']['lancamento'] ?>">
             </div>
 
-            </div>
-                <div class="col-md-3">
+            <div class="col-md-3">
                 <label for="natureza_juridica" class="form-label">Natureza Jurdica:</label>
                 <input id="input" type="text" id="natureza_juridica" class="form-control" name="natureza_juridica" value="<?= $data['empresa']['natureza_juridica'] ?>">
             </div>
@@ -204,7 +203,7 @@
                 <input id="input" type="text" id="atividade_principal_texto" class="form-control" name="atividade_principal_texto" value="<?= $data['empresa']['atividade_principal_texto'] ?>">
             </div>
 
-            
+
             </div>
                 <div class="col-md-3">
                 <label for="capital_social" class="form-label">Capital Social:</label>
