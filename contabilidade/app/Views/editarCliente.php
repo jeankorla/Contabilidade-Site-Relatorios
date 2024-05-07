@@ -241,7 +241,7 @@
 
             <div class="col-3">
                 <label for="endereco_empresa_cep" class="form-label">Empresa Cep:</label>
-                <input id="input" type="text" id="endereco_empresa_cep" class="form-control" name="endereco_empresa_cep" value="<?= $data['endereco_empresa_cep'] ?>">
+                <input id="input" type="text" id="endereco_empresa_cep" class="form-control" name="endereco_empresa_cep" value="<?= $data['empresa']['endereco_cep'] ?>">
             </div>
             <div class="col-md-4">
                 <label for="endereco_empresa_rua" class="form-label">Empresa Rua:</label>
