@@ -128,7 +128,7 @@
             </ul>
         </div>
         
-        <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $registro['id']) ?>" method="post" >
+        <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $data['cliente']['id']) ?>" method="post" >
 
             <div class="col-md-6">
                 <label for="nome_contato" class="form-label">Nome de Contato:</label>
