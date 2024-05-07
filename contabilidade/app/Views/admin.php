@@ -160,13 +160,13 @@
          <?php foreach ($data as $item) : ?>
              <tr>
          
-                <td><?= $item['cliente']['motivo'] ?></td>
-                <td><?= $item['empresa']['nome'] ?></td>
-                <td id="faturamento"><?= $item['empresa']['faturamento'] ?></td>
-                <td><?= $item['empresa']['tributacao'] ?></td>
-                <td><?= $item['empresa']['endereco_estado'] ?></td>
-                <td><?= $item['empresa']['endereco_cidade'] ?></td>
-                <td><?= date('d/m/Y', strtotime($item['cliente']['created_at'])); ?></td>
+                <td><?= $item['cliente']['motivo'] ?? 'N/A' ?></td>
+                <td><?= $item['empresa']['nome'] ?? 'N/A' ?></td>
+                <td id="faturamento"><?= $item['empresa']['faturamento'] ?? 'N/A' ?></td>
+                <td><?= $item['empresa']['tributacao'] ?? 'N/A' ?></td>
+                <td><?= $item['empresa']['endereco_estado'] ?? 'N/A' ?></td>
+                <td><?= $item['empresa']['endereco_cidade'] ?? 'N/A' ?></td>
+                <td><?= date('d/m/Y', strtotime($item['cliente']['created_at'] ?? 'N/A'));  ?></td>
                 </tr>
             <?php endforeach; ?>
 
