@@ -97,7 +97,7 @@ class EmpresaController extends BaseController
             $socioModel->insert([
                 'empresa_id'      => $empresaId,
                 'nome'            => $socioData['nome'],
-                'qual'            => $socioData['qualifica']
+                'qual'            => $socioData['qual']
             ]);
         }
     }
