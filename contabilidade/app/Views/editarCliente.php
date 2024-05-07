@@ -224,20 +224,21 @@
             
             
 
-            
-            
-
-
-
-            
-            
-
+    
                 <br>
                 <div class="col-md-12">
                 <h2 class="mb-5">Empresa Endereço</h2>
                 </div>
 
-            <div class="col-3">
+
+
+
+
+
+
+
+
+            <div class="col-2">
                 <label for="endereco_empresa_cep" class="form-label">Empresa Cep:</label>
                 <input id="input" type="text" id="endereco_empresa_cep" class="form-control" name="endereco_empresa_cep" value="<?= $data['empresa']['endereco_cep'] ?>">
             </div>
@@ -245,19 +246,20 @@
                 <label for="endereco_empresa_rua" class="form-label">Empresa Rua:</label>
                 <input id="input" type="text" id="endereco_empresa_rua" class="form-control" name="endereco_empresa_rua" value="<?= $data['empresa']['endereco_rua'] ?>">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label for="endereco_empresa_numero" class="form-label">Empresa Numero:</label>
                 <input id="input" type="text" id="endereco_empresa_numero" class="form-control" name="endereco_empresa_numero" value="<?= $data['empresa']['endereco_numero'] ?>">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="endereco_empresa_complemento" class="form-label">Complemento:</label>
                 <input id="input" type="text" id="endereco_empresa_complemento" class="form-control" name="endereco_empresa_complemento" value="<?= $data['empresa']['endereco_complemento'] ?>">
             </div>
-            <div class="col-md-6">
+
+            <div class="col-md-5">
                 <label for="endereco_empresa_bairro" class="form-label">Empresa Bairro:</label>
                 <input id="input" type="text" id="endereco_empresa_bairro" class="form-control" name="endereco_empresa_bairro" value="<?= $data['empresa']['endereco_bairro'] ?>">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
                 <input id="input" type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $data['empresa']['endereco_cidade'] ?>">
             </div>
