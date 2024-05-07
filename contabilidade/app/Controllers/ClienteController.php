@@ -45,6 +45,14 @@ class ClienteController extends BaseController
             'lancamento' => $this->request->getPost('lancamento')
         ];
 
+        $additionalData = [
+        'tributacao' => $this->request->getPost('tributacao'),
+        'faturamento' => $this->request->getPost('faturamento'),
+        'funcionarios' => $this->request->getPost('funcionarios'),
+        'nfe' => $this->request->getPost('nfe'),
+        'lancamento' => $this->request->getPost('lancamento')
+        ];
+
         // Instanciar o modelo do cliente e inserir os dados
         $clienteModel = new Cliente_lead();
         $inserted = $clienteModel->insert($data);
@@ -81,7 +89,7 @@ class ClienteController extends BaseController
 
         // Enviar o CNPJ e clienteId para o EmpresaController
         $empresaController = new EmpresaController();
-        $empresaData = $empresaController->fetchCnpjData($data['cnpj'], $clienteId);
+        $empresaData = $empresaController->fetchCnpjData($data['cnpj'], $clienteId, $additionalData);
 
         // Usando métodos do EmailController (presumindo que ele esteja disponível)
         $this->emailController->emailCliente($data);

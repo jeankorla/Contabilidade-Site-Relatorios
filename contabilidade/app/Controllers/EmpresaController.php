@@ -13,7 +13,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 class EmpresaController extends BaseController
 {   
-    public function fetchCnpjData($cnpj, $clienteId)
+    public function fetchCnpjData($cnpj, $clienteId, $additionalData)
     {
         // Remove pontos, traços e barras do CNPJ
         $cleanCnpj = preg_replace('/[\.\/\-]/', '', $cnpj);
@@ -45,7 +45,7 @@ class EmpresaController extends BaseController
     }
 
 
-    private function processCnpjResponse($data, $clienteId)
+    private function processCnpjResponse($data, $clienteId, $additionalData)
     {
         if ($data['status'] !== 'OK') {
             return ['error' => 'Não foi possível obter dados do CNPJ'];
@@ -73,6 +73,14 @@ class EmpresaController extends BaseController
             'capital_social'                        => $data['capital_social'],
             'abertura'                              => $data['abertura'],
             'tipo'                                  => $data['tipo'],
+
+
+
+            'tributacao'                            =>$additionalData['tributacao'],
+            'faturamento'                           =>$additionalData['faturamento'],
+            'funcionarios'                          =>$additionalData['funcionarios'],
+            'nfe'                                   =>$additionalData['nfe'],
+            'lancamento'                            =>$additionalData['lancamento'],
         ];
 
         $empresaModel = new Empresa();
