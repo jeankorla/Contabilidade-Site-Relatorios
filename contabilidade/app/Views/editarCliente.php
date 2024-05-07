@@ -246,7 +246,7 @@
                 <?php endforeach; ?>
 
 
-                
+
     
                 <br>
                 <div class="col-md-12">
@@ -292,23 +292,22 @@
             </div>
             
             
-
-             
-
-
-
-            
-            
-        
                 <br>
-                <div class="col-md-12">
-                <h2 class="mb-5">Sócio Informações</h2>
+            <div class="col-md-12">
+                <h2 class="mb-5">Sócios da Empresa</h2>
+            </div>
+
+            <?php foreach ($data['socios'] as $index => $socio): ?>
+                <div class="col-md-7">
+                    <label for="socio_<?= $index ?>_nome" class="form-label">Nome do Sócio:</label>
+                    <input id="input" type="text" id="socio_<?= $index ?>_nome" class="form-control" name="socios[<?= $index ?>][nome]" value="<?= $socio['nome'] ?>">
                 </div>
-           
-               
-            
-
-
+                <div class="col-3">
+                    <label for="socio_<?= $index ?>_qualificacao" class="form-label">Qualificação:</label>
+                    <input id="input" type="text" id="socio_<?= $index ?>_qualificacao" class="form-control" name="socios[<?= $index ?>][qual]" value="<?= $socio['qual'] ?>">
+                </div>
+                <hr>
+            <?php endforeach; ?>
 
 
 
