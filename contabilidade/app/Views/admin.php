@@ -165,7 +165,7 @@
                 <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
                 <a href="<?php echo base_url('ClienteController/excluirCliente/' . $item['cliente']['id']) ?>" 
                    class="btn btn-danger" 
-                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($cliente['nome_empresa']); ?>?');">
+                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($item['empresa']['nome']); ?>?');">
                    <i class="bi bi-trash-fill"></i>
                 </a>
             </div>
