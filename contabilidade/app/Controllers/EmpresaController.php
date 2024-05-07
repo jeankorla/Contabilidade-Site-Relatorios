@@ -40,7 +40,7 @@ class EmpresaController extends BaseController
         if ($err) {
             return "cURL Error #:" . $err;
         } else {
-            return $this->processCnpjResponse(json_decode($response, true), $clienteId);
+            return $this->processCnpjResponse(json_decode($response, true), $clienteId, $additionalData);
         }
     }
 
