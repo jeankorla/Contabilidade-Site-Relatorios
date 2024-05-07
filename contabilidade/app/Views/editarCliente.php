@@ -147,6 +147,14 @@
                 <label for="cpf_contato" class="form-label">CPF do Contato:</label>
                 <input id="input" type="text" id="cpf_contato" class="form-control" name="cpf_contato" oninput= "aplicarMascaraCPF(this)" value="<?= $data['cliente']['cpf'] ?>" maxlength="14">
             </div>
+
+
+            <br>
+                <div class="col-md-12">
+                <h2 class="mb-5">Empresa Informações</h2>
+                </div>
+
+
             <div class="col-4">
                 <label for="cnpj" class="form-label">CNPJ:</label>
                <input id="input" type="text" id="cnpj" class="form-control" name="cnpj" value="<?= $data['empresa']['cnpj'] ?>" oninput= "aplicarMascaraCNPJ(this)" maxlength="18">
