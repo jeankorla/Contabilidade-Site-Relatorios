@@ -9,6 +9,7 @@ use App\Models\Empresa;
 use App\Models\Atividade;
 use App\Models\Contabilidade;
 use App\Models\Socio;
+use App\Models\Socio_ass;
 
 
 
@@ -36,6 +37,9 @@ class AdminController extends BaseController
     $socioModel = new Socio();
     $socios = $socioModel->findAll();
 
+    $socioAssModel = new Socio_ass(); 
+    $socioAsses = $socioAssModel->findAll();
+
     $data = [];
     foreach ($clientes as $cliente) {
         // Busca a empresa relacionada com este cliente
@@ -58,12 +62,17 @@ class AdminController extends BaseController
             return $s['empresa_id'] == $empresa_id;
         }));
 
+        $socioAssList = array_values(array_filter($socioAsses, function ($sa) use ($empresa_id) {
+            return $sa['empresa_id'] == $empresa_id;
+        }));
+
         $data[] = [
             'cliente' => $cliente,
             'empresa' => $empresa,
             'atividades' => $atividade,
             'contabilidade' => $contabilidade,
-            'socios' => $sociosList
+            'socios' => $sociosList,
+            'socio_asses' => $socioAssList
         ];
     }
 

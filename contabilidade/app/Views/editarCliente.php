@@ -310,9 +310,61 @@
             <?php endforeach; ?>
 
 
+            <div class="col-md-12">
+                <h2 class="mb-5">Assinante</h2>
+            </div>
 
+            <div class="col-md-7">
+                <label for="socio_nome" class="form-label">Nome do Sócio:</label>
+                <input id="input" type="text" id="socio_nome" class="form-control" name="socio_nome" value="<?= $data['socio_asses']['nome'] ?>">
+            </div>
+            <div class="col-3">
+                <label for="socio_nacional" class="form-label">Nacionalidade do Sócio:</label>
+                <input id="input" type="text" id="socio_nacional" class="form-control" name="socio_nacional" value="<?= $data['socio_asses']['nacionalidade'] ?>">
+            </div>
+            <div class="col-2">
+                <label for="socio_idade" class="form-label">Idade do Sócio:</label>
+                <input id="input" type="text" id="socio_idade" class="form-control" name="socio_idade" value="<?= $data['socio_asses']['idade'] ?>">
+            </div>
+            <div class="col-6">
+                <label for="socio_rg" class="form-label">RG do Sócio:</label>
+                <input id="input" type="text" id="socio_rg" class="form-control" name="socio_rg" value="<?= $data['socio_asses']['rg'] ?>">
+            </div>
+            <div class="col-6">
+                <label for="socio_cpf" class="form-label">CPF do Sócio:</label>
+                <input id="input" type="text" id="socio_cpf" class="form-control" name="socio_cpf" value="<?= $data['socio_asses']['cpf'] ?>">
+            </div>
 
+            
 
+            <div class="col-3">
+                <label for="socio_endereco_cep" class="form-label">CEP do Sócio:</label>
+                <input id="input" type="text" id="socio_endereco_cep" class="form-control" name="socio_endereco_cep" value="<?= $data['socio_asses']['endereco_cep'] ?>">
+            </div>
+            <div class="col-md-6">
+                <label for="socio_endereco_cidade" class="form-label">Cidade do Sócio:</label>
+                <input id="input" type="text" id="socio_endereco_cidade" class="form-control" name="socio_endereco_cidade" value="<?= $data['socio_asses']['endereco_cidade'] ?>">
+            </div>
+            <div class="col-md-5">
+                <label for="socio_endereco_bairro" class="form-label">Bairro do Sócio:</label>
+                <input id="input" type="text" id="socio_endereco_bairro" class="form-control" name="socio_endereco_bairro" value="<?= $data['socio_asses']['endereco_bairro'] ?>">
+            </div>
+            <div class="col-5">
+                <label for="socio_endereco_rua" class="form-label">Rua do Sócio:</label>
+                <input id="input" type="text" id="socio_endereco_rua" class="form-control" name="socio_endereco_rua" value="<?= $data['socio_asses']['endereco_rua'] ?>">
+            </div>
+            <div class="col-5">
+                <label for="socio_endereco_complemento" class="form-label">Complemento do Sócio:</label>
+                <input id="input" type="text" id="socio_endereco_complemento" class="form-control" name="socio_endereco_complemento" value="<?= $data['socio_asses']['endereco_complemento'] ?>">
+            </div>
+            <div class="col-md-2">
+                <label for="socio_endereco_numero" class="form-label">Número do Sócio:</label>
+                <input id="input" type="text" id="socio_endereco_numero" class="form-control" name="socio_endereco_numero" value="<?= $data['socio_asses']['endereco_numero'] ?>">
+            </div>
+            <div class="col-3">
+                <label for="socio_endereco_estado" class="form-label">Estado do Sócio:</label>
+                <input id="input" type="text" id="socio_endereco_estado" class="form-control" name="socio_endereco_estado" value="<?= $data['socio_asses']['endereco_estado'] ?>">
+            </div>
 
             <br>
             <div class="col-md-12">

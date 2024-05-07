@@ -4,17 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Socio extends Model
+class Socio_ass extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'socios';
+    protected $table            = 'socio_ass';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nome', 'qualifica',
+        'nome', 'nacionalidade', 'idade', 'rg', 'cpf',
+
+        'endereco_cep', 'endereco_rua', 'endereco_numero', 'endereco_complemento',
+        'endereco_bairro', 'endereco_cidade', 'endereco_estado',
 
         'empresa_id',
     ];
