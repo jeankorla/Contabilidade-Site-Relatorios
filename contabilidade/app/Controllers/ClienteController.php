@@ -60,10 +60,35 @@ class ClienteController extends BaseController
     public function editarCliente($id = null)
     {
         $clienteModel = new Cliente_lead();
+        $cliente = $clienteModel->find($id);
 
-        $registro = $clienteModel->find($id);
+        if (!$cliente) {
+            return redirect()->back()->with('error', 'Cliente não encontrado.');
+        }
 
-        return view('editarCliente', ['registro' => $registro]);
+        $empresaModel = new Empresa();
+        $empresa = $empresaModel->where('cliente_id', $id)->first();
+
+        $empresaId = $empresa ? $empresa['id'] : null;
+
+        $atividadeModel = new Atividade();
+        $atividades = $atividadeModel->where('empresa_id', $empresaId)->findAll();
+
+        $contabilidadeModel = new Contabilidade();
+        $contabilidade = $contabilidadeModel->where('empresa_id', $empresaId)->first();
+
+        $socioModel = new Socio();
+        $socios = $socioModel->where('empresa_id', $empresaId)->findAll();
+
+        $data = [
+            'cliente' => $cliente,
+            'empresa' => $empresa,
+            'atividades' => $atividades,
+            'contabilidade' => $contabilidade,
+            'socios' => $socios
+        ];
+
+        return view('editarCliente', ['data' => $data]);
     }
 
     public function atualizarCliente($id = null)
