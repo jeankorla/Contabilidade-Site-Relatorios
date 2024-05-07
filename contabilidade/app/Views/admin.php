@@ -161,9 +161,9 @@
              <tr>
         <td>
             <div style="display: flex; gap: 10px">
-                <a href="<?php echo base_url('ClienteController/editarCliente/' . $cliente['id']) ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                <a href="<?php echo base_url('ClienteController/editarCliente/' . $item['cliente']['id']) ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                 <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
-                <a href="<?php echo base_url('ClienteController/excluirCliente/' . $cliente['id']) ?>" 
+                <a href="<?php echo base_url('ClienteController/excluirCliente/' . $item['cliente']['id']) ?>" 
                    class="btn btn-danger" 
                    onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($cliente['nome_empresa']); ?>?');">
                    <i class="bi bi-trash-fill"></i>
