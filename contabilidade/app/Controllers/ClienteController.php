@@ -85,9 +85,9 @@ class ClienteController extends BaseController
         $socioModel = new Socio();
         $socios = $socioModel->where('empresa_id', $empresaId)->findAll();
 
-        $socioAssList = array_values(array_filter($socioAsses, function ($sa) use ($empresa_id) {
-            return $sa['empresa_id'] == $empresa_id;
-        }));
+        $socio_assModel = new Socio_ass();
+        $socio_asses = $socio_assModel->where('empresa_id', $empresaId)->first();
+        
 
         $data = [
             'cliente' => $cliente,
@@ -95,7 +95,7 @@ class ClienteController extends BaseController
             'atividades' => $atividades,
             'contabilidade' => $contabilidade,
             'socios' => $socios,
-            'socio_asses' => $socioAssList,
+            'socio_asses' => $socio_asses,
         ];
 
         return view('editarCliente', ['data' => $data]);
