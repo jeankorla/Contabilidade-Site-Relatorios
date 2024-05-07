@@ -4,6 +4,10 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Cliente_lead;
+use App\Models\Empresa;
+use App\Models\Atividade;
+use App\Models\Contabilidade;
+use App\Models\Socio;
 use App\Controllers\EmailController;
 
 date_default_timezone_set('America/Sao_Paulo');
