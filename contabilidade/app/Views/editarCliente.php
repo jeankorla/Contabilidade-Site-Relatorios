@@ -159,17 +159,20 @@
                 <label for="cnpj" class="form-label">CNPJ:</label>
                <input id="input" type="text" id="cnpj" class="form-control" name="cnpj" value="<?= $data['empresa']['cnpj'] ?>" oninput= "aplicarMascaraCNPJ(this)" maxlength="18">
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <label for="nome_empresa" class="form-label">Nome da Empresa:</label>
                 <input id="input" type="text" id="nome_empresa" class="form-control" name="nome_empresa" value="<?= $data['empresa']['nome'] ?>">
             </div>
+            <div class="col-4">
+                <label for="fantasia" class="form-label">Nome Fantasia:</label>
+                <input id="input" type="text" id="fantasia" class="form-control" name="fantasia" value="<?= $data['empresa']['fantasia'] ?>" onkeyup="formatarMoeda();" maxlength="18">
+            </div>
+
+
+
             <div class="col-3">
                 <label for="tel" class="form-label">Telefone da Empresa:</label>
                 <input id="input" type="text" id="tel" class="form-control" name="tel" value="<?= $data['empresa']['tel'] ?>" onkeyup="formatarMoeda();" maxlength="18">
-            </div>
-             <div class="col-3">
-                <label for="fantasia" class="form-label">Nome Fantasia:</label>
-                <input id="input" type="text" id="fantasia" class="form-control" name="fantasia" value="<?= $data['empresa']['fantasia'] ?>" onkeyup="formatarMoeda();" maxlength="18">
             </div>
             <div class="col-3">
                 <label for="faturamento" class="form-label">Faturamento:</label>
@@ -183,32 +186,28 @@
                 <label for="tributacao" class="form-label">Tributação:</label>
                 <input id="input" type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $data['empresa']['tributacao'] ?>">
             </div>
+
+
+
             <div class="col-3">
                 <label for="nfe" class="form-label">Quantidade de Notas-Fiscais:</label>
                 <input id="input" type="number" id="nfe" class="form-control" name="nfe" value="<?= $data['empresa']['nfe'] ?>">
             </div>
-
-
-
             <div class="col-md-3">
                 <label for="atividade_principal_codigo" class="form-label">Côdigo Atividade:</label>
                 <input id="input" type="text" id="atividade_principal_codigo" class="form-control" name="atividade_principal_codigo" value="<?= $data['empresa']['atividade_principal_codigo'] ?>">
             </div>
-
-           
             <div class="col-md-6">
                 <label for="atividade_principal_texto" class="form-label">Atividade Principal:</label>
                 <input id="input" type="text" id="atividade_principal_texto" class="form-control" name="atividade_principal_texto" value="<?= $data['empresa']['atividade_principal_texto'] ?>">
             </div>
 
 
+
             <div class="col-md-3">
                 <label for="lancamento" class="form-label">Lançamentos:</label>
                 <input id="input" type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $data['empresa']['lancamento'] ?>">
             </div>
-
-
-
             <div class="col-md-5">
                 <label for="natureza_juridica" class="form-label">Natureza Jurdica:</label>
                 <input id="input" type="text" id="natureza_juridica" class="form-control" name="natureza_juridica" value="<?= $data['empresa']['natureza_juridica'] ?>">
@@ -221,6 +220,7 @@
                 <label for="abertura" class="form-label">Abertura:</label>
                 <input id="input" type="text" id="abertura" class="form-control" name="abertura" value="<?= $data['empresa']['abertura'] ?>">
             </div>
+            
             <div class="col-md-3">
                 <label for="tipo" class="form-label">Tipo:</label>
                 <input id="input" type="text" id="tipo" class="form-control" name="tipo" value="<?= $data['empresa']['tipo'] ?>">
