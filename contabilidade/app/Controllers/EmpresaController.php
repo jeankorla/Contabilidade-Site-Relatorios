@@ -59,7 +59,7 @@ class EmpresaController extends BaseController
             'email'                                 => $data['email'],
             'tel'                                   => $data['telefone'],
             'fantasia'                              => $data['fantasia'],
-            'tributacao'                            => $data['porte'],
+            'porte'                                 => $data['porte'],
             'endereco_cep'                          => $data['cep'],
             'endereco_rua'                          => $data['logradouro'],
             'endereco_numero'                       => $data['numero'],

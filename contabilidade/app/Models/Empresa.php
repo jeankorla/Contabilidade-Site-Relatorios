@@ -18,7 +18,7 @@ class Empresa extends Model
        
         'endereco_cep', 'endereco_rua', 'endereco_numero', 'endereco_complemento',
         'endereco_bairro', 'endereco_cidade', 'endereco_estado', 
-        'natureza_juridica', 'atividade_principal_codigo', 'atividade_principal_texto', 'capital_social', 'abertura', 'tipo',
+        'natureza_juridica', 'atividade_principal_codigo', 'atividade_principal_texto', 'capital_social', 'abertura', 'tipo', 'porte',
 
         'cliente_id',
     ];

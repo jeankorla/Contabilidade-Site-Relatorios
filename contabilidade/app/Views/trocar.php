@@ -349,14 +349,14 @@ form .website2 {
                     <input type="number" id="funcionarios" name="funcionarios" placeholder="Quantidade de funcionários da empresa" required maxlength="5">
                 </div>
 
-                 <!-- <div class="">
-        <label for="tributacao">Tributação</label>
-        <select class="input-group form-control" id="tributacao" name="tributacao" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
-            <option value="Simples Nacional">Simples Nacional</option>
-            <option value="Lucro Presumido" selected>Lucro Presumido</option>
-            <option value="Lucro Real">Lucro Real</option>
-        </select>
-    </div> -->
+                 <div class="">
+                    <label for="tributacao">Tributação</label>
+                    <select class="input-group form-control" id="tributacao" name="tributacao" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
+                        <option value="Simples Nacional">Simples Nacional</option>
+                        <option value="Lucro Presumido" selected>Lucro Presumido</option>
+                        <option value="Lucro Real">Lucro Real</option>
+                    </select>
+                </div>
 
                 <div class="input-group">
                     <label for="nfe">Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços):</label>
@@ -510,13 +510,13 @@ form .website2 {
 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script> 
   
-  <!-- <script>
+  <script>
         document.getElementById('tributacao').addEventListener('change', function() {
             var isSimplesNacional = this.value === 'Simples Nacional';
             document.getElementById('nfe').required = isSimplesNacional;
             document.getElementById('lancamento').required = isSimplesNacional;
         });
-    </script> -->
+    </script>
 
   <script>
 function aplicarMascaraCNPJ(input) {

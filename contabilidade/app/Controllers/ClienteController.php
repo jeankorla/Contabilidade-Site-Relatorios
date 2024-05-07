@@ -38,6 +38,7 @@ class ClienteController extends BaseController
             'tel' => $this->request->getPost('tel'),
             'cpf' => $this->request->getPost('cpf'),
             'cnpj' => $this->request->getPost('cnpj'),
+            'tributacao' => $this->request->getPost('tributacao'),
             'faturamento' => $this->request->getPost('faturamento'),
             'funcionarios' => $this->request->getPost('funcionarios'),
             'nfe' => $this->request->getPost('nfe'),
