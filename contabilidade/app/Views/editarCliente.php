@@ -220,18 +220,33 @@
                 <label for="abertura" class="form-label">Abertura:</label>
                 <input id="input" type="text" id="abertura" class="form-control" name="abertura" value="<?= $data['empresa']['abertura'] ?>">
             </div>
-            
+
             <div class="col-md-3">
                 <label for="tipo" class="form-label">Tipo:</label>
                 <input id="input" type="text" id="tipo" class="form-control" name="tipo" value="<?= $data['empresa']['tipo'] ?>">
             </div>
-            
-            
 
 
-            
-            
 
+                <br>
+                <div class="col-md-12">
+                    <h2 class="mb-5">Atividades Secundárias</h2>
+                </div>
+
+                <?php foreach ($data['atividades'] as $index => $atividade): ?>
+                    <div class="col-md-3">
+                        <label for="atividade_secundaria_<?= $index ?>_codigo" class="form-label">Código Atividade:</label>
+                        <input id="input" type="text" id="atividade_secundaria_<?= $index ?>_codigo" class="form-control" name="atividades[<?= $index ?>][codigo]" value="<?= $atividade['codigo'] ?>">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="atividade_secundaria_<?= $index ?>_texto" class="form-label">Atividade Secundária:</label>
+                        <input id="input" type="text" id="atividade_secundaria_<?= $index ?>_texto" class="form-control" name="atividades[<?= $index ?>][texto]" value="<?= $atividade['texto'] ?>">
+                    </div>
+                    <hr>
+                <?php endforeach; ?>
+
+
+                
     
                 <br>
                 <div class="col-md-12">
