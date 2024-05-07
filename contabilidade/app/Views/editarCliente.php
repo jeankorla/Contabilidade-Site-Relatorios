@@ -191,35 +191,35 @@
             </div>
 
 
-            </div>
-                <div class="col-md-3">
+            
+            <div class="col-md-3">
                 <label for="atividade_principal_codigo" class="form-label">Côdigo Atividade:</label>
                 <input id="input" type="text" id="atividade_principal_codigo" class="form-control" name="atividade_principal_codigo" value="<?= $data['empresa']['atividade_principal_codigo'] ?>">
             </div>
 
-            </div>
-                <div class="col-md-4">
+           
+            <div class="col-md-4">
                 <label for="atividade_principal_texto" class="form-label">Atividade Principal:</label>
                 <input id="input" type="text" id="atividade_principal_texto" class="form-control" name="atividade_principal_texto" value="<?= $data['empresa']['atividade_principal_texto'] ?>">
             </div>
 
 
-            </div>
-                <div class="col-md-3">
+            
+            <div class="col-md-3">
                 <label for="capital_social" class="form-label">Capital Social:</label>
                 <input id="input" type="text" id="capital_social" class="form-control" name="capital_social" value="<?= $data['empresa']['capital_social'] ?>">
             </div>
 
-            </div>
-                <div class="col-md-2">
+            
+            <div class="col-md-2">
                 <label for="abertura" class="form-label">Abertura:</label>
                 <input id="input" type="text" id="abertura" class="form-control" name="abertura" value="<?= $data['empresa']['abertura'] ?>">
             </div>
 
 
 
-            </div>
-                <div class="col-md-4">
+            
+            <div class="col-md-4">
                 <label for="tipo" class="form-label">Tipo:</label>
                 <input id="input" type="text" id="tipo" class="form-control" name="tipo" value="<?= $data['empresa']['tipo'] ?>">
             </div>
