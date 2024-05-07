@@ -159,6 +159,17 @@
           <tbody>
          <?php foreach ($data as $item) : ?>
              <tr>
+              <td>
+            <div style="display: flex; gap: 10px">
+                <a href="<?php echo base_url('ClienteController/editarCliente/' . $item['cliente']['id']) ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                <!-- Adiciona link para a ação de exclusão e um evento onclick para confirmação -->
+                <a href="<?php echo base_url('ClienteController/excluirCliente/' . $item['cliente']['id']) ?>" 
+                   class="btn btn-danger" 
+                   onclick="return confirm('Tem certeza que deseja excluir o usuário <?php echo addslashes($item['empresa']['nome']); ?>?');">
+                   <i class="bi bi-trash-fill"></i>
+                </a>
+            </div>
+        </td>
          
                 <td><?= $item['cliente']['motivo'] ?? 'N/A' ?></td>
                 <td><?= $item['empresa']['nome'] ?? 'N/A' ?></td>
