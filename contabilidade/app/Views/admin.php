@@ -157,7 +157,7 @@
             </tr>
           </thead>
           <tbody>
-         <?php foreach($clientes as $cliente) : ?>
+         <?php foreach ($data as $item) : ?>
              <tr>
         <td>
             <div style="display: flex; gap: 10px">
@@ -169,14 +169,14 @@
                    <i class="bi bi-trash-fill"></i>
                 </a>
             </div>
-        </td>
-                <td><?php echo $cliente['motivo_contato'] ?></td>
-                <td><?php echo $cliente['nome_empresa'] ?></td>
-                <td id="faturamento"><?php echo $cliente['faturamento'] ?></td>
-                <td><?php echo $cliente['tributacao'] ?></td>
-                <td><?php echo $cliente['endereco_empresa_estado'] ?></td>
-                <td><?php echo $cliente['endereco_empresa_cidade'] ?></td>
-                <td><?php echo date('d/m/Y', strtotime($cliente['created_at'])); ?></td>
+        </td>   
+                <td><?= $item['cliente']['motivo'] ?></td>
+                <td><?= $item['empresa']['nome'] ?></td>
+                <td id="faturamento"><?= $item['empresa']['faturamento'] ?></td>
+                <td><?= $item['empresa']['tributacao'] ?></td>
+                <td><?= $item['empresa']['endereco_estado'] ?></td>
+                <td><?= $item['empresa']['endereco_cidade'] ?></td>
+                <td><?= date('d/m/Y', strtotime($item['cliente']['created_at'])); ?></td>
                 </tr>
             <?php endforeach; ?>
 
