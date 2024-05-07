@@ -252,8 +252,8 @@
                 <input id="input" type="text" id="endereco_empresa_numero" class="form-control" name="endereco_empresa_numero" value="<?= $data['empresa']['endereco_numero'] ?>">
             </div>
             <div class="col-md-6">
-                <label for="complemento" class="form-label">Complemento:</label>
-                <input id="input" type="text" id="complemento" class="form-control" name="complemento" value="<?= $data['empresa']['complemento'] ?>">
+                <label for="endereco_empresa_complemento" class="form-label">Complemento:</label>
+                <input id="input" type="text" id="endereco_empresa_complemento" class="form-control" name="endereco_empresa_complemento" value="<?= $data['empresa']['endereco_complemento'] ?>">
             </div>
             <div class="col-md-6">
                 <label for="endereco_empresa_bairro" class="form-label">Empresa Bairro:</label>
