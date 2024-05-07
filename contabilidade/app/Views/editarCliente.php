@@ -311,7 +311,7 @@
 
 
             <div class="col-md-12">
-                <h2 class="mb-5">Assina</h2>
+                <h2 class="mb-5">Sócio Assinante</h2>
             </div>
 
             <div class="col-md-7">
@@ -368,8 +368,27 @@
 
             <br>
             <div class="col-md-12">
-                <h2 class="mb-5">Teste</h2>
-                </div>
+                <h2 class="mb-5">Contabilidade</h2>
+            </div>
+            
+
+            <div class="col-12">
+                <label for="inicio_contabilidade" class="form-label">Início na Contabilidade:</label>
+                <input id="input" type="text" id="inicio_contabilidade" class="form-control" name="inicio_contabilidade" value="<?= $data['contabilidade']['inicio_contabilidade'] ?? 'N/A' ?>">
+            </div>
+            <div class="col-12">
+                <label for="competencia" class="form-label">Competência:</label>
+                <input id="input" type="text" id="competencia" class="form-control" name="competencia" value="<?= $data['contabilidade']['competencia'] ?? 'N/A' ?>">
+            </div>
+
+            <div class="col-4">
+                <label for="honorario" class="form-label">Honorário:</label>
+                <input id="input" type="text" id="honorario" class="form-control" name="honorario" value="<?= $data['contabilidade']['honorario'] ?? 'N/A' ?>">
+            </div>
+           <div class="col-12">
+                <label for="honorario_texto" class="form-label">Honorário Texto:</label>
+                <textarea id="honorario_texto" class="form-control" name="honorario_texto" rows="4"><?= $data['contabilidade']['honorario_texto'] ?? 'N/A' ?></textarea>
+            </div>
 
             
            
