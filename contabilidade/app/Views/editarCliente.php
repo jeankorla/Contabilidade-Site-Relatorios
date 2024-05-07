@@ -140,8 +140,8 @@
                 <input id="input" type="email" class="form-control" id="email_contato" name="email_contato" value="<?= $data['cliente']['email'] ?>">
             </div>
             <div class="col-md-4">
-                <label for="tel" class="form-label">Telefone do Contato:</label>
-                <input id="input" type="text" class="form-control" id="tel" name="tel" value="<?= $data['cliente']['tel'] ?>" oninput= "mascaraTelefone(event);" maxlength="15">
+                <label for="tel_contato" class="form-label">Telefone do Contato:</label>
+                <input id="input" type="text" class="form-control" id="tel_contato" name="tel_contato" value="<?= $data['cliente']['tel'] ?>" oninput= "mascaraTelefone(event);" maxlength="15">
             </div>
             <div class="col-md-4">
                 <label for="cpf_contato" class="form-label">CPF do Contato:</label>
@@ -149,8 +149,7 @@
             </div>
 
 
-            <br><br>
-                <br>
+            <br>
                 <div class="col-md-12">
                 <h2 class="mb-5">Empresa Informações</h2>
                 </div>
@@ -172,8 +171,8 @@
 
 
             <div class="col-3">
-                <label for="tel" class="form-label">Telefone da Empresa:</label>
-                <input id="input" type="text" id="tel" class="form-control" name="tel" value="<?= $data['empresa']['tel'] ?>" onkeyup="formatarMoeda();" maxlength="18">
+                <label for="tel_empresa" class="form-label">Telefone da Empresa:</label>
+                <input id="input" type="text" id="tel_empresa" class="form-control" name="tel_empresa" value="<?= $data['empresa']['tel'] ?>" onkeyup="formatarMoeda();" maxlength="18">
             </div>
             <div class="col-3">
                 <label for="faturamento" class="form-label">Faturamento:</label>
@@ -230,8 +229,6 @@
 
 
                 <br>
-                <br>
-                <br>
                 <div class="col-md-12">
                     <h2 class="mb-5">Atividades Secundárias</h2>
                 </div>
@@ -251,8 +248,7 @@
 
 
     
-                <br>
-                <br>
+              
                 <br>
                 <div class="col-md-12">
                 <h2 class="mb-5">Empresa Endereço</h2>
@@ -292,8 +288,6 @@
             
             
                 <br>
-                <br>
-                <br>
             <div class="col-md-12">
                 <h2 class="mb-5">Sócios da Empresa</h2>
             </div>
@@ -310,9 +304,7 @@
                 <hr>
             <?php endforeach; ?>
 
-                <br>
-                <br>
-                <br>
+
             <div class="col-md-12">
                 <h2 class="mb-5">Sócio Assinante</h2>
             </div>
@@ -370,8 +362,6 @@
             </div>
 
             <br>
-                <br>
-                <br>
             <div class="col-md-12">
                 <h2 class="mb-5">Contabilidade</h2>
             </div>
