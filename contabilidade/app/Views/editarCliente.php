@@ -175,11 +175,12 @@
                 <label for="tributacao" class="form-label">Tributação:</label>
                 <input id="input" type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $data['empresa']['tributacao'] ?>">
             </div>
-            <div class="col-5">
+            <div class="col-3">
                 <label for="nfe" class="form-label">Quantidade de Notas-Fiscais:</label>
                 <input id="input" type="number" id="nfe" class="form-control" name="nfe" value="<?= $data['empresa']['nfe'] ?>">
             </div>
-            <div class="col-md-4">
+
+            <div class="col-md-2">
                 <label for="lancamento" class="form-label">Quantidade de Lançamentos Contábeis:</label>
                 <input id="input" type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $data['empresa']['lancamento'] ?>">
             </div>
@@ -203,6 +204,7 @@
                 <input id="input" type="text" id="atividade_principal_texto" class="form-control" name="atividade_principal_texto" value="<?= $data['empresa']['atividade_principal_texto'] ?>">
             </div>
 
+            
             </div>
                 <div class="col-md-3">
                 <label for="capital_social" class="form-label">Capital Social:</label>
