@@ -636,6 +636,6 @@ class PropostaController extends Controller
         // Escrever o arquivo no caminho especificado
         file_put_contents($filePath, $htmlContent);
 
-        return "Proposta gerada com sucesso! <a href='" . print(base_url("/propostas/$fileName")). "'>Veja a proposta</a>";
+        return "Proposta gerada com sucesso!" . print(base_url(" /propostas/$fileName ")) . "Veja a proposta</a>";
     }
 }
