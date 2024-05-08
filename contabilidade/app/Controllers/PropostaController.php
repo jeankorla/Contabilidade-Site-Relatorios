@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Cliente_lead;
+use App\Models\Empresa;
 use CodeIgniter\Controller;
 
 class PropostaController extends Controller
@@ -13,13 +14,20 @@ class PropostaController extends Controller
         $clienteModel = new Cliente_lead();
         $cliente = $clienteModel->find($clienteId);
 
-        // Verificar se o cliente existe
-        if (!$cliente) {
-            return "Cliente não encontrado!";
+        // Carregar o modelo da empresa e buscar pelo cliente_id
+        $empresaModel = new Empresa();
+        $empresa = $empresaModel->where('cliente_id', $clienteId)->first();
+
+        // Verificar se o cliente e a empresa foram encontrados
+        if (!$cliente || !$empresa) {
+            return "Cliente ou empresa não encontrados!";
         }
 
-        // Nome do arquivo será o nome do cliente
-        $fileName = preg_replace('/\s+/', '_', $cliente['nome']) . '.php';
+        // Obter o CNPJ da empresa e remover caracteres especiais
+        $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
+
+        // Nome do arquivo será o CNPJ
+        $fileName = $cnpj . '.php';
 
         // Conteúdo do arquivo
         $htmlContent = '
@@ -339,7 +347,7 @@ class PropostaController extends Controller
                             </div>
                         </div>
                         <div class="mbr-section-btn item-footer mt-2" style="display: flex; justify-content: center;"> <!-- Centraliza o botão -->
-                            <a href="https://play.google.com/store/apps/details?id=com.spolaorcontabilidade&pli=1" class="btn item-btn btn-danger display-7" target="_blank">BAIXAR</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.spolaorcontabilidade&pli=1" class="btn item-btn btn-danger display-7" target="_blank">Android</a>
                         </div>
                     </div>
                 </div>
@@ -355,7 +363,7 @@ class PropostaController extends Controller
                             </div>
                         </div>
                         <div class="mbr-section-btn item-footer mt-2" style="display: flex; justify-content: center;"> <!-- Centraliza o botão -->
-                            <a href="https://apps.apple.com/br/app/spolaor-contabilidade/id1592899809?l=en&platform=iphone" class="btn item-btn btn-danger display-7" target="_blank">BAIXAR</a>
+                            <a href="https://apps.apple.com/br/app/spolaor-contabilidade/id1592899809?l=en&platform=iphone" class="btn item-btn btn-danger display-7" target="_blank">IOS</a>
                         </div>
                     </div>
                 </div>
@@ -371,7 +379,7 @@ class PropostaController extends Controller
                             </div>
                         </div>
                         <div class="mbr-section-btn item-footer mt-2" style="display: flex; justify-content: center;"> <!-- Centraliza o botão -->
-                            <a href="https://vip.acessorias.com/spolaorcontabilidade" class="btn item-btn btn-danger display-7" target="_blank">BAIXAR</a>
+                            <a href="https://vip.acessorias.com/spolaorcontabilidade" class="btn item-btn btn-danger display-7" target="_blank">Web</a>
                         </div>
                     </div>
                 </div>
