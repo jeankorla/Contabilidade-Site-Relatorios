@@ -3,19 +3,17 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Trocar;
+use App\Models\Socio_ass;
 use Dompdf\Dompdf;
 
 class DocumentoController extends BaseController
 {
-    public function gerarDocTroca($id = null)
-    {
-        $trocar = new Trocar();
+    public function gerarDoc($insertedId)
+    {   
+        $socioModel = new Socio_ass();
+        $socio= $socioModel->find($insertedId);
 
-        // Buscando os dados do cliente pelo ID.
-        $cliente = $trocar->find($id);
-
-        if (!$cliente) {
+        if (!$socio) {
             return redirect()->back()->with('error', 'Registro não encontrado.');
         }
 
@@ -43,7 +41,7 @@ class DocumentoController extends BaseController
 </head>
 <body>
     <h1>Contrato de Prestação de Serviços Profissionais</h1>
-    <p>Pelo presente instrumento particular de Contrato de Prestação de Serviços Contábeis, de acordo com a Resolução CFC n.º 1.457/13 publicada no DOU 13/12/2013, de um lado PRO ATIVA ARQUITETURA LTDA., CNPJ nº 34.577.124/0001-56, estabelecida à Rua Robert Sandall, 161, Ponta da Praia, Santos - SP – CEP: 11.030-530, doravante denominada CONTRATANTE, neste ato representada pelo titular Carlos Aloise de Menezes Pereira, brasileiro, maior, portados do R.G. nº 37.948.605 SSP/SP e do CPF/MF nº 444.002.648-66, residente e domiciliado à Rua Robert Sandall, 161, Ponta da Praia, Santos - SP – CEP: 11.030-530; e do outro lado, a empresa contábil SPOLAOR CONTABILIDADE LTDA - EPP, inscrita no CNPJ n.º 39.897.569/0001-37 e no CRC/SP 2SP042992/O-6, representada neste ato pelo Único Sócio e Responsável Técnico Sr. Marcos Roberto Spolaor Antunes, brasileiro, maior, casado, CONTADOR, estabelecido à Rua Guaió n.º 66 Sala 915/916 – Aparecida – 11.035-260 – Santos/SP, inscrito no CRC/SP sob n°1SP191034/O-2, portador da C.I.R.G. n.º 23.834.604-3 SSP/SP e do CPF n.º 159.081.408-80, doravante CONTRATADO(A), mediante as cláusulas e condições seguintes, tem justo e contratado que se segue:</p>
+    <p>Pelo presente instrumento particular de Contrato de Prestação de Serviços Contábeis, de acordo com a Resolução CFC n.º 1.457/13 publicada no DOU 13/12/2013, de um lado PRO ATIVA ARQUITETURA LTDA., CNPJ nº 34.577.124/0001-56, estabelecida à Rua Robert Sandall, 161, Ponta da Praia, Santos - SP – CEP: 11.030-530, doravante denominada CONTRATANTE, neste ato representada pelo titular ' . $socio['nome'] . ', ' . $socio['nacionalidade'] .', maior, portados do R.G. nº ' . $socio['rg'] . ' SSP/SP e do CPF/MF nº 444.002.648-66, residente e domiciliado à Rua Robert Sandall, 161, Ponta da Praia, Santos - SP – CEP: 11.030-530; e do outro lado, a empresa contábil SPOLAOR CONTABILIDADE LTDA - EPP, inscrita no CNPJ n.º 39.897.569/0001-37 e no CRC/SP 2SP042992/O-6, representada neste ato pelo Único Sócio e Responsável Técnico Sr. Marcos Roberto Spolaor Antunes, brasileiro, maior, casado, CONTADOR, estabelecido à Rua Guaió n.º 66 Sala 915/916 – Aparecida – 11.035-260 – Santos/SP, inscrito no CRC/SP sob n°1SP191034/O-2, portador da C.I.R.G. n.º 23.834.604-3 SSP/SP e do CPF n.º 159.081.408-80, doravante CONTRATADO(A), mediante as cláusulas e condições seguintes, tem justo e contratado que se segue:</p>
     <!-- Exemplo de cláusula -->
     <div>
         <p><strong>CLÁUSULA PRIMEIRA.</strong> O profissional contratado obriga-se a prestar seus serviços profissionais ao contratante, nas seguintes áreas:</p>

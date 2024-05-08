@@ -20,6 +20,7 @@ class PropostaController extends Controller
         $socioData = [
             'empresa_id' => $empresaId,
             'nome' => $this->request->getPost('socio_asses_nome'),
+            'email' => $this->request->getPost('socio_asses_email'),
             'nacionalidade' => $this->request->getPost('socio_asses_nacional'),
             'idade' => $this->request->getPost('socio_asses_idade'),
             'rg' => $this->request->getPost('socio_asses_rg'),
@@ -35,9 +36,14 @@ class PropostaController extends Controller
 
         // Inicializa o modelo e salva os dados no banco de dados
         $socioModel = new Socio_ass();
-        if ($socioModel->insert($socioData)) {
-            // Sucesso no cadastro
-            return redirect()->to('/success'); // Substitua por sua rota de sucesso
+        $inserted = $socioModel->insert($socioData);
+
+        if ($inserted) {
+        $insertedId = $socioModel->getInsertID();
+
+        // Suponha que DocumentoController esteja disponível ou que gerarDocTroca seja parte deste controller
+        $documentoController = new DocumentoController();
+        return $documentoController->gerarDoc($insertedId);
         } else {
             // Lida com erro ao salvar
             return redirect()->back()->withInput()->with('errors', $socioModel->errors());
@@ -698,7 +704,7 @@ class PropostaController extends Controller
               <input type="text" class="form-control" id="socio_asses_endereco_rua" name="socio_asses_endereco_rua" required>
             </div>
             <div class="col-md-2">
-              <label for="socio_asses_endereco_numero" class="form-label">Número do Sócio:</label>
+              <label for="socio_asses_endereco_numero" class="form-label">Número:</label>
               <input type="text" class="form-control" id="socio_asses_endereco_numero" name="socio_asses_endereco_numero" required>
             </div>
             <div class="col-md-5">
@@ -709,6 +715,10 @@ class PropostaController extends Controller
             <div class="col-5">
               <label for="socio_asses_endereco_complemento" class="form-label">Complemento do Sócio:</label>
               <input type="text" class="form-control" id="socio_asses_endereco_complemento" name="socio_asses_endereco_complemento" required>
+            </div>
+             <div class="col-md-7">
+              <label for="socio_asses_email" class="form-label">E-mail do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_email" name="socio_asses_email" required>
             </div>
           </div>
           <div class="mt-3">
