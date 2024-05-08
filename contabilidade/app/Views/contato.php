@@ -51,8 +51,8 @@
   font-size: 10px;
   background: royalblue;
   color: white;
-  padding: 4em 2em;
-  padding-left: 5em;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
   display: flex;
   align-items: center;
   border: none;
@@ -63,6 +63,7 @@
 }
 
 button span {
+  font-size: 5px;
   display: block;
   margin-left: 0.3em;
   transition: all 0.3s ease-in-out;
