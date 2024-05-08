@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Cliente_lead;
 use App\Models\Empresa;
+use App\Models\Contabilidade;
 use CodeIgniter\Controller;
 
 class PropostaController extends Controller
@@ -17,6 +18,9 @@ class PropostaController extends Controller
         // Carregar o modelo da empresa e buscar pelo cliente_id
         $empresaModel = new Empresa();
         $empresa = $empresaModel->where('cliente_id', $clienteId)->first();
+
+        $contabilidadeModel = new Contabilidade();
+        $contabilidade = $contabilidadeModel->where('empresa_id', $empresa['id'])->first();
 
         // Verificar se o cliente e a empresa foram encontrados
         if (!$cliente || !$empresa) {
@@ -495,14 +499,12 @@ class PropostaController extends Controller
                                 <p class="mbr-fonts-style panel-text display-4">
                                     <strong>4.1</strong> - Para a execução dos serviços constantes nos itens 1 à 3, relacionados acima, <b>à partir da competência </b>
                                     <span style="background-color: yellow;">
-                                        <strong>Janeiro/2023</strong>
+                                        <strong>'. $contabilidade['competencia']  .'</strong>
                                     </span> 
                                     à <b>Spolaor Contabilidade</b> propõe os honorários profissionais mensais correspondentes à 
                                     <span style="background-color: yellow;">
-                                        <strong>R$ 1.800,00,00</strong>
+                                        <strong>' . $contabilidade['honorario'] .'</strong>
                                     </span> 
-
-                                    <span style="background-color: yellow;">(Hum mil e oitocentos reais)</span>
 
                                     até o dia 01 do mês subsequente ao vencido, podendo a cobrança ser veiculada através de cobrança bancária.
                                     <br>
