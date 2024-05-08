@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     
 
 <style>
@@ -403,7 +404,7 @@
             </div>
             
             <div class="col-md-6">
-                <button href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="flex items-center bg-blue-500 text-white gap-1 px-4 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest rounded-md hover:bg-blue-400 duration-300 hover:gap-2 hover:translate-x-3">
+                <a type="button" href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="flex items-center bg-blue-500 text-white gap-1 px-4 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest rounded-md hover:bg-blue-400 duration-300 hover:gap-2 hover:translate-x-3">
                         Proposta
                         <svg
                             class="w-5 h-5"
@@ -419,7 +420,7 @@
                             stroke-linecap="round"
                             ></path>
                         </svg>
-                        </button>
+                        </a>
             </div>
         </form>
     </div>
