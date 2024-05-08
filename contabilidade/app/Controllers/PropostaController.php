@@ -15,6 +15,7 @@ class PropostaController extends Controller
 {
     public function store()
     {
+        // Coleta os dados enviados pelo formulário
         $empresaId = $this->request->getPost('empresa_id');
         $socioData = [
             'empresa_id' => $empresaId,
@@ -33,27 +34,10 @@ class PropostaController extends Controller
             'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
         ];
 
+        // Inicializa o modelo e salva os dados no banco de dados
         $socioModel = new Socio_ass();
-        $existingSocio = $socioModel->where('empresa_id', $empresaId)->first();
-
-        if ($existingSocio) {
-            // Atualiza os dados do sócio existente
-            $socioModel->where('empresa_id', $empresaId)->update($socioData);
-            $updatedId = $existingSocio['id'];
-        } else {
-            // Insere um novo sócio
-            $socioModel->insert($socioData);
-            $updatedId = $socioModel->getInsertID();
-        }
-
-        if ($updatedId) {
-            $documentoController = new DocumentoController();
-            return $documentoController->gerarDoc($updatedId);
-        } else {
-            return redirect()->back()->withInput()->with('errors', $socioModel->errors());
-        }
+        $inserted = $socioModel->insert($socioData);
     }
-
 
     public function gerarProposta($clienteId)
     {
