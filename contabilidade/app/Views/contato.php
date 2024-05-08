@@ -64,7 +64,7 @@
 
 button span {
   display: block;
-  margin-left: 1em;
+  margin-left: 0.3em;
   transition: all 0.3s ease-in-out;
 }
 
@@ -82,8 +82,21 @@ button:hover svg {
   transform: translateX(1.2em) rotate(45deg) scale(1.1);
 }
 
-button:hover span {
-  transform: translateX(5em);
+svg {
+  width: 24px; /* ou outro valor apropriado */
+  height: 24px; /* mantém a proporção */
+}
+
+.svg-wrapper-1, .svg-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button span {
+  margin-left: 0.5em; /* Ajuste para mais espaço entre o ícone e o texto */
+  white-space: nowrap; /* Evita que o texto quebre em mais de uma linha */
 }
 
 button:active {
