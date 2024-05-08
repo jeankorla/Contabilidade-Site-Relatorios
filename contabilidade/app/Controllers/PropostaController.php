@@ -7,6 +7,8 @@ use App\Models\Empresa;
 use App\Models\Contabilidade;
 use CodeIgniter\Controller;
 
+date_default_timezone_set('America/Sao_Paulo');
+
 class PropostaController extends Controller
 {
     public function gerarProposta($clienteId)
@@ -21,6 +23,8 @@ class PropostaController extends Controller
 
         $contabilidadeModel = new Contabilidade();
         $contabilidade = $contabilidadeModel->where('empresa_id', $empresa['id'])->first();
+
+        $dataAtual = date('d/m/Y');
 
         // Verificar se o cliente e a empresa foram encontrados
         if (!$cliente || !$empresa) {
@@ -547,15 +551,15 @@ class PropostaController extends Controller
                         <tbody>
                             <tr>
                                 <td>Quantidade de Funcionários:</td>
-                                <td style="background-color: yellow;">0</td> <!-- Quantidade de funcionários -->
+                                <td style="background-color: yellow;">' . $empresa['funcionarios'] . '</td> <!-- Quantidade de funcionários -->
                             </tr>
                             <tr>
                                 <td>Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços):</td>
-                                <td style="background-color: yellow;">100</td> <!-- Quantidade de notas-fiscais -->
+                                <td style="background-color: yellow;">' . $empresa['nfe'] . '</td> <!-- Quantidade de notas-fiscais -->
                             </tr>
                             <tr>
                                 <td>Quantidade de Lançamentos Contábeis:</td>
-                                <td style="background-color: yellow;">500</td> <!-- Quantidade de lançamentos contábeis -->
+                                <td style="background-color: yellow;">' . $empresa['lancamentos'] .'</td> <!-- Quantidade de lançamentos contábeis -->
                             </tr>
                             </tbody>
                         </table>
@@ -573,7 +577,7 @@ class PropostaController extends Controller
         <div class="row justify-content-center">
             <div class="title col-md-12 col-lg-12">
                 
-                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7"><strong>Campo [DATE]</strong><br></h4>
+                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7"><strong>' . $dataAtual . '</strong><br></h4>
                 
             </div>
         </div>
@@ -632,6 +636,6 @@ class PropostaController extends Controller
         // Escrever o arquivo no caminho especificado
         file_put_contents($filePath, $htmlContent);
 
-        return "Proposta gerada com sucesso! <a href='" . base_url("./propostas/$fileName") . "'>Download Proposta</a>";
+        return "Proposta gerada com sucesso! <a href='" . print(base_url("/propostas/$fileName")). "'>Veja a proposta</a>";
     }
 }
