@@ -47,63 +47,6 @@
 #input{
     background-color: #eee;
 }
-button {
-  font-family: inherit;
-  font-size: 10px;
-  background: royalblue;
-  color: white;
-  padding: 0.7em 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Alinha os itens horizontalmente no centro */
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-button .svg-wrapper-1, button .svg-wrapper {
-  display: flex; /* Ajuste para exibir como flex container */
-  align-items: center; /* Alinha verticalmente o SVG com o texto */
-  justify-content: center;
-}
-
-button span {
-  margin-left: 0.5em; /* Aumenta o espaço entre o SVG e o texto */
-  white-space: nowrap; /* Previne quebra de linha */
-}
-
-button svg {
-  width: 24px; /* Define uma largura específica */
-  height: 24px; /* Define uma altura específica */
-}
-
-button:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
-}
-
-button:hover svg {
-  transform: translateX(1.2em) rotate(45deg) scale(1.1);
-}
-
-button:hover span {
-  transform: translateX(5em);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-@keyframes fly-1 {
-  from {
-    transform: translateY(0.1em);
-  }
-  to {
-    transform: translateY(-0.1em);
-  }
-}
-
 </style>
 </head>
 
@@ -456,25 +399,29 @@ button:active {
             <div class="col-12">
                 <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Atualizar</button>
-                <button href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="btn btn-primary">
-            <div class="svg-wrapper-1">
-              <div class="svg-wrapper">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path
-                    fill="currentColor"
-                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                  ></path>
-                </svg>
-              </div>
+                <button
+                        class="flex items-center bg-blue-500 text-white gap-1 px-4 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest rounded-md hover:bg-blue-400 duration-300 hover:gap-2 hover:translate-x-3"
+                        >
+                        Proposta
+                        <svg
+                            class="w-5 h-5"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                            d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                            stroke-linejoin="round"
+                            stroke-linecap="round"
+                            ></path>
+                        </svg>
+                        </button>
             </div>
-            <span>Proposta</span>
-          </button>
+
+            <div class="col-md-12">
+                <a href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="btn btn-primary">Proposta</a>
             </div>
         </form>
     </div>
