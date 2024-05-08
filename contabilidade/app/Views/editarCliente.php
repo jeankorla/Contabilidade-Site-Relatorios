@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
     html, body {
@@ -397,44 +397,13 @@
             
            
 
-            <div class="col-6">
+            <div class="col-12">
                 <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Atualizar</button>
             </div>
-            
-            <div class="col-md-6" id="tailwind-button-container"></div>
-
-            <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                class TailwindButton extends HTMLElement {
-                    constructor() {
-                        super();
-                        const shadow = this.attachShadow({ mode: 'open' });
-
-                        // URL do PHP para a função proposta
-                        const url = '<?= base_url("PropostaController/gerarProposta/" . $data["cliente"]["id"]) ?>';
-
-                        // Definição do conteúdo do Shadow DOM
-                        shadow.innerHTML = `
-                            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-                            <button type="button" onclick="window.location.href='${url}'" class="flex items-center bg-blue-500 text-white gap-1 px-4 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest rounded-md hover:bg-blue-400 duration-300 hover:gap-2 hover:translate-x-3">
-                                Proposta
-                                <svg class="w-5 h-5" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 12L3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                </svg>
-                            </button>
-                        `;
-                    }
-                }
-
-                // Definição do elemento personalizado
-                customElements.define('tailwind-button', TailwindButton);
-
-                // Inserindo o elemento dentro do contêiner
-                document.getElementById('tailwind-button-container').appendChild(document.createElement('tailwind-button'));
-            });
-            </script>
-
+            <div class="col-md-12">
+                <a href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="btn btn-primary">Proposta</a>
+            </div>
         </form>
     </div>
     </div>
@@ -443,14 +412,6 @@
 
 
 </section>
-
-
-<script>
-function redirectTo(url) {
-    window.location.href = url;
-}
-</script>
-
 
 <script>
 function aplicarMascaraCPF(input) {
