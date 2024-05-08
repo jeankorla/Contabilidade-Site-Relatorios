@@ -48,7 +48,7 @@
     }
     button {
   font-family: inherit;
-  font-size: 8px;
+  font-size: 10px;
   background: royalblue;
   color: white;
   padding: 0.7em 1em;
@@ -61,13 +61,6 @@
   transition: all 0.2s;
   cursor: pointer;
 }
-
-button span {
-  display: block;
-  margin-left: 0.3em;
-  transition: all 0.3s ease-in-out;
-}
-
 button svg {
   display: block;
   transform-origin: center center;
@@ -80,10 +73,6 @@ button:hover .svg-wrapper {
 
 button:hover svg {
   transform: translateX(1.2em) rotate(45deg) scale(1.1);
-}
-
-button:hover span {
-  transform: translateX(5em);
 }
 
 button:active {
@@ -236,8 +225,8 @@ button:active {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  width="14"
-                  height="14"
+                  width="24"
+                  height="24"
                 >
                   <path fill="none" d="M0 0h24v24H0z"></path>
                   <path
@@ -247,7 +236,6 @@ button:active {
                 </svg>
               </div>
             </div>
-            <span>Send</span>
           </button>
 
             <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']); ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir o contato de <?php echo addslashes($c['name']); ?>?');">
