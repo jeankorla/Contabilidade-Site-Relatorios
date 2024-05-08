@@ -251,7 +251,7 @@ button:active {
           </button>
 
             <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']); ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir o contato de <?php echo addslashes($c['name']); ?>?');">
-                Excluir
+                <i class="bi bi-trash-fill"></i>
             </a>
         </div>
     </td>
