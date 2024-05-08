@@ -61,6 +61,13 @@
   transition: all 0.2s;
   cursor: pointer;
 }
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
 button svg {
   display: block;
   transform-origin: center center;
@@ -73,6 +80,10 @@ button:hover .svg-wrapper {
 
 button:hover svg {
   transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+  transform: translateX(5em);
 }
 
 button:active {
@@ -236,6 +247,7 @@ button:active {
                 </svg>
               </div>
             </div>
+            <span>Send</span>
           </button>
 
             <a href="<?php echo base_url('ContatoController/excluirContato/' . $c['id']); ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir o contato de <?php echo addslashes($c['name']); ?>?');">
