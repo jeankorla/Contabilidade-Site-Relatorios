@@ -198,8 +198,6 @@ class ClienteController extends BaseController
             'idade' => $this->request->getPost('socio_asses_idade'),
             'rg' => $this->request->getPost('socio_asses_rg'),
             'cpf' => $this->request->getPost('socio_asses_cpf'),
-
-            // Endereço do sócio
             'endereco_cep' => $this->request->getPost('socio_asses_endereco_cep'),
             'endereco_cidade' => $this->request->getPost('socio_asses_endereco_cidade'),
             'endereco_bairro' => $this->request->getPost('socio_asses_endereco_bairro'),
@@ -209,13 +207,18 @@ class ClienteController extends BaseController
             'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
         ];
 
-        // Se não existe, insira um novo registro associado ao `empresa_id`
-        if (!$socioAssModel->where('empresa_id', $empresaId)->first()) {
+        // Checando se já existe um registro com o mesmo 'empresa_id'
+        $existingSocioAss = $socioAssModel->where('empresa_id', $empresaId)->first();
+
+        if (!$existingSocioAss) {
+            // Se não existe, insere um novo registro
             $dataSocioAss['empresa_id'] = $empresaId;
             $socioAssModel->insert($dataSocioAss);
         } else {
-            $socioAssModel->where('empresa_id', $empresaId)->update(null, $dataSocioAss);
+            // Se existe, atualiza o registro existente
+            $socioAssModel->where('empresa_id', $empresaId)->update($dataSocioAss);
         }
+
 
         // Atualizando ou inserindo dados da Contabilidade
         $contabilidadeModel = new Contabilidade();
