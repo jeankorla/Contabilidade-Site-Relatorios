@@ -5,12 +5,45 @@ namespace App\Controllers;
 use App\Models\Cliente_lead;
 use App\Models\Empresa;
 use App\Models\Contabilidade;
+use App\Models\Socio_ass;
 use CodeIgniter\Controller;
+
 
 date_default_timezone_set('America/Sao_Paulo');
 
 class PropostaController extends Controller
 {
+    public function store()
+    {
+        // Coleta os dados enviados pelo formulário
+        $empresaId = $this->request->getPost('empresa_id');
+        $socioData = [
+            'empresa_id' => $empresaId,
+            'nome' => $this->request->getPost('socio_asses_nome'),
+            'nacionalidade' => $this->request->getPost('socio_asses_nacional'),
+            'idade' => $this->request->getPost('socio_asses_idade'),
+            'rg' => $this->request->getPost('socio_asses_rg'),
+            'cpf' => $this->request->getPost('socio_asses_cpf'),
+            'endereco_cep' => $this->request->getPost('socio_asses_endereco_cep'),
+            'endereco_cidade' => $this->request->getPost('socio_asses_endereco_cidade'),
+            'endereco_bairro' => $this->request->getPost('socio_asses_endereco_bairro'),
+            'endereco_rua' => $this->request->getPost('socio_asses_endereco_rua'),
+            'endereco_complemento' => $this->request->getPost('socio_asses_endereco_complemento'),
+            'endereco_numero' => $this->request->getPost('socio_asses_endereco_numero'),
+            'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
+        ];
+
+        // Inicializa o modelo e salva os dados no banco de dados
+        $socioModel = new Socio_ass();
+        if ($socioModel->insert($socioData)) {
+            // Sucesso no cadastro
+            return redirect()->to('/success'); // Substitua por sua rota de sucesso
+        } else {
+            // Lida com erro ao salvar
+            return redirect()->back()->withInput()->with('errors', $socioModel->errors());
+        }
+    }
+
     public function gerarProposta($clienteId)
     {
         // Carregar o modelo do cliente
@@ -603,11 +636,82 @@ class PropostaController extends Controller
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">
-                <div class="mbr-section-btn align-center"><a class="btn btn-danger display-4" href="">BOTÃO DO JEAN</a></div>
+                <div class="mbr-section-btn align-center"><a type="button" data-bs-toggle="modal" data-bs-target="#formularioModal" class="btn btn-danger display-4" href="">Aceitar Proposta</a></div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="formularioModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Informações Necessárias</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="propostaForm" id="propostaForm" action="<?= base_url("PropostaController/store"); ?>" method="post">
+        <input type="hidden" name="empresa_id" value="' .  $empresa['id'] . '">
+          <div class="row">
+            <div class="col-md-7">
+              <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_nome" name="socio_asses_nome" required>
+            </div>
+            <div class="col-3">
+              <label for="socio_asses_nacional" class="form-label">Nacionalidade do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_nacional" name="socio_asses_nacional" required>
+            </div>
+            <div class="col-2">
+              <label for="socio_asses_idade" class="form-label">Idade do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_idade" name="socio_asses_idade" required>
+            </div>
+            <div class="col-6">
+              <label for="socio_asses_rg" class="form-label">RG do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_rg" name="socio_asses_rg" required>
+            </div>
+            <div class="col-6">
+              <label for="socio_asses_cpf" class="form-label">CPF do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_cpf" name="socio_asses_cpf" required>
+            </div>
+            <div class="col-3">
+              <label for="socio_asses_endereco_cep" class="form-label">CEP do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_cep" name="socio_asses_endereco_cep" required>
+            </div>
+            <div class="col-md-6">
+              <label for="socio_asses_endereco_cidade" class="form-label">Cidade do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_cidade" name="socio_asses_endereco_cidade" required>
+            </div>
+            <div class="col-md-5">
+              <label for="socio_asses_endereco_bairro" class="form-label">Bairro do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_bairro" name="socio_asses_endereco_bairro" required>
+            </div>
+            <div class="col-5">
+              <label for="socio_asses_endereco_rua" class="form-label">Rua do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_rua" name="socio_asses_endereco_rua" required>
+            </div>
+            <div class="col-5">
+              <label for="socio_asses_endereco_complemento" class="form-label">Complemento do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_complemento" name="socio_asses_endereco_complemento" required>
+            </div>
+            <div class="col-md-2">
+              <label for="socio_asses_endereco_numero" class="form-label">Número do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_numero" name="socio_asses_endereco_numero" required>
+            </div>
+            <div class="col-3">
+              <label for="socio_asses_endereco_estado" class="form-label">Estado do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_estado" name="socio_asses_endereco_estado" required>
+            </div>
+          </div>
+          <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Salvar Proposta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <section data-bs-version="5.1" class="footer7 cid-sFHu2wLoQp" once="footers" id="footer7-9">
 
