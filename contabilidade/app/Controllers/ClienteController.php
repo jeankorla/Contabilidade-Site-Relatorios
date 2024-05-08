@@ -216,7 +216,7 @@ class ClienteController extends BaseController
             $socioAssModel->insert($dataSocioAss);
         } else {
             // Se existe, atualiza o registro existente
-            $socioAssModel->where('empresa_id', $empresaId)->update($dataSocioAss);
+            $socioAssModel->update($existingSocioAss['id'], $dataSocioAss);
         }
 
 
