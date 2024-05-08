@@ -64,7 +64,7 @@
 
 button span {
   display: block;
-  margin-left: 0.3em;
+  margin-left: 1em;
   transition: all 0.3s ease-in-out;
 }
 
