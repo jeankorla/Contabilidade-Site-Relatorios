@@ -53,9 +53,9 @@ button {
   background: royalblue;
   color: white;
   padding: 0.7em 2em;
-  padding-left: 0.9em;
   display: flex;
   align-items: center;
+  justify-content: center; /* Alinha os itens horizontalmente no centro */
   border: none;
   border-radius: 16px;
   overflow: hidden;
@@ -63,16 +63,20 @@ button {
   cursor: pointer;
 }
 
+button .svg-wrapper-1, button .svg-wrapper {
+  display: flex; /* Ajuste para exibir como flex container */
+  align-items: center; /* Alinha verticalmente o SVG com o texto */
+  justify-content: center;
+}
+
 button span {
-  display: block;
-  margin-left: 0.3em;
-  transition: all 0.3s ease-in-out;
+  margin-left: 0.5em; /* Aumenta o espaço entre o SVG e o texto */
+  white-space: nowrap; /* Previne quebra de linha */
 }
 
 button svg {
-  display: block;
-  transform-origin: center center;
-  transition: transform 0.3s ease-in-out;
+  width: 24px; /* Define uma largura específica */
+  height: 24px; /* Define uma altura específica */
 }
 
 button:hover .svg-wrapper {
@@ -95,11 +99,11 @@ button:active {
   from {
     transform: translateY(0.1em);
   }
-
   to {
     transform: translateY(-0.1em);
   }
 }
+
 </style>
 </head>
 
@@ -457,9 +461,9 @@ button:active {
               <div class="svg-wrapper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  width="20"
-                  height="20"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
                 >
                   <path fill="none" d="M0 0h24v24H0z"></path>
                   <path
