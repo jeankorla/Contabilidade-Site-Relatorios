@@ -401,6 +401,10 @@
                 <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Atualizar</button>
             </div>
+
+            <div class="col-md-12">
+                <a href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="btn btn-primary">Proposta</a>
+            </div>
         </form>
     </div>
     </div>
