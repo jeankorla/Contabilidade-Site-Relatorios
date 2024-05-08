@@ -13,12 +13,10 @@ date_default_timezone_set('America/Sao_Paulo');
 
 class PropostaController extends Controller
 {
-    public function store()
+   public function store()
     {
-        // Coleta os dados enviados pelo formulário
         $empresaId = $this->request->getPost('empresa_id');
         $socioData = [
-            'empresa_id' => $empresaId,
             'nome' => $this->request->getPost('socio_asses_nome'),
             'email' => $this->request->getPost('socio_asses_email'),
             'nacionalidade' => $this->request->getPost('socio_asses_nacional'),
@@ -34,10 +32,27 @@ class PropostaController extends Controller
             'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
         ];
 
-        // Inicializa o modelo e salva os dados no banco de dados
         $socioModel = new Socio_ass();
-        $inserted = $socioModel->insert($socioData);
+        $existingSocio = $socioModel->where('empresa_id', $empresaId)->first();
+
+        if ($existingSocio) {
+            // Se já existe, atualiza os dados do sócio existente
+            $result = $socioModel->update($existingSocio['id'], $socioData);
+            $updatedId = $existingSocio['id'];
+        } else {
+            // Se não existe, insere um novo sócio
+            $result = $socioModel->insert($socioData);
+            $updatedId = $socioModel->getInsertID();
+        }
+
+        if ($result) {
+            $documentoController = new DocumentoController();
+            return $documentoController->gerarDoc($updatedId);
+        } else {
+            return redirect()->back()->withInput()->with('errors', $socioModel->errors());
+        }
     }
+
 
     public function gerarProposta($clienteId)
     {
