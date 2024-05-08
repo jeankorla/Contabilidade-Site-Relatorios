@@ -655,8 +655,8 @@ class PropostaController extends Controller
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="propostaForm" id="propostaForm" action="<?= base_url("PropostaController/store"); ?>" method="post">
-        <input type="hidden" name="empresa_id" value="' .  $empresa['id'] . '">
+        <form id="propostaForm" action="' . base_url("PropostaController/store") . '" method="post">
+        <input type="hidden" name="empresa_id" value="' . $empresa['id'] . '">
           <div class="row">
             <div class="col-md-7">
               <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
