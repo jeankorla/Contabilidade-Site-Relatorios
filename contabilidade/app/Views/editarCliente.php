@@ -401,8 +401,10 @@
                 <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Atualizar</button>
             </div>
-            <div class="col-md-6">
-                <button class="flex items-center bg-blue-500 text-white gap-1 px-4 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest rounded-md hover:bg-blue-400 duration-300 hover:gap-2 hover:translate-x-3">
+            <div class="col-3">
+            </div>
+            <div class="col-md-3">
+                <button href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="flex items-center bg-blue-500 text-white gap-1 px-4 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest rounded-md hover:bg-blue-400 duration-300 hover:gap-2 hover:translate-x-3">
                         Proposta
                         <svg
                             class="w-5 h-5"
@@ -419,9 +421,6 @@
                             ></path>
                         </svg>
                         </button>
-                        </div>
-            <div class="col-md-12">
-                <a href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="btn btn-primary">Proposta</a>
             </div>
         </form>
     </div>
