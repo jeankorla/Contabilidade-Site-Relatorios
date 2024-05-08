@@ -51,8 +51,8 @@
   font-size: 10px;
   background: royalblue;
   color: white;
-  padding: 0.7em 2em !important;
-  padding-left: 0.9em;
+  padding: 4em 2em;
+  padding-left: 5em;
   display: flex;
   align-items: center;
   border: none;
@@ -82,21 +82,8 @@ button:hover svg {
   transform: translateX(1.2em) rotate(45deg) scale(1.1);
 }
 
-svg {
-  width: 24px; /* ou outro valor apropriado */
-  height: 24px; /* mantém a proporção */
-}
-
-.svg-wrapper-1, .svg-wrapper {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-button span {
-  margin-left: 0.5em; /* Ajuste para mais espaço entre o ícone e o texto */
-  white-space: nowrap; /* Evita que o texto quebre em mais de uma linha */
+button:hover span {
+  transform: translateX(5em);
 }
 
 button:active {
