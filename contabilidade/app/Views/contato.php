@@ -51,7 +51,7 @@
   font-size: 10px;
   background: royalblue;
   color: white;
-  padding: 0.7em 2em;
+  padding: 0.7em 2em !important;
   padding-left: 0.9em;
   display: flex;
   align-items: center;
