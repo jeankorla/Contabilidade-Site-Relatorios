@@ -130,6 +130,9 @@ class PropostaController extends Controller
 .table-wrapper {
     font-family: "Montserrat", sans-serif; /* Define a fonte para a tabela */
 }
+#input{
+    background-color: #eee;
+}
     </style>
 </head>
 <body>
@@ -672,43 +675,44 @@ class PropostaController extends Controller
             </div>
             <div class="col-6">
               <label for="socio_asses_rg" class="form-label">RG do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_rg" name="socio_asses_rg" required>
+              <input type="text" class="form-control" id="socio_asses_rg" name="socio_asses_rg" required oninput="aplicarMascaraRG(this)" maxlength="12">
             </div>
             <div class="col-6">
               <label for="socio_asses_cpf" class="form-label">CPF do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_cpf" name="socio_asses_cpf" required>
+              <input type="text" class="form-control" id="socio_asses_cpf" name="socio_asses_cpf" required oninput="aplicarMascaraCPF(this)" maxlength="14">
             </div>
             <div class="col-3">
               <label for="socio_asses_endereco_cep" class="form-label">CEP do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_cep" name="socio_asses_endereco_cep" required>
+              <input type="text" class="form-control" id="socio_asses_endereco_cep" name="socio_asses_endereco_cep" required oninput="aplicarMascaraCEP(this)" maxlength="9">
             </div>
             <div class="col-md-6">
               <label for="socio_asses_endereco_cidade" class="form-label">Cidade do Sócio:</label>
               <input type="text" class="form-control" id="socio_asses_endereco_cidade" name="socio_asses_endereco_cidade" required>
             </div>
-            <div class="col-md-5">
-              <label for="socio_asses_endereco_bairro" class="form-label">Bairro do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_bairro" name="socio_asses_endereco_bairro" required>
+            <div class="col-3">
+              <label for="socio_asses_endereco_estado" class="form-label">Estado do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_estado" name="socio_asses_endereco_estado" required>
             </div>
             <div class="col-5">
               <label for="socio_asses_endereco_rua" class="form-label">Rua do Sócio:</label>
               <input type="text" class="form-control" id="socio_asses_endereco_rua" name="socio_asses_endereco_rua" required>
             </div>
-            <div class="col-5">
-              <label for="socio_asses_endereco_complemento" class="form-label">Complemento do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_complemento" name="socio_asses_endereco_complemento" required>
-            </div>
             <div class="col-md-2">
               <label for="socio_asses_endereco_numero" class="form-label">Número do Sócio:</label>
               <input type="text" class="form-control" id="socio_asses_endereco_numero" name="socio_asses_endereco_numero" required>
             </div>
-            <div class="col-3">
-              <label for="socio_asses_endereco_estado" class="form-label">Estado do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_estado" name="socio_asses_endereco_estado" required>
+            <div class="col-md-5">
+              <label for="socio_asses_endereco_bairro" class="form-label">Bairro do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_bairro" name="socio_asses_endereco_bairro" required>
+            </div>
+            
+            <div class="col-5">
+              <label for="socio_asses_endereco_complemento" class="form-label">Complemento do Sócio:</label>
+              <input type="text" class="form-control" id="socio_asses_endereco_complemento" name="socio_asses_endereco_complemento" required>
             </div>
           </div>
           <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Salvar Proposta</button>
+            <button type="submit" class="btn btn-primary">Próximo Passo</button>
           </div>
         </form>
       </div>
@@ -727,8 +731,48 @@ class PropostaController extends Controller
         </div>
     </div>
 </section><section class="display-7"><script src="assetsClientes/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assetsClientes/parallax/jarallax.js"></script>  <script src="assetsClientes/smoothscroll/smooth-scroll.js"></script>  <script src="assetsClientes/ytplayer/index.js"></script>  <script src="assetsClientes/dropdown/js/navbar-dropdown.js"></script>  <script src="assetsClientes/embla/embla.min.js"></script>  <script src="assetsClientes/embla/script.js"></script>  <script src="assetsClientes/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assetsClientes/theme/js/script.js"></script>  
-  
-  
+    
+<script>
+function aplicarMascaraCPF(input) {
+    var valor = input.value;
+
+    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após o terceiro dígito
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após os seis primeiros dígitos
+    valor = valor.replace(/(\d{3})(\d)/, "$1-$2"); // Coloca um hífen após os nove primeiros dígitos
+
+    input.value = valor; // Atualiza o valor do input
+}
+</script>
+  <script>
+function aplicarMascaraRG(input) {
+    var valor = input.value;
+
+    // Remove caracteres não numéricos e letras extras
+    valor = valor.replace(/\D/g, "").replace(/([a-zA-Z])/g, "");
+
+    // Coloca pontos e hífen no formato padrão
+    valor = valor.replace(/(\d{2})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1-$2");
+
+    // Atualiza o valor do input
+    input.value = valor;
+}
+
+function aplicarMascaraCEP(input) {
+    var valor = input.value;
+
+    // Remove caracteres não numéricos
+    valor = valor.replace(/\D/g, "");
+
+    // Coloca o hífen no formato do CEP
+    valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+
+    // Atualiza o valor do input
+    input.value = valor;
+}
+</script>
 </body>
 </html>
         ';
