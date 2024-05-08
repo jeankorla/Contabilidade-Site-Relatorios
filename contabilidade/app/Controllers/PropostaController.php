@@ -559,7 +559,7 @@ class PropostaController extends Controller
                             </tr>
                             <tr>
                                 <td>Quantidade de Lançamentos Contábeis:</td>
-                                <td style="background-color: yellow;">' . $empresa['lancamentos'] .'</td> <!-- Quantidade de lançamentos contábeis -->
+                                <td style="background-color: yellow;">' . $empresa['lancamento'] .'</td> <!-- Quantidade de lançamentos contábeis -->
                             </tr>
                             </tbody>
                         </table>
