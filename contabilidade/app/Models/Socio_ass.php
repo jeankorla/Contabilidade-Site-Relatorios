@@ -14,7 +14,7 @@ class Socio_ass extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nome', 'nacionalidade', 'idade', 'rg', 'cpf',
+        'nome', 'nacionalidade', 'idade', 'rg', 'cpf', 'email',
 
         'endereco_cep', 'endereco_rua', 'endereco_numero', 'endereco_complemento',
         'endereco_bairro', 'endereco_cidade', 'endereco_estado',
