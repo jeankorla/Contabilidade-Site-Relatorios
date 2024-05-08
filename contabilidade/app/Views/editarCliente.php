@@ -407,6 +407,16 @@
             
             <div class="col-md-6" id="tailwind-button-container"></div>
 
+        </form>
+    </div>
+    </div>
+                
+    
+
+
+</section>
+
+
                 <script>
                     class TailwindButton extends HTMLElement {
                         constructor() {
@@ -430,18 +440,6 @@
                     customElements.define('tailwind-button', TailwindButton);
                     document.getElementById('tailwind-button-container').appendChild(document.createElement('tailwind-button'));
                 </script>
-
-
-
-
-        </form>
-    </div>
-    </div>
-                
-    
-
-
-</section>
 
 <script>
 function aplicarMascaraCPF(input) {
