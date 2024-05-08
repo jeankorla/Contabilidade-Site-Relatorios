@@ -294,13 +294,16 @@
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
                 <input id="input" type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $data['empresa']['endereco_estado'] ?>">
             </div>
-                    <?php foreach ($data['socio_asses'] as $socio_ass): ?>
-    <div class="col-md-7">
-        <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
-        <input id="input" type="text" class="form-control" name="socio_asses_nome" value="<?= $socio_ass['nome'] ?? 'N/A' ?>">
-    </div>
-
-<?php endforeach; ?>
+                   <?php if (!empty($data['socio_asses'])): ?>
+    <?php foreach ($data['socio_asses'] as $socio_ass): ?>
+        <?php if (!empty($socio_ass['nome'])): ?>
+            <div class="col-md-7">
+                <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
+                <input id="input" type="text" class="form-control" name="socio_asses_nome" value="<?= $socio_ass['nome'] ?>">
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
             
                 <br>
             <div class="col-md-12">
@@ -414,7 +417,7 @@
         </form>
     </div>
     </div>
-
+                
     
 
 

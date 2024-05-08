@@ -76,6 +76,11 @@ class AdminController extends BaseController
         ];
     }
 
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+    exit;
+
     return view('admin', ['data' => $data]);
 }
 }
