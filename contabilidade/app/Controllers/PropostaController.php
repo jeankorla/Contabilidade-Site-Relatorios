@@ -407,7 +407,7 @@ class PropostaController extends Controller
                 <div class="mbr-section-head align-center mb-4">
                     <h3 class="mbr-section-title mb-0 mbr-fonts-style display-5">
                         <span style="font-size: 2rem;">
-                            <strong>À <span style="background-color: yellow; font-weight: bold;">RADIO DA GRANDE SERRA LTDA</span> </strong> 
+                            <strong>À <span style="background-color: yellow; font-weight: bold;">' . $empresa['nome'] . '</span> </strong> 
                         </span>
                         <div>
                             <strong>A/C DIRETORES</strong>
@@ -416,7 +416,7 @@ class PropostaController extends Controller
                     <h4 class="mbr-section-subtitle mb-0 mt-2 mbr-fonts-style display-7">
                         Ref.: Proposta de Prestação de Serviços Contábeis para empresa Tributada pelo Regime Federal 
                         <span style="background-color: yellow;">
-                            <strong>do Simples Nacional</strong>.
+                            <strong>do ' . $empresa['tributacao'] . '</strong>.
                         </span>
                         <br><br>
                         <span style="text-decoration: underline;">
@@ -426,7 +426,7 @@ class PropostaController extends Controller
                             O objeto da presente consiste em propor prestação de Serviços Contábeis pela 
                             <strong>SPOLAOR CONTABILIDADE LTDA, CNPJ nº 39.897.569/0001-37, CRC nº 2SP042992/O-6,</strong> à favor da 
                             <span style="background-color: yellow;">
-                                <strong>RADIO DA GRANDE SERRA, CNPJ nº 11.570.272/0001-43</strong>
+                                <strong>' . $empresa['nome'] . ', CNPJ nº ' . $empresa['cnpj'] . '</strong>
                             </span>, dos seguintes serviços profissionais:
                         </div>
                     </h4>
