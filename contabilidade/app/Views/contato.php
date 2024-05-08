@@ -48,7 +48,7 @@
     }
     button {
   font-family: inherit;
-  font-size: 20px;
+  font-size: 10px;
   background: royalblue;
   color: white;
   padding: 0.7em 1em;
