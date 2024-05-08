@@ -240,11 +240,23 @@ class ClienteController extends BaseController
         // Atualizando os sócios
         $socioModel = new Socio();
         $socios = $this->request->getPost('socios');
+
         foreach ($socios as $socio) {
-            if (isset($socio['id'])) {
-                $socioModel->where('id', $socio['id'])->update(null, $socio);
+            // Preencher o ID da empresa
+            $socio['empresa_id'] = $empresaId;
+
+            // Verificar se já existe um sócio com o mesmo nome, qualificação e empresa_id
+            $existingSocio = $socioModel->where([
+                'nome' => $socio['nome'],
+                'qualifica' => $socio['qualifica'],
+                'empresa_id' => $socio['empresa_id']
+            ])->first();
+
+            if ($existingSocio) {
+                // Se existe um registro com dados idênticos, atualiza-o
+                $socioModel->update($existingSocio['id'], $socio);
             } else {
-                $socio['empresa_id'] = $empresaId;
+                // Caso contrário, insere um novo sócio
                 $socioModel->insert($socio);
             }
         }

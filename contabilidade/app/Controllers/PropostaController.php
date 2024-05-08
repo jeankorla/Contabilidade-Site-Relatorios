@@ -14,51 +14,45 @@ date_default_timezone_set('America/Sao_Paulo');
 class PropostaController extends Controller
 {
     public function store()
-{
-    // Coleta os dados enviados pelo formulário
-    $empresaId = $this->request->getPost('empresa_id');
-    $socioData = [
-        'empresa_id' => $empresaId,
-        'nome' => $this->request->getPost('socio_asses_nome'),
-        'email' => $this->request->getPost('socio_asses_email'),
-        'nacionalidade' => $this->request->getPost('socio_asses_nacional'),
-        'idade' => $this->request->getPost('socio_asses_idade'),
-        'rg' => $this->request->getPost('socio_asses_rg'),
-        'cpf' => $this->request->getPost('socio_asses_cpf'),
-        'endereco_cep' => $this->request->getPost('socio_asses_endereco_cep'),
-        'endereco_cidade' => $this->request->getPost('socio_asses_endereco_cidade'),
-        'endereco_bairro' => $this->request->getPost('socio_asses_endereco_bairro'),
-        'endereco_rua' => $this->request->getPost('socio_asses_endereco_rua'),
-        'endereco_complemento' => $this->request->getPost('socio_asses_endereco_complemento'),
-        'endereco_numero' => $this->request->getPost('socio_asses_endereco_numero'),
-        'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
-    ];
+    {
+        $empresaId = $this->request->getPost('empresa_id');
+        $socioData = [
+            'empresa_id' => $empresaId,
+            'nome' => $this->request->getPost('socio_asses_nome'),
+            'email' => $this->request->getPost('socio_asses_email'),
+            'nacionalidade' => $this->request->getPost('socio_asses_nacional'),
+            'idade' => $this->request->getPost('socio_asses_idade'),
+            'rg' => $this->request->getPost('socio_asses_rg'),
+            'cpf' => $this->request->getPost('socio_asses_cpf'),
+            'endereco_cep' => $this->request->getPost('socio_asses_endereco_cep'),
+            'endereco_cidade' => $this->request->getPost('socio_asses_endereco_cidade'),
+            'endereco_bairro' => $this->request->getPost('socio_asses_endereco_bairro'),
+            'endereco_rua' => $this->request->getPost('socio_asses_endereco_rua'),
+            'endereco_complemento' => $this->request->getPost('socio_asses_endereco_complemento'),
+            'endereco_numero' => $this->request->getPost('socio_asses_endereco_numero'),
+            'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
+        ];
 
-    // Inicializa o modelo
-    $socioModel = new Socio_ass();
+        $socioModel = new Socio_ass();
+        $existingSocio = $socioModel->where('empresa_id', $empresaId)->first();
 
-    // Verifica se já existe um sócio-associado com o mesmo `empresa_id`
-    $existingSocio = $socioModel->where('empresa_id', $empresaId)->first();
+        if ($existingSocio) {
+            // Atualiza os dados do sócio existente
+            $socioModel->where('empresa_id', $empresaId)->update($socioData);
+            $updatedId = $existingSocio['id'];
+        } else {
+            // Insere um novo sócio
+            $socioModel->insert($socioData);
+            $updatedId = $socioModel->getInsertID();
+        }
 
-    if ($existingSocio) {
-        // Se já existe, atualiza os dados
-        $socioModel->where('empresa_id', $empresaId)->update($existingSocio['id'], $socioData);
-        $updatedId = $existingSocio['id'];
-    } else {
-        // Se não existe, insere um novo registro
-        $socioModel->insert($socioData);
-        $updatedId = $socioModel->getInsertID();
+        if ($updatedId) {
+            $documentoController = new DocumentoController();
+            return $documentoController->gerarDoc($updatedId);
+        } else {
+            return redirect()->back()->withInput()->with('errors', $socioModel->errors());
+        }
     }
-
-    if ($updatedId) {
-        // Suponha que DocumentoController esteja disponível ou que gerarDocTroca seja parte deste controller
-        $documentoController = new DocumentoController();
-        return $documentoController->gerarDoc($updatedId);
-    } else {
-        // Lida com erro ao salvar
-        return redirect()->back()->withInput()->with('errors', $socioModel->errors());
-    }
-}
 
 
     public function gerarProposta($clienteId)
