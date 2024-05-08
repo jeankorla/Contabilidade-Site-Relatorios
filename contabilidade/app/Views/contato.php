@@ -63,13 +63,13 @@
 }
 
 button span {
-  display: flex;
+  display: block;
   margin-left: 0.3em;
   transition: all 0.3s ease-in-out;
 }
 
 button svg {
-  display: flex;
+  display: block;
   transform-origin: center center;
   transition: transform 0.3s ease-in-out;
 }
