@@ -657,25 +657,30 @@
 
 <script>
     document.getElementById("generateProposalBtn").onclick = function() {
-        const clienteId = "<?= $data['cliente']['id'] ?>";
-        fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
-            method: 'GET'
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Mostrar mensagem e link no modal
-            if (data.status === 'success') {
-                document.getElementById("proposalMessage").innerText = data.message;
-                document.getElementById("proposalLink").href = data.link;
-            } else {
-                document.getElementById("proposalMessage").innerText = data.message;
-                document.getElementById("proposalLink").style.display = 'none';
-            }
+        const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
 
-            // Criar uma instância do modal e exibi-lo
-            var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-            modal.show();
-        });
+        // Verifica se o usuário confirmou
+        if (confirmation) {
+            const clienteId = "<?= $data['cliente']['id'] ?>";
+            fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Mostrar mensagem e link no modal
+                if (data.status === 'success') {
+                    document.getElementById("proposalMessage").innerText = data.message;
+                    document.getElementById("proposalLink").href = data.link;
+                } else {
+                    document.getElementById("proposalMessage").innerText = data.message;
+                    document.getElementById("proposalLink").style.display = 'none';
+                }
+
+                // Criar uma instância do modal e exibi-lo
+                var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
+                modal.show();
+            });
+        }
     };
 </script>
 
