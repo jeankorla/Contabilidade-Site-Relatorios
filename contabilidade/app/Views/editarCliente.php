@@ -210,6 +210,8 @@
   --pex: -24px;
 }
 
+
+
 .jp1 {
     animation:slide 3s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #024A7F 50%, #0097C4 50%);
@@ -596,7 +598,7 @@
             <div class="d-flex justify-content-between">
                 <div class="col-6">
                     <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i>Atualizar</button>
+                    <button type="submit" class="btn btn-primary p1"><i class="bi bi-arrow-clockwise"></i>Atualizar</button>
                     
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
