@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
     html, body {
@@ -397,11 +396,11 @@
             
            
 
-            <div class="col-12">
+            <div class="col-6">
                 <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Atualizar</button>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6 justify-content-end" >
                 <a href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="btn btn-primary">Proposta</a>
             </div>
         </form>
