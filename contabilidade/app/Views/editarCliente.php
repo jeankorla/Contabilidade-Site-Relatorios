@@ -402,7 +402,51 @@
                     <!-- <button type="submit" class="btn btn-primary">Atualizar</button> -->
 
                     <!-- BOTÃO DE ATUALIZAR -->
-                    <button type="button" class="button">
+                    <button type="submit" class="button" style=".button {
+                            color: white;
+                            background-color: #222;
+                            font-weight: 500;
+                            border-radius: 0.5rem;
+                            font-size: 1rem;
+                            line-height: 2rem;
+                            padding-left: 2rem;
+                            padding-right: 2rem;
+                            padding-top: 0.7rem;
+                            padding-bottom: 0.7rem;
+                            cursor: pointer;
+                            text-align: center;
+                            margin-right: 0.5rem;
+                            display: inline-flex;
+                            align-items: center;
+                            border: none;
+                            }
+
+                            .button:hover {
+                            background-color: #333;
+                            }
+
+                            .button svg {
+                            display: inline;
+                            width: 1.3rem;
+                            height: 1.3rem;
+                            margin-right: 0.75rem;
+                            color: white;
+                            }
+
+                            .button:focus svg {
+                            animation: spin_357 0.5s linear;
+                            }
+
+                            @keyframes spin_357 {
+                            from {
+                                transform: rotate(0deg);
+                            }
+
+                            to {
+                                transform: rotate(360deg);
+                            }
+                            }
+                            ">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
