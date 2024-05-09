@@ -314,7 +314,7 @@
 
 
             <div class="col-md-12">
-                <h2 class="mb-5">Sócio Assinante</h2>
+                <h2 class="mb-5">Representante da Contratante</h2>
             </div>
 
             <div class="col-md-7">
@@ -396,12 +396,14 @@
             
            
 
-            <div class="col-6">
-                <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-                <button type="submit" class="btn btn-primary">Atualizar</button>
-            </div>
-            <div class="col-md-6 justify-content-end" >
-                <a href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="btn btn-primary">Proposta</a>
+            <div class="d-flex justify-content-between">
+                <div class="col-6">
+                    <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end">
+                    <a href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="btn btn-primary">Proposta</a>
+                </div>
             </div>
         </form>
     </div>
