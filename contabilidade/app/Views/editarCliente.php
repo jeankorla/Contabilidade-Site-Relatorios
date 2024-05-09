@@ -604,7 +604,7 @@
 
 
 
-                    <button class="continue-application" id="generateProposalBtn">
+                    <a type="button" class="continue-application" id="generateProposalBtn">
                         <div>
                             <div class="pencil"></div>
                             <div class="folder">
@@ -617,7 +617,7 @@
                             </div>
                         </div>
                         Gerar Proposta
-                    </button>
+                    </a>
 
 
 
