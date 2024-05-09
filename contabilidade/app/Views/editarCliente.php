@@ -612,7 +612,7 @@
                             <div class="folder">
                                 <div class="top">
                                     <svg viewBox="0 0 24 27">
-                                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 1.01453063e-16,0.44771525 1,0 Z"></path>
+                                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 1.01453063e-16,0.44771525 1,0 Z"></path>
                                     </svg>
                                 </div>
                                 <div class="paper"></div>
@@ -623,9 +623,22 @@
 
 
                     <!-- Código HTML do modal -->
-                    <div id="proposalModal" style="display:none;">
-                        <h3 id="proposalMessage"></h3>
-                        <a id="proposalLink" href="#" target="_blank">Clique aqui para ver a proposta</a>
+                    <div class="modal fade" id="proposalModal" tabindex="-1" aria-labelledby="proposalModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="proposalModalLabel">Proposta Gerada</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h3 id="proposalMessage"></h3>
+                                    <a id="proposalLink" href="#" target="_blank">Clique aqui para ver a proposta</a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -641,6 +654,7 @@
 
 
 </section>
+
 <script>
     document.getElementById("generateProposalBtn").onclick = function() {
         const clienteId = "<?= $data['cliente']['id'] ?>";
@@ -658,11 +672,14 @@
                 document.getElementById("proposalLink").style.display = 'none';
             }
 
-            // Abrir o modal (ajustar dependendo da biblioteca/modal usado)
-            document.getElementById("proposalModal").style.display = 'block';
+            // Criar uma instância do modal e exibi-lo
+            var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
+            modal.show();
         });
     };
 </script>
+
+
 <script>
 function aplicarMascaraCPF(input) {
     var valor = input.value;
