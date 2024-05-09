@@ -604,7 +604,7 @@
 
 
 
-                    <a type="button" class="continue-application" id="generateProposalBtn">
+                    <a type="button" href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="continue-application" id="generateProposalBtn" style="text-decoration: none;"t>
                         <div>
                             <div class="pencil"></div>
                             <div class="folder">
@@ -632,13 +632,6 @@
 
 
 </section>
-
-<script>
-document.getElementById('generateProposalBtn').addEventListener('click', function() {
-    window.location.href = '<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>';
-});
-</script>
-
 
 <script>
 function aplicarMascaraCPF(input) {
