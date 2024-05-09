@@ -402,7 +402,7 @@
                     <!-- <button type="submit" class="btn btn-primary">Atualizar</button> -->
 
                     <!-- BOTÃO DE ATUALIZAR -->
-                    <button type="submit" class="button">
+                    <button type="button" class="button">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
