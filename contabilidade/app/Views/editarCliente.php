@@ -606,7 +606,7 @@
 
 
 
-                    <a type="button" href="<?= base_url('PropostaController/gerarProposta/' . $data['cliente']['id']) ?>" class="continue-application" id="generateProposalBtn" style="text-decoration: none;"t>
+                   <a type="button" href="javascript:void(0);" class="continue-application" id="generateProposalBtn" style="text-decoration: none;">
                         <div>
                             <div class="pencil"></div>
                             <div class="folder">
@@ -622,6 +622,13 @@
                     </a>
 
 
+                    <!-- Código HTML do modal -->
+                    <div id="proposalModal" style="display:none;">
+                        <h3 id="proposalMessage"></h3>
+                        <a id="proposalLink" href="#" target="_blank">Clique aqui para ver a proposta</a>
+                    </div>
+
+
 
 
                 </div>
@@ -634,7 +641,28 @@
 
 
 </section>
+<script>
+    document.getElementById("generateProposalBtn").onclick = function() {
+        const clienteId = "<?= $data['cliente']['id'] ?>";
+        fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Mostrar mensagem e link no modal
+            if (data.status === 'success') {
+                document.getElementById("proposalMessage").innerText = data.message;
+                document.getElementById("proposalLink").href = data.link;
+            } else {
+                document.getElementById("proposalMessage").innerText = data.message;
+                document.getElementById("proposalLink").style.display = 'none';
+            }
 
+            // Abrir o modal (ajustar dependendo da biblioteca/modal usado)
+            document.getElementById("proposalModal").style.display = 'block';
+        });
+    };
+</script>
 <script>
 function aplicarMascaraCPF(input) {
     var valor = input.value;

@@ -45,6 +45,7 @@ class ClienteController extends BaseController
             'lancamento' => $this->request->getPost('lancamento')
         ];
 
+        // Coletar todos os dados do formulário para a Empresa
         $additionalData = [
         'tributacao' => $this->request->getPost('tributacao'),
         'faturamento' => $this->request->getPost('faturamento'),
@@ -140,6 +141,8 @@ class ClienteController extends BaseController
 
         return view('editarCliente', ['data' => $data]);
     }
+
+
 
     public function atualizarCliente($id = null)
     {   
@@ -276,39 +279,5 @@ class ClienteController extends BaseController
         return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
     }
 
-
-
-    public function atualizarCliente_old($id = null)
-    {
-        // Coletar todos os dados do formulário
-        $data = [
-            'motivo'                   => $this->request->getPost('motivo'),
-            'nome'                     => $this->request->getPost('nome'),
-            'email'                    => $this->request->getPost('email'),
-            'tel'                      => $this->request->getPost('tel'),
-            'cpf'                      => $this->request->getPost('cpf'),
-        ];
-
-        // Instanciando o modelo e inserindo os dados
-        $clienteModel = new Cliente_lead;
-
-        $clienteModel->update($id, $data);
-
-        // Redirecione de volta com uma mensagem de sucesso.
-        return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
-    }
-
-    public function excluirCliente($id = null)
-    {
-        $clienteModel = new Cliente_lead();
-
-        // Verifique se o registro existe.
-        if ($clienteModel->find($id)) {
-            // Exclua o registro.
-            $clienteModel->delete($id);
-            return redirect()->to('AdminController')->with('success', 'Registro excluído com sucesso.');
-        } else {
-            return redirect()->back()->with('error', 'Registro não encontrado.');
-        }
-    }
+  
 }

@@ -64,6 +64,7 @@ class PropostaController extends Controller
         $empresaModel = new Empresa();
         $empresa = $empresaModel->where('cliente_id', $clienteId)->first();
 
+        // Buscar informações adicionais
         $contabilidadeModel = new Contabilidade();
         $contabilidade = $contabilidadeModel->where('empresa_id', $empresa['id'])->first();
 
@@ -71,7 +72,10 @@ class PropostaController extends Controller
 
         // Verificar se o cliente e a empresa foram encontrados
         if (!$cliente || !$empresa) {
-            return "Cliente ou empresa não encontrados!";
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Cliente ou empresa não encontrados!'
+            ]);
         }
 
         // Obter o CNPJ da empresa e remover caracteres especiais
@@ -802,6 +806,11 @@ function aplicarMascaraCEP(input) {
         // Escrever o arquivo no caminho especificado
         file_put_contents($filePath, $htmlContent);
 
-        return "Proposta gerada com sucesso!" . print(base_url(" /propostas/$fileName ")) . "Veja a proposta</a>";
+        // Retornar a resposta em JSON para ser capturada no frontend
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'Proposta gerada com sucesso!',
+            'link' => base_url("propostas/$fileName")
+        ]);
     }
 }

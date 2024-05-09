@@ -75,12 +75,7 @@ class AdminController extends BaseController
             'socio_asses' => $socioAssList
         ];
     }
-
-    // echo '<pre>';
-    // print_r($data);
-    // echo '</pre>';
-    // exit;
-
+    
     return view('admin', ['data' => $data]);
 }
 }
