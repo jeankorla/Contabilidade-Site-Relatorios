@@ -598,7 +598,7 @@
             <div class="d-flex justify-content-between">
                 <div class="col-6">
                     <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-                    <button type="submit" class="btn btn-primary p1"><i class="bi bi-arrow-clockwise"></i>Atualizar</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
                     
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
