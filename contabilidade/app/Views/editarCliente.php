@@ -503,7 +503,7 @@
                 <label for="situacao" class="form-label">Situação:</label>
                 <select id="situacao" class="form-control" name="situacao">
                     <option value="Lead" <?= $data['empresa']['situacao'] == 'Lead' ? 'selected' : '' ?>>Lead</option>
-                    <option value="Arquivar" <?= $data['empresa']['situacao'] == 'Arquivar' ? 'selected' : '' ?>>Arquivar</option>
+                    <option value="Arquivado" <?= $data['empresa']['situacao'] == 'Arquivado' ? 'selected' : '' ?>>Arquivado</option>
                     <option value="Proposta" <?= $data['empresa']['situacao'] == 'Proposta' ? 'selected' : '' ?>>Proposta</option>
                     <option value="Contrato" <?= $data['empresa']['situacao'] == 'Contrato' ? 'selected' : '' ?>>Contrato</option>
                     <option value="Cliente" <?= $data['empresa']['situacao'] == 'Cliente' ? 'selected' : '' ?>>Cliente</option>
