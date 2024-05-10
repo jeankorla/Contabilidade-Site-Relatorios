@@ -52,7 +52,6 @@ class ClienteController extends BaseController
         'funcionarios' => $this->request->getPost('funcionarios'),
         'nfe' => $this->request->getPost('nfe'),
         'lancamento' => $this->request->getPost('lancamento'),
-        'situacao' => 'Lead'
         ];
 
         // Instanciar o modelo do cliente e inserir os dados
