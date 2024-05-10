@@ -815,13 +815,8 @@ function aplicarMascaraCEP(input) {
         ]);
     }
 
-    public function contratoSemProposta()
+    public function contratoSemProposta($empresaId)
     {
-        $empresaId = $this->request->getPost('empresa_id');
-
-        echo print($empresaId);
-        exit;
-        
         $empresaModel = new Empresa();
         $empresa = $empresaModel->find($empresaId);
         if (!$empresa) {
@@ -837,12 +832,9 @@ function aplicarMascaraCEP(input) {
         $contabilidadeModel = new Contabilidade();
         $contabilidade = $contabilidadeModel->where('empresa_id', $empresaId)->first();
 
-        // Você pode verificar aqui se o contabilidade também foi encontrado, se necessário
+        // Verifique aqui também se contabilidade foi encontrado, se necessário
 
-        // Você já tem o insertedId como o id do sócio encontrado
-        $insertedId = $socio['id'];
-
-        // Agora chama gerarDoc com os ids necessários
+        $insertedId = $socio['id']; // O ID do sócio encontrado
         $documentoController = new DocumentoController();
         return $documentoController->gerarDoc($insertedId, $empresaId);
     }
