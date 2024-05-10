@@ -681,6 +681,7 @@
                         </div>
                         Gerar Proposta
                     </a>
+                    </div>
 
                     <!-- Código HTML do modal -->
                     <div class="modal fade" id="proposalModal" tabindex="-1" aria-labelledby="proposalModalLabel" aria-hidden="true">
@@ -701,9 +702,7 @@
                         </div>
                     </div>
 
-
-                </div>
-                <div class="col-md-12 d-flex justify-content-center">
+                        <div class="col-md-12 d-flex justify-content-center">
                             <button class="Documents-btn">
                                         <span class="folderContainer">
                                             <svg
@@ -786,6 +785,9 @@
                                         <p class="text">Contrato</p>
                                 </button>
                             </div>
+
+                </div>
+                
             </div>
         </form>
     </div>
