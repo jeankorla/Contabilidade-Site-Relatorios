@@ -589,7 +589,8 @@
             </div>
            <div class="col-12">
                 <label for="honorario_texto" class="form-label">Honorário Texto:</label>
-                <textarea id="honorario_texto" class="form-control" name="honorario_texto" rows="4"><?= $data['contabilidade']['honorario_texto'] ?? 'N/A' ?></textarea>
+                <textarea id="honorario_texto" class="form-control" name="honorario_texto" rows="4"><?= $data['contabilidade']['honorario_texto'] ?? 'como pacote o valor de R$ 4.200,00 (Quatro mil e duzentos reais), para até 20 (vinte) funcionários em folha, sendo acrescido do valor de R$ 88,00 (Oitenta e oito reais) por funcionário excedente aos 20 já inclusos nos honorários mensais, conforme apontado pelo Depto. Pessoal, para cobrança no mês subsequente ao fechamento.
+                Os honorários mensais terão seu vencimento todo dia 05 (cinco) de cada mês.'?></textarea>
             </div>
 
             
