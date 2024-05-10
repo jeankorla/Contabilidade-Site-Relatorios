@@ -162,8 +162,8 @@
              <tr>
               <td>
             <div style="display: flex; gap: 10px">
-            <a href="<?php echo base_url('ClienteController/arquivarCliente/' . $item['empresa']['id']) ?>" class="btn btn-warning"><i class="bi bi-trash-fill"></i></i></a>
-            <a href="<?php echo base_url('ClienteController/editarCliente/' . $item['cliente']['id']) ?>" class="btn btn-danger"><i class="bi bi-pencil-square"></i></a>
+            <a href="<?php echo base_url('ClienteController/arquivarCliente/' . $item['empresa']['id']) ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></i></i></a>
+            <a href="<?php echo base_url('ClienteController/editarCliente/' . $item['cliente']['id']) ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
             </div>
         </td>
          
