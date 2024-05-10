@@ -702,8 +702,13 @@
                             </div>
                         </div>
                     </div>
-
-                        <div class="col-md-12 d-flex justify-content-center">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="col-md-12 d-flex justify-content-center mt-5">
+                            <h1>Gerar Contrato <span style="color: red;">SEM</span> criar Proposta!</h1>
                             <button class="Documents-btn">
                                         <span class="folderContainer">
                                             <svg
