@@ -819,7 +819,7 @@ function aplicarMascaraCEP(input) {
     {
         $empresaId = $this->request->getPost('empresa_id');
 
-        dd($empresaId);
+        echo print($empresaId);
         exit;
         
         $empresaModel = new Empresa();
