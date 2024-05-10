@@ -323,8 +323,7 @@ form .website2 {
                 </div>
 
                 <input type="text" name="website2" class="website2" />
-
-                <input type="hidden" name="situacao" id="situacao" value="Lead" />
+                
 
                 <div class="input-group">
                     <label for="tel">Telefone</label>
