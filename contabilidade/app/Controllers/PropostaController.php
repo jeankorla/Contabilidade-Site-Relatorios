@@ -864,25 +864,38 @@ function aplicarMascaraCEP(input) {
 
     public function contratoSemProposta($empresaId)
     {
+        // Instancia o modelo de Empresa e busca a empresa pelo ID fornecido
         $empresaModel = new Empresa();
         $empresa = $empresaModel->find($empresaId);
+
         if (!$empresa) {
             return redirect()->back()->with('error', 'Empresa não encontrada.');
         }
 
+        // Instancia o modelo de Socio_ass e verifica se existe um sócio associado a essa empresa
         $socioModel = new Socio_ass();
         $socio = $socioModel->where('empresa_id', $empresaId)->first();
+
         if (!$socio) {
             return redirect()->back()->with('error', 'Sócio não encontrado.');
         }
 
+        // Instancia o modelo de Contabilidade e busca informações relacionadas
         $contabilidadeModel = new Contabilidade();
         $contabilidade = $contabilidadeModel->where('empresa_id', $empresaId)->first();
 
-        // Verifique aqui também se contabilidade foi encontrado, se necessário
+        // Atualiza a situação da empresa para "Contrato"
+        $empresaUpdateData = ['situacao' => 'Contrato'];
+        $empresaUpdated = $empresaModel->update($empresaId, $empresaUpdateData);
 
-        $insertedId = $socio['id']; // O ID do sócio encontrado
-        $documentoController = new DocumentoController();
-        return $documentoController->gerarDoc($insertedId, $empresaId);
+        // Verifica se a atualização foi bem-sucedida
+        if ($empresaUpdated) {
+            $documentoController = new DocumentoController();
+            // Gera o documento, passando o ID do sócio e o ID da empresa
+            return $documentoController->gerarDoc($socio['id'], $empresaId);
+        } else {
+            return redirect()->back()->with('error', 'Falha ao atualizar situação da empresa para Contrato.');
+        }
     }
+
 }
