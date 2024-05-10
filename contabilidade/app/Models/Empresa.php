@@ -14,7 +14,7 @@ class Empresa extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'cnpj', 'nome', 'email', 'tel', 'fantasia', 'faturamento', 'funcionarios', 'tributacao', 'nfe', 'lancamento',
+        'cnpj', 'nome', 'email', 'tel', 'fantasia', 'faturamento', 'funcionarios', 'tributacao', 'nfe', 'lancamento', 'situacao',
        
         'endereco_cep', 'endereco_rua', 'endereco_numero', 'endereco_complemento',
         'endereco_bairro', 'endereco_cidade', 'endereco_estado', 

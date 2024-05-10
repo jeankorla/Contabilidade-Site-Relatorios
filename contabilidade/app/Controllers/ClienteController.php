@@ -51,7 +51,8 @@ class ClienteController extends BaseController
         'faturamento' => $this->request->getPost('faturamento'),
         'funcionarios' => $this->request->getPost('funcionarios'),
         'nfe' => $this->request->getPost('nfe'),
-        'lancamento' => $this->request->getPost('lancamento')
+        'lancamento' => $this->request->getPost('lancamento'),
+        'situacao' => 'Lead',
         ];
 
         // Instanciar o modelo do cliente e inserir os dados
@@ -180,6 +181,7 @@ class ClienteController extends BaseController
             'capital_social' => $this->request->getPost('capital_social'),
             'abertura' => $this->request->getPost('abertura'),
             'tipo' => $this->request->getPost('tipo'),
+            'situacao' => $this->request->getPost('situacao'),
 
             // Endereço da empresa
             'endereco_cep' => $this->request->getPost('endereco_empresa_cep'),

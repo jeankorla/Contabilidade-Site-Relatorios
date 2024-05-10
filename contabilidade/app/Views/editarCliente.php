@@ -422,6 +422,7 @@
                 <h2 class="mb-5">Empresa Informações</h2>
                 </div>
 
+            
 
             <div class="col-4">
                 <label for="cnpj" class="form-label">CNPJ:</label>
@@ -496,6 +497,17 @@
             <div class="col-md-4">
                 <label for="porte" class="form-label">Porte:</label>
                 <input id="input" type="text" id="porte" class="form-control" name="porte" value="<?= $data['empresa']['porte'] ?>">
+            </div>
+
+            <div class="col-md-7">
+                <label for="situacao" class="form-label">Situação:</label>
+                <select id="situacao" class="form-control" name="situacao">
+                    <option value="Lead" <?= $data['empresa']['situacao'] == 'Lead' ? 'selected' : '' ?>>Lead</option>
+                    <option value="Arquivar" <?= $data['empresa']['situacao'] == 'Arquivar' ? 'selected' : '' ?>>Arquivar</option>
+                    <option value="Proposta" <?= $data['empresa']['situacao'] == 'Proposta' ? 'selected' : '' ?>>Proposta</option>
+                    <option value="Contrato" <?= $data['empresa']['situacao'] == 'Contrato' ? 'selected' : '' ?>>Contrato</option>
+                    <option value="Cliente" <?= $data['empresa']['situacao'] == 'Cliente' ? 'selected' : '' ?>>Cliente</option>
+                </select>
             </div>
 
 
