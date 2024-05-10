@@ -153,7 +153,8 @@
               <th>Tributação</th> 
               <th>Estado</th> 
               <th>Cidade</th>
-              <th>Data</th>          
+              <th>Data</th>   
+              <th>Situação</th>       
             </tr>
           </thead>
           <tbody>
@@ -173,6 +174,7 @@
                 <td><?= $item['empresa']['endereco_estado'] ?? 'N/A' ?></td>
                 <td><?= $item['empresa']['endereco_cidade'] ?? 'N/A' ?></td>
                 <td><?= date('d/m/Y', strtotime($item['cliente']['created_at'] ?? 'N/A'));  ?></td>
+                <td><?= $item['empresa']['situacao'] ?? 'N/A' ?></td>
                 </tr>
             <?php endforeach; ?>
 
