@@ -705,12 +705,12 @@
 
 
                     <div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
-                        <h1 style="margin-top: 10rem !important;">Gerar Contrato <span style="color: red;">SEM</span> criar Proposta!</h1>
+                        <h1>Gerar Contrato <span style="color: red;">SEM</span> criar Proposta!</h1>
                     </div>
 
 
 
-                        <div class="col-md-12 d-flex justify-content-center mt-5">
+                        <div class="col-md-12 d-flex justify-content-center">
                             
                             <button class="Documents-btn">
                                         <span class="folderContainer">
