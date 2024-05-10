@@ -307,7 +307,7 @@
     }
 }
 
-#input{
+#input, #situacao{
     background-color: #eee;
 }
 </style>
