@@ -702,8 +702,8 @@
                     </div>
 
 
-
-                        <div class="col-md-12 d-flex justify-content-center">
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
                             <button class="Documents-btn">
                                         <span class="folderContainer">
                                             <svg
@@ -786,12 +786,6 @@
                                         <p class="text">Contrato</p>
                                 </button>
                             </div>
-
-
-
-
-
-                </div>
             </div>
         </form>
     </div>
