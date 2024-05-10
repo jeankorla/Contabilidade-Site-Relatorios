@@ -284,14 +284,26 @@ class ClienteController extends BaseController
     public function arquivarCliente($id = null)
     {
         if ($id === null) {
-        // Redireciona ou lida com erro de ID não fornecido
-        return redirect()->back()->with('error', 'ID necessário para arquivar cliente');
+            // Redireciona ou lida com erro de ID não fornecido
+            return redirect()->back()->with('error', 'ID necessário para arquivar cliente');
         }
 
         $empresaModel = new Empresa();
+        
+        // Confirme se existe um registro com esse ID antes de tentar atualizar
+        $empresa = $empresaModel->find($id);
+        if (!$empresa) {
+            return redirect()->back()->with('error', 'Cliente não encontrado.');
+        }
+
         $dataEmpresa = [
             'situacao' => 'Arquivado',
         ];
+
+        // Verificar se os dados não estão vazios
+        if (empty($dataEmpresa)) {
+            return redirect()->back()->with('error', 'Não há dados para atualizar.');
+        }
 
         $updated = $empresaModel->update($id, $dataEmpresa);
         if ($updated) {
