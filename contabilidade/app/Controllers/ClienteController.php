@@ -281,5 +281,15 @@ class ClienteController extends BaseController
         return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
     }
 
-  
+    public function arquivarCliente($id = null)
+    {
+        $empresaModel = new Empresa();
+        $empresa = $empresaModel->find($id);
+
+        $dataEmpresa = [
+            'situacao' => 'Arquivado',
+        ];
+
+        $empresaModel->update($dataEmpresa);
+    }
 }
