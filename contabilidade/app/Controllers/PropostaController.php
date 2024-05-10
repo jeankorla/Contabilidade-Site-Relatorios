@@ -818,6 +818,9 @@ function aplicarMascaraCEP(input) {
     public function contratoSemProposta()
     {
         $empresaId = $this->request->getPost('empresa_id');
+
+        dd($empresaId);
+        exit;
         
         $empresaModel = new Empresa();
         $empresa = $empresaModel->find($empresaId);
