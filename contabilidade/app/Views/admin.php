@@ -138,10 +138,34 @@
         </div>
       <?php endif; ?>
 
+      
 
       <div class="mb-3">
         <h1>Lead</h1>
       </div>
+
+      <div class="container mt-4 mb-4">
+    <div class="d-flex justify-content-between">
+        <div>
+            <label for="filterMotivo" class="form-label">Filtrar por Motivo:</label>
+            <select id="filterMotivo" class="form-select" onchange="applyFilters()">
+                <option value="all">Todos</option>
+                <option value="motivo1">Abertura</option>
+                <option value="motivo2">Trocar</option>
+            </select>
+        </div>
+        <div>
+            <label for="filterSituacao" class="form-label">Filtrar por Situação:</label>
+            <select id="filterSituacao" class="form-select" onchange="applyFilters()">
+                <option value="all">Todos</option>
+                <option value="Lead">Lead</option>
+                <option value="Arquivado">Arquivado</option>
+                <option value="Proposta">Proposta</option>
+                <option value="Contrato">Contrato</option>
+            </select>
+        </div>
+    </div>
+</div>
 
         <table class="table table-striped ">
           <thead>
@@ -192,6 +216,35 @@
 </div>
 
 </section>
+
+
+<script>
+  function applyFilters() {
+    var motivoFilter = document.getElementById('filterMotivo').value;
+    var situacaoFilter = document.getElementById('filterSituacao').value;
+    var rows = document.querySelectorAll('table tbody tr');
+
+    rows.forEach(row => {
+        var motivoCell = row.cells[1].textContent; // Ajuste o índice conforme necessário
+        var situacaoCell = row.cells[8].textContent; // Ajuste o índice conforme necessário
+        var displayRow = true;
+
+        if (motivoFilter !== 'all' && motivoCell.trim() !== motivoFilter) {
+            displayRow = false;
+        }
+        if (situacaoFilter !== 'all' && situacaoCell.trim() !== situacaoFilter) {
+            displayRow = false;
+        }
+
+        row.style.display = displayRow ? '' : 'none';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    applyFilters(); // Aplica os filtros iniciais ao carregar a página
+});
+
+</script>
 
 
 <script>
