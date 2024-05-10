@@ -15,7 +15,10 @@ class PropostaController extends Controller
 {
    public function store()
     {
+        // Obtém o valor de `empresa_id` do formulário
         $empresaId = $this->request->getPost('empresa_id');
+
+        // Dados do novo sócio ou atualização do existente
         $socioData = [
             'nome' => $this->request->getPost('socio_asses_nome'),
             'email' => $this->request->getPost('socio_asses_email'),
@@ -30,12 +33,14 @@ class PropostaController extends Controller
             'endereco_complemento' => $this->request->getPost('socio_asses_endereco_complemento'),
             'endereco_numero' => $this->request->getPost('socio_asses_endereco_numero'),
             'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
-            'empresa_id' => $empresaId, // Incluindo empresa_id
+            'empresa_id' => $empresaId,
         ];
 
+        // Instancia o modelo de sócios
         $socioModel = new Socio_ass();
         $existingSocio = $socioModel->where('empresa_id', $empresaId)->first();
 
+        // Verifica se o sócio já existe ou se é um novo registro
         if ($existingSocio) {
             // Atualiza os dados do sócio existente
             $result = $socioModel->update($existingSocio['id'], $socioData);
@@ -46,10 +51,21 @@ class PropostaController extends Controller
             $updatedId = $socioModel->getInsertID();
         }
 
+        // Se a operação de inserção/atualização foi bem-sucedida
         if ($result) {
-            $documentoController = new DocumentoController();
-            // Passa empresa_id como parâmetro adicional
-            return $documentoController->gerarDoc($updatedId, $empresaId);
+            // Atualiza a situação da empresa para "Contrato"
+            $empresaModel = new Empresa();
+            $empresaUpdateData = ['situacao' => 'Contrato'];
+            $empresaUpdated = $empresaModel->update($empresaId, $empresaUpdateData);
+
+            // Verifica se a atualização foi bem-sucedida antes de prosseguir
+            if ($empresaUpdated) {
+                $documentoController = new DocumentoController();
+                // Gera o documento passando o ID do sócio e o ID da empresa
+                return $documentoController->gerarDoc($updatedId, $empresaId);
+            } else {
+                return redirect()->back()->withInput()->with('errors', 'Falha ao atualizar situação da empresa para Contrato.');
+            }
         } else {
             return redirect()->back()->withInput()->with('errors', $socioModel->errors());
         }
