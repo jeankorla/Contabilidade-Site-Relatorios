@@ -702,7 +702,13 @@
                             </div>
                         </div>
                     </div>
-                        <h1 class="justify-content-center" style="margin-top: 10rem !important; ">Gerar Contrato <span style="color: red;">SEM</span> criar Proposta!</h1>
+
+
+                    <div class="justify-content-center">
+                        <h1 style="margin-top: 10rem !important; ">Gerar Contrato <span style="color: red;">SEM</span> criar Proposta!</h1>
+                    </div>
+
+
                         <div class="col-md-12 d-flex justify-content-center mt-5" style="margin-top: 5rem !important; ">
                             
                             <button class="Documents-btn">
