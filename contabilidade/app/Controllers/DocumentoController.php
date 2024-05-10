@@ -4,14 +4,22 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Socio_ass;
+use App\Models\Empresa;
+use App\Models\Contabilidade;
 use Dompdf\Dompdf;
 
 class DocumentoController extends BaseController
 {
-    public function gerarDoc($insertedId)
+    public function gerarDoc($insertedId, $empresaId)
     {   
         $socioModel = new Socio_ass();
         $socio= $socioModel->find($insertedId);
+
+        $empresaModel = new Empresa(); 
+        $empresa = $empresaModel->find($empresaId);
+
+        $contabilidadeModel = new Contabilidade(); 
+        $contabilidade = $contabilidadeModel->where('empresa_id', $empresaId)->first();
 
         if (!$socio) {
             return redirect()->back()->with('error', 'Registro não encontrado.');
@@ -41,7 +49,7 @@ class DocumentoController extends BaseController
 </head>
 <body>
     <h1>Contrato de Prestação de Serviços Profissionais</h1>
-    <p>Pelo presente instrumento particular de Contrato de Prestação de Serviços Contábeis, de acordo com a Resolução CFC n.º 1.457/13 publicada no DOU 13/12/2013, de um lado PRO ATIVA ARQUITETURA LTDA., CNPJ nº 34.577.124/0001-56, estabelecida à Rua Robert Sandall, 161, Ponta da Praia, Santos - SP – CEP: 11.030-530, doravante denominada CONTRATANTE, neste ato representada pelo titular ' . $socio['nome'] . ', ' . $socio['nacionalidade'] .', maior, portados do R.G. nº ' . $socio['rg'] . ' SSP/SP e do CPF/MF nº 444.002.648-66, residente e domiciliado à Rua Robert Sandall, 161, Ponta da Praia, Santos - SP – CEP: 11.030-530; e do outro lado, a empresa contábil SPOLAOR CONTABILIDADE LTDA - EPP, inscrita no CNPJ n.º 39.897.569/0001-37 e no CRC/SP 2SP042992/O-6, representada neste ato pelo Único Sócio e Responsável Técnico Sr. Marcos Roberto Spolaor Antunes, brasileiro, maior, casado, CONTADOR, estabelecido à Rua Guaió n.º 66 Sala 915/916 – Aparecida – 11.035-260 – Santos/SP, inscrito no CRC/SP sob n°1SP191034/O-2, portador da C.I.R.G. n.º 23.834.604-3 SSP/SP e do CPF n.º 159.081.408-80, doravante CONTRATADO(A), mediante as cláusulas e condições seguintes, tem justo e contratado que se segue:</p>
+    <p>Pelo presente instrumento particular de Contrato de Prestação de Serviços Contábeis, de acordo com a Resolução CFC n.º 1.457/13 publicada no DOU 13/12/2013, de um lado ' . $empresa['nome'] . ', CNPJ nº ' . $empresa['cnpj'] .', estabelecida à ' . $empresa['endereco_rua']  .', ' . $empresa['endereco_numero'] .', ' . $empresa['endereco_bairro'] .', ' . $empresa['endereco_cidade']  .' - ' . $empresa['endereco_estado']  .' – CEP: ' . $empresa['endereco_cep'] .', doravante denominada CONTRATANTE, neste ato representada pelo titular ' . $socio['nome'] . ', ' . $socio['nacionalidade'] .', maior, portados do R.G. nº ' . $socio['rg'] . ' SSP/SP e do CPF/MF nº ' . $socio['cpf']  . ', residente e domiciliado à ' . $socio['endereco_rua'] . ', ' . $socio['endereco_numero'] . ', ' . $socio['endereco_bairro'] . ', ' . $socio['endereco_cidade'] . ' - ' . $socio['endereco_estado'] . ' – CEP: ' . $socio['endereco_cep'] . '; e do outro lado, a empresa contábil SPOLAOR CONTABILIDADE LTDA - EPP, inscrita no CNPJ n.º 39.897.569/0001-37 e no CRC/SP 2SP042992/O-6, representada neste ato pelo Único Sócio e Responsável Técnico Sr. Marcos Roberto Spolaor Antunes, brasileiro, maior, casado, CONTADOR, estabelecido à Rua Guaió n.º 66 Sala 915/916 – Aparecida – 11.035-260 – Santos/SP, inscrito no CRC/SP sob n°1SP191034/O-2, portador da C.I.R.G. n.º 23.834.604-3 SSP/SP e do CPF n.º 159.081.408-80, doravante CONTRATADO(A), mediante as cláusulas e condições seguintes, tem justo e contratado que se segue:</p>
     <!-- Exemplo de cláusula -->
     <div>
         <p><strong>CLÁUSULA PRIMEIRA.</strong> O profissional contratado obriga-se a prestar seus serviços profissionais ao contratante, nas seguintes áreas:</p>
@@ -92,8 +100,7 @@ class DocumentoController extends BaseController
             
 
 
-            <p><strong>CLÁUSULA SÉTIMA.</strong> O (A) contratante pagará ao contratado (a) pelos serviços prestados mensalmente os honorários mensais como pacote o valor de R$ 4.200,00 (Quatro mil e duzentos reais), para até 20 (vinte) funcionários em folha, sendo acrescido do valor de R$ 88,00 (Oitenta e oito reais) por funcionário excedente aos 20 já inclusos nos honorários mensais, conforme apontado pelo Depto. Pessoal, para cobrança no mês subsequente ao fechamento.
-            Os honorários mensais terão seu vencimento todo dia 05 (cinco) de cada mês. 
+            <p><strong>CLÁUSULA SÉTIMA.</strong> O (A) contratante pagará ao contratado (a) pelos serviços prestados mensalmente os honorários mensais ' . $contabilidade['honorario_texto']  . '
             </p>
 
 
@@ -117,7 +124,7 @@ class DocumentoController extends BaseController
             
 
 
-            <p><strong>CLÁUSULA DÉCIMA.</strong> Este instrumento é feito por tempo indeterminado, iniciando-se em 04/05/2023, podendo ser rescindido em qualquer época, por qualquer uma das partes, mediante Aviso Prévio de 60 (sessenta) dias, por escrito.</p>
+            <p><strong>CLÁUSULA DÉCIMA.</strong> Este instrumento é feito por tempo indeterminado, iniciando-se em ' . $contabilidade['inicio_contabilidade'] . ', podendo ser rescindido em qualquer época, por qualquer uma das partes, mediante Aviso Prévio de 60 (sessenta) dias, por escrito.</p>
 
 
 

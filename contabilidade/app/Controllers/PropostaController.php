@@ -30,29 +30,30 @@ class PropostaController extends Controller
             'endereco_complemento' => $this->request->getPost('socio_asses_endereco_complemento'),
             'endereco_numero' => $this->request->getPost('socio_asses_endereco_numero'),
             'endereco_estado' => $this->request->getPost('socio_asses_endereco_estado'),
+            'empresa_id' => $empresaId, // Incluindo empresa_id
         ];
 
         $socioModel = new Socio_ass();
         $existingSocio = $socioModel->where('empresa_id', $empresaId)->first();
 
         if ($existingSocio) {
-            // Se já existe, atualiza os dados do sócio existente
+            // Atualiza os dados do sócio existente
             $result = $socioModel->update($existingSocio['id'], $socioData);
             $updatedId = $existingSocio['id'];
         } else {
-            // Se não existe, insere um novo sócio
+            // Insere um novo sócio
             $result = $socioModel->insert($socioData);
             $updatedId = $socioModel->getInsertID();
         }
 
         if ($result) {
             $documentoController = new DocumentoController();
-            return $documentoController->gerarDoc($updatedId);
+            // Passa empresa_id como parâmetro adicional
+            return $documentoController->gerarDoc($updatedId, $empresaId);
         } else {
             return redirect()->back()->withInput()->with('errors', $socioModel->errors());
         }
     }
-
 
     public function gerarProposta($clienteId)
     {
