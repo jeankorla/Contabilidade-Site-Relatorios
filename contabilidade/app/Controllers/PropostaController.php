@@ -814,4 +814,33 @@ function aplicarMascaraCEP(input) {
             'link' => base_url("propostas/$fileName")
         ]);
     }
+
+    public function contratoSemProposta()
+    {
+        $empresaId = $this->request->getPost('empresa_id');
+        
+        $empresaModel = new Empresa();
+        $empresa = $empresaModel->find($empresaId);
+        if (!$empresa) {
+            return redirect()->back()->with('error', 'Empresa não encontrada.');
+        }
+
+        $socioModel = new Socio_ass();
+        $socio = $socioModel->where('empresa_id', $empresaId)->first();
+        if (!$socio) {
+            return redirect()->back()->with('error', 'Sócio não encontrado.');
+        }
+
+        $contabilidadeModel = new Contabilidade();
+        $contabilidade = $contabilidadeModel->where('empresa_id', $empresaId)->first();
+
+        // Você pode verificar aqui se o contabilidade também foi encontrado, se necessário
+
+        // Você já tem o insertedId como o id do sócio encontrado
+        $insertedId = $socio['id'];
+
+        // Agora chama gerarDoc com os ids necessários
+        $documentoController = new DocumentoController();
+        return $documentoController->gerarDoc($insertedId, $empresaId);
+    }
 }

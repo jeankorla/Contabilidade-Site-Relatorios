@@ -657,7 +657,8 @@
                 Os honorários mensais terão seu vencimento todo dia 05 (cinco) de cada mês.'?></textarea>
             </div>
 
-            
+
+            <!-- BOTÃO GERAR PROPOSTA -->
            
 
             <div class="d-flex justify-content-between">
@@ -704,15 +705,18 @@
                     </div>
 
 
+
+
+
                     <div class="d-flex justify-content-center align-items-center" style="margin-top: 30vh;">
                         <h1>Gerar Contrato <span style="color: red;">SEM</span> criar Proposta!</h1>
                     </div>
 
-
+                <!-- BOTÃO GERAR CONTRATO -->
 
                         <div class="col-md-12 d-flex justify-content-center">
                             
-                            <button class="Documents-btn">
+                            <a type="button" class="Documents-btn" href="<?= base_url('PropostaController/contratoSemProposta') ?>">
                                         <span class="folderContainer">
                                             <svg
                                             class="fileBack"
@@ -792,7 +796,7 @@
                                             </svg>
                                         </span>
                                         <p class="text">Contrato</p>
-                                </button>
+                                </a>
                             </div>
 
                 </div>
