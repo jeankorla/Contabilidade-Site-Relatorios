@@ -716,7 +716,7 @@
 
                         <div class="col-md-12 d-flex justify-content-center">
                             
-                            <a type="button" class="Documents-btn" href="<?= base_url('PropostaController/contratoSemProposta/' . $empresa_id = $data['empresa']['id']) ?>">
+                            <a type="button" class="Documents-btn" href="<?= base_url('PropostaController/contratoSemProposta/' . $empresa_id = $data['empresa']['id']) ?>" style="text-decoration: none;">
                                         <span class="folderContainer">
                                             <svg
                                             class="fileBack"
