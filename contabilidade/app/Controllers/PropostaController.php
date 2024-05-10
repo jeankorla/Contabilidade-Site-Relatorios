@@ -56,34 +56,27 @@ class PropostaController extends Controller
     }
 
     public function gerarProposta($clienteId)
-    {
-        // Carregar o modelo do cliente
-        $clienteModel = new Cliente_lead();
-        $cliente = $clienteModel->find($clienteId);
+{
+    $clienteModel = new Cliente_lead();
+    $cliente = $clienteModel->find($clienteId);
 
-        // Carregar o modelo da empresa e buscar pelo cliente_id
-        $empresaModel = new Empresa();
-        $empresa = $empresaModel->where('cliente_id', $clienteId)->first();
+    $empresaModel = new Empresa();
+    $empresa = $empresaModel->where('cliente_id', $clienteId)->first();
 
-        // Buscar informações adicionais
-        $contabilidadeModel = new Contabilidade();
-        $contabilidade = $contabilidadeModel->where('empresa_id', $empresa['id'])->first();
+    $contabilidadeModel = new Contabilidade();
+    $contabilidade = $contabilidadeModel->where('empresa_id', $empresa['id'])->first();
 
-        $dataAtual = date('d/m/Y');
+    $dataAtual = date('d/m/Y');
 
-        // Verificar se o cliente e a empresa foram encontrados
-        if (!$cliente || !$empresa) {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'Cliente ou empresa não encontrados!'
-            ]);
-        }
+    if (!$cliente || !$empresa) {
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'Cliente ou empresa não encontrados!'
+        ]);
+    }
 
-        // Obter o CNPJ da empresa e remover caracteres especiais
-        $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
-
-        // Nome do arquivo será o CNPJ
-        $fileName = $cnpj . '.php';
+    $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
+    $fileName = $cnpj . '.php';
 
         // Conteúdo do arquivo
         $htmlContent = '
@@ -825,24 +818,33 @@ function aplicarMascaraCEP(input) {
 </html>
         ';
 
-        // Caminho do arquivo onde será salvo
-        $filePath = './propostas/' . $fileName;
+        
 
-        // Certifique-se de que a pasta exista
-        if (!is_dir('propostas')) {
-            mkdir('propostas', 0755, true);
-        }
+    $filePath = './propostas/' . $fileName;
 
-        // Escrever o arquivo no caminho especificado
-        file_put_contents($filePath, $htmlContent);
+    if (!is_dir('propostas')) {
+        mkdir('propostas', 0755, true);
+    }
 
-        // Retornar a resposta em JSON para ser capturada no frontend
+    file_put_contents($filePath, $htmlContent);
+
+    // Atualizar situação para 'Proposta'
+    $dataEmpresa = ['situacao' => 'Proposta'];
+    $updated = $empresaModel->update($empresa['id'], $dataEmpresa);
+
+    if (!$updated) {
         return $this->response->setJSON([
-            'status' => 'success',
-            'message' => 'Proposta gerada com sucesso!',
-            'link' => base_url("propostas/$fileName")
+            'status' => 'error',
+            'message' => 'Falha ao atualizar a situação da empresa.'
         ]);
     }
+
+    return $this->response->setJSON([
+        'status' => 'success',
+        'message' => 'Proposta gerada com sucesso!',
+        'link' => base_url("propostas/$fileName")
+    ]);
+}
 
     public function contratoSemProposta($empresaId)
     {
