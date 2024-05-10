@@ -150,8 +150,8 @@
             <label for="filterMotivo" class="form-label">Filtrar por Motivo:</label>
             <select id="filterMotivo" class="form-select" onchange="applyFilters()">
                 <option value="all">Todos</option>
-                <option value="motivo1">Abertura</option>
-                <option value="motivo2">Trocar</option>
+                <option value="Abertura">Abertura</option>
+                <option value="Trocar">Trocar</option>
             </select>
         </div>
         <div>
@@ -219,22 +219,18 @@
 
 
 <script>
-function applyFilters() {
+  function applyFilters() {
     var motivoFilter = document.getElementById('filterMotivo').value;
     var situacaoFilter = document.getElementById('filterSituacao').value;
     var rows = document.querySelectorAll('table tbody tr');
 
     rows.forEach(row => {
-        var motivoCell = row.cells[1].textContent;
-        var situacaoCell = row.cells[8].textContent;
+        var motivoCell = row.cells[1].textContent; // Ajuste o índice conforme necessário
+        var situacaoCell = row.cells[8].textContent; // Ajuste o índice conforme necessário
         var displayRow = true;
 
-        // Ajuste aqui para verificar o texto correspondente ao invés de 'motivo1' e 'motivo2'
-        if (motivoFilter !== 'all') {
-            if ((motivoFilter === 'motivo1' && motivoCell.trim() !== 'Abertura') ||
-                (motivoFilter === 'motivo2' && motivoCell.trim() !== 'Trocar')) {
-                displayRow = false;
-            }
+        if (motivoFilter !== 'all' && motivoCell.trim() !== motivoFilter) {
+            displayRow = false;
         }
         if (situacaoFilter !== 'all' && situacaoCell.trim() !== situacaoFilter) {
             displayRow = false;
