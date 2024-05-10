@@ -153,8 +153,7 @@
                 <option value="Abertura">Abertura</option>
                 <option value="Trocar">Trocar</option>
             </select>
-        </div>
-        <div>
+            
             <label for="filterSituacao" class="form-label">Filtrar por Situação:</label>
             <select id="filterSituacao" class="form-select" onchange="applyFilters()">
                 <option value="all">Todos</option>
