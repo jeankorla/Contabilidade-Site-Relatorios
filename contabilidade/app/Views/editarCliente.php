@@ -682,6 +682,7 @@
                         Gerar Proposta
                     </a>
                     </div>
+                    </div>
 
                     <!-- Código HTML do modal -->
                     <div class="modal fade" id="proposalModal" tabindex="-1" aria-labelledby="proposalModalLabel" aria-hidden="true">
