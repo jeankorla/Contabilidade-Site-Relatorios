@@ -704,7 +704,7 @@
                     </div>
 
 
-                    <div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
+                    <div class="d-flex justify-content-center align-items-center" style="margin-top: 30vh;">
                         <h1>Gerar Contrato <span style="color: red;">SEM</span> criar Proposta!</h1>
                     </div>
 
