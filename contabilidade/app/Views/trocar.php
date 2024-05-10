@@ -324,6 +324,8 @@ form .website2 {
 
                 <input type="text" name="website2" class="website2" />
 
+                <input type="hidden" name="situacao" id="situacao" value="Lead" />
+
                 <div class="input-group">
                     <label for="tel">Telefone</label>
                     <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">

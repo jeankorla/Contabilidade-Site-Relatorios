@@ -52,7 +52,7 @@ class ClienteController extends BaseController
         'funcionarios' => $this->request->getPost('funcionarios'),
         'nfe' => $this->request->getPost('nfe'),
         'lancamento' => $this->request->getPost('lancamento'),
-        'situacao' => 'Lead',
+        'situacao' => $this->request->getPost('situacao'),
         ];
 
         // Instanciar o modelo do cliente e inserir os dados
@@ -73,7 +73,7 @@ class ClienteController extends BaseController
             'nome' => $this->request->getPost('nome_empresa'),
             'endereco_cidade' => $this->request->getPost('endereco_empresa_cidade'),
             'endereco_estado' => $this->request->getPost('endereco_empresa_estado'),
-            'cliente_id' => $clienteId
+            'cliente_id' => $clienteId,
         ];
 
         // Verificar se os campos obrigatórios da empresa estão preenchidos
