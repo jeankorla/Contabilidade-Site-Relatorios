@@ -594,18 +594,18 @@
             </div>
             <div class="col-6">
                 <label for="socio_asses_rg" class="form-label">RG do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_rg" class="form-control" name="socio_asses_rg" value="<?= $data['socio_asses']['rg'] ?? 'N/A' ?>">
+                <input id="input" type="text" id="socio_asses_rg" class="form-control" name="socio_asses_rg" oninput="aplicarMascaraRG(this)" maxlength="12" value="<?= $data['socio_asses']['rg'] ?? 'N/A' ?>">
             </div>
             <div class="col-6">
                 <label for="socio_asses_cpf" class="form-label">CPF do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_cpf" class="form-control" name="socio_asses_cpf" value="<?= $data['socio_asses']['cpf']  ?? 'N/A' ?>">
+                <input id="input" type="text" id="socio_asses_cpf" class="form-control" name="socio_asses_cpf" oninput= "aplicarMascaraCPF(this)" maxlength="14" value="<?= $data['socio_asses']['cpf']  ?? 'N/A' ?>">
             </div>
 
             
 
             <div class="col-3">
                 <label for="socio_asses_endereco_cep" class="form-label">CEP do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_endereco_cep" class="form-control" name="socio_asses_endereco_cep" value="<?= $data['socio_asses']['endereco_cep'] ?? 'N/A' ?>">
+                <input id="input" type="text" id="socio_asses_endereco_cep" class="form-control" name="socio_asses_endereco_cep" oninput="aplicarMascaraCEP(this)" maxlength="9" value="<?= $data['socio_asses']['endereco_cep'] ?? 'N/A' ?>">
             </div>
             <div class="col-md-6">
                 <label for="socio_asses_endereco_cidade" class="form-label">Cidade do Sócio:</label>
