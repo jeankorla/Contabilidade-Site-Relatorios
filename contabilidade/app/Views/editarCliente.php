@@ -716,7 +716,7 @@
 
                         <div class="col-md-12 d-flex justify-content-center">
                             
-                            <a type="button" class="Documents-btn" href="<?= base_url('PropostaController/contratoSemProposta/' . $empresa_id = $data['empresa']['id']) ?>" style="text-decoration: none;">
+                            <a type="button" class="Documents-btn" onclick="confirmarEnvio()" style="text-decoration: none;">
                                         <span class="folderContainer">
                                             <svg
                                             class="fileBack"
@@ -810,6 +810,19 @@
 
 
 </section>
+
+<script>
+function confirmarEnvio() {
+    var confirmacao1 = confirm("Você está prestes a Enviar um Contrato SEM gerar Proposta, antes disso ATUALIZE as informações que forem alteradas, e depois disso clique em 'OK'.");
+    if (confirmacao1) {
+        var confirmacao2 = confirm("Você está prestes a Enviar um Contrato SEM gerar Proposta, caso tenha certeza da sua ação clique em 'OK'.");
+        if (confirmacao2) {
+            // Redirecionar para a URL após a confirmação do usuário
+            window.location.href = "<?= base_url('PropostaController/contratoSemProposta/' . $data['empresa']['id']) ?>";
+        }
+    }
+}
+</script>
 
 <script>
     document.getElementById("generateProposalBtn").onclick = function() {
