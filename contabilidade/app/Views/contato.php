@@ -229,7 +229,7 @@ button:active {
     <td>
         <div style="display: flex; justify-content: center; gap: 10px">
             <!-- Botão Responder com ativador de modal -->
-            <button onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>', '<?php echo addslashes($c['textarea']); ?>')">
+            <button onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>', <?php echo json_encode($c['textarea']); ?>)">
             <div class="svg-wrapper-1">
               <div class="svg-wrapper">
                 <svg
