@@ -61,10 +61,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Itens de navegação -->
                 <li class="nav-item">
-                    <a class="nav-item" href="https://sccontab.com.br/AdminController">Lead</a>
+                    <a class="nav-link" href="https://sccontab.com.br/AdminController" style="color: white; font-size: 20px;">Lead</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item" href="https://sccontab.com.br/ContatoController">Contato</a>
+                    <a class="nav-link" href="https://sccontab.com.br/ContatoController" style="color: white; font-size: 20px;">Contato</a>
                 </li>
             </ul>
 
@@ -75,6 +75,7 @@
         </div>
     </div>
 </nav>
+
 
 
   <!-- Formulário de pesquisa -->
