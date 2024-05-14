@@ -315,7 +315,7 @@
 
 <body>
 
- <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #024A7F; z-index: 1;">
     <div class="container-fluid navbar-container">
         <a class="navbar-brand" href="<?= base_url('AdminController') ?>">
@@ -328,10 +328,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Itens de navegação -->
                 <li class="nav-item">
-                    <a class="nav-link" href="https://sccontab.com.br/AdminController">Lead</a>
+                    <a class="nav-link" href="https://sccontab.com.br/AdminController" style="color: white; font-size: 20px;">Lead</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://sccontab.com.br/ContatoController">Contato</a>
+                    <a class="nav-link" href="https://sccontab.com.br/ContatoController" style="color: white; font-size: 20px;">Contato</a>
                 </li>
             </ul>
 
