@@ -232,7 +232,7 @@ button:active {
             <!-- Botão Responder com ativador de modal -->
             <button onclick="openResponseModal('<?php echo json_encode($c['email']); ?>', '<?php echo json_encode(addslashes($c['name'])); ?>', '<?php echo $c['id']; ?>', <?php echo json_encode(addslashes($c['textarea'])); ?>')">
 
-            
+
             <div class="svg-wrapper-1">
               <div class="svg-wrapper">
                 <svg
@@ -361,10 +361,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 function openResponseModal(email, name, contactId, oldMessage) {
+    // Assuming the parameters are passed as JSON strings
+    email = JSON.parse(email);
+    name = JSON.parse(name);
+    oldMessage = JSON.parse(oldMessage);
+    
     document.getElementById('recipientEmail').value = email;
-    document.getElementById('oldMessage').value = oldMessage; 
-    document.getElementById('message-text').value = ''; 
-    document.getElementById('contactId').value = contactId; 
+    document.getElementById('oldMessage').value = oldMessage;
+    document.getElementById('message-text').value = ''; // Clear the response message area
+    document.getElementById('contactId').value = contactId;
+
     $('#responseModal').modal('show');
 }
 
@@ -373,25 +379,21 @@ function sendResponse() {
     var message = document.getElementById('message-text').value;
     var contactId = document.getElementById('contactId').value;
 
-    // Adicionando console.log para verificar os valores antes do envio
     console.log("Enviando resposta com os seguintes dados:", {email: email, message: message, contactId: contactId});
 
-    // Certifique-se de que o URL está correto e de que a resposta esperada é JSON
-    $.post('<?= base_url("EmailController/contatoRespostaCliente") ?>', { email: email, message: message, contactId: contactId  }, function(response) {
+    $.post('<?= base_url("EmailController/contatoRespostaCliente") ?>', { email: email, message: message, contactId: contactId }, function(response) {
         $('#responseModal').modal('hide');
         if (response.status === 'success') {
-            alert('Email enviado com sucesso!'); // Notificação de sucesso
-            window.location.reload(); // Opcional: remover para não recarregar a página
+            alert('Email enviado com sucesso!');
+            window.location.reload(); // Optionally remove to not reload the page
         } else {
-            alert('Falha ao enviar o email: ' + response.message); // Notificação de falha
+            alert('Falha ao enviar o email: ' + response.message);
         }
     }, 'json').fail(function(xhr, status, error) {
-        alert('Erro ao enviar resposta: ' + xhr.responseText); // Tratamento de erro de requisição AJAX
+        alert('Erro ao enviar resposta: ' + xhr.responseText);
     });
 }
-
-
-
 </script>
+
 </body>
 </html>
