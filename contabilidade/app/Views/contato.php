@@ -358,9 +358,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <script>
-function openResponseModal(email, name, contactId, oldMessage) {
+function openResponseModal(email, name, contactId, textarea) {
     document.getElementById('recipientEmail').value = email;
-    document.getElementById('oldMessage').value = oldMessage; 
+    document.getElementById('oldMessage').value = textarea; 
     document.getElementById('message-text').value = ''; 
     document.getElementById('contactId').value = contactId; 
     $('#responseModal').modal('show');
