@@ -256,7 +256,11 @@ button:active {
         </div>
     </td>
     <td><?php echo $c['name']; ?></td>
-    <td maxlength="50"><?php echo $c['email']; ?></td>
+    <td>
+      <?php
+        echo strlen($c['email']) > 50 ? substr($c['email'], 0, 50) . '...' : $c['email'];
+      ?>
+    </td>
     <td><?php echo $c['textarea']; ?></td>
     <td><?php echo $c['created_at']; ?></td>
     <td><?php
@@ -300,6 +304,10 @@ button:active {
             <div class="mb-3">
                 <label for="recipientEmail" class="col-form-label">Para:</label>
                 <input type="email" class="form-control" id="recipientEmail" name="recipientEmail" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="clientEmail" class="col-form-label">Cliente Mensagem:</label>
+                <textarea class="form-control" id="clientEmail" name="clientEmail"></textarea>
             </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Mensagem:</label>
@@ -356,6 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 function openResponseModal(email, name, contactId) {
     document.getElementById('recipientEmail').value = email;
+    document.getElementById('clientEmail').value = textarea;
     document.getElementById('message-text').value = '';
     document.getElementById('contactId').value = contactId; 
     $('#responseModal').modal('show');
