@@ -256,8 +256,8 @@ button:active {
         </div>
     </td>
     <td><?php echo $c['name']; ?></td>
-    <td><?php echo substr($c['email'], 0, 20); ?></td>
-    <td><?php echo $c['textarea']; ?></td>
+    <td><?php echo $c['email']; ?></td>
+    <td><?php echo substr($c['textarea'], 0, 25) . (strlen($c['textarea']) > 25 ? "..." : ""); ?></td>
     <td><?php echo $c['created_at']; ?></td>
     <td><?php
                 // Compara se created_at é exatamente igual a updated_at
@@ -300,6 +300,10 @@ button:active {
             <div class="mb-3">
                 <label for="recipientEmail" class="col-form-label">Para:</label>
                 <input type="email" class="form-control" id="recipientEmail" name="recipientEmail" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="oldMessage" class="col-form-label">Mensagem Original:</label>
+                <textarea class="form-control" id="oldMessage" name="oldMessage" readonly></textarea>
             </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Mensagem:</label>
@@ -354,9 +358,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <script>
-function openResponseModal(email, name, contactId) {
+function openResponseModal(email, name, contactId, oldMessage) {
     document.getElementById('recipientEmail').value = email;
-    document.getElementById('message-text').value = '';
+    document.getElementById('oldMessage').value = oldMessage; 
+    document.getElementById('message-text').value = ''; 
     document.getElementById('contactId').value = contactId; 
     $('#responseModal').modal('show');
 }
