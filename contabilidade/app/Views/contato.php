@@ -256,11 +256,7 @@ button:active {
         </div>
     </td>
     <td><?php echo $c['name']; ?></td>
-    <td>
-      <?php
-        echo strlen($c['email']) > 25 ? substr($c['email'], 0, 25) . '...' : $c['email'];
-    ?>
-    </td>
+    <td><?php echo substr($c['email'], 0, 20); ?></td>
     <td><?php echo $c['textarea']; ?></td>
     <td><?php echo $c['created_at']; ?></td>
     <td><?php
