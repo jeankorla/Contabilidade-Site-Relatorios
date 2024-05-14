@@ -230,7 +230,7 @@ button:active {
     <td>
         <div style="display: flex; justify-content: center; gap: 10px">
             <!-- Botão Responder com ativador de modal -->
-            <button onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>')">
+            <button onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>', '<?php echo addslashes($c['textarea']); ?>')">
             <div class="svg-wrapper-1">
               <div class="svg-wrapper">
                 <svg
@@ -295,19 +295,23 @@ button:active {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="responseForm">
-          
-            <div class="mb-3">
-                <label for="recipientEmail" class="col-form-label">Para:</label>
-                <input type="email" class="form-control" id="recipientEmail" name="recipientEmail" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="message-text" class="col-form-label">Mensagem:</label>
-                <textarea class="form-control" id="message-text" name="messageText"></textarea>
-            </div>
-            <input type="hidden" id="contactId" name="contactId">
-        </form>
-      </div>
+    <form id="responseForm">
+        <div class="mb-3">
+            <label for="recipientEmail" class="col-form-label">Para:</label>
+            <input type="email" class="form-control" id="recipientEmail" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="originalMessage" class="col-form-label">Mensagem do Cliente:</label>
+            <textarea class="form-control" id="originalMessage" readonly></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">Resposta:</label>
+            <textarea class="form-control" id="message-text" name="messageText"></textarea>
+        </div>
+        <input type="hidden" id="contactId" name="contactId">
+    </form>
+</div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
         <button type="button" class="btn btn-primary" onclick="sendResponse()">Enviar Resposta</button>
@@ -354,9 +358,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <script>
-function openResponseModal(email, name, contactId) {
+function openResponseModal(email, name, contactId, originalMessage) {
     document.getElementById('recipientEmail').value = email;
-    document.getElementById('message-text').value = '';
+    document.getElementById('originalMessage').value = originalMessage; // Set the original message
+    document.getElementById('message-text').value = ''; // Clear the response textarea
     document.getElementById('contactId').value = contactId; 
     $('#responseModal').modal('show');
 }
