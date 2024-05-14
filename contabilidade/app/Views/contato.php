@@ -256,7 +256,7 @@ button:active {
     </td>
     <td><?php echo $c['name']; ?></td>
     <td><?php echo $c['email']; ?></td>
-    <td><?php echo $c['textarea']; ?></td>
+    <td><?php echo htmlspecialchars(substr($c['textarea'], 0, 20)) . (strlen($c['textarea']) > 20 ? '...' : ''); ?></td>
     <td><?php echo $c['created_at']; ?></td>
     <td><?php
                 // Compara se created_at é exatamente igual a updated_at
