@@ -233,7 +233,7 @@ button:active {
             <div class="svg-wrapper-1">
               <div class="svg-wrapper">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="http://www.w3.org/3000/svg"
                   viewBox="0 0 24 24"
                   width="24"
                   height="24"
@@ -256,7 +256,7 @@ button:active {
     </td>
     <td><?php echo $c['name']; ?></td>
     <td><?php echo $c['email']; ?></td>
-    <td><?php echo htmlspecialchars(substr($c['textarea'], 0, 20)) . (strlen($c['textarea']) > 20 ? '...' : ''); ?></td>
+    <td><?php echo htmlspecialchars(substr($c['textarea'], 0, 30)) . (strlen($c['textarea']) > 30 ? '...' : ''); ?></td>
     <td><?php echo $c['created_at']; ?></td>
     <td><?php
                 // Compara se created_at é exatamente igual a updated_at
