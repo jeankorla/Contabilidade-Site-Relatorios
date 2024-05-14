@@ -48,30 +48,34 @@
 </head>
 <body>
 
- <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #024A7F; z-index: 1;">
+    <div class="container-fluid navbar-container">
+        <a class="navbar-brand" href="<?= base_url('AdminController') ?>">
+            <img class="img-fluid" src="<?php echo base_url('img/logo-nav.svg') ?>" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Itens de navegação -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sccontab.com.br/AdminController">Lead</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sccontab.com.br/ContatoController">Contato</a>
+                </li>
+            </ul>
 
-    <nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #024A7F; z-index: 1;">
-  <div class="container-fluid navbar-container">
-    <a class="navbar-brand" href="<?= base_url('AdminController') ?>">
-        <img class="img-fluid" src="<?php echo base_url('img/logo-nav.svg') ?>" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- Itens de navegação -->
-      </ul>
-
-      <!-- Botão de Configurações -->
-      <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#configModal">
-        Configurações
-      </button>
-      
-    
+            <!-- Botão de Configurações -->
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#configModal">
+                Configurações
+            </button>
+        </div>
     </div>
-  </div>
 </nav>
+
 
   <!-- Formulário de pesquisa -->
       <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true" >
