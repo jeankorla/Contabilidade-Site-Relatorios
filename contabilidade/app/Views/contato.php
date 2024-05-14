@@ -230,7 +230,9 @@ button:active {
     <td>
         <div style="display: flex; justify-content: center; gap: 10px">
             <!-- Botão Responder com ativador de modal -->
-            <button onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>', '<?php echo addslashes($c['textarea']); ?>')">
+            <button onclick="openResponseModal('<?php echo json_encode($c['email']); ?>', '<?php echo json_encode(addslashes($c['name'])); ?>', '<?php echo $c['id']; ?>', <?php echo json_encode(addslashes($c['textarea'])); ?>')">
+
+            
             <div class="svg-wrapper-1">
               <div class="svg-wrapper">
                 <svg
@@ -358,9 +360,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <script>
-function openResponseModal(email, name, contactId, textarea) {
+function openResponseModal(email, name, contactId, oldMessage) {
     document.getElementById('recipientEmail').value = email;
-    document.getElementById('oldMessage').value = textarea; 
+    document.getElementById('oldMessage').value = oldMessage; 
     document.getElementById('message-text').value = ''; 
     document.getElementById('contactId').value = contactId; 
     $('#responseModal').modal('show');
