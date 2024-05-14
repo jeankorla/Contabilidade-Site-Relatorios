@@ -230,7 +230,7 @@ button:active {
     <td>
         <div style="display: flex; justify-content: center; gap: 10px">
             <!-- Botão Responder com ativador de modal -->
-            <button onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>')">
+            <button onclick="openResponseModal('<?php echo $c['email']; ?>', '<?php echo addslashes($c['name']); ?>', '<?php echo $c['id']; ?>', '<?php echo $c['textarea']; ?>')">
             <div class="svg-wrapper-1">
               <div class="svg-wrapper">
                 <svg
@@ -302,6 +302,10 @@ button:active {
                 <input type="email" class="form-control" id="recipientEmail" name="recipientEmail" readonly>
             </div>
             <div class="mb-3">
+                <label for="clientEmail" class="col-form-label">Mensagem do Cliente:</label>
+                <textarea class="form-control" id="clientEmail" name="clientEmail"></textarea>
+            </div>
+            <div class="mb-3">
                 <label for="message-text" class="col-form-label">Mensagem:</label>
                 <textarea class="form-control" id="message-text" name="messageText"></textarea>
             </div>
@@ -354,8 +358,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <script>
-function openResponseModal(email, name, contactId) {
+function openResponseModal(email, name, contactId, textarea) {
     document.getElementById('recipientEmail').value = email;
+    document.getElementById('clientEmail').value = textarea;
     document.getElementById('message-text').value = '';
     document.getElementById('contactId').value = contactId; 
     $('#responseModal').modal('show');
