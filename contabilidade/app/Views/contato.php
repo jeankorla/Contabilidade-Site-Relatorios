@@ -256,7 +256,7 @@ button:active {
         </div>
     </td>
     <td><?php echo $c['name']; ?></td>
-    <td><?php echo $c['email']; ?></td>
+    <td maxlength="50"><?php echo $c['email']; ?></td>
     <td><?php echo $c['textarea']; ?></td>
     <td><?php echo $c['created_at']; ?></td>
     <td><?php
