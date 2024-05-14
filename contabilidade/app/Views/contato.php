@@ -258,7 +258,7 @@ button:active {
     <td><?php echo $c['name']; ?></td>
     <td>
       <?php
-        echo strlen($c['email']) > 50 ? substr($c['email'], 0, 50) . '...' : $c['email'];
+        echo strlen($c['email']) > 25 ? substr($c['email'], 0, 25) . '...' : $c['email'];
     ?>
     </td>
     <td><?php echo $c['textarea']; ?></td>
