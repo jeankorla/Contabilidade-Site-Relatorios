@@ -672,20 +672,19 @@ button.btn.btn-link i {
             </div>
         </div>
 
-
-        
-    </div>
-</div>
-                    
-            
-
-            
-                <br>
-            <div class="col-md-12">
-                <h2 class="mb-5">Sócios da Empresa</h2>
+        <!-- Collapse for Sócios da Empresa -->
+        <div class="item">
+            <div class="item-header" id="headingAddress">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                        Sócios da Empresa
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                </h2>
             </div>
-
-            <!-- Section for Partners -->
+            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+                <div class="t-p">
+                    <!-- Section for Partners -->
                 <?php foreach ($data['socios'] as $index => $socio): ?>
                     <div class="col-md-7">
                         <label for="socio_<?= $index ?>_nome" class="form-label">Nome do Sócio:</label>
@@ -697,12 +696,25 @@ button.btn.btn-link i {
                     </div>
                     <hr>
                 <?php endforeach; ?>
-
-                <div class="col-md-12">
-                    <h2 class="mb-5">Representante da Contratante</h2>
                 </div>
+            </div>
+        </div>
 
-                <div class="col-md-7">
+
+
+        <!-- Collapse for Representante da Contratante -->
+        <div class="item">
+            <div class="item-header" id="headingAddress">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                        Representante da Contratante
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+                <div class="t-p">
+                    <div class="col-md-7">
                     <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
                     <p class="form-control-static"><?= $data['socio_asses']['nome'] ?? 'N/A' ?></p>
                 </div>
@@ -750,15 +762,23 @@ button.btn.btn-link i {
                     <label for="socio_asses_endereco_estado" class="form-label">Estado do Sócio:</label>
                     <p class="form-control-static"><?= $data['socio_asses']['endereco_estado'] ?? 'N/A' ?></p>
                 </div>
-
-
-            <br>
-            <div class="col-md-12">
-                <h2 class="mb-5">Contabilidade</h2>
+                </div>
             </div>
-            
+        </div>
 
-                <div class="col-4">
+ <!-- Collapse for Contabilidade -->
+        <div class="item">
+            <div class="item-header" id="headingAddress">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                        Contabilidade
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+                <div class="t-p">
+                    <div class="col-4">
                     <label for="inicio_contabilidade" class="form-label">Início na Contabilidade:</label>
                     <p class="form-control-static"><?= $data['contabilidade']['inicio_contabilidade'] ?? 'N/A' ?></p>
                 </div>
@@ -774,7 +794,14 @@ button.btn.btn-link i {
                     <label for="honorario_texto" class="form-label">Honorário Texto:</label>
                     <p class="form-control-static"><?= $data['contabilidade']['honorario_texto'] ?? 'N/A' ?></p>
                 </div>
+                </div>
+            </div>
+        </div>
 
+
+
+    </div>
+</div>
 
 
             <!-- BOTÃO GERAR PROPOSTA -->
