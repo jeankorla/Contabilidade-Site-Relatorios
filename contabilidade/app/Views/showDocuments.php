@@ -478,10 +478,10 @@ button.btn.btn-link i {
                 
                     <div class="card mb-3">
                         <div class="card-header">
-                            <strong>Empresa:</strong> <?= $data['empresa']['nome'] ?? 'N/A' ?>
+                            <h5><strong>Empresa:</strong> <?= $data['empresa']['nome'] ?? 'N/A' ?></h5>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Motivo: <?= $data['cliente']['motivo'] ?? 'N/A' ?></h5>
+                            <p class="card-title">Motivo: <?= $data['cliente']['motivo'] ?? 'N/A' ?></p>
                             <p class="card-text"><strong>Faturamento:</strong> <?= $data['empresa']['faturamento'] ?? 'N/A' ?></p>
                             <p class="card-text"><strong>Tributação:</strong> <?= $data['empresa']['tributacao'] ?? 'N/A' ?></p>
                             <p class="card-text"><strong>Estado:</strong> <?= $data['empresa']['endereco_estado'] ?? 'N/A' ?></p>
