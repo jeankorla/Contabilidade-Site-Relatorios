@@ -54,7 +54,7 @@ class DocumentsController extends BaseController
             'documents' => $documents,
         ];
 
-        return view('documents', ['data' => $data]);
+        return view('showDocuments', ['data' => $data]);
     }
 
     public function formView($id = null)
@@ -171,6 +171,5 @@ class DocumentsController extends BaseController
         }
         return $this->response->setJSON(['success' => false]);
     }
-
 
 }
