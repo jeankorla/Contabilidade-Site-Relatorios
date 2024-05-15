@@ -150,7 +150,7 @@ class DocumentsController extends BaseController
     }
 
 
-    public function deleteDocument()
+   public function deleteDocument()
     {
         $json = $this->request->getJSON();
         $docKey = $json->docKey;
@@ -161,15 +161,18 @@ class DocumentsController extends BaseController
 
         if ($document && !empty($document[$docKey])) {
             // Remove o arquivo do servidor
-            unlink($document[$docKey]);
+            if (file_exists($document[$docKey])) {
+                unlink($document[$docKey]);
+            }
 
-            // Remove o caminho do arquivo do banco de dados
-            $document[$docKey] = null;
-            if ($documentModel->update($document['id'], $document)) {
+            // Atualiza apenas o campo específico no banco de dados
+            $updateData = [$docKey => null];
+            if ($documentModel->update($document['id'], $updateData)) {
                 return $this->response->setJSON(['success' => true]);
             }
         }
         return $this->response->setJSON(['success' => false]);
     }
+
 
 }
