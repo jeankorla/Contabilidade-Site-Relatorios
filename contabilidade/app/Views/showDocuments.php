@@ -202,19 +202,15 @@ button.btn.btn-link i {
                 <li>Erro exemplo</li>
             </ul>
         </div>
-        
-        <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $data['cliente']['id']) ?>" method="post" >
 
-        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
-
-            <div class="container mt-3">
+        <div class="container mt-3">
                 
                     <div class="card mb-3">
                         <div class="card-header">
                             <h5><strong>Empresa:</strong> <?= $data['empresa']['nome'] ?? 'N/A' ?></h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-title">Motivo: <?= $data['cliente']['motivo'] ?? 'N/A' ?></p>
+                            <p class="card-title"><strong>Motivo:</strong> <?= $data['cliente']['motivo'] ?? 'N/A' ?></p>
                             <p class="card-text"><strong>Faturamento:</strong> <?= $data['empresa']['faturamento'] ?? 'N/A' ?></p>
                             <p class="card-text"><strong>Tributação:</strong> <?= $data['empresa']['tributacao'] ?? 'N/A' ?></p>
                             <p class="card-text"><strong>Estado:</strong> <?= $data['empresa']['endereco_estado'] ?? 'N/A' ?></p>
@@ -225,16 +221,22 @@ button.btn.btn-link i {
                     </div>
 
             </div>
+        
+        <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $data['cliente']['id']) ?>" method="post" >
 
+        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
+            
 
-            <!-- BOTÃO GERAR PROPOSTA -->
            
 
             <div class="d-flex justify-content-between">
                 <div class="col-6">
                     <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
                     <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
+
+
+                    <a href="<?= base_url('DocumentsController/formView/ ' . $data['cliente']['id']) ?>">Abrir Forms</a>
                 </div>
             </div>
 
