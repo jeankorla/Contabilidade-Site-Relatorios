@@ -416,7 +416,7 @@
                 </div>
             </div>
         
-        <form class="row g-3" action="<?= base_url('Documents/storeDocuments/' . $data['empresa']['id']) ?>" method="post" >
+        <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" >
 
         <div class="mb-3">
             <label for="social_registrado" class="form-label">Documento (PDF, DOCX):</label>
