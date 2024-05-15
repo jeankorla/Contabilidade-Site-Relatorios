@@ -149,7 +149,7 @@
         <h1>Lead</h1>
       </div>
 
-      <div class="container mt-4 mb-4">
+      <div class="container mt-4 mb-4 filter-container">
     <div class="d-flex justify-content-between">
         <div>
             <label for="filterMotivo" class="form-label">Filtrar por Motivo:</label>
@@ -248,11 +248,10 @@ function applyFilters() {
 
         row.style.display = displayRow ? '' : 'none';
     });
-
-    // Esconde a seção 'Lead' se necessário
+    // Usando a classe única para esconder especificamente o contêiner de filtro
     if (hideLeadSection) {
         document.querySelector('.mb-3').style.display = 'none';
-        document.querySelector('.container.mt-4.mb-4').style.display = 'none';
+        document.querySelector('.filter-container').style.display = 'none'; // Usar classe específica
     }
 }
 
