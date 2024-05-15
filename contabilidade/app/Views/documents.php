@@ -374,22 +374,22 @@
                 </div>
             </div>
         
-        <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" >
+        <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="social_registrado" class="form-label">Documento (PDF, DOCX):</label>
+                <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
+            </div>
 
-        <div class="mb-3">
-            <label for="social_registrado" class="form-label">Documento (PDF, DOCX):</label>
-            <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
-        </div>
+            <div class="mb-3">
+                <label for="certificado_digital" class="form-label">Upload de Imagem (JPEG, PNG):</label>
+                <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
+            </div>
 
-        <div class="mb-3">
-            <label for="certificado_digital" class="form-label">Upload de Imagem (JPEG, PNG):</label>
-            <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
-        </div>
+            <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
-        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
-
-        <button type="submit">postar</button>
+            <button type="submit">postar</button>
         </form>
+
     </div>
     </div>
                 
