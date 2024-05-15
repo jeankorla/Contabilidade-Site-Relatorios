@@ -228,7 +228,25 @@ button.btn.btn-link i {
 
 
 
-<div class="container">
+            <!-- BOTÃO GERAR PROPOSTA -->
+           
+
+            <div class="d-flex justify-content-between">
+                <div class="col-6">
+                    <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
+                </div>
+            </div>
+
+            
+        </form>
+
+
+
+        
+        <!-- COLLAPSE START -->
+
+        <div class="container">
     <div class="accordion" id="accordionCliente">
 <!-- Collapse for Mãe -->
         <div class="item">
@@ -578,20 +596,10 @@ button.btn.btn-link i {
         </div>
     </div>
 </div>
+<!-- COLLAPSE FIM -->
 
 
-            <!-- BOTÃO GERAR PROPOSTA -->
-           
 
-            <div class="d-flex justify-content-between">
-                <div class="col-6">
-                    <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
-                </div>
-            </div>
-
-            
-        </form>
     </div>
     </div>
                 
