@@ -99,8 +99,8 @@ class DocumentsController extends BaseController
 
     public function storeDocuments($id = null)
     {
-        $empresaModel = new \App\Models\Empresa();
-        $documentModel = new \App\Models\Documents();
+        $empresaModel = new Empresa();
+        $documentModel = new Documents();
 
         // Obter a empresa pelo ID para acessar o CNPJ
         $empresa = $empresaModel->find($id);

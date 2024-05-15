@@ -335,51 +335,9 @@
                 </li>
             </ul>
 
-            <!-- Botão de Configurações -->
-            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#configModal">
-                Configurações
-            </button>
         </div>
     </div>
 </nav>
-
-<!-- Formulário de pesquisa -->
-      <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="configModalLabel">Configurações</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Formulário para atualizar o nome de usuário -->
-        <form action="<?= base_url('LoginController/updateUsername') ?>" method="post">
-            <div class="mb-3">
-                <label for="newUsername" class="form-label">Novo nome de usuário:</label>
-                <input type="text" class="form-control" id="newUsername" name="newUsername" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Atualizar Nome de Usuário</button>
-        </form>
-
-        <!-- Formulário para atualizar a senha -->
-        <form action="<?= base_url('LoginController/updatePassword') ?>" method="post" class="mt-3">
-            <div class="mb-3">
-                <label for="newPassword" class="form-label">Nova senha:</label>
-                <input type="password" class="form-control" id="newPassword" name="newPassword" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Atualizar Senha</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
 
 <section >
 
@@ -427,6 +385,8 @@
             <label for="certificado_digital" class="form-label">Upload de Imagem (JPEG, PNG):</label>
             <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
         </div>
+
+        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
         <button type="submit">postar</button>
         </form>
