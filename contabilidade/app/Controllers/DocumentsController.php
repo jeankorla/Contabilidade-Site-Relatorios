@@ -151,28 +151,38 @@ class DocumentsController extends BaseController
 
 
    public function deleteDocument()
-    {
-        $json = $this->request->getJSON();
-        $docKey = $json->docKey;
-        $empresaId = $json->empresaId;
+{
+    $json = $this->request->getJSON();
+    $docKey = $json->docKey;
+    $empresaId = $json->empresaId;
 
-        $documentModel = new Documents();
-        $document = $documentModel->where('empresa_id', $empresaId)->first();
+    $documentModel = new Documents();
+    $document = $documentModel->where('empresa_id', $empresaId)->first();
 
-        if ($document && !empty($document[$docKey])) {
-            // Remove o arquivo do servidor
-            if (file_exists($document[$docKey])) {
-                unlink($document[$docKey]);
-            }
-
-            // Atualiza apenas o campo específico no banco de dados
-            $updateData = [$docKey => null];
-            if ($documentModel->update($document['id'], $updateData)) {
-                return $this->response->setJSON(['success' => true]);
-            }
-        }
-        return $this->response->setJSON(['success' => false]);
+    if (!$document) {
+        // Documento não encontrado para essa empresa
+        return $this->response->setJSON(['success' => false, 'message' => 'Documento não encontrado.']);
     }
+
+    if (empty($document[$docKey])) {
+        // Campo específico do documento não encontrado ou já nulo
+        return $this->response->setJSON(['success' => false, 'message' => 'Arquivo não encontrado ou já excluído.']);
+    }
+
+    // Remove o arquivo do servidor, se existir
+    if (file_exists($document[$docKey])) {
+        unlink($document[$docKey]);
+    }
+
+    // Atualiza apenas o campo específico no banco de dados para nulo
+    $updateData = [$docKey => null];
+    if ($documentModel->update($document['id'], $updateData)) {
+        return $this->response->setJSON(['success' => true, 'message' => 'Documento excluído com sucesso.']);
+    }
+
+    return $this->response->setJSON(['success' => false, 'message' => 'Falha ao atualizar o registro.']);
+}
+
 
 
 }
