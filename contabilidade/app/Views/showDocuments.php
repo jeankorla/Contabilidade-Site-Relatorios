@@ -61,7 +61,7 @@
     float: right;
     font-size: 30px;
     color: blue;
-    background-color: black;
+    background-color: white;
     width: 60px;
     height: 40px;
     display: flex;
