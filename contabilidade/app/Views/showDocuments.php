@@ -624,31 +624,19 @@ button.btn.btn-link i {
                         <hr>
                     <?php endforeach; ?>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-            <br>
-                <div class="col-md-12">
-                <h2 class="mb-5">Empresa Informações</h2>
-                </div>
-                    
-
-
-
-                <br>
-                <div class="col-md-12">
-                <h2 class="mb-5">Empresa Endereço</h2>
-                </div>
-
-
-
-            <div class="col-2">
+                    <div class="accordion" id="nestedAccordion">
+                        <!-- Empresa Endereço -->
+                        <div class="item">
+                            <div class="item-header" id="headingEndereco">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseEndereco" aria-expanded="false" aria-controls="collapseEndereco">
+                                        Empresa Endereço
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div class="col-2">
                 <label for="endereco_empresa_cep" class="form-label">Empresa CEP:</label>
                 <p class="form-control-static"><?= $data['empresa']['endereco_cep'] ?></p>
             </div>
@@ -676,6 +664,16 @@ button.btn.btn-link i {
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
                 <p class="form-control-static"><?= $data['empresa']['endereco_estado'] ?></p>
             </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    
+
+
+
+            
 
             
                 <br>
