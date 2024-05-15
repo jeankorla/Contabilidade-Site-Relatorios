@@ -375,27 +375,188 @@
             </div>
         
         <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
+
+            <!-- Contrato Social Registrado -->
+
             <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
                 <div class="mb-3">
-                    <label class="form-label">Documento (PDF, DOCX):</label>
+                    <label class="form-label">Contrato Social Registrado:</label>
                     <a href="<?= base_url($data['documents']['social_registrado']) ?>" class="btn btn-primary">Baixar Documento</a>
                 </div>
             <?php else: ?>
                 <div class="mb-3">
-                    <label for="social_registrado" class="form-label">Documento (PDF, DOCX):</label>
+                    <label for="social_registrado" class="form-label">Contrato Social Registrado:</label>
                     <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
                 </div>
             <?php endif; ?>
 
+            <!-- Certificado Digital -->
+
             <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
                 <div class="mb-3">
-                    <label class="form-label">Upload de Imagem (JPEG, PNG):</label>
+                    <label class="form-label">Certificado Digital:</label>
                     <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary">Baixar Imagem</a>
                 </div>
             <?php else: ?>
                 <div class="mb-3">
-                    <label for="certificado_digital" class="form-label">Upload de Imagem (JPEG, PNG):</label>
+                    <label for="certificado_digital" class="form-label">Certificado Digital:</label>
                     <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
+                </div>
+            <?php endif; ?>
+
+            <!-- senha certificado DEPOIS FAZER EINNN -->
+
+            <!-- Dados de Acesso ao Posto Fiscal -->
+            
+            <?php if (isset($data['documents']['posto_fiscal']) && file_exists($data['documents']['posto_fiscal'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Dados de Acesso ao Posto Fiscal:</label>
+                    <a href="<?= base_url($data['documents']['posto_fiscal']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="posto_fiscal" class="form-label">Dados de Acesso ao Posto Fiscal:</label>
+                    <input type="file" class="form-control" id="posto_fiscal" name="posto_fiscal" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Dados de Acesso ao Simples Nacional -->
+
+            <?php if (isset($data['documents']['simples_nacional']) && file_exists($data['documents']['simples_nacional'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Dados de Acesso ao Simples Nacional:</label>
+                    <a href="<?= base_url($data['documents']['simples_nacional']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="simples_nacional" class="form-label">Dados de Acesso ao Simples Nacional:</label>
+                    <input type="file" class="form-control" id="simples_nacional" name="simples_nacional" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Dados de Acesso da Prefeitura em Emissão de NFSe -->
+
+             <?php if (isset($data['documents']['prefeitura_nfse']) && file_exists($data['documents']['prefeitura_nfse'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Dados de Acesso da Prefeitura em Emissão de NFSe:</label>
+                    <a href="<?= base_url($data['documents']['prefeitura_nfse']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="prefeitura_nfse" class="form-label">Dados de Acesso da Prefeitura em Emissão de NFSe:</label>
+                    <input type="file" class="form-control" id="prefeitura_nfse" name="prefeitura_nfse" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Dados de Acesso a Previdência Social -->
+
+             <?php if (isset($data['documents']['previdencia_social']) && file_exists($data['documents']['previdencia_social'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Dados de Acesso a Previdência Social:</label>
+                    <a href="<?= base_url($data['documents']['previdencia_social']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="previdencia_social" class="form-label">Dados de Acesso a Previdência Social:</label>
+                    <input type="file" class="form-control" id="previdencia_social" name="previdencia_social" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Ficha de Registro com a atualização da CTPS -->
+
+             <?php if (isset($data['documents']['ctps']) && file_exists($data['documents']['ctps'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Ficha de Registro com a atualização da CTPS:</label>
+                    <a href="<?= base_url($data['documents']['ctps']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="ctps" class="form-label">Ficha de Registro com a atualização da CTPS:</label>
+                    <input type="file" class="form-control" id="ctps" name="ctps" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Última Convenção Coletiva -->
+
+             <?php if (isset($data['documents']['convencao_coletiva']) && file_exists($data['documents']['convencao_coletiva'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Última Convenção Coletiva:</label>
+                    <a href="<?= base_url($data['documents']['convencao_coletiva']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="convencao_coletiva" class="form-label">Última Convenção Coletiva:</label>
+                    <input type="file" class="form-control" id="convencao_coletiva" name="convencao_coletiva" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Alvará de Funcionamento -->
+
+             <?php if (isset($data['documents']['alvara_funcionamento']) && file_exists($data['documents']['alvara_funcionamento'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Alvará de Funcionamento:</label>
+                    <a href="<?= base_url($data['documents']['alvara_funcionamento']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="alvara_funcionamento" class="form-label">Alvará de Funcionamento:</label>
+                    <input type="file" class="form-control" id="alvara_funcionamento" name="alvara_funcionamento" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Balancete do último mês -->
+
+             <?php if (isset($data['documents']['balancete_ultimo']) && file_exists($data['documents']['balancete_ultimo'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Balancete do último mês:</label>
+                    <a href="<?= base_url($data['documents']['balancete_ultimo']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="balancete_ultimo" class="form-label">Balancete do último mês:</label>
+                    <input type="file" class="form-control" id="balancete_ultimo" name="balancete_ultimo" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+             <!-- Balanço Patrimonial do último exercício encerrado -->
+
+             <?php if (isset($data['documents']['balanco_patrimonial']) && file_exists($data['documents']['balanco_patrimonial'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Balanço Patrimonial do último exercício encerrado:</label>
+                    <a href="<?= base_url($data['documents']['balanco_patrimonial']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="balanco_patrimonial" class="form-label">Balanço Patrimonial do último exercício encerrado:</label>
+                    <input type="file" class="form-control" id="balanco_patrimonial" name="balanco_patrimonial" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Livro diário do último exercício corrente -->
+
+             <?php if (isset($data['documents']['livro_corrente']) && file_exists($data['documents']['livro_corrente'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Livro diário do último exercício corrente:</label>
+                    <a href="<?= base_url($data['documents']['livro_corrente']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="livro_corrente" class="form-label">Livro diário do último exercício corrente:</label>
+                    <input type="file" class="form-control" id="livro_corrente" name="livro_corrente" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
+
+            <!-- Livro diário do último exerício encerrado -->
+
+             <?php if (isset($data['documents']['livro_encerrado']) && file_exists($data['documents']['livro_encerrado'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Livro diário do último exerício encerrado:</label>
+                    <a href="<?= base_url($data['documents']['livro_encerrado']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="livro_encerrado" class="form-label">Livro diário do último exerício encerrado:</label>
+                    <input type="file" class="form-control" id="livro_encerrado" name="livro_encerrado" accept=".pdf,.doc,.docx">
                 </div>
             <?php endif; ?>
 
