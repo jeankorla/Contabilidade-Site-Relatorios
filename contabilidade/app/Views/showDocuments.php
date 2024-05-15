@@ -20,7 +20,7 @@
       font-size: 90%;
     }
 
-.label{
+label{
     text: bold;
 }
 .accordion{
