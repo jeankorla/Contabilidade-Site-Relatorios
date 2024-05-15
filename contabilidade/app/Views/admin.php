@@ -167,6 +167,7 @@
                 <option value="Arquivado">Arquivado</option>
                 <option value="Proposta">Proposta</option>
                 <option value="Contrato">Contrato</option>
+                <option value="Cliente">Cliente</option>
             </select>
         </div>
     </div>
