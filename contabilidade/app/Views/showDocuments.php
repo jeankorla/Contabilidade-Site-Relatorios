@@ -36,7 +36,7 @@ label {
   padding: 40px 30px 0px 30px;
 }
 .accordion .item .item-header h2 button.btn.btn-link {
-    background: #333435;
+    background: #024A7F;
     color: white;
     border-radius: 0px;
     font-family: 'Poppins';
@@ -222,7 +222,7 @@ button.btn.btn-link i {
 
             </div>
         
-        <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $data['cliente']['id']) ?>" method="post" >
+        <form class="row g-3" method="post" >
 
         <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
@@ -248,12 +248,15 @@ button.btn.btn-link i {
         </div>
 
 
-           
+<br>
+<br>
+<br>
+<br>
+<br>
 
             <div class="d-flex justify-content-between">
                 <div class="col-6">
                     <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
 
 
                     <a href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">Abrir Forms</a>
