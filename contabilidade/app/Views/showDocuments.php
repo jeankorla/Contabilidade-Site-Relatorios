@@ -229,19 +229,24 @@ button.btn.btn-link i {
             <div class="container mt-3">
             <h2>Gestão de Documentos</h2>
             <div class="list-group">
-                <?php foreach ($data['documents'] as $key => $docPath): ?>
-                    <?php if (file_exists($docPath)): ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
-                                <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
+                <?php if (!empty($data['documents']) && is_array($data['documents'])): ?>
+                    <?php foreach ($data['documents'] as $key => $docPath): ?>
+                        <?php if (file_exists($docPath)): ?>
+                            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
+                                    <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
+                                </div>
+                                <button class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
                             </div>
-                            <button class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                        </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Nenhum documento disponível para mostrar.</p>
+                <?php endif; ?>
             </div>
         </div>
+
 
            
 
