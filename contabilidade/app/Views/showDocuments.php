@@ -60,7 +60,7 @@
 .accordion .item .item-header h2 i {
     float: right;
     font-size: 30px;
-    color: #eca300;
+    color: blue;
     background-color: black;
     width: 60px;
     height: 40px;
