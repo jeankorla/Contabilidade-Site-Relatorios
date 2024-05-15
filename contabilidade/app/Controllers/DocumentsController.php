@@ -39,6 +39,9 @@ class DocumentsController extends BaseController
 
         $socio_assModel = new Socio_ass();
         $socio_asses = $socio_assModel->where('empresa_id', $empresaId)->first();
+
+        $documentsModel = new Documents();
+        $documents = $documentsModel->where('empresa_id', $empresaId)->first();
         
 
         $data = [
@@ -48,9 +51,10 @@ class DocumentsController extends BaseController
             'contabilidade' => $contabilidade,
             'socios' => $socios,
             'socio_asses' => $socio_asses,
+            'documents' => $documents,
         ];
 
-        return view('showDocuments', ['data' => $data]);
+        return view('documents', ['data' => $data]);
     }
 
     public function formView($id = null)
@@ -146,6 +150,27 @@ class DocumentsController extends BaseController
     }
 
 
+    public function deleteDocument()
+    {
+        $json = $this->request->getJSON();
+        $docKey = $json->docKey;
+        $empresaId = $json->empresaId;
+
+        $documentModel = new Documents();
+        $document = $documentModel->where('empresa_id', $empresaId)->first();
+
+        if ($document && !empty($document[$docKey])) {
+            // Remove o arquivo do servidor
+            unlink($document[$docKey]);
+
+            // Remove o caminho do arquivo do banco de dados
+            $document[$docKey] = null;
+            if ($documentModel->update($document['id'], $document)) {
+                return $this->response->setJSON(['success' => true]);
+            }
+        }
+        return $this->response->setJSON(['success' => false]);
+    }
 
 
 }

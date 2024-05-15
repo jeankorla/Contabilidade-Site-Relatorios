@@ -226,7 +226,22 @@ button.btn.btn-link i {
 
         <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
-            
+            <div class="container mt-3">
+            <h2>Gestão de Documentos</h2>
+            <div class="list-group">
+                <?php foreach ($data['documents'] as $key => $docPath): ?>
+                    <?php if (file_exists($docPath)): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
+                                <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
+                            </div>
+                            <button class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
 
            
 
@@ -623,126 +638,32 @@ button.btn.btn-link i {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 <script>
-function confirmarEnvio() {
-    var confirmacao1 = confirm("Você está prestes a Enviar um Contrato SEM gerar Proposta, antes disso ATUALIZE as informações que forem alteradas, e depois disso clique em 'OK'.");
-    if (confirmacao1) {
-        var confirmacao2 = confirm("Você está prestes a Enviar um Contrato SEM gerar Proposta, caso tenha certeza da sua ação clique em 'OK'.");
-        if (confirmacao2) {
-            // Redirecionar para a URL após a confirmação do usuário
-            window.location.href = "<?= base_url('PropostaController/contratoSemProposta/' . $data['empresa']['id']) ?>";
-        }
+function deleteDocument(docKey, empresaId) {
+    if (confirm('Tem certeza que deseja excluir este documento?')) {
+        // Enviar requisição para o servidor para excluir o documento
+        fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Documento excluído com sucesso.');
+                location.reload(); // Recarrega a página para atualizar a lista
+            } else {
+                alert('Falha ao excluir o documento.');
+            }
+        });
     }
 }
 </script>
 
-<script>
-    document.getElementById("generateProposalBtn").onclick = function() {
-        const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
-
-        // Verifica se o usuário confirmou
-        if (confirmation) {
-            const clienteId = "<?= $data['cliente']['id'] ?>";
-            fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
-                method: 'GET'
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Mostrar mensagem e link no modal
-                if (data.status === 'success') {
-                    document.getElementById("proposalMessage").innerText = data.message;
-                    document.getElementById("proposalLink").href = data.link;
-                } else {
-                    document.getElementById("proposalMessage").innerText = data.message;
-                    document.getElementById("proposalLink").style.display = 'none';
-                }
-
-                // Criar uma instância do modal e exibi-lo
-                var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-                modal.show();
-            });
-        }
-    };
-</script>
-
-
-<script>
-function aplicarMascaraCPF(input) {
-    var valor = input.value;
-
-    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
-    valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após o terceiro dígito
-    valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca ponto após os seis primeiros dígitos
-    valor = valor.replace(/(\d{3})(\d)/, "$1-$2"); // Coloca um hífen após os nove primeiros dígitos
-
-    input.value = valor; // Atualiza o valor do input
-}
-</script>
-
-  <script>
-function aplicarMascaraCNPJ(input) {
-    var valor = input.value;
-
-    valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
-    valor = valor.replace(/^(\d{2})(\d)/, "$1.$2"); // Coloca ponto entre o segundo e o terceiro dígitos
-    valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3"); // Coloca ponto entre o quinto e o sexto dígitos
-    valor = valor.replace(/\.(\d{3})(\d)/, ".$1/$2"); // Coloca uma barra entre o oitavo e o nono dígitos
-    valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); // Coloca um hífen depois do bloco de quatro dígitos
-
-    input.value = valor; // Atualiza o valor do input
-}
-</script>
-
-<script>
-function formatarMoeda() {
-    var elemento = document.getElementById('faturamento');
-    var valor = elemento.value.replace(/\D/g, ''); // Remove tudo o que não é dígito
-    valor = parseInt(valor, 10) / 100; // Divide por 100 para mover os dois últimos dígitos para depois da vírgula
-    
-    // Verifica se o valor é NaN, se for, retorna vazio
-    if (isNaN(valor)) {
-        elemento.value = '';
-        return;
-    }
-
-    // Converte para string e usa expressão regular para formatar
-    valor = valor.toFixed(2); // Garante duas casas decimais
-    valor = valor.replace('.', ','); // Troca ponto por vírgula
-    valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'); // Adiciona ponto como separador de milhares
-
-    elemento.value = 'R$ ' + valor;
-}
-</script>
-
-<script>
-function mascaraTelefone(event) {
-    var valor = event.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
-    var tamanho = valor.length;
-
-    // Adiciona parênteses ao DDD
-    if (tamanho > 2) {
-        valor = '(' + valor.substring(0,2) + ') ' + valor.substring(2);
-    }
-
-    // Decide a posição do hífen baseado na quantidade de dígitos
-    // Telefones fixos possuem o formato (XX) XXXX-XXXX
-    // Telefones celulares possuem o formato (XX) XXXXX-XXXX
-    if (tamanho > 6) {
-        if (tamanho >= 11) {  // Para celulares com 11 dígitos
-            valor = valor.replace(/(\d{4})$/, '-$1'); // Coloca o hífen antes dos últimos quatro dígitos
-        } else {  // Para telefones fixos com menos de 11 dígitos
-            valor = valor.replace(/(\d{4})$/, '-$1'); // Coloca o hífen antes dos últimos quatro dígitos
-        }
-    }
-
-    // Limita o tamanho do valor para se adequar ao formato de celular com DDD
-    if (tamanho > 11) {
-        valor = valor.substring(0, valor.length - (tamanho - 11));
-    }
-
-    event.target.value = valor; // Atualiza o valor do input
-}
-</script>
 
 </body>
 </html>
