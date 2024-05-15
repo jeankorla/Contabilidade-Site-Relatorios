@@ -49,7 +49,7 @@
 }
 
 .accordion .item .item-header h2 button {
-    color: white;
+    color: black;
     font-size: 20px;
     padding: 15px;
     display: block;
