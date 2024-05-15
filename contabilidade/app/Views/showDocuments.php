@@ -539,69 +539,6 @@
 
 
 
-                    <!-- Lançamentos -->
-                    <div class="col-md-3">
-                        <label for="lancamento" class="form-label">Lançamentos:</label>
-                        <p class="form-control-static"><?= $data['empresa']['lancamento'] ?></p>
-                    </div>
-
-                    <!-- Natureza Jurídica -->
-                    <div class="col-md-5">
-                        <label for="natureza_juridica" class="form-label">Natureza Jurídica:</label>
-                        <p class="form-control-static"><?= $data['empresa']['natureza_juridica'] ?></p>
-                    </div>
-
-                    <!-- Capital Social -->
-                    <div class="col-md-2">
-                        <label for="capital_social" class="form-label">Capital Social:</label>
-                        <p class="form-control-static"><?= $data['empresa']['capital_social'] ?></p>
-                    </div>
-
-                    <!-- Abertura -->
-                    <div class="col-md 2">
-                        <label for="abertura" class="form-label">Abertura:</label>
-                        <p class="form-control-static"><?= $data['empresa']['abertura'] ?></p>
-                    </div>
-
-                    <!-- Tipo -->
-                    <div class="col-md-3">
-                        <label for="tipo" class="form-label">Tipo:</label>
-                        <p class="form-control-static"><?= $data['empresa']['tipo'] ?></p>
-                    </div>
-
-                    <!-- Porte -->
-                    <div class="col-md-4">
-                        <label for="porte" class="form-label">Porte:</label>
-                        <p class="form-control-static"><?= $data['empresa']['porte'] ?></p>
-                    </div>
-
-                    <!-- Situação -->
-                    <div class="col-md-7">
-                        <label for="situacao" class="form-label">Situação:</label>
-                        <p class="form-control-static"><?= $data['empresa']['situacao'] ?></p>
-                    </div>
-
-                    <!-- Section for Secondary Activities -->
-                    <div class="col-md-12">
-                        <h2 class="mb-5">Atividades Secundárias</h2>
-                    </div>
-                    <?php foreach ($data['atividades'] as $index => $atividade): ?>
-                        <div class="col-md-3">
-                            <label for="atividade_secundaria_<?= $index ?>_codigo" class="form-label">Código Atividade:</label>
-                            <p class="form-control-static"><?= $atividade['codigo'] ?></p>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="atividade_secundaria_<?= $index ?>_texto" class="form-label">Atividade Secundária:</label>
-                            <p class="form-control-static"><?= $atividade['texto'] ?></p>
-                        </div>
-                        <hr>
-                    <?php endforeach; ?>
-
-
-
-
-    
-              
                 <br>
                 <div class="col-md-12">
                 <h2 class="mb-5">Empresa Endereço</h2>
