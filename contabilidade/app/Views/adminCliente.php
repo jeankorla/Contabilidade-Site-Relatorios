@@ -146,27 +146,15 @@
       
 
       <div class="mb-3">
-        <h1>Lead</h1>
+        <h1>Cliente</h1>
       </div>
 
       <div class="container mt-4 mb-4">
     <div class="d-flex justify-content-between">
         <div>
-            <label for="filterMotivo" class="form-label">Filtrar por Motivo:</label>
-            <select id="filterMotivo" class="form-select" onchange="applyFilters()">
-                <option value="all">Todos</option>
-                <option value="Abertura">Abertura</option>
-                <option value="Trocar">Trocar</option>
-            </select>
-        </div>
-        <div>
-            <label for="filterSituacao" class="form-label">Filtrar por Situação:</label>
+            <label for="filterSituacao" class="form-label">Filtro:</label>
             <select id="filterSituacao" class="form-select" onchange="applyFilters()">
-                <option value="all">Todos</option>
-                <option value="Lead">Lead</option>
-                <option value="Arquivado">Arquivado</option>
-                <option value="Proposta">Proposta</option>
-                <option value="Contrato">Contrato</option>
+                <option value="Cliente">Cliente</option>
             </select>
         </div>
     </div>
@@ -191,8 +179,7 @@
              <tr>
               <td>
             <div style="display: flex; gap: 10px">
-            <a href="<?php echo base_url('ClienteController/arquivarCliente/' . $item['empresa']['id']) ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></i></i></a>
-            <a href="<?php echo base_url('ClienteController/editarCliente/' . $item['cliente']['id']) ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+            <a href="<?php echo base_url('DocumentsController/showCliente/' . $item['cliente']['id']) ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
             </div>
         </td>
          
