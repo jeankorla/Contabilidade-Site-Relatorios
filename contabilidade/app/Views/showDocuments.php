@@ -474,6 +474,24 @@ button.btn.btn-link i {
 
         <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
+            <div class="container mt-3">
+                
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <strong>Empresa:</strong> <?= $data['empresa']['nome'] ?? 'N/A' ?>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Motivo: <?= $data['cliente']['motivo'] ?? 'N/A' ?></h5>
+                            <p class="card-text"><strong>Faturamento:</strong> <?= $data['empresa']['faturamento'] ?? 'N/A' ?></p>
+                            <p class="card-text"><strong>Tributação:</strong> <?= $data['empresa']['tributacao'] ?? 'N/A' ?></p>
+                            <p class="card-text"><strong>Estado:</strong> <?= $data['empresa']['endereco_estado'] ?? 'N/A' ?></p>
+                            <p class="card-text"><strong>Cidade:</strong> <?= $data['empresa']['endereco_cidade'] ?? 'N/A' ?></p>
+                            <p class="card-text"><strong>Data de Cadastro:</strong> <?= date('d/m/Y', strtotime($data['cliente']['created_at'] ?? 'N/A')); ?></p>
+                            <p class="card-text"><strong>Situação:</strong> <?= $data['empresa']['situacao'] ?? 'N/A' ?></p>
+                        </div>
+                    </div>
+
+            </div>
 
 
 
@@ -484,7 +502,7 @@ button.btn.btn-link i {
             <div class="item-header" id="headingCliente">
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseCliente" aria-expanded="false" aria-controls="collapseCliente">
-                        Informações do Cliente
+                        Informações Completas do Cliente
                         <i class="fa fa-angle-down"></i>
                     </button>
                 </h2>
