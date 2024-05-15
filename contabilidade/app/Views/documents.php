@@ -375,19 +375,33 @@
             </div>
         
         <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="social_registrado" class="form-label">Documento (PDF, DOCX):</label>
-                <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
-            </div>
+            <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Documento (PDF, DOCX):</label>
+                    <a href="<?= base_url($data['documents']['social_registrado']) ?>" class="btn btn-primary">Baixar Documento</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="social_registrado" class="form-label">Documento (PDF, DOCX):</label>
+                    <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
+                </div>
+            <?php endif; ?>
 
-            <div class="mb-3">
-                <label for="certificado_digital" class="form-label">Upload de Imagem (JPEG, PNG):</label>
-                <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
-            </div>
+            <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Upload de Imagem (JPEG, PNG):</label>
+                    <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary">Baixar Imagem</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="certificado_digital" class="form-label">Upload de Imagem (JPEG, PNG):</label>
+                    <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
+                </div>
+            <?php endif; ?>
 
             <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
-            <button type="submit">postar</button>
+            <button type="submit" class="btn btn-success">Postar</button>
         </form>
 
     </div>
