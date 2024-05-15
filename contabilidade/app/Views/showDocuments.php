@@ -247,17 +247,8 @@ button.btn.btn-link i {
         </div>
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-
             <div class="d-flex justify-content-between">
                 <div class="col-6">
-                    <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-
-
                     <a href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">Abrir Forms</a>
                 </div>
             </div>
