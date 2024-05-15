@@ -224,14 +224,15 @@
 
 
 <script>
-  function applyFilters() {
+function applyFilters() {
     var motivoFilter = document.getElementById('filterMotivo').value;
     var situacaoFilter = document.getElementById('filterSituacao').value;
     var rows = document.querySelectorAll('table tbody tr');
+    var hideLeadSection = false; // Variável para controlar a visibilidade da seção 'Lead'
 
     rows.forEach(row => {
-        var motivoCell = row.cells[1].textContent; // Ajuste o índice conforme necessário
-        var situacaoCell = row.cells[8].textContent; // Ajuste o índice conforme necessário
+        var motivoCell = row.cells[1].textContent;
+        var situacaoCell = row.cells[8].textContent;
         var displayRow = true;
 
         if (motivoFilter !== 'all' && motivoCell.trim() !== motivoFilter) {
@@ -241,14 +242,23 @@
             displayRow = false;
         }
 
+        if (situacaoCell.trim() === 'Cliente') {
+            hideLeadSection = true; // Se encontrar 'Cliente', ativa a flag para esconder a seção 'Lead'
+        }
+
         row.style.display = displayRow ? '' : 'none';
     });
+
+    // Esconde a seção 'Lead' se necessário
+    if (hideLeadSection) {
+        document.querySelector('.mb-3').style.display = 'none';
+        document.querySelector('.container.mt-4.mb-4').style.display = 'none';
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     applyFilters(); // Aplica os filtros iniciais ao carregar a página
 });
-
 </script>
 
 
