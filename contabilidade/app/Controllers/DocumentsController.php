@@ -99,7 +99,7 @@ class DocumentsController extends BaseController
 
     public function storeDocuments($id = null)
     {
-        helper('text'); 
+        helper('text');
         $empresaModel = new Empresa();
         $documentModel = new Documents();
 
@@ -117,7 +117,13 @@ class DocumentsController extends BaseController
         }
 
         $files = $this->request->getFiles();
-        $data = ['empresa_id' => $id];
+        $existingDocument = $documentModel->where('empresa_id', $id)->first();
+
+        if ($existingDocument) {
+            $data = ['id' => $existingDocument['id']]; // Usando o ID do registro existente para atualização
+        } else {
+            $data = ['empresa_id' => $id]; // Criando um novo registro se não existir
+        }
 
         foreach ($files as $fileKey => $file) {
             if ($file->isValid() && !$file->hasMoved()) {
@@ -130,6 +136,7 @@ class DocumentsController extends BaseController
             }
         }
 
+        // Salvar ou atualizar os dados no banco
         if (!$documentModel->save($data)) {
             log_message('error', 'Falha ao salvar os dados do documento no banco de dados.');
             return redirect()->back()->with('error', 'Falha ao salvar os documentos.');
@@ -137,6 +144,7 @@ class DocumentsController extends BaseController
 
         return redirect()->to('/some/route')->with('success', 'Arquivos carregados com sucesso.');
     }
+
 
 
 
