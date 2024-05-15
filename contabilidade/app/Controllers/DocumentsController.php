@@ -99,8 +99,42 @@ class DocumentsController extends BaseController
 
     public function storeDocuments($id = null)
     {
+        $empresaModel = new \App\Models\Empresa();
+        $documentModel = new \App\Models\Documents();
 
+        // Obter a empresa pelo ID para acessar o CNPJ
+        $empresa = $empresaModel->find($id);
+        if (!$empresa) {
+            return redirect()->back()->with('error', 'Empresa não encontrada.');
+        }
 
+        $cnpj = $empresa['cnpj'];
+        $dirPath = './documents/' . $cnpj;
 
+        // Verifica se o diretório existe, se não, cria
+        if (!is_dir($dirPath)) {
+            mkdir($dirPath, 0755, true);
+        }
+
+        // Processa cada arquivo enviado
+        $files = $this->request->getFiles();
+        foreach ($files as $file) {
+            if ($file->isValid() && !$file->hasMoved()) {
+                $newName = $file->getRandomName(); // Gera um novo nome aleatório para o arquivo
+                $file->move($dirPath, $newName);
+
+                // Preparar dados para salvar no banco de dados
+                $data = [
+                    'empresa_id' => $id,
+                    'caminho_arquivo' => $dirPath . '/' . $newName,
+                ];
+
+                // Salvar no banco de dados
+                $documentModel->save($data);
+            }
+        }
+
+        return redirect()->to('/some/route')->with('success', 'Arquivos carregados com sucesso.');
     }
+
 }
