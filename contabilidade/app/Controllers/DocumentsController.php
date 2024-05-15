@@ -99,6 +99,7 @@ class DocumentsController extends BaseController
 
     public function storeDocuments($id = null)
     {
+        helper('text'); // Carrega o helper de texto, se ainda não carregado
         $empresaModel = new Empresa();
         $documentModel = new Documents();
 
@@ -108,7 +109,8 @@ class DocumentsController extends BaseController
             return redirect()->back()->with('error', 'Empresa não encontrada.');
         }
 
-        $cnpj = $empresa['cnpj'];
+        // Limpar o CNPJ removendo caracteres não numéricos
+        $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
         $dirPath = './documents/' . $cnpj;
 
         // Verifica se o diretório existe, se não, cria
@@ -118,23 +120,29 @@ class DocumentsController extends BaseController
 
         // Processa cada arquivo enviado
         $files = $this->request->getFiles();
-        foreach ($files as $file) {
+        $data = ['empresa_id' => $id]; // Inicializa o array de dados com o id da empresa
+
+        foreach ($files as $fileKey => $file) {
             if ($file->isValid() && !$file->hasMoved()) {
                 $newName = $file->getRandomName(); // Gera um novo nome aleatório para o arquivo
-                $file->move($dirPath, $newName);
-
-                // Preparar dados para salvar no banco de dados
-                $data = [
-                    'empresa_id' => $id,
-                    'caminho_arquivo' => $dirPath . '/' . $newName,
-                ];
-
-                // Salvar no banco de dados
-                $documentModel->save($data);
+                if ($file->move($dirPath, $newName)) { // Certifique-se de que o arquivo foi movido corretamente
+                    // Preparar dados para salvar no banco de dados
+                    $data[$fileKey] = $dirPath . '/' . $newName; // Salva o caminho do arquivo no campo correspondente
+                } else {
+                    // Logar erro de movimentação de arquivo
+                    log_message('error', 'Falha ao mover o arquivo ' . $fileKey);
+                }
             }
+        }
+
+        // Salvar no banco de dados
+        if (!$documentModel->save($data)) {
+            log_message('error', 'Falha ao salvar os dados do documento no banco de dados.');
+            return redirect()->back()->with('error', 'Falha ao salvar os documentos.');
         }
 
         return redirect()->to('/some/route')->with('success', 'Arquivos carregados com sucesso.');
     }
+
 
 }
