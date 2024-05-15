@@ -236,7 +236,7 @@ button.btn.btn-link i {
                     <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
 
 
-                    <a href="<?= base_url('DocumentsController/formView/ ' . $data['cliente']['id']) ?>">Abrir Forms</a>
+                    <a href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">Abrir Forms</a>
                 </div>
             </div>
 
