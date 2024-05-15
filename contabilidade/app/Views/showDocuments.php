@@ -20,8 +20,8 @@
       font-size: 90%;
     }
 
-label{
-    text: bold;
+label {
+    font-weight: bold;
 }
 .accordion{
   margin: 40px 0;
