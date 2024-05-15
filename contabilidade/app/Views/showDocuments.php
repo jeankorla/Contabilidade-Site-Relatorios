@@ -478,7 +478,7 @@ button.btn.btn-link i {
 
 
 <div class="container">
-    <div class="accordion" id="accordionInfo">
+    <div class="accordion" id="accordionCliente">
 <!-- Collapse for Mãe -->
         <div class="item">
             <div class="item-header" id="headingCliente">
@@ -489,7 +489,7 @@ button.btn.btn-link i {
                     </button>
                 </h2>
             </div>
-            <div id="collapseCliente" class="collapse" aria-labelledby="headingCliente" data-parent="#accordionInfo">
+            <div id="collapseCliente" class="collapse" aria-labelledby="headingCliente" data-parent="#accordionCliente">
                 <div class="t-p">
                 
 
