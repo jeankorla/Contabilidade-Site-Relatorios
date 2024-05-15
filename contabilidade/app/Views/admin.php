@@ -149,7 +149,7 @@
         <h1>Lead</h1>
       </div>
 
-      <div class="container mt-4 mb-4 filter-container">
+      <div class="container mt-4 mb-4">
     <div class="d-flex justify-content-between">
         <div>
             <label for="filterMotivo" class="form-label">Filtrar por Motivo:</label>
@@ -224,16 +224,20 @@
 
 
 <script>
-function applyFilters() {
+  function applyFilters() {
     var motivoFilter = document.getElementById('filterMotivo').value;
     var situacaoFilter = document.getElementById('filterSituacao').value;
     var rows = document.querySelectorAll('table tbody tr');
-    var hideLeadSection = false; // Variável para controlar a visibilidade da seção 'Lead'
 
     rows.forEach(row => {
-        var motivoCell = row.cells[1].textContent;
-        var situacaoCell = row.cells[8].textContent;
+        var motivoCell = row.cells[1].textContent; // Ajuste o índice conforme necessário
+        var situacaoCell = row.cells[8].textContent; // Ajuste o índice conforme necessário
         var displayRow = true;
+
+        // Adicione esta condição para não mostrar linhas onde a situação é 'Cliente'
+        if (situacaoCell.trim() === 'Cliente') {
+            displayRow = false;
+        }
 
         if (motivoFilter !== 'all' && motivoCell.trim() !== motivoFilter) {
             displayRow = false;
@@ -242,24 +246,15 @@ function applyFilters() {
             displayRow = false;
         }
 
-        if (situacaoCell.trim() === 'Cliente') {
-            hideLeadSection = true; // Se encontrar 'Cliente', ativa a flag para esconder a seção 'Lead'
-        }
-
         row.style.display = displayRow ? '' : 'none';
     });
-    // Usando a classe única para esconder especificamente o contêiner de filtro
-    if (hideLeadSection) {
-        document.querySelector('.mb-3').style.display = 'none';
-        document.querySelector('.filter-container').style.display = 'none'; // Usar classe específica
-    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     applyFilters(); // Aplica os filtros iniciais ao carregar a página
 });
-</script>
 
+</script>
 
 
 <script>
