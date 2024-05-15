@@ -430,113 +430,173 @@
                 <div class="col-md-12">
                 <h2 class="mb-5">Empresa Informações</h2>
                 </div>
+                    <!-- CNPJ -->
+                    <div class="col-4">
+                        <label for="cnpj" class="form-label">CNPJ:</label>
+                        <p class="form-control-static"><?= $data['empresa']['cnpj'] ?></p>
+                    </div>
 
-            
+                    <!-- Nome da Empresa -->
+                    <div class="col-4">
+                        <label for="nome_empresa" class="form-label">Nome da Empresa:</label>
+                        <p class="form-control-static"><?= $data['empresa']['nome'] ?></p>
+                    </div>
 
-            <div class="col-4">
-                <label for="cnpj" class="form-label">CNPJ:</label>
-               <input id="input" type="text" id="cnpj" class="form-control" name="cnpj" value="<?= $data['empresa']['cnpj'] ?>" oninput= "aplicarMascaraCNPJ(this)" maxlength="18">
-            </div>
-            <div class="col-4">
-                <label for="nome_empresa" class="form-label">Nome da Empresa:</label>
-                <input id="input" type="text" id="nome_empresa" class="form-control" name="nome_empresa" value="<?= $data['empresa']['nome'] ?>">
-            </div>
-            <div class="col-4">
-                <label for="fantasia" class="form-label">Nome Fantasia:</label>
-                <input id="input" type="text" id="fantasia" class="form-control" name="fantasia" value="<?= $data['empresa']['fantasia'] ?>">
-            </div>
+                    <!-- Nome Fantasia -->
+                    <div class="col-4">
+                        <label for="fantasia" class="form-label">Nome Fantasia:</label>
+                        <p class="form-control-static"><?= $data['empresa']['fantasia'] ?></p>
+                    </div>
 
+                    <!-- Telefone da Empresa -->
+                    <div class="col-3">
+                        <label for="tel_empresa" class="form-label">Telefone da Empresa:</label>
+                        <p class="form-control-static"><?= $data['empresa']['tel'] ?></p>
+                    </div>
 
+                    <!-- Faturamento -->
+                    <div class="col-3">
+                        <label for="faturamento" class="form-label">Faturamento:</label>
+                        <p class="form-control-static"><?= $data['empresa']['faturamento'] ?></p>
+                    </div>
 
-            <div class="col-3">
-                <label for="tel_empresa" class="form-label">Telefone da Empresa:</label>
-                <input id="input" type="text" id="tel_empresa" class="form-control" name="tel_empresa" value="<?= $data['empresa']['tel'] ?>" onkeyup="formatarMoeda();" maxlength="18">
-            </div>
-            <div class="col-3">
-                <label for="faturamento" class="form-label">Faturamento:</label>
-                <input id="input" type="text" id="faturamento" class="form-control" name="faturamento" value="<?= $data['empresa']['faturamento'] ?>" onkeyup="formatarMoeda();" maxlength="18">
-            </div>
-            <div class="col-3">
-                <label for="funcionarios" class="form-label">Funcionários:</label>
-                <input id="input" type="number" id="funcionarios" class="form-control" name="funcionarios" value="<?= $data['empresa']['funcionarios'] ?>">
-            </div>
-            <div class="col-3">
-                <label for="tributacao" class="form-label">Tributação:</label>
-                <input id="input" type="text" id="tributacao" class="form-control" name="tributacao" value="<?= $data['empresa']['tributacao'] ?>">
-            </div>
+                    <!-- Funcionários -->
+                    <div class="col-3">
+                        <label for="funcionarios" class="form-label">Funcionários:</label>
+                        <p class="form-control-static"><?= $data['empresa']['funcionarios'] ?></p>
+                    </div>
 
+                    <!-- Tributação -->
+                    <div class="col-3">
+                        <label for="tributacao" class="form-label">Tributação:</label>
+                        <p class="form-control-static"><?= $data['empresa']['tributacao'] ?></p>
+                    </div>
 
+                    <!-- Quantidade de Notas-Fiscais -->
+                    <div class="col-3">
+                        <label for="nfe" class="form-label">Quantidade de Notas-Fiscais:</label>
+                        <p class="form-control-static"><?= $data['empresa']['nfe'] ?></p>
+                    </div>
 
-            <div class="col-3">
-                <label for="nfe" class="form-label">Quantidade de Notas-Fiscais:</label>
-                <input id="input" type="number" id="nfe" class="form-control" name="nfe" value="<?= $data['empresa']['nfe'] ?>">
-            </div>
-            <div class="col-md-3">
-                <label for="atividade_principal_codigo" class="form-label">Côdigo Atividade:</label>
-                <input id="input" type="text" id="atividade_principal_codigo" class="form-control" name="atividade_principal_codigo" value="<?= $data['empresa']['atividade_principal_codigo'] ?>">
-            </div>
-            <div class="col-md-6">
-                <label for="atividade_principal_texto" class="form-label">Atividade Principal:</label>
-                <input id="input" type="text" id="atividade_principal_texto" class="form-control" name="atividade_principal_texto" value="<?= $data['empresa']['atividade_principal_texto'] ?>">
-            </div>
-
-
-
-            <div class="col-md-3">
-                <label for="lancamento" class="form-label">Lançamentos:</label>
-                <input id="input" type="number" id="lancamento" class="form-control" name="lancamento" value="<?= $data['empresa']['lancamento'] ?>">
-            </div>
-            <div class="col-md-5">
-                <label for="natureza_juridica" class="form-label">Natureza Jurdica:</label>
-                <input id="input" type="text" id="natureza_juridica" class="form-control" name="natureza_juridica" value="<?= $data['empresa']['natureza_juridica'] ?>">
-            </div>
-            <div class="col-md-2">
-                <label for="capital_social" class="form-label">Capital Social:</label>
-                <input id="input" type="text" id="capital_social" class="form-control" name="capital_social" value="<?= $data['empresa']['capital_social'] ?>">
-            </div>
-            <div class="col-md-2">
-                <label for="abertura" class="form-label">Abertura:</label>
-                <input id="input" type="text" id="abertura" class="form-control" name="abertura" value="<?= $data['empresa']['abertura'] ?>">
-            </div>
-
-            <div class="col-md-3">
-                <label for="tipo" class="form-label">Tipo:</label>
-                <input id="input" type="text" id="tipo" class="form-control" name="tipo" value="<?= $data['empresa']['tipo'] ?>">
-            </div>
-            <div class="col-md-4">
-                <label for="porte" class="form-label">Porte:</label>
-                <input id="input" type="text" id="porte" class="form-control" name="porte" value="<?= $data['empresa']['porte'] ?>">
-            </div>
-
-            <div class="col-md-7">
-                <label for="situacao" class="form-label">Situação:</label>
-                <select id="situacao" class="form-control" name="situacao">
-                    <option value="Lead" <?= $data['empresa']['situacao'] == 'Lead' ? 'selected' : '' ?>>Lead</option>
-                    <option value="Arquivado" <?= $data['empresa']['situacao'] == 'Arquivado' ? 'selected' : '' ?>>Arquivado</option>
-                    <option value="Proposta" <?= $data['empresa']['situacao'] == 'Proposta' ? 'selected' : '' ?>>Proposta</option>
-                    <option value="Contrato" <?= $data['empresa']['situacao'] == 'Contrato' ? 'selected' : '' ?>>Contrato</option>
-                    <option value="Cliente" <?= $data['empresa']['situacao'] == 'Cliente' ? 'selected' : '' ?>>Cliente</option>
-                </select>
-            </div>
-
-
-
-                <br>
-                <div class="col-md-12">
-                    <h2 class="mb-5">Atividades Secundárias</h2>
-                </div>
-
-                <?php foreach ($data['atividades'] as $index => $atividade): ?>
+                    <!-- Lançamentos -->
                     <div class="col-md-3">
-                        <label for="atividade_secundaria_<?= $index ?>_codigo" class="form-label">Código Atividade:</label>
-                        <input id="input" type="text" id="atividade_secundaria_<?= $index ?>_codigo" class="form-control" name="atividades[<?= $index ?>][codigo]" value="<?= $atividade['codigo'] ?>">
+                        <label for="lancamento" class="form-label">Lançamentos:</label>
+                        <p class="form-control-static"><?= $data['empresa']['lancamento'] ?></p>
                     </div>
-                    <div class="col-md-6">
-                        <label for="atividade_secundaria_<?= $index ?>_texto" class="form-label">Atividade Secundária:</label>
-                        <input id="input" type="text" id="atividade_secundaria_<?= $index ?>_texto" class="form-control" name="atividades[<?= $index ?>][texto]" value="<?= $atividade['texto'] ?>">
+
+                    <!-- Natureza Jurídica -->
+                    <div class="col-md-5">
+                        <label for="natureza_juridica" class="form-label">Natureza Jurídica:</label>
+                        <p class="form-control-static"><?= $data['empresa']['natureza_juridica'] ?></p>
                     </div>
-                    <hr>
-                <?php endforeach; ?>
+
+                    <!-- Capital Social -->
+                    <div class="col-md-2">
+                        <label for="capital_social" class="form-label">Capital Social:</label>
+                        <p class="form-control-static"><?= $data['empresa']['capital_social'] ?></p>
+                    </div>
+
+                    <!-- Abertura -->
+                    <div class="col-md-2">
+                        <label for="abertura" class="form-label">Abertura:</label>
+                        <p class="form-control-static"><?= $data['empresa']['abertura'] ?></p>
+                    </div>
+
+                    <!-- Tipo -->
+                    <div class="col-md-3">
+                        <label for="tipo" the form-label">Tipo:</label>
+                        <p class="form-control-static"><?= $data['empresa']['tipo'] ?></p>
+                    </div>
+
+                    <!-- Porte -->
+                    <div class="col-md-4">
+                        <label for="porte" class="form-label">Porte:</label>
+                        <p class="form-control-static"><?= $data['empresa']['porte'] ?></p>
+                    </div>
+
+                    <!-- Situação -->
+                    <div class="col-md-7">
+                        <label for="situacao" class="form-label">Situação:</label>
+                        <p class="form-control-static"><?= $data['empresa']['situacao'] ?></p>
+                    </div>
+
+                    <!-- Section for Secondary Activities -->
+                    <div class="col-md-12">
+                        <h2 class="mb-5">Atividades Secundárias</h2>
+                    </div>
+                    <?php foreach ($data['atividades'] as $index => $atividade): ?>
+                        <div class="col-md-3">
+                            <label for="atividade_secundaria_<?= $index ?>_codigo" class="form-label">Código Atividade:</label>
+                            <p class="form-control-static"><?= $atividade['codigo'] ?></p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="atividade_secundaria_<?= $index ?>_texto" class="form-label">Atividade Secundária:</label>
+                            <p class="form-control-static"><?= $atividade['texto'] ?></p>
+                        </div>
+                        <hr>
+                    <?php endforeach; ?>
+
+
+
+
+                    <!-- Lançamentos -->
+                    <div class="col-md-3">
+                        <label for="lancamento" class="form-label">Lançamentos:</label>
+                        <p class="form-control-static"><?= $data['empresa']['lancamento'] ?></p>
+                    </div>
+
+                    <!-- Natureza Jurídica -->
+                    <div class="col-md-5">
+                        <label for="natureza_juridica" class="form-label">Natureza Jurídica:</label>
+                        <p class="form-control-static"><?= $data['empresa']['natureza_juridica'] ?></p>
+                    </div>
+
+                    <!-- Capital Social -->
+                    <div class="col-md-2">
+                        <label for="capital_social" class="form-label">Capital Social:</label>
+                        <p class="form-control-static"><?= $data['empresa']['capital_social'] ?></p>
+                    </div>
+
+                    <!-- Abertura -->
+                    <div class="col-md 2">
+                        <label for="abertura" class="form-label">Abertura:</label>
+                        <p class="form-control-static"><?= $data['empresa']['abertura'] ?></p>
+                    </div>
+
+                    <!-- Tipo -->
+                    <div class="col-md-3">
+                        <label for="tipo" class="form-label">Tipo:</label>
+                        <p class="form-control-static"><?= $data['empresa']['tipo'] ?></p>
+                    </div>
+
+                    <!-- Porte -->
+                    <div class="col-md-4">
+                        <label for="porte" class="form-label">Porte:</label>
+                        <p class="form-control-static"><?= $data['empresa']['porte'] ?></p>
+                    </div>
+
+                    <!-- Situação -->
+                    <div class="col-md-7">
+                        <label for="situacao" class="form-label">Situação:</label>
+                        <p class="form-control-static"><?= $data['empresa']['situacao'] ?></p>
+                    </div>
+
+                    <!-- Section for Secondary Activities -->
+                    <div class="col-md-12">
+                        <h2 class="mb-5">Atividades Secundárias</h2>
+                    </div>
+                    <?php foreach ($data['atividades'] as $index => $atividade): ?>
+                        <div class="col-md-3">
+                            <label for="atividade_secundaria_<?= $index ?>_codigo" class="form-label">Código Atividade:</label>
+                            <p class="form-control-static"><?= $atividade['codigo'] ?></p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="atividade_secundaria_<?= $index ?>_texto" class="form-label">Atividade Secundária:</label>
+                            <p class="form-control-static"><?= $atividade['texto'] ?></p>
+                        </div>
+                        <hr>
+                    <?php endforeach; ?>
+
 
 
 
@@ -550,108 +610,106 @@
 
 
             <div class="col-2">
-                <label for="endereco_empresa_cep" class="form-label">Empresa Cep:</label>
-                <input id="input" type="text" id="endereco_empresa_cep" class="form-control" name="endereco_empresa_cep" value="<?= $data['empresa']['endereco_cep'] ?>">
+                <label for="endereco_empresa_cep" class="form-label">Empresa CEP:</label>
+                <p class="form-control-static"><?= $data['empresa']['endereco_cep'] ?></p>
             </div>
             <div class="col-md-4">
                 <label for="endereco_empresa_rua" class="form-label">Empresa Rua:</label>
-                <input id="input" type="text" id="endereco_empresa_rua" class="form-control" name="endereco_empresa_rua" value="<?= $data['empresa']['endereco_rua'] ?>">
+                <p class="form-control-static"><?= $data['empresa']['endereco_rua'] ?></p>
             </div>
             <div class="col-md-2">
                 <label for="endereco_empresa_numero" class="form-label">Empresa Numero:</label>
-                <input id="input" type="text" id="endereco_empresa_numero" class="form-control" name="endereco_empresa_numero" value="<?= $data['empresa']['endereco_numero'] ?>">
+                <p class="form-control-static"><?= $data['empresa']['endereco_numero'] ?></p>
             </div>
             <div class="col-md-4">
                 <label for="endereco_empresa_complemento" class="form-label">Complemento:</label>
-                <input id="input" type="text" id="endereco_empresa_complemento" class="form-control" name="endereco_empresa_complemento" value="<?= $data['empresa']['endereco_complemento'] ?>">
+                <p class="form-control-static"><?= $data['empresa']['endereco_complemento'] ?></p>
             </div>
-
             <div class="col-md-5">
                 <label for="endereco_empresa_bairro" class="form-label">Empresa Bairro:</label>
-                <input id="input" type="text" id="endereco_empresa_bairro" class="form-control" name="endereco_empresa_bairro" value="<?= $data['empresa']['endereco_bairro'] ?>">
+                <p class="form-control-static"><?= $data['empresa']['endereco_bairro'] ?></p>
             </div>
             <div class="col-md-5">
                 <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
-                <input id="input" type="text" id="endereco_empresa_cidade" class="form-control" name="endereco_empresa_cidade" value="<?= $data['empresa']['endereco_cidade'] ?>">
+                <p class="form-control-static"><?= $data['empresa']['endereco_cidade'] ?></p>
             </div>
-                <div class="col-md-2">
+            <div class="col-md-2">
                 <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
-                <input id="input" type="text" id="endereco_empresa_estado" class="form-control" name="endereco_empresa_estado" value="<?= $data['empresa']['endereco_estado'] ?>">
+                <p class="form-control-static"><?= $data['empresa']['endereco_estado'] ?></p>
             </div>
+
             
                 <br>
             <div class="col-md-12">
                 <h2 class="mb-5">Sócios da Empresa</h2>
             </div>
 
-            <?php foreach ($data['socios'] as $index => $socio): ?>
+            <!-- Section for Partners -->
+                <?php foreach ($data['socios'] as $index => $socio): ?>
+                    <div class="col-md-7">
+                        <label for="socio_<?= $index ?>_nome" class="form-label">Nome do Sócio:</label>
+                        <p class="form-control-static"><?= $socio['nome'] ?></p>
+                    </div>
+                    <div class="col-3">
+                        <label for="socio_<?= $index ?>_qualifica" class="form-label">Qualificação:</label>
+                        <p class="form-control-static"><?= $socio['qualifica'] ?></p>
+                    </div>
+                    <hr>
+                <?php endforeach; ?>
+
+                <div class="col-md-12">
+                    <h2 class="mb-5">Representante da Contratante</h2>
+                </div>
+
                 <div class="col-md-7">
-                    <label for="socio_<?= $index ?>_nome" class="form-label">Nome do Sócio:</label>
-                    <input id="input" type="text" id="socio_<?= $index ?>_nome" class="form-control" name="socios[<?= $index ?>][nome]" value="<?= $socio['nome'] ?>">
+                    <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['nome'] ?? 'N/A' ?></p>
                 </div>
                 <div class="col-3">
-                    <label for="socio_<?= $index ?>_qualifica" class="form-label">Qualificação:</label>
-                    <input id="input" type="text" id="socio_<?= $index ?>_qualifica" class="form-control" name="socios[<?= $index ?>][qualifica]" value="<?= $socio['qualifica'] ?>">
+                    <label for="socio_asses_nacional" class="form-label">Nacionalidade do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['nacionalidade'] ?? 'N/A' ?></p>
                 </div>
-                <hr>
-            <?php endforeach; ?>
+                <div class="col-2">
+                    <label for="socio_asses_idade" class="form-label">Idade do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['idade'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-6">
+                    <label for="socio_asses_rg" class="form-label">RG do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['rg'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-6">
+                    <label for="socio_asses_cpf" class="form-label">CPF do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['cpf'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-3">
+                    <label for="socio_asses_endereco_cep" class="form-label">CEP do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['endereco_cep'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-md-6">
+                    <label for="socio_asses_endereco_cidade" class="form-label">Cidade do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['endereco_cidade'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-md-5">
+                    <label for="socio_asses_endereco_bairro" class="form-label">Bairro do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['endereco_bairro'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-5">
+                    <label for="socio_asses_endereco_rua" class="form-label">Rua do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['endereco_rua'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-5">
+                    <label for="socio_asses_endereco_complemento" class="form-label">Complemento do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['endereco_complemento'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-md-2">
+                    <label for="socio_asses_endereco_numero" class="form-label">Número do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['endereco_numero'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-3">
+                    <label for="socio_asses_endereco_estado" class="form-label">Estado do Sócio:</label>
+                    <p class="form-control-static"><?= $data['socio_asses']['endereco_estado'] ?? 'N/A' ?></p>
+                </div>
 
-
-            <div class="col-md-12">
-                <h2 class="mb-5">Representante da Contratante</h2>
-            </div>
-
-            <div class="col-md-7">
-                <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_nome" class="form-control" name="socio_asses_nome" value="<?= $data['socio_asses']['nome'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-3">
-                <label for="socio_asses_nacional" class="form-label">Nacionalidade do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_nacional" class="form-control" name="socio_asses_nacional" value="<?= $data['socio_asses']['nacionalidade'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-2">
-                <label for="socio_asses_idade" class="form-label">Idade do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_idade" class="form-control" name="socio_asses_idade" value="<?= $data['socio_asses']['idade'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-6">
-                <label for="socio_asses_rg" class="form-label">RG do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_rg" class="form-control" name="socio_asses_rg" oninput="aplicarMascaraRG(this)" maxlength="12" value="<?= $data['socio_asses']['rg'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-6">
-                <label for="socio_asses_cpf" class="form-label">CPF do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_cpf" class="form-control" name="socio_asses_cpf" oninput= "aplicarMascaraCPF(this)" maxlength="14" value="<?= $data['socio_asses']['cpf']  ?? 'N/A' ?>">
-            </div>
-
-            
-
-            <div class="col-3">
-                <label for="socio_asses_endereco_cep" class="form-label">CEP do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_endereco_cep" class="form-control" name="socio_asses_endereco_cep" oninput="aplicarMascaraCEP(this)" maxlength="9" value="<?= $data['socio_asses']['endereco_cep'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-md-6">
-                <label for="socio_asses_endereco_cidade" class="form-label">Cidade do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_endereco_cidade" class="form-control" name="socio_asses_endereco_cidade" value="<?= $data['socio_asses']['endereco_cidade'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-md-5">
-                <label for="socio_asses_endereco_bairro" class="form-label">Bairro do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_endereco_bairro" class="form-control" name="socio_asses_endereco_bairro" value="<?= $data['socio_asses']['endereco_bairro'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-5">
-                <label for="socio_asses_endereco_rua" class="form-label">Rua do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_endereco_rua" class="form-control" name="socio_asses_endereco_rua" value="<?= $data['socio_asses']['endereco_rua'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-5">
-                <label for="socio_asses_endereco_complemento" class="form-label">Complemento do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_endereco_complemento" class="form-control" name="socio_asses_endereco_complemento" value="<?= $data['socio_asses']['endereco_complemento'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-md-2">
-                <label for="socio_asses_endereco_numero" class="form-label">Número do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_endereco_numero" class="form-control" name="socio_asses_endereco_numero" value="<?= $data['socio_asses']['endereco_numero'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-3">
-                <label for="socio_asses_endereco_estado" class="form-label">Estado do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_endereco_estado" class="form-control" name="socio_asses_endereco_estado" value="<?= $data['socio_asses']['endereco_estado'] ?? 'N/A' ?>">
-            </div>
 
             <br>
             <div class="col-md-12">
@@ -659,24 +717,23 @@
             </div>
             
 
-            <div class="col-4">
-                <label for="inicio_contabilidade" class="form-label">Início na Contabilidade:</label>
-                <input id="input" type="text" id="inicio_contabilidade" class="form-control" name="inicio_contabilidade" value="<?= $data['contabilidade']['inicio_contabilidade'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-4">
-                <label for="competencia" class="form-label">Competência:</label>
-                <input id="input" type="text" id="competencia" class="form-control" name="competencia" value="<?= $data['contabilidade']['competencia'] ?? 'N/A' ?>">
-            </div>
+                <div class="col-4">
+                    <label for="inicio_contabilidade" class="form-label">Início na Contabilidade:</label>
+                    <p class="form-control-static"><?= $data['contabilidade']['inicio_contabilidade'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-4">
+                    <label for="competencia" class="form-label">Competência:</label>
+                    <p class="form-control-static"><?= $data['contabilidade']['competencia'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-4">
+                    <label for="honorario" class="form-label">Honorário:</label>
+                    <p class="form-control-static"><?= $data['contabilidade']['honorario'] ?? 'N/A' ?></p>
+                </div>
+                <div class="col-12">
+                    <label for="honorario_texto" class="form-label">Honorário Texto:</label>
+                    <p class="form-control-static"><?= $data['contabilidade']['honorario_texto'] ?? 'N/A' ?></p>
+                </div>
 
-            <div class="col-4">
-                <label for="honorario" class="form-label">Honorário:</label>
-                <input id="input" type="text" id="honorario" class="form-control" name="honorario" value="<?= $data['contabilidade']['honorario'] ?? 'N/A' ?>">
-            </div>
-           <div class="col-12">
-                <label for="honorario_texto" class="form-label">Honorário Texto:</label>
-                <textarea id="honorario_texto" class="form-control" name="honorario_texto" rows="4"><?= $data['contabilidade']['honorario_texto'] ?? 'como pacote o valor de R$ 4.200,00 (Quatro mil e duzentos reais), para até 20 (vinte) funcionários em folha, sendo acrescido do valor de R$ 88,00 (Oitenta e oito reais) por funcionário excedente aos 20 já inclusos nos honorários mensais, conforme apontado pelo Depto. Pessoal, para cobrança no mês subsequente ao fechamento.
-                Os honorários mensais terão seu vencimento todo dia 05 (cinco) de cada mês.'?></textarea>
-            </div>
 
 
             <!-- BOTÃO GERAR PROPOSTA -->
