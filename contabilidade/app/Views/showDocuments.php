@@ -458,7 +458,7 @@ button.btn.btn-link i {
         <div class="col-12 mb-5">
             <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Voltar</a>
         </div>
-        <h1 class="mb-5">Editar Cliente</h1>
+        <h1 class="mb-5">Documentos</h1>
 
         <div class="alert alert-danger" style="display: none;"> 
             <ul>
