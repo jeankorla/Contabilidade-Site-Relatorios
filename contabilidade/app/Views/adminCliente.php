@@ -179,7 +179,7 @@
              <tr>
               <td>
             <div style="display: flex; gap: 10px">
-            <a href="<?php echo base_url('DocumentsController/showCliente/' . $item['cliente']['id']) ?>" class="btn btn-warning"><i class="bi bi-eye-fill"></i></i></a>
+            <a href="<?php echo base_url('DocumentsController/showDocuments/' . $item['cliente']['id']) ?>" class="btn btn-warning"><i class="bi bi-eye-fill"></i></i></a>
             </div>
         </td>
          
