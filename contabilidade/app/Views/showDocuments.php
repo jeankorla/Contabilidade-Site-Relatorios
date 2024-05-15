@@ -43,13 +43,13 @@
 }
 .accordion .item .item-header {
     border-bottom: none;
-    background: transparent;
+    background: black;
     padding: 0px;
     margin: 2px;
 }
 
 .accordion .item .item-header h2 button {
-    color: black;
+    color: white;
     font-size: 20px;
     padding: 15px;
     display: block;
