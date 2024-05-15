@@ -28,7 +28,7 @@
     background: none;
 }
 .t-p{
-  color: rgb(193 206 216);
+  color: black;
   padding: 40px 30px 0px 30px;
 }
 .accordion .item .item-header h2 button.btn.btn-link {
@@ -43,7 +43,7 @@
 }
 .accordion .item .item-header {
     border-bottom: none;
-    background: black;
+    background: transparent;
     padding: 0px;
     margin: 2px;
 }
