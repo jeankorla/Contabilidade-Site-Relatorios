@@ -237,7 +237,7 @@ button.btn.btn-link i {
                                     <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
                                     <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
                                 </div>
-                                <button class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
