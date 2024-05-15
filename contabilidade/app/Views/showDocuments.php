@@ -479,17 +479,17 @@ button.btn.btn-link i {
 
 <div class="container">
     <div class="accordion" id="accordionInfo">
-<!-- Collapse for Address Information -->
+<!-- Collapse for Mãe -->
         <div class="item">
-            <div class="item-header" id="headingAddress">
+            <div class="item-header" id="headingCliente">
                 <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseCliente" aria-expanded="false" aria-controls="collapseCliente">
                         Informações do Cliente
                         <i class="fa fa-angle-down"></i>
                     </button>
                 </h2>
             </div>
-            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+            <div id="collapseCliente" class="collapse" aria-labelledby="headingCliente" data-parent="#accordionInfo">
                 <div class="t-p">
                 
 
@@ -697,15 +697,15 @@ button.btn.btn-link i {
 
         <!-- Collapse for Sócios da Empresa -->
         <div class="item">
-            <div class="item-header" id="headingAddress">
+            <div class="item-header" id="headingSocios">
                 <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSocios" aria-expanded="false" aria-controls="collapseSocios">
                         Sócios da Empresa
                         <i class="fa fa-angle-down"></i>
                     </button>
                 </h2>
             </div>
-            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+            <div id="collapseSocios" class="collapse" aria-labelledby="headingSocios" data-parent="#accordionInfo">
                 <div class="t-p">
                     <!-- Section for Partners -->
                 <?php foreach ($data['socios'] as $index => $socio): ?>
@@ -727,15 +727,15 @@ button.btn.btn-link i {
 
         <!-- Collapse for Representante da Contratante -->
         <div class="item">
-            <div class="item-header" id="headingAddress">
+            <div class="item-header" id="headingSocio">
                 <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSocio" aria-expanded="false" aria-controls="collapseSocio">
                         Representante da Contratante
                         <i class="fa fa-angle-down"></i>
                     </button>
                 </h2>
             </div>
-            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+            <div id="collapseSocio" class="collapse" aria-labelledby="headingSocio" data-parent="#accordionInfo">
                 <div class="t-p">
                     <div class="col-md-7">
                     <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
@@ -791,15 +791,15 @@ button.btn.btn-link i {
 
  <!-- Collapse for Contabilidade -->
         <div class="item">
-            <div class="item-header" id="headingAddress">
+            <div class="item-header" id="headingContabilidade">
                 <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseContabilidade" aria-expanded="false" aria-controls="collapseContabilidade">
                         Contabilidade
                         <i class="fa fa-angle-down"></i>
                     </button>
                 </h2>
             </div>
-            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+            <div id="collapseContabilidade" class="collapse" aria-labelledby="headingContabilidade" data-parent="#accordionInfo">
                 <div class="t-p">
                     <div class="col-4">
                     <label for="inicio_contabilidade" class="form-label">Início na Contabilidade:</label>
