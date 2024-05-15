@@ -389,23 +389,15 @@
 
     <div class="container">
     <div class="card mt-5 mb-5 p-5 shadow-lg">
-        <div class="col-12 mb-5">
-            <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Voltar</a>
-        </div>
-        <h1 class="mb-5">Editar Cliente</h1>
+        <h1 class="mb-5">Documentos</h1>
 
         <div class="alert alert-danger" style="display: none;"> 
             <ul>
                 <li>Erro exemplo</li>
             </ul>
         </div>
-        
-        <form class="row g-3" action="<?= base_url('Documents/storeDocuments/' . $data['cliente']['id']) ?>" method="post" >
 
-        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
-
-            <div class="container mt-3">
-                
+        <div class="container mt-3">
                     <div class="card mb-3">
                         <div class="card-header">
                             <h5><strong>Empresa:</strong> <?= $data['empresa']['nome'] ?? 'N/A' ?></h5>
@@ -420,8 +412,12 @@
                             <p class="card-text"><strong>Situação:</strong> <?= $data['empresa']['situacao'] ?? 'N/A' ?></p>
                         </div>
                     </div>
-
             </div>
+        
+        <form class="row g-3" action="<?= base_url('Documents/storeDocuments/' . $data['cliente']['id']) ?>" method="post" >
+
+        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
+
 
         </form>
     </div>
