@@ -39,7 +39,6 @@ label {
     background: #024A7F;
     color: white;
     border-radius: 0px;
-    font-family: 'Poppins';
     font-size: 16px;
     font-weight: 400;
     line-height: 2.5;
