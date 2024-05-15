@@ -474,7 +474,26 @@ button.btn.btn-link i {
 
         <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
-            <div class="container">
+
+
+
+<div class="container">
+    <div class="accordion" id="accordionInfo">
+<!-- Collapse for Address Information -->
+        <div class="item">
+            <div class="item-header" id="headingAddress">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                        Informações do Cliente
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+                <div class="t-p">
+                
+
+<div class="container">
     <div class="accordion" id="accordionInfo">
         <!-- Collapse for Contact Information -->
         <div class="item">
@@ -803,7 +822,9 @@ button.btn.btn-link i {
         </div>
 
 
-
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
