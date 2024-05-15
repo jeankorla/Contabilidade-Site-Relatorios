@@ -211,31 +211,20 @@
 
 
 <script>
-  function applyFilters() {
-    var motivoFilter = document.getElementById('filterMotivo').value;
-    var situacaoFilter = document.getElementById('filterSituacao').value;
-    var rows = document.querySelectorAll('table tbody tr');
+    function applyFilters() {
+        var situacaoFilter = document.getElementById('filterSituacao').value;
+        var rows = document.querySelectorAll('table tbody tr');
 
-    rows.forEach(row => {
-        var motivoCell = row.cells[1].textContent; // Ajuste o índice conforme necessário
-        var situacaoCell = row.cells[8].textContent; // Ajuste o índice conforme necessário
-        var displayRow = true;
+        rows.forEach(row => {
+            var situacaoCell = row.cells[8].textContent;
+            var displayRow = (situacaoCell.trim() === situacaoFilter);
+            row.style.display = displayRow ? '' : 'none';
+        });
+    }
 
-        if (motivoFilter !== 'all' && motivoCell.trim() !== motivoFilter) {
-            displayRow = false;
-        }
-        if (situacaoFilter !== 'all' && situacaoCell.trim() !== situacaoFilter) {
-            displayRow = false;
-        }
-
-        row.style.display = displayRow ? '' : 'none';
+    document.addEventListener('DOMContentLoaded', function() {
+        applyFilters(); // Aplica o filtro inicial ao carregar a página
     });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    applyFilters(); // Aplica os filtros iniciais ao carregar a página
-});
-
 </script>
 
 
