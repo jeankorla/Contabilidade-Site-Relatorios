@@ -627,47 +627,57 @@ button.btn.btn-link i {
                 </div>
             </div>
         </div>
+
+<!-- Collapse for Address Information -->
+        <div class="item">
+            <div class="item-header" id="headingAddress">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                        Empresa Endereço
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseAddress" class="collapse" aria-labelledby="headingAddress" data-parent="#accordionInfo">
+                <div class="t-p">
+                    <div class="col-2">
+                        <label for="endereco_empresa_cep" class="form-label">Empresa CEP:</label>
+                        <p class="form-control-static"><?= $data['empresa']['endereco_cep'] ?></p>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="endereco_empresa_rua" class="form-label">Empresa Rua:</label>
+                        <p class="form-control-static"><?= $data['empresa']['endereco_rua'] ?></p>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="endereco_empresa_numero" class="form-label">Empresa Numero:</label>
+                        <p class="form-control-static"><?= $data['empresa']['endereco_numero'] ?></p>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="endereco_empresa_complemento" class="form-label">Complemento:</label>
+                        <p class="form-control-static"><?= $data['empresa']['endereco_complemento'] ?></p>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="endereco_empresa_bairro" class="form-label">Empresa Bairro:</label>
+                        <p class="form-control-static"><?= $data['empresa']['endereco_bairro'] ?></p>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
+                        <p class="form-control-static"><?= $data['empresa']['endereco_cidade'] ?></p>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
+                        <p class="form-control-static"><?= $data['empresa']['endereco_estado'] ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
     </div>
 </div>
                     
-
-
-
-                <br>
-                <div class="col-md-12">
-                <h2 class="mb-5">Empresa Endereço</h2>
-                </div>
-
-
-
-            <div class="col-2">
-                <label for="endereco_empresa_cep" class="form-label">Empresa CEP:</label>
-                <p class="form-control-static"><?= $data['empresa']['endereco_cep'] ?></p>
-            </div>
-            <div class="col-md-4">
-                <label for="endereco_empresa_rua" class="form-label">Empresa Rua:</label>
-                <p class="form-control-static"><?= $data['empresa']['endereco_rua'] ?></p>
-            </div>
-            <div class="col-md-2">
-                <label for="endereco_empresa_numero" class="form-label">Empresa Numero:</label>
-                <p class="form-control-static"><?= $data['empresa']['endereco_numero'] ?></p>
-            </div>
-            <div class="col-md-4">
-                <label for="endereco_empresa_complemento" class="form-label">Complemento:</label>
-                <p class="form-control-static"><?= $data['empresa']['endereco_complemento'] ?></p>
-            </div>
-            <div class="col-md-5">
-                <label for="endereco_empresa_bairro" class="form-label">Empresa Bairro:</label>
-                <p class="form-control-static"><?= $data['empresa']['endereco_bairro'] ?></p>
-            </div>
-            <div class="col-md-5">
-                <label for="endereco_empresa_cidade" class="form-label">Empresa Cidade:</label>
-                <p class="form-control-static"><?= $data['empresa']['endereco_cidade'] ?></p>
-            </div>
-            <div class="col-md-2">
-                <label for="endereco_empresa_estado" class="form-label">Empresa Estado:</label>
-                <p class="form-control-static"><?= $data['empresa']['endereco_estado'] ?></p>
-            </div>
+            
 
             
                 <br>
