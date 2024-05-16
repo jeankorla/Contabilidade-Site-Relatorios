@@ -595,16 +595,30 @@ public function contatoEmailDiretoria($data)
     }
 }
 
+//Deleta e envia e-mail JUNTO       CORRIGIR UM DIA
+
 public function deleteDocument()
 {
     $email = $this->request->getPost('email');
     $documentName = $this->request->getPost('documentName');
-    $documentId = $this->request->getPost('documentId');
+    $documentId = $this->request->getPost('documentId'); // Assume que este é o caminho ou chave para o caminho do arquivo
     $reason = $this->request->getPost('reason');
     $notify = $this->request->getPost('notify');
 
+    // Localiza o caminho físico do arquivo, supondo que documentId seja o caminho direto
+    $filePath = WRITEPATH . 'uploads/' . $documentId; // Ajuste este caminho conforme a estrutura de seus diretórios de arquivo
+
+    if (file_exists($filePath)) {
+        // Tenta excluir o arquivo
+        if (!unlink($filePath)) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao excluir o arquivo físico.']);
+        }
+    } else {
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Arquivo não encontrado.']);
+    }
+
+    // Notifica o cliente por e-mail, se solicitado
     if ($notify) {
-        // Aqui você envia o email notificando sobre a exclusão
         $emailService = \Config\Services::email();
         $emailService->setFrom('controladoria@sccontab.com.br', 'Controladoria');
         $emailService->setTo($email);
@@ -617,6 +631,7 @@ public function deleteDocument()
 
     return $this->response->setJSON(['status' => 'success', 'message' => 'Documento excluído com sucesso.']);
 }
+
 
 
 }
