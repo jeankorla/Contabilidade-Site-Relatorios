@@ -598,21 +598,27 @@ public function contatoEmailDiretoria($data)
 public function deleteDocument()
 {
     $data = $this->request->getJSON(true);
-    $email = $data['email'] ?? null;
+    $docKey = $data['docKey'];
+    $empresaId = $data['empresaId'];
     $message = $data['message'];
-    $emailService = \Config\Services::email();
-    $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
-    $emailService->setTo($email);
-    $emailService->setSubject('Documento Excluído');
-    $emailService->setMessage("<html><body>{$message}</body></html>");
+    $email = $data['email'] ?? null;
+    $notifyClient = $data['notifyClient'] ?? false;
 
-    if ($email && $emailService->send()) {
-        // Lógica de exclusão do documento aqui
-        return $this->response->setJSON(['success' => true, 'message' => 'Documento excluído com sucesso. E-mail enviado.']);
-    } else {
-        $error = $emailService->printDebugger(['headers', 'subject', 'body']);
-        log_message('error', 'Erro ao enviar e-mail: ' . $error);
-        return $this->response->setJSON(['success' => false, 'message' => 'Falha ao enviar e-mail. Detalhes do erro: ' . $error]);
+    // Lógica de exclusão do documento aqui
+
+    if ($notifyClient && $email) {
+        $emailService = \Config\Services::email();
+        $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
+        $emailService->setTo($email);
+        $emailService->setSubject('Documento Excluído');
+        $emailService->setMessage("<html><body>{$message}</body></html>");
+
+        if (!$emailService->send()) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Falha ao enviar e-mail.']);
+        }
     }
+
+    return $this->response->setJSON(['success' => true, 'message' => 'Documento excluído com sucesso. E-mail enviado (se solicitado).']);
 }
+
 }

@@ -342,6 +342,10 @@ button.btn.btn-link i {
             <label for="message-text" class="col-form-label">Motivo:</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="notify-client">
+            <label class="form-check-label" for="notify-client">Notificar cliente por e-mail?</label>
+          </div>
           <input type="hidden" id="docKey">
           <input type="hidden" id="empresaId">
         </form>
@@ -353,6 +357,7 @@ button.btn.btn-link i {
     </div>
   </div>
 </div>
+
 
 
 
@@ -750,12 +755,14 @@ function deleteDocument(docKey, empresaId) {
 function confirmDelete() {
     var email = document.getElementById('email-input').value;
     var message = document.getElementById('message-text').value;
+    var notifyClient = document.getElementById('notify-client').checked;
     var docKey = document.getElementById('docKey').value;
     var empresaId = document.getElementById('empresaId').value;
 
     var dataToSend = {
         email: email,
         message: message,
+        notifyClient: notifyClient,
         docKey: docKey,
         empresaId: empresaId
     };
@@ -780,6 +787,7 @@ function confirmDelete() {
         alert('Erro ao processar a requisição: ' + error);
     });
 }
+
 </script>
 
 
