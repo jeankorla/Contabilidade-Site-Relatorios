@@ -598,6 +598,10 @@ public function contatoEmailDiretoria($data)
 public function deleteDocument()
 {
     $data = $this->request->getJSON(true);
+
+    dd($data);
+    exit;
+
     $docKey = $data['docKey'];
     $empresaId = $data['empresaId'];
     $message = $data['message'];
