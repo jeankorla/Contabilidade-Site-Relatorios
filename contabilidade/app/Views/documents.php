@@ -360,71 +360,70 @@
             </div>
 
         <div class="container mt-3">
-            <div class="row ">
-                <div class="col-md-3">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <h5><strong>Informações:</strong></h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-title"><strong>Motivo:</strong> <?= $data['cliente']['motivo'] ?? 'N/A' ?></p>
-                                <p class="card-text"><strong>Faturamento:</strong> <?= $data['empresa']['faturamento'] ?? 'N/A' ?></p>
-                                <p class="card-text"><strong>Tributação:</strong> <?= $data['empresa']['tributacao'] ?? 'N/A' ?></p>
-                                <p class="card-text"><strong>Estado:</strong> <?= $data['empresa']['endereco_estado'] ?? 'N/A' ?></p>
-                                <p class="card-text"><strong>Cidade:</strong> <?= $data['empresa']['endereco_cidade'] ?? 'N/A' ?></p>
-                                <p class="card-text"><strong>Data de Cadastro:</strong> <?= date('d/m/Y', strtotime($data['cliente']['created_at'] ?? 'N/A')); ?></p>
-                                <p class="card-text"><strong>Situação:</strong> <?= $data['empresa']['situacao'] ?? 'N/A' ?></p>
-                            </div>
-                        </div>
-                    </div>
-
-<!-- Contrato Social Registrado -->
-
-                    <div class="col-md-9">
-                        <div class="list-group">
-                            <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
-                                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <strong>Contrato Social Registrado:</strong>
-                                        <a href="<?= base_url($data['documents']['social_registrado']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
-                                    </div>
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('social_registrado', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                                </div>
-                            <?php else: ?>
-                                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    <div class="w-100">
-                                        <label for="social_registrado" class="form-label"><strong>Contrato Social Registrado:</strong></label>
-                                        <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                    
-                    <!-- Certificado Digital -->
-
-                    <div class="list-group">
-                    <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Certificado Digital:</strong>
-                                <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary btn-sm">Baixar Imagem</a>
-                            </div>
-                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('certificado_digital', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                        </div>
-                    <?php else: ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div class="w-100">
-                                <label for="certificado_digital" class="form-label"><strong>Certificado Digital:</strong></label>
-                                <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
-                            </div>
-                        </div>
-                    <?php endif; ?>
+    <div class="row">
+        <!-- Coluna das Informações Gerais -->
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5><strong>Informações:</strong></h5>
                 </div>
-
-
+                <div class="card-body">
+                    <p class="card-title"><strong>Motivo:</strong> <?= $data['cliente']['motivo'] ?? 'N/A' ?></p>
+                    <p class="card-text"><strong>Faturamento:</strong> <?= $data['empresa']['faturamento'] ?? 'N/A' ?></p>
+                    <p class="card-text"><strong>Tributação:</strong> <?= $data['empresa']['tributacao'] ?? 'N/A' ?></p>
+                    <p class="card-text"><strong>Estado:</strong> <?= $data['empresa']['endereco_estado'] ?? 'N/A' ?></p>
+                    <p class="card-text"><strong>Cidade:</strong> <?= $data['empresa']['endereco_cidade'] ?? 'N/A' ?></p>
+                    <p class="card-text"><strong>Data de Cadastro:</strong> <?= date('d/m/Y', strtotime($data['cliente']['created_at'] ?? 'N/A')); ?></p>
+                    <p class="card-text"><strong>Situação:</strong> <?= $data['empresa']['situacao'] ?? 'N/A' ?></p>
                 </div>
             </div>
+        </div>
+
+        <!-- Coluna dos Documentos -->
+        <div class="col-md-9">
+            <!-- Contrato Social Registrado -->
+            <div class="list-group">
+                <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
+                    <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Contrato Social Registrado:</strong>
+                            <a href="<?= base_url($data['documents']['social_registrado']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('social_registrado', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                    </div>
+                <?php else: ?>
+                    <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div class="w-100">
+                            <label for="social_registrado" class="form-label"><strong>Contrato Social Registrado:</strong></label>
+                            <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+            
+            <!-- Certificado Digital -->
+            <div class="list-group">
+                <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
+                    <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Certificado Digital:</strong>
+                            <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary btn-sm">Baixar Imagem</a>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('certificado_digital', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                    </div>
+                <?php else: ?>
+                    <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div class="w-100">
+                            <label for="certificado_digital" class="form-label"><strong>Certificado Digital:</strong></label>
+                            <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
 
             <!-- senha certificado DEPOIS FAZER EINNN -->
 
