@@ -319,6 +319,42 @@ button.btn.btn-link i {
                     </a>
                 </div>
             </div>
+<!-- Modal de Exclusão de Documento -->
+<div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteDocumentModalLabel">Excluir Documento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="deleteDocumentForm">
+                    <div class="mb-3">
+                        <label for="documentEmail" class="col-form-label">E-mail do Cliente:</label>
+                        <input type="email" class="form-control" id="documentEmail" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="documentName" class="col-form-label">Nome do Documento:</label>
+                        <input type="text" class="form-control" id="documentName" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="deleteReason" class="col-form-label">Motivo da Exclusão:</label>
+                        <textarea class="form-control" id="deleteReason"></textarea>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="notifyCheck">
+                        <label class="form-check-label" for="notifyCheck">Notificar Cliente</label>
+                    </div>
+                    <input type="hidden" id="documentId" name="documentId">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="sendDeletion()">Excluir Documento</button>
+            </div>
+        </div>
+    </div>
+</div>
 
             
         </form>
@@ -705,28 +741,41 @@ button.btn.btn-link i {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <script>
-function deleteDocument(docKey, empresaId) {
-    if (confirm('Tem certeza que deseja excluir este documento?')) {
-        // Enviar requisição para o servidor para excluir o documento
-        fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Documento excluído com sucesso.');
-                location.reload(); // Recarrega a página para atualizar a lista
-            } else {
-                alert('Falha ao excluir o documento.');
-            }
-        });
-    }
+function openDeleteModal(email, documentName, documentId) {
+    document.getElementById('documentEmail').value = email;
+    document.getElementById('documentName').value = documentName;
+    document.getElementById('deleteReason').value = '';
+    document.getElementById('documentId').value = documentId;
+    document.getElementById('notifyCheck').checked = false;
+    $('#deleteDocumentModal').modal('show');
 }
+
+function sendDeletion() {
+    var email = document.getElementById('documentEmail').value;
+    var documentName = document.getElementById('documentName').value;
+    var documentId = document.getElementById('documentId').value;
+    var reason = document.getElementById('deleteReason').value;
+    var notify = document.getElementById('notifyCheck').checked;
+
+    $.post('<?= base_url("EmailController/deleteDocument") ?>', {
+        email: email,
+        documentName: documentName,
+        documentId: documentId,
+        reason: reason,
+        notify: notify
+    }, function(response) {
+        $('#deleteDocumentModal').modal('hide');
+        if (response.status === 'success') {
+            alert('Documento excluído com sucesso!');
+            location.reload();
+        } else {
+            alert('Falha ao excluir o documento: ' + response.message);
+        }
+    }, 'json').fail(function(xhr, status, error) {
+        alert('Erro ao excluir documento: ' + xhr.responseText);
+    });
+}
+
 </script>
 
 

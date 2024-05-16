@@ -595,4 +595,30 @@ public function contatoEmailDiretoria($data)
     }
 }
 
+public function deleteDocument()
+{
+    $email = $this->request->getPost('email');
+    $documentName = $this->request->getPost('documentName');
+    $documentId = $this->request->getPost('documentId');
+    $reason = $this->request->getPost('reason');
+    $notify = $this->request->getPost('notify');
+
+    // Aqui você deve incluir o código para realmente excluir o documento do banco de dados e do sistema de arquivos
+
+    if ($notify) {
+        // Aqui você envia o email notificando sobre a exclusão
+        $emailService = \Config\Services::email();
+        $emailService->setFrom('controladoria@sccontab.com.br', 'Controladoria');
+        $emailService->setTo($email);
+        $emailService->setSubject('Notificação de Exclusão de Documento');
+        $emailService->setMessage("O documento '{$documentName}' foi excluído. Motivo: {$reason}");
+        if (!$emailService->send()) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
+        }
+    }
+
+    return $this->response->setJSON(['status' => 'success', 'message' => 'Documento excluído com sucesso.']);
+}
+
+
 }
