@@ -155,32 +155,45 @@ class DocumentsController extends BaseController
     $json = $this->request->getJSON();
     $docKey = $json->docKey;
     $empresaId = $json->empresaId;
+    $email = $json->email ?? null;
+    $reason = $json->reason ?? '';
+    $notify = $json->notify ?? false;
 
     $documentModel = new Documents();
     $document = $documentModel->where('empresa_id', $empresaId)->first();
 
     if (!$document) {
-        // Documento não encontrado para essa empresa
         return $this->response->setJSON(['success' => false, 'message' => 'Documento não encontrado.']);
     }
 
     if (empty($document[$docKey])) {
-        // Campo específico do documento não encontrado ou já nulo
         return $this->response->setJSON(['success' => false, 'message' => 'Arquivo não encontrado ou já excluído.']);
     }
 
-    // Remove o arquivo do servidor, se existir
     if (file_exists($document[$docKey])) {
         unlink($document[$docKey]);
     }
 
-    // Atualiza apenas o campo específico no banco de dados para nulo
     $updateData = [$docKey => null];
     if ($documentModel->update($document['id'], $updateData)) {
+        if ($notify && $email) {
+            $this->sendNotificationEmail($email, $document[$docKey], $reason);
+        }
         return $this->response->setJSON(['success' => true, 'message' => 'Documento excluído com sucesso.']);
     }
 
     return $this->response->setJSON(['success' => false, 'message' => 'Falha ao atualizar o registro.']);
+}
+
+private function sendNotificationEmail($email, $documentName, $reason) {
+    $emailService = \Config\Services::email();
+    $emailService->setFrom('controladoria@sccontab.com.br', 'Controladoria');
+    $emailService->setTo($email);
+    $emailService->setSubject('Notificação de Exclusão de Documento');
+    $emailService->setMessage("O documento '{$documentName}' foi excluído. Motivo: {$reason}");
+    if (!$emailService->send()) {
+        // Considerar logar essa falha ou tomar outra ação
+    }
 }
 
 

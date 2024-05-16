@@ -328,6 +328,7 @@ button.btn.btn-link i {
                     </a>
                 </div>
             </div>
+
 <!-- Modal de Exclusão de Documento -->
 <div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -762,19 +763,21 @@ function openDeleteModal(email, documentName, documentId) {
 function sendDeletion() {
     var email = document.getElementById('documentEmail').value;
     var documentName = document.getElementById('documentName').value;
-    var documentId = document.getElementById('documentId').value;
+    var documentId = document.getElementById('documentId').value;  // Este será o docKey
     var reason = document.getElementById('deleteReason').value;
     var notify = document.getElementById('notifyCheck').checked;
 
-    $.post('<?= base_url("EmailController/deleteDocument") ?>', {
+    var postData = {
+        docKey: documentId, // Supondo que 'documentId' corresponde ao docKey necessário
+        empresaId: '<?= $data['empresa']['id'] ?>', // Supondo que o ID da empresa está disponível dessa maneira
         email: email,
-        documentName: documentName,
-        documentId: documentId,
         reason: reason,
         notify: notify
-    }, function(response) {
+    };
+
+    $.post('<?= base_url("DocumentsController/deleteDocument") ?>', postData, function(response) {
         $('#deleteDocumentModal').modal('hide');
-        if (response.status === 'success') {
+        if (response.success) {
             alert('Documento excluído com sucesso!');
             location.reload();
         } else {
@@ -784,6 +787,7 @@ function sendDeletion() {
         alert('Erro ao excluir documento: ' + xhr.responseText);
     });
 }
+
 
 </script>
 

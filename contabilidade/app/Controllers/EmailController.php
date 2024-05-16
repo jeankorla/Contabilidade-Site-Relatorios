@@ -603,8 +603,6 @@ public function deleteDocument()
     $reason = $this->request->getPost('reason');
     $notify = $this->request->getPost('notify');
 
-    // Aqui você deve incluir o código para realmente excluir o documento do banco de dados e do sistema de arquivos
-
     if ($notify) {
         // Aqui você envia o email notificando sobre a exclusão
         $emailService = \Config\Services::email();
