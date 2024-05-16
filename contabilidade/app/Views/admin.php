@@ -166,7 +166,7 @@
             <label for="filterSituacao" class="form-label">Filtrar por Situação:</label>
             <select id="filterSituacao" class="form-select" onchange="applyFilters()">
                 <option value="all">Todos</option>
-                <option value="Lead">Lead</option>
+                <option value="Lead" selected>Lead</option>
                 <option value="Arquivado">Arquivado</option>
                 <option value="Proposta">Proposta</option>
                 <option value="Contrato">Contrato</option>
