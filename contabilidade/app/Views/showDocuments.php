@@ -331,6 +331,7 @@ button.btn.btn-link i {
             </div>
             
 <!-- Modal de Exclusão de Documento -->
+
 <div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -357,6 +358,7 @@ button.btn.btn-link i {
                         <label class="form-check-label" for="notifyCheck">Notificar Cliente</label>
                     </div>
                     <input type="hidden" id="documentId" name="documentId">
+                    <input type="hidden" id="empresaId" name="empresaId"> <!-- Campo oculto para empresaId -->
                 </form>
             </div>
             <div class="modal-footer">
@@ -366,6 +368,7 @@ button.btn.btn-link i {
         </div>
     </div>
 </div>
+
 
             
         </form>
@@ -754,13 +757,14 @@ button.btn.btn-link i {
 <script>
 function openDeleteModal(email, fileName, docPath, empresaId) {
     document.getElementById('documentEmail').value = email;
-    document.getElementById('documentName').value = fileName;  // Nome para visualização
-    document.getElementById('documentId').value = docPath;  // Passa o caminho completo
-    document.getElementById('empresaId').value = empresaId;  // Guarda o ID da empresa
+    document.getElementById('documentName').value = fileName;
+    document.getElementById('documentId').value = docPath;
+    document.getElementById('empresaId').value = empresaId; 
     document.getElementById('deleteReason').value = '';
     document.getElementById('notifyCheck').checked = false;
     $('#deleteDocumentModal').modal('show');
 }
+
 
 function sendDeletion() {
     var email = document.getElementById('documentEmail').value;
