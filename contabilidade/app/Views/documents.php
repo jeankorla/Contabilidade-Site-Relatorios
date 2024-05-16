@@ -397,33 +397,52 @@
 
             <!-- Certificado Digital -->
 
-            <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Certificado Digital:</label>
-                    <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary">Baixar Imagem</a>
+            <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Certificado Digital:</strong>
+                                <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary btn-sm">Baixar Imagem</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('certificado_digital', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="certificado_digital" class="form-label"><strong>Certificado Digital:</strong></label>
+                                <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="certificado_digital" class="form-label">Certificado Digital:</label>
-                    <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
-                </div>
-            <?php endif; ?>
+            </div>
 
             <!-- senha certificado DEPOIS FAZER EINNN -->
 
             <!-- Dados de Acesso ao Posto Fiscal -->
             
-            <?php if (isset($data['documents']['posto_fiscal']) && file_exists($data['documents']['posto_fiscal'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Dados de Acesso ao Posto Fiscal:</label>
-                    <a href="<?= base_url($data['documents']['posto_fiscal']) ?>" class="btn btn-primary">Baixar Documento</a>
+            <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['posto_fiscal']) && file_exists($data['documents']['posto_fiscal'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Dados de Acesso ao Posto Fiscal:</strong>
+                                <a href="<?= base_url($data['documents']['posto_fiscal']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('posto_fiscal', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="posto_fiscal" class="form-label"><strong>Dados de Acesso ao Posto Fiscal:</strong></label>
+                                <input type="file" class="form-control" id="posto_fiscal" name="posto_fiscal" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="posto_fiscal" class="form-label">Dados de Acesso ao Posto Fiscal:</label>
-                    <input type="file" class="form-control" id="posto_fiscal" name="posto_fiscal" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Dados de Acesso ao Simples Nacional -->
 
