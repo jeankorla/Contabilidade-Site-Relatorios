@@ -364,6 +364,35 @@ button.btn.btn-link i {
 </div>
 
 
+
+
+
+
+<div class="container mt-3">
+            <h2>Gestão de Documentos</h2>
+            <div class="list-group">
+                <?php if (!empty($data['documents']) && is_array($data['documents'])): ?>
+                    <?php foreach ($data['documents'] as $key => $docPath): ?>
+                        <?php if (file_exists($docPath)): ?>
+                            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
+                                    <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', 'NomeDoDocumento', 'IDdoDocumento')">
+                                Excluir
+                            </button>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Nenhum documento disponível para mostrar.</p>
+                <?php endif; ?>
+            </div>
+        </div>
+
+
             
         </form>
 
