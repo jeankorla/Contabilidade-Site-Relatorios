@@ -286,40 +286,40 @@ button.btn.btn-link i {
 
             </div>
         
-        <form class="row g-3" method="post" >
+        <form class="row g-3" method="post">
+    <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
+    <input type="hidden" id="docKeyToDelete" name="docKey">
+    <input type="hidden" id="empresaIdToDelete" name="empresaId">
 
-        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
-
-            <div class="container mt-3">
-            <h2>Gestão de Documentos</h2>
-            <div class="list-group">
-                <?php if (!empty($data['documents']) && is_array($data['documents'])): ?>
-                    <?php foreach ($data['documents'] as $key => $docPath): ?>
-                        <?php if (file_exists($docPath)): ?>
-                            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                <div>
-                                    <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
-                                    <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
-                                </div>
-                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+    <div class="container mt-3">
+        <h2>Gestão de Documentos</h2>
+        <div class="list-group">
+            <?php if (!empty($data['documents']) && is_array($data['documents'])): ?>
+                <?php foreach ($data['documents'] as $key => $docPath): ?>
+                    <?php if (file_exists($docPath)): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
+                                <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
                             </div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>Nenhum documento disponível para mostrar.</p>
-                <?php endif; ?>
-            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Nenhum documento disponível para mostrar.</p>
+            <?php endif; ?>
         </div>
+    </div>
+    <div class="d-flex justify-content-between mt-5">
+        <div class="col-6">
+            <a class="beautiful-button" style="text-decoration: none;" href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">
+                Abrir Forms
+            </a>
+        </div>
+    </div>
+</form>
 
-
-            <div class="d-flex justify-content-between mt-5">
-                <div class="col-6">
-                    <a class="beautiful-button" style="text-decoration: none;" href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">
-                        Abrir Forms
-                    </a>
-                </div>
-                </div>            
-        </form>
 
         <!-- Modal de Envio de E-mail -->
 <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
