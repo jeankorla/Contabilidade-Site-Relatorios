@@ -333,7 +333,7 @@ button.btn.btn-link i {
                 <form id="emailForm">
                     <div class="mb-3">
                         <label for="recipientEmail" class="form-label">E-mail do Cliente:</label>
-                        <input type="email" class="form-control" id="recipientEmail" name="email" value="<?= $data['socios']['email']; ?>" required>
+                        <input type="email" class="form-control" id="recipientEmail" name="email" value="<?= $data['socio_asses']['email']; ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="emailMessage" class="form-label">Mensagem:</label>
