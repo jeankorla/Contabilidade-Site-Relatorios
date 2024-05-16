@@ -4,6 +4,15 @@ use App\Controllers\BaseController;
 use CodeIgniter\Controller;
 use CodeIgniter\Email\Email;
 
+use App\Models\Cliente_lead;
+use App\Models\Empresa;
+use App\Models\Atividade;
+use App\Models\Contabilidade;
+use App\Models\Socio;
+use App\Models\Socio_ass;
+use App\Models\Documents;
+
+
 class EmailController extends Controller
 {
 
@@ -601,24 +610,37 @@ public function deleteDocument()
 {
     $email = $this->request->getPost('email');
     $documentName = $this->request->getPost('documentName');
-    $documentId = $this->request->getPost('documentId'); // Assume que este é o caminho ou chave para o caminho do arquivo
+    $docKey = $this->request->getPost('documentId'); // Usado como chave para localizar o documento no banco
     $reason = $this->request->getPost('reason');
     $notify = $this->request->getPost('notify');
+    $empresaId = $this->request->getPost('empresaId'); // Adicione esse campo no frontend para ser enviado junto com a requisição
 
-    // Localiza o caminho físico do arquivo, supondo que documentId seja o caminho direto
-    $filePath = WRITEPATH . 'uploads/' . $documentId; // Ajuste este caminho conforme a estrutura de seus diretórios de arquivo
+    $documentModel = new Documents();
+    $document = $documentModel->where('empresa_id', $empresaId)->first();
 
-    if (file_exists($filePath)) {
-        // Tenta excluir o arquivo
-        if (!unlink($filePath)) {
+    if (!$document) {
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Documento não encontrado para essa empresa.']);
+    }
+
+    if (empty($document[$docKey])) {
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Arquivo não encontrado ou já excluído.']);
+    }
+
+    // Remove o arquivo do servidor, se existir
+    if (file_exists($document[$docKey])) {
+        if (!unlink($document[$docKey])) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao excluir o arquivo físico.']);
         }
-    } else {
-        return $this->response->setJSON(['status' => 'error', 'message' => 'Arquivo não encontrado.']);
+    }
+
+    // Atualiza apenas o campo específico no banco de dados para nulo
+    $updateData = [$docKey => null];
+    if (!$documentModel->update($document['id'], $updateData)) {
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao atualizar o registro.']);
     }
 
     // Notifica o cliente por e-mail, se solicitado
-    if ($notify) {
+    if ($notify && $email) {
         $emailService = \Config\Services::email();
         $emailService->setFrom('controladoria@sccontab.com.br', 'Controladoria');
         $emailService->setTo($email);
@@ -631,6 +653,7 @@ public function deleteDocument()
 
     return $this->response->setJSON(['status' => 'success', 'message' => 'Documento excluído com sucesso.']);
 }
+
 
 
 
