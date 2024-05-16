@@ -346,7 +346,7 @@
                 <li>Erro exemplo</li>
             </ul>
         </div>
-
+<form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
         <div class="container mt-3">
             <div class="row ">
                 <div class="col-md-12">
@@ -379,13 +379,12 @@
                     </div>
                 </div>
             </div>
-        
-        <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
 
-
-                <!-- Contrato Social Registrado -->
+            <!-- Contrato Social Registrado -->
 
                     <div class="container mt-3">
+                        <div class="row ">
+                            <div class="col-md-9">
                         <div class="list-group">
                             <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
                                 <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
@@ -405,6 +404,10 @@
                             <?php endif; ?>
                         </div>
                     </div>
+        
+
+
+                
 
 
             <!-- Certificado Digital -->
