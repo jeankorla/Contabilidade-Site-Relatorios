@@ -349,10 +349,22 @@
 
         <div class="container mt-3">
             <div class="row ">
-                <div class="col-md-3">
+                <div class="col-md-12">
                         <div class="card mb-3">
                             <div class="card-header">
                                 <h5><strong>Empresa:</strong> <?= $data['empresa']['nome'] ?? 'N/A' ?></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="container mt-3">
+            <div class="row ">
+                <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h5><strong>Informações:</strong></h5>
                             </div>
                             <div class="card-body">
                                 <p class="card-title"><strong>Motivo:</strong> <?= $data['cliente']['motivo'] ?? 'N/A' ?></p>
