@@ -305,7 +305,7 @@ button.btn.btn-link i {
                             <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
                         </div>
                         <button type="button" class="btn btn-danger btn-sm"
-                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($fileName) ?>', '<?= $key ?>')">
+                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= ucwords(str_replace('_', ' ', $key)) ?>', '<?= $key ?>')">
                             Excluir
                         </button>
                     </div>
@@ -338,11 +338,11 @@ button.btn.btn-link i {
                 <form id="deleteDocumentForm">
                     <div class="mb-3">
                         <label for="documentEmail" class="col-form-label">E-mail do Cliente:</label>
-                        <input type="email" class="form-control" id="documentEmail" readonly>
+                        <input type="email" class="form-control" id="documentEmail">
                     </div>
                     <div class="mb-3">
                         <label for="documentName" class="col-form-label">Nome do Documento:</label>
-                        <input type="text" class="form-control" id="documentName" readonly>
+                        <input type="text" class="form-control" id="documentName">
                     </div>
                     <div class="mb-3">
                         <label for="deleteReason" class="col-form-label">Motivo da Exclusão:</label>
@@ -362,6 +362,7 @@ button.btn.btn-link i {
         </div>
     </div>
 </div>
+
 
             
         </form>
@@ -750,12 +751,13 @@ button.btn.btn-link i {
 <script>
 function openDeleteModal(email, documentName, documentId) {
     document.getElementById('documentEmail').value = email;
-    document.getElementById('documentName').value = documentName;
+    document.getElementById('documentName').value = ucwords(str_replace('_', ' ', documentName));
     document.getElementById('deleteReason').value = '';
     document.getElementById('documentId').value = documentId;
     document.getElementById('notifyCheck').checked = false;
     $('#deleteDocumentModal').modal('show');
 }
+
 
 function sendDeletion() {
     var email = document.getElementById('documentEmail').value;
