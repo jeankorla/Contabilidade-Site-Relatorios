@@ -595,6 +595,22 @@ public function contatoEmailDiretoria($data)
     }
 }
 
+public function deleteDocument()
+{
+    $docKey = $this->request->getJSON(true)['docKey'];
+    $empresaId = $this->request->getJSON(true)['empresaId'];
+    $message = $this->request->getJSON(true)['message'];
+    $email = $this->request->getJSON(true)['email'] ?? null;
+
+    // Aqui você adicionaria a lógica para excluir o documento
+
+    if ($email) {
+        $this->contatoExcluirArquivo($email, $message);
+    }
+
+    return $this->response->setJSON(['success' => true]);
+}
+
 public function contatoExcluirArquivo()
 {
     $email = $this->request->getPost('email');

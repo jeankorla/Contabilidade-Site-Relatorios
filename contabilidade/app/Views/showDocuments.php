@@ -320,47 +320,42 @@ button.btn.btn-link i {
                 </div>
             </div>
 
-
-
-<!-- Modal de Exclusão de Documento com Opção de Envio de E-mail -->
-<div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteDocumentModalLabel">Excluir Documento</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="deleteDocumentForm">
-                    <div class="mb-3">
-                        <label for="reason" class="form-label">Motivo da Exclusão (opcional):</label>
-                        <textarea class="form-control" id="reason" name="reason"></textarea>
-                    </div>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="sendEmail" name="sendEmail">
-                        <label class="form-check-label" for="sendEmail">
-                            Enviar e-mail com motivo da exclusão
-                        </label>
-                    </div>
-                    <input type="hidden" id="docKeyToDelete" name="docKey">
-                    <input type="hidden" id="empresaIdToDelete" name="empresaId">
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Confirmar Exclusão</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
             
         </form>
+
+
+        <!-- Modal para confirmação e motivo da exclusão -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Excluir Documento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="deleteForm">
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Motivo:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="notify-client">
+            <label class="form-check-label" for="notify-client">Notificar cliente por e-mail?</label>
+          </div>
+          <input type="hidden" id="docKey">
+          <input type="hidden" id="empresaId">
+          <!-- Adicionar o email escondido aqui -->
+          <input type="hidden" id="clienteEmail" value="<?= $data['socio_asses']['email'] ?? '' ?>">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" onclick="confirmDelete()">Confirmar Exclusão</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <br>
 <br>
@@ -743,28 +738,56 @@ button.btn.btn-link i {
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<script>
+<script> 
 function deleteDocument(docKey, empresaId) {
-    if (confirm('Tem certeza que deseja excluir este documento?')) {
-        // Enviar requisição para o servidor para excluir o documento
-        fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Documento excluído com sucesso.');
-                location.reload(); // Recarrega a página para atualizar a lista
-            } else {
-                alert('Falha ao excluir o documento.');
-            }
-        });
+    // Preenche os campos ocultos no modal
+    document.getElementById('docKey').value = docKey;
+    document.getElementById('empresaId').value = empresaId;
+
+    // Mostra o modal
+    var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    deleteModal.show();
+}
+
+function confirmDelete() {
+    var docKey = document.getElementById('docKey').value;
+    var empresaId = document.getElementById('empresaId').value;
+    var message = document.getElementById('message-text').value;
+    var notifyClient = document.getElementById('notify-client').checked;
+    var clienteEmail = document.getElementById('clienteEmail').value;
+
+    // Constrói o objeto de dados para enviar
+    var dataToSend = {
+        docKey: docKey,
+        empresaId: empresaId,
+        message: message
+    };
+
+    if (notifyClient) {
+        dataToSend.email = clienteEmail;
     }
+
+    fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify(dataToSend)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Documento excluído com sucesso.');
+            location.reload();
+        } else {
+            alert('Falha ao excluir o documento.');
+        }
+    });
+
+    // Fecha o modal
+    var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
+    deleteModal.hide();
 }
 </script>
 
