@@ -661,7 +661,7 @@
 
             <div class="col-4">
                 <label for="inicio_contabilidade" class="form-label">Início na Contabilidade:</label>
-                <input id="input" type="text" id="inicio_contabilidade" class="form-control" name="inicio_contabilidade" value="<?= $data['contabilidade']['inicio_contabilidade'] ?? 'N/A' ?>">
+                <input id="input" type="date" id="inicio_contabilidade" class="form-control" name="inicio_contabilidade" value="<?= $data['contabilidade']['inicio_contabilidade'] ?? 'N/A' ?>">
             </div>
             <div class="col-4">
                 <label for="competencia" class="form-label">Competência:</label>
