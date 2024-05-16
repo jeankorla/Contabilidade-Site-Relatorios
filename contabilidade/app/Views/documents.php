@@ -376,15 +376,7 @@
                                 <p class="card-text"><strong>Situação:</strong> <?= $data['empresa']['situacao'] ?? 'N/A' ?></p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contrato Social Registrado -->
-
-                    <div class="container mt-3">
-                        <div class="row ">
-                            <div class="col-md-9">
+ <!-- Contrato Social Registrado -->
                         <div class="list-group">
                             <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
                                 <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
@@ -404,6 +396,14 @@
                             <?php endif; ?>
                         </div>
                     </div>
+
+                    </div>
+                </div>
+            </div>
+
+           
+
+                        
         
 
 
