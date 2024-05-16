@@ -370,31 +370,30 @@
         
         <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
 
-            
-
-            <div class="container mt-3">
-                <div class="list-group">
 
                 <!-- Contrato Social Registrado -->
 
-                    <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Contrato Social Registrado:</strong>
-                                <a href="<?= base_url($data['documents']['social_registrado']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
-                            </div>
+                    <div class="container mt-3">
+                        <div class="list-group">
+                            <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
+                                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Contrato Social Registrado:</strong>
+                                        <a href="<?= base_url($data['documents']['social_registrado']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                                    </div>
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('social_registrado', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                                </div>
+                            <?php else: ?>
+                                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    <div class="w-100">
+                                        <label for="social_registrado" class="form-label"><strong>Contrato Social Registrado:</strong></label>
+                                        <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
-                    <?php else: ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div class="w-100">
-                                <label for="social_registrado" class="form-label"><strong>Contrato Social Registrado:</strong></label>
-                                <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
-                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
+                    </div>
+
 
             <!-- Certificado Digital -->
 
