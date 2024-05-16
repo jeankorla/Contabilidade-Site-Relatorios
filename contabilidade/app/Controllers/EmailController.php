@@ -597,30 +597,51 @@ public function contatoEmailDiretoria($data)
 
 public function deleteDocument()
 {
-    $docKey = $this->request->getJSON(true)['docKey'];
-    $empresaId = $this->request->getJSON(true)['empresaId'];
-    $message = $this->request->getJSON(true)['message'];
-    $email = $this->request->getJSON(true)['email'] ?? null;
+    $data = $this->request->getJSON(true);
+    $docKey = $data['docKey'];
+    $empresaId = $data['empresaId'];
+    $message = $data['message'];
+    $email = $data['email'] ?? null;
+    $notifyClient = $data['notifyClient'] ?? false;
 
     // Aqui você adicionaria a lógica para excluir o documento
+    // Suponha que isso seja algo assim:
+    // $result = $this->documentModel->deleteDocument($docKey, $empresaId);
+    // if (!$result) {
+    //     return $this->response->setJSON(['success' => false, 'message' => 'Falha ao excluir o documento.']);
+    // }
 
-    if ($email) {
-        $this->contatoExcluirArquivo($email, $message);
+    if ($notifyClient && $email) {
+        $emailService = \Config\Services::email();
+        $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
+        $emailService->setTo($email);
+        $emailService->setSubject('Documento Excluído');
+        $emailService->setMessage($message);  // Você pode querer usar um template HTML aqui
+
+        if (!$emailService->send()) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Falha ao enviar e-mail.']);
+        }
     }
 
-    return $this->response->setJSON(['success' => true]);
+    return $this->response->setJSON(['success' => true, 'message' => 'Documento excluído com sucesso. E-mail enviado (se solicitado).']);
 }
+
 
 public function contatoExcluirArquivo()
 {
     $email = $this->request->getPost('email');
     $message = $this->request->getPost('message');
+    $docKey = $this->request->getPost('docKey'); // Key do documento a ser excluído
+    $empresaId = $this->request->getPost('empresaId'); // ID da empresa relacionada ao documento
+
+    // Exclui o documento aqui, por exemplo
+    // $this->documentsModel->deleteDocument($docKey, $empresaId);
 
     $emailService = \Config\Services::email();
     $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
     $emailService->setTo($email);
-    $emailService->setSubject('Resposta de Contato');
-    $emailService->setMessage($message);  // Aqui você pode definir um template HTML com a variável $message
+    $emailService->setSubject('Documento Excluído');
+    $emailService->setMessage($message);  // Conteúdo do email em HTML
 
     if ($emailService->send()) {
         return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso.']);
@@ -628,5 +649,4 @@ public function contatoExcluirArquivo()
         return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
     }
 }
-
 }
