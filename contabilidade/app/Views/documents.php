@@ -370,33 +370,46 @@
         
         <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
 
-            <!-- Contrato Social Registrado -->
+            
 
-            <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Contrato Social Registrado:</label>
-                    <a href="<?= base_url($data['documents']['social_registrado']) ?>" class="btn btn-primary">Baixar Documento</a>
-                </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="social_registrado" class="form-label">Contrato Social Registrado:</label>
-                    <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            <div class="container mt-3">
+                <div class="list-group">
 
-            <!-- Certificado Digital -->
+                <!-- Contrato Social Registrado -->
 
-            <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Certificado Digital:</label>
-                    <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary">Baixar Imagem</a>
-                </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="certificado_digital" class="form-label">Certificado Digital:</label>
-                    <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
-                </div>
-            <?php endif; ?>
+                    <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Contrato Social Registrado:</strong>
+                                <a href="<?= base_url($data['documents']['social_registrado']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="social_registrado" class="form-label"><strong>Contrato Social Registrado:</strong></label>
+                                <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Certificado Digital -->
+
+                    <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
+                        <div class="mb-3">
+                            <label class="form-label">Certificado Digital:</label>
+                            <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary">Baixar Imagem</a>
+                        </div>
+                    <?php else: ?>
+                        <div class="mb-3">
+                            <label for="certificado_digital" class="form-label">Certificado Digital:</label>
+                            <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
+                        </div>
+                    <?php endif; ?>
+                        </div>
+                    </div>
+
+            
 
             <!-- senha certificado DEPOIS FAZER EINNN -->
 
