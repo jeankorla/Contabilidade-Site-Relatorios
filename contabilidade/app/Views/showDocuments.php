@@ -324,7 +324,7 @@ button.btn.btn-link i {
         </form>
 
 
-        <!-- Modal para confirmação e motivo da exclusão -->
+       <!-- Modal para confirmação e motivo da exclusão -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -335,6 +335,10 @@ button.btn.btn-link i {
       <div class="modal-body">
         <form id="deleteForm">
           <div class="mb-3">
+            <label for="email-input" class="col-form-label">E-mail:</label>
+            <input type="email" class="form-control" id="email-input" value="<?= $data['socio_asses']['email'] ?? '' ?>">
+          </div>
+          <div class="mb-3">
             <label for="message-text" class="col-form-label">Motivo:</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
@@ -344,8 +348,6 @@ button.btn.btn-link i {
           </div>
           <input type="hidden" id="docKey">
           <input type="hidden" id="empresaId">
-          <!-- Adicionar o email escondido aqui -->
-          <input type="hidden" id="clienteEmail" value="<?= $data['socio_asses']['email'] ?? '' ?>">
         </form>
       </div>
       <div class="modal-footer">
@@ -355,6 +357,7 @@ button.btn.btn-link i {
     </div>
   </div>
 </div>
+
 
 
 <br>
@@ -754,17 +757,17 @@ function confirmDelete() {
     var empresaId = document.getElementById('empresaId').value;
     var message = document.getElementById('message-text').value;
     var notifyClient = document.getElementById('notify-client').checked;
-    var clienteEmail = document.getElementById('clienteEmail').value;
+    var email = document.getElementById('email-input').value;
 
-    // Constrói o objeto de dados para enviar
     var dataToSend = {
         docKey: docKey,
         empresaId: empresaId,
-        message: message
+        message: message,
+        notifyClient: notifyClient
     };
 
-    if (notifyClient) {
-        dataToSend.email = clienteEmail;
+    if (notifyClient && email) {
+        dataToSend.email = email;
     }
 
     fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
@@ -785,7 +788,6 @@ function confirmDelete() {
         }
     });
 
-    // Fecha o modal
     var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
     deleteModal.hide();
 }
