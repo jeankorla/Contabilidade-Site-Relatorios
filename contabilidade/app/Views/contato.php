@@ -122,6 +122,9 @@ button:active {
                 <li class="nav-item">
                     <a class="nav-link" href="https://sccontab.com.br/ContatoController" style="color: white; font-size: 20px;">Contato</a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="https://sccontab.com.br/ClienteController" style="color: white; font-size: 20px;">Cliente</a>
+                </li>
             </ul>
 
             <!-- Botão de Configurações -->
