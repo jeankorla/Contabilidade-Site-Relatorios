@@ -421,7 +421,9 @@
                     </div>
                 <?php endif; ?>
             </div>
+            <div class="list-group mt-5">
             <button type="submit" class="btn btn-success">Postar</button>
+            </div>
         </div>
     </div>
 </div>
