@@ -763,26 +763,47 @@ function openDeleteModal(email, documentName, documentId) {
 function sendDeletion() {
     var email = document.getElementById('documentEmail').value;
     var documentName = document.getElementById('documentName').value;
-    var documentId = document.getElementById('documentId').value;
+    var docKey = document.getElementById('documentId').value; // Essa linha pode precisar de ajuste
     var reason = document.getElementById('deleteReason').value;
     var notify = document.getElementById('notifyCheck').checked;
 
     $.post('<?= base_url("EmailController/deleteDocument") ?>', {
         email: email,
         documentName: documentName,
-        documentId: documentId,
+        documentId: docKey, // Presumo que isso possa ser a chave do documento
         reason: reason,
         notify: notify
     }, function(response) {
         $('#deleteDocumentModal').modal('hide');
         if (response.status === 'success') {
-            alert('Documento excluído com sucesso!');
-            location.reload();
+            alert('Email enviado com sucesso! Procedendo para exclusão do arquivo...');
+            deleteDocumentFromServer(docKey, '<?= $data['empresa']['id'] ?>');
         } else {
             alert('Falha ao excluir o documento: ' + response.message);
         }
     }, 'json').fail(function(xhr, status, error) {
         alert('Erro ao excluir documento: ' + xhr.responseText);
+    });
+}
+
+function deleteDocumentFromServer(docKey, empresaId) {
+    // Enviar requisição para o servidor para excluir o documento
+    fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Documento excluído com sucesso.');
+            location.reload(); // Recarrega a página para atualizar a lista
+        } else {
+            alert('Falha ao excluir o documento.');
+        }
     });
 }
 
