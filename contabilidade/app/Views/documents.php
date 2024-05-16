@@ -703,7 +703,7 @@
 
             <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
-            <button type="submit" class="btn btn-success p-5">Postar</button>
+            <button type="submit" class="btn btn-success">Postar</button>
         </form>
 
     </div>
