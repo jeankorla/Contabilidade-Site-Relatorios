@@ -376,7 +376,11 @@
                                 <p class="card-text"><strong>Situação:</strong> <?= $data['empresa']['situacao'] ?? 'N/A' ?></p>
                             </div>
                         </div>
- <!-- Contrato Social Registrado -->
+                    </div>
+
+<!-- Contrato Social Registrado -->
+
+                    <div class="col-md-9">
                         <div class="list-group">
                             <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
                                 <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
@@ -397,13 +401,11 @@
                         </div>
                     </div>
 
-                    </div>
+
                 </div>
             </div>
 
-           
-
-                        
+            
         
 
 
