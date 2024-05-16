@@ -306,7 +306,7 @@ button.btn.btn-link i {
                             <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
                         </div>
                         <button type="button" class="btn btn-danger btn-sm"
-                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
+                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($fileName) ?>', '<?= addslashes($docPath) ?>', '<?= $data['empresa']['id'] ?>')">
                             Excluir
                         </button>
                     </div>
@@ -317,6 +317,7 @@ button.btn.btn-link i {
         <?php endif; ?>
     </div>
 </div>
+
 
 
 
@@ -751,11 +752,12 @@ button.btn.btn-link i {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <script>
-function openDeleteModal(email, documentName, documentId) {
+function openDeleteModal(email, fileName, docPath, empresaId) {
     document.getElementById('documentEmail').value = email;
-    document.getElementById('documentName').value = documentName;
+    document.getElementById('documentName').value = fileName;  // Nome para visualização
+    document.getElementById('documentId').value = docPath;  // Passa o caminho completo
+    document.getElementById('empresaId').value = empresaId;  // Guarda o ID da empresa
     document.getElementById('deleteReason').value = '';
-    document.getElementById('documentId').value = documentId;
     document.getElementById('notifyCheck').checked = false;
     $('#deleteDocumentModal').modal('show');
 }
@@ -763,14 +765,16 @@ function openDeleteModal(email, documentName, documentId) {
 function sendDeletion() {
     var email = document.getElementById('documentEmail').value;
     var documentName = document.getElementById('documentName').value;
-    var documentId = document.getElementById('documentId').value;
+    var docPath = document.getElementById('documentId').value;
+    var empresaId = document.getElementById('empresaId').value;  // Recupera o ID da empresa
     var reason = document.getElementById('deleteReason').value;
     var notify = document.getElementById('notifyCheck').checked;
 
     $.post('<?= base_url("EmailController/deleteDocument") ?>', {
         email: email,
         documentName: documentName,
-        documentId: documentId,
+        documentId: docPath,
+        empresaId: empresaId,
         reason: reason,
         notify: notify
     }, function(response) {
@@ -785,6 +789,7 @@ function sendDeletion() {
         alert('Erro ao excluir documento: ' + xhr.responseText);
     });
 }
+
 
 </script>
 
