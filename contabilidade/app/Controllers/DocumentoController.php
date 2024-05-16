@@ -217,7 +217,7 @@ $variables = [
     ],
     'signers' => [
         [
-            'email' => 'jean@sccontab.com.br',
+            'email' => $socio['email'],
             'action' => 'SIGN'
         ]
     ]
