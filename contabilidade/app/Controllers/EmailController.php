@@ -4,6 +4,14 @@ use App\Controllers\BaseController;
 use CodeIgniter\Controller;
 use CodeIgniter\Email\Email;
 
+use App\Models\Cliente_lead;
+use App\Models\Empresa;
+use App\Models\Atividade;
+use App\Models\Contabilidade;
+use App\Models\Socio;
+use App\Models\Socio_ass;
+use App\Models\Documents;
+
 class EmailController extends Controller
 {
 
