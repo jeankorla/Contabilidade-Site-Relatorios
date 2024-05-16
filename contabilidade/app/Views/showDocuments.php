@@ -323,45 +323,6 @@ button.btn.btn-link i {
             
         </form>
 
-
-<!-- Modal para confirmação e motivo da exclusão -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Excluir Documento</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="deleteForm">
-          <div class="mb-3">
-            <label for="email-input" class="col-form-label">E-mail:</label>
-            <input type="email" class="form-control" id="email-input" value="<?= $data['socio_asses']['email'] ?? '' ?>">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Motivo:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="notify-client">
-            <label class="form-check-label" for="notify-client">Notificar cliente por e-mail?</label>
-          </div>
-          <input type="hidden" id="docKey">
-          <input type="hidden" id="empresaId">
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger" onclick="confirmDelete()">Confirmar Exclusão</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
 <br>
 <br>
 <br>
@@ -744,50 +705,28 @@ button.btn.btn-link i {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <script>
-// Função para abrir o modal e definir valores
 function deleteDocument(docKey, empresaId) {
-    document.getElementById('docKey').value = docKey;
-    document.getElementById('empresaId').value = empresaId;
-    $('#deleteModal').modal('show');
+    if (confirm('Tem certeza que deseja excluir este documento?')) {
+        // Enviar requisição para o servidor para excluir o documento
+        fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Documento excluído com sucesso.');
+                location.reload(); // Recarrega a página para atualizar a lista
+            } else {
+                alert('Falha ao excluir o documento.');
+            }
+        });
+    }
 }
-
-// Função para confirmar a exclusão e enviar email se necessário
-function confirmDelete() {
-    var email = document.getElementById('email-input').value;
-    var message = document.getElementById('message-text').value;
-    var notifyClient = document.getElementById('notify-client').checked;
-    var docKey = document.getElementById('docKey').value;
-    var empresaId = document.getElementById('empresaId').value;
-
-    var dataToSend = {
-        email: email,
-        message: message,
-        notifyClient: notifyClient,
-        docKey: docKey,
-        empresaId: empresaId
-    };
-
-    fetch('<?= base_url("DocumentsController/deleteDocument") ?>', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-        },
-        body: JSON.stringify(dataToSend)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Documento excluído com sucesso. E-mail enviado (se solicitado).');
-            location.reload();
-        } else {
-            alert('Falha ao excluir o documento: ' + data.message);
-        }
-    }).catch(error => {
-        alert('Erro ao processar a requisição: ' + error);
-    });
-}
-
 </script>
 
 
