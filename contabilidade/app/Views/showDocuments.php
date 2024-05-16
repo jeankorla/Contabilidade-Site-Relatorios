@@ -297,15 +297,16 @@ button.btn.btn-link i {
             <?php foreach ($data['documents'] as $key => $docPath): ?>
                 <?php if (file_exists($docPath)): ?>
                     <?php
+                    $documentTitle = ucwords(str_replace('_', ' ', $key));  // Nome formatado para exibição
                     $fileName = basename($docPath);  // Pega apenas o nome do arquivo, excluindo o caminho
                     ?>
                     <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                         <div>
-                            <strong><?= ucwords(str_replace('_', ' ', $fileName)) ?>:</strong>
+                            <strong><?= $documentTitle ?>:</strong>
                             <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
                         </div>
                         <button type="button" class="btn btn-danger btn-sm"
-                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($fileName) ?>', '<?= $key ?>')">
+                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
                             Excluir
                         </button>
                     </div>
@@ -316,6 +317,7 @@ button.btn.btn-link i {
         <?php endif; ?>
     </div>
 </div>
+
 
 
 
