@@ -432,7 +432,13 @@
             <!-- senha certificado DEPOIS FAZER EINNN -->
 
             <!-- Dados de Acesso ao Posto Fiscal -->
-            
+            <div class="container mt-3">
+                <div class="list-group">
+                    <h4 class="mb-3"><strong>Restante dos Arquivos:</strong></h4>
+                    </div>
+            </div>
+
+
             <div class="container mt-3">
                 <div class="list-group">
                     <?php if (isset($data['documents']['posto_fiscal']) && file_exists($data['documents']['posto_fiscal'])): ?>
@@ -457,143 +463,243 @@
 
             <!-- Dados de Acesso ao Simples Nacional -->
 
-            <?php if (isset($data['documents']['simples_nacional']) && file_exists($data['documents']['simples_nacional'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Dados de Acesso ao Simples Nacional:</label>
-                    <a href="<?= base_url($data['documents']['simples_nacional']) ?>" class="btn btn-primary">Baixar Documento</a>
+            <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['simples_nacional']) && file_exists($data['documents']['simples_nacional'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Dados de Acesso ao Simples Nacional:</strong>
+                                <a href="<?= base_url($data['documents']['simples_nacional']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('simples_nacional', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="simples_nacional" class="form-label"><strong>Dados de Acesso ao Simples Nacional:</strong></label>
+                                <input type="file" class="form-control" id="simples_nacional" name="simples_nacional" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="simples_nacional" class="form-label">Dados de Acesso ao Simples Nacional:</label>
-                    <input type="file" class="form-control" id="simples_nacional" name="simples_nacional" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Dados de Acesso da Prefeitura em Emissão de NFSe -->
 
-             <?php if (isset($data['documents']['prefeitura_nfse']) && file_exists($data['documents']['prefeitura_nfse'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Dados de Acesso da Prefeitura em Emissão de NFSe:</label>
-                    <a href="<?= base_url($data['documents']['prefeitura_nfse']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['prefeitura_nfse']) && file_exists($data['documents']['prefeitura_nfse'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Dados de Acesso da Prefeitura em Emissão de NFSe:</strong>
+                                <a href="<?= base_url($data['documents']['prefeitura_nfse']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('prefeitura_nfse', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="prefeitura_nfse" class="form-label"><strong>Dados de Acesso da Prefeitura em Emissão de NFSe:</strong></label>
+                                <input type="file" class="form-control" id="prefeitura_nfse" name="prefeitura_nfse" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="prefeitura_nfse" class="form-label">Dados de Acesso da Prefeitura em Emissão de NFSe:</label>
-                    <input type="file" class="form-control" id="prefeitura_nfse" name="prefeitura_nfse" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Dados de Acesso a Previdência Social -->
 
-             <?php if (isset($data['documents']['previdencia_social']) && file_exists($data['documents']['previdencia_social'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Dados de Acesso a Previdência Social:</label>
-                    <a href="<?= base_url($data['documents']['previdencia_social']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['previdencia_social']) && file_exists($data['documents']['previdencia_social'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Dados de Acesso a Previdência Social:</strong>
+                                <a href="<?= base_url($data['documents']['previdencia_social']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('previdencia_social', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="previdencia_social" class="form-label"><strong>Dados de Acesso a Previdência Social:</strong></label>
+                                <input type="file" class="form-control" id="previdencia_social" name="previdencia_social" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="previdencia_social" class="form-label">Dados de Acesso a Previdência Social:</label>
-                    <input type="file" class="form-control" id="previdencia_social" name="previdencia_social" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Ficha de Registro com a atualização da CTPS -->
 
-             <?php if (isset($data['documents']['ctps']) && file_exists($data['documents']['ctps'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Ficha de Registro com a atualização da CTPS:</label>
-                    <a href="<?= base_url($data['documents']['ctps']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['ctps']) && file_exists($data['documents']['ctps'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Ficha de Registro com a atualização da CTPS:</strong>
+                                <a href="<?= base_url($data['documents']['ctps']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('ctps', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="ctps" class="form-label"><strong>Ficha de Registro com a atualização da CTPS:</strong></label>
+                                <input type="file" class="form-control" id="ctps" name="ctps" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="ctps" class="form-label">Ficha de Registro com a atualização da CTPS:</label>
-                    <input type="file" class="form-control" id="ctps" name="ctps" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Última Convenção Coletiva -->
 
-             <?php if (isset($data['documents']['convencao_coletiva']) && file_exists($data['documents']['convencao_coletiva'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Última Convenção Coletiva:</label>
-                    <a href="<?= base_url($data['documents']['convencao_coletiva']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['convencao_coletiva']) && file_exists($data['documents']['convencao_coletiva'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Última Convenção Coletiva:</strong>
+                                <a href="<?= base_url($data['documents']['convencao_coletiva']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('convencao_coletiva', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="convencao_coletiva" class="form-label"><strong>Última Convenção Coletiva:</strong></label>
+                                <input type="file" class="form-control" id="convencao_coletiva" name="convencao_coletiva" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="convencao_coletiva" class="form-label">Última Convenção Coletiva:</label>
-                    <input type="file" class="form-control" id="convencao_coletiva" name="convencao_coletiva" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Alvará de Funcionamento -->
 
-             <?php if (isset($data['documents']['alvara_funcionamento']) && file_exists($data['documents']['alvara_funcionamento'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Alvará de Funcionamento:</label>
-                    <a href="<?= base_url($data['documents']['alvara_funcionamento']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['alvara_funcionamento']) && file_exists($data['documents']['alvara_funcionamento'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Alvará de Funcionamento:</strong>
+                                <a href="<?= base_url($data['documents']['alvara_funcionamento']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('alvara_funcionamento', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="alvara_funcionamento" class="form-label"><strong>Alvará de Funcionamento:</strong></label>
+                                <input type="file" class="form-control" id="alvara_funcionamento" name="alvara_funcionamento" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="alvara_funcionamento" class="form-label">Alvará de Funcionamento:</label>
-                    <input type="file" class="form-control" id="alvara_funcionamento" name="alvara_funcionamento" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Balancete do último mês -->
 
-             <?php if (isset($data['documents']['balancete_ultimo']) && file_exists($data['documents']['balancete_ultimo'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Balancete do último mês:</label>
-                    <a href="<?= base_url($data['documents']['balancete_ultimo']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['balancete_ultimo']) && file_exists($data['documents']['balancete_ultimo'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Balancete do último mês:</strong>
+                                <a href="<?= base_url($data['documents']['balancete_ultimo']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('balancete_ultimo', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="balancete_ultimo" class="form-label"><strong>Balancete do último mês:</strong></label>
+                                <input type="file" class="form-control" id="balancete_ultimo" name="balancete_ultimo" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="balancete_ultimo" class="form-label">Balancete do último mês:</label>
-                    <input type="file" class="form-control" id="balancete_ultimo" name="balancete_ultimo" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
              <!-- Balanço Patrimonial do último exercício encerrado -->
 
-             <?php if (isset($data['documents']['balanco_patrimonial']) && file_exists($data['documents']['balanco_patrimonial'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Balanço Patrimonial do último exercício encerrado:</label>
-                    <a href="<?= base_url($data['documents']['balanco_patrimonial']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['balanco_patrimonial']) && file_exists($data['documents']['balanco_patrimonial'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Balanço Patrimonial do último exercício encerrado:</strong>
+                                <a href="<?= base_url($data['documents']['balanco_patrimonial']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('balanco_patrimonial', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="balanco_patrimonial" class="form-label"><strong>Balanço Patrimonial do último exercício encerrado:</strong></label>
+                                <input type="file" class="form-control" id="balanco_patrimonial" name="balanco_patrimonial" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="balanco_patrimonial" class="form-label">Balanço Patrimonial do último exercício encerrado:</label>
-                    <input type="file" class="form-control" id="balanco_patrimonial" name="balanco_patrimonial" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Livro diário do último exercício corrente -->
 
-             <?php if (isset($data['documents']['livro_corrente']) && file_exists($data['documents']['livro_corrente'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Livro diário do último exercício corrente:</label>
-                    <a href="<?= base_url($data['documents']['livro_corrente']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['livro_corrente']) && file_exists($data['documents']['livro_corrente'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Livro diário do último exercício corrente:</strong>
+                                <a href="<?= base_url($data['documents']['livro_corrente']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('livro_corrente', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="livro_corrente" class="form-label"><strong>Livro diário do último exercício corrente:</strong></label>
+                                <input type="file" class="form-control" id="livro_corrente" name="livro_corrente" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="livro_corrente" class="form-label">Livro diário do último exercício corrente:</label>
-                    <input type="file" class="form-control" id="livro_corrente" name="livro_corrente" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <!-- Livro diário do último exerício encerrado -->
 
-             <?php if (isset($data['documents']['livro_encerrado']) && file_exists($data['documents']['livro_encerrado'])): ?>
-                <div class="mb-3">
-                    <label class="form-label">Livro diário do último exerício encerrado:</label>
-                    <a href="<?= base_url($data['documents']['livro_encerrado']) ?>" class="btn btn-primary">Baixar Documento</a>
+             <div class="container mt-3">
+                <div class="list-group">
+                    <?php if (isset($data['documents']['livro_encerrado']) && file_exists($data['documents']['livro_encerrado'])): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Livro diário do último exercício encerrado:</strong>
+                                <a href="<?= base_url($data['documents']['livro_encerrado']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('livro_encerrado', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <label for="livro_encerrado" class="form-label"><strong>Livro diário do último exercício encerrado:</strong></label>
+                                <input type="file" class="form-control" id="livro_encerrado" name="livro_encerrado" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            <?php else: ?>
-                <div class="mb-3">
-                    <label for="livro_encerrado" class="form-label">Livro diário do último exerício encerrado:</label>
-                    <input type="file" class="form-control" id="livro_encerrado" name="livro_encerrado" accept=".pdf,.doc,.docx">
-                </div>
-            <?php endif; ?>
+            </div>
+
 
             <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
