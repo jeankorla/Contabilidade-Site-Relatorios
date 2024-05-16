@@ -608,35 +608,40 @@ public function contatoEmailDiretoria($data)
 
 public function deleteDocument()
 {
-    $email = $this->request->getPost('email');
-    $documentName = $this->request->getPost('documentName');
-    $docKey = $this->request->getPost('documentId'); // Usado como chave para localizar o documento no banco
-    $reason = $this->request->getPost('reason');
-    $notify = $this->request->getPost('notify');
-    $empresaId = $this->request->getPost('empresaId'); // Adicione esse campo no frontend para ser enviado junto com a requisição
+    $json = $this->request->getJSON();
+    $docKey = $json->docKey;
+    $empresaId = $json->empresaId;
+    $email = $json->email;
+    $documentName = $json->documentName;
+    $reason = $json->reason;
+    $notify = $json->notify;
 
     $documentModel = new Documents();
     $document = $documentModel->where('empresa_id', $empresaId)->first();
 
     if (!$document) {
-        return $this->response->setJSON(['status' => 'error', 'message' => 'Documento não encontrado para essa empresa.']);
+        return $this->response->setJSON(['success' => false, 'message' => 'Documento não encontrado para essa empresa.']);
     }
 
     if (empty($document[$docKey])) {
-        return $this->response->setJSON(['status' => 'error', 'message' => 'Arquivo não encontrado ou já excluído.']);
+        return $this->response->setJSON(['success' => false, 'message' => 'Arquivo não encontrado ou já excluído.']);
     }
 
-    // Remove o arquivo do servidor, se existir
-    if (file_exists($document[$docKey])) {
-        if (!unlink($document[$docKey])) {
-            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao excluir o arquivo físico.']);
+    // Ajusta o caminho para o arquivo usando a raiz do diretório público
+    $filePath = FCPATH . ltrim($document[$docKey], '.');  // Remove o ponto inicial e acrescenta o caminho à raiz do servidor
+
+    if (file_exists($filePath)) {
+        if (!unlink($filePath)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Falha ao excluir o arquivo físico.']);
         }
+    } else {
+        return $this->response->setJSON(['success' => false, 'message' => 'Arquivo não encontrado no servidor.']);
     }
 
     // Atualiza apenas o campo específico no banco de dados para nulo
     $updateData = [$docKey => null];
     if (!$documentModel->update($document['id'], $updateData)) {
-        return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao atualizar o registro.']);
+        return $this->response->setJSON(['success' => false, 'message' => 'Falha ao atualizar o registro.']);
     }
 
     // Notifica o cliente por e-mail, se solicitado
@@ -647,12 +652,13 @@ public function deleteDocument()
         $emailService->setSubject('Notificação de Exclusão de Documento');
         $emailService->setMessage("O documento '{$documentName}' foi excluído. Motivo: {$reason}");
         if (!$emailService->send()) {
-            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
+            return $this->response->setJSON(['success' => false, 'message' => 'Falha ao enviar o email.']);
         }
     }
 
-    return $this->response->setJSON(['status' => 'success', 'message' => 'Documento excluído com sucesso.']);
+    return $this->response->setJSON(['success' => true, 'message' => 'Documento excluído com sucesso.']);
 }
+
 
 
 
