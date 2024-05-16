@@ -4,15 +4,6 @@ use App\Controllers\BaseController;
 use CodeIgniter\Controller;
 use CodeIgniter\Email\Email;
 
-use App\Models\Cliente_lead;
-use App\Models\Empresa;
-use App\Models\Atividade;
-use App\Models\Contabilidade;
-use App\Models\Socio;
-use App\Models\Socio_ass;
-use App\Models\Documents;
-
-
 class EmailController extends Controller
 {
 
@@ -608,59 +599,26 @@ public function contatoEmailDiretoria($data)
 
 public function deleteDocument()
 {
-    $json = $this->request->getJSON();
-    $docKey = $json->docKey;
-    $empresaId = $json->empresaId;
-    $email = $json->email;
-    $documentName = $json->documentName;
-    $reason = $json->reason;
-    $notify = $json->notify;
+    $email = $this->request->getPost('email');
+    $documentName = $this->request->getPost('documentName');
+    $documentId = $this->request->getPost('documentId');
+    $reason = $this->request->getPost('reason');
+    $notify = $this->request->getPost('notify');
 
-    $documentModel = new Documents();
-    $document = $documentModel->where('empresa_id', $empresaId)->first();
-
-    if (!$document) {
-        return $this->response->setJSON(['success' => false, 'message' => 'Documento não encontrado para essa empresa.']);
-    }
-
-    if (empty($document[$docKey])) {
-        return $this->response->setJSON(['success' => false, 'message' => 'Arquivo não encontrado ou já excluído.']);
-    }
-
-    // Ajusta o caminho para o arquivo usando a raiz do diretório público
-    $filePath = FCPATH . ltrim($document[$docKey], '.');  // Remove o ponto inicial e acrescenta o caminho à raiz do servidor
-
-    if (file_exists($filePath)) {
-        if (!unlink($filePath)) {
-            return $this->response->setJSON(['success' => false, 'message' => 'Falha ao excluir o arquivo físico.']);
-        }
-    } else {
-        return $this->response->setJSON(['success' => false, 'message' => 'Arquivo não encontrado no servidor.']);
-    }
-
-    // Atualiza apenas o campo específico no banco de dados para nulo
-    $updateData = [$docKey => null];
-    if (!$documentModel->update($document['id'], $updateData)) {
-        return $this->response->setJSON(['success' => false, 'message' => 'Falha ao atualizar o registro.']);
-    }
-
-    // Notifica o cliente por e-mail, se solicitado
-    if ($notify && $email) {
+    if ($notify) {
+        // Aqui você envia o email notificando sobre a exclusão
         $emailService = \Config\Services::email();
         $emailService->setFrom('controladoria@sccontab.com.br', 'Controladoria');
         $emailService->setTo($email);
         $emailService->setSubject('Notificação de Exclusão de Documento');
         $emailService->setMessage("O documento '{$documentName}' foi excluído. Motivo: {$reason}");
         if (!$emailService->send()) {
-            return $this->response->setJSON(['success' => false, 'message' => 'Falha ao enviar o email.']);
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
         }
     }
 
-    return $this->response->setJSON(['success' => true, 'message' => 'Documento excluído com sucesso.']);
+    return $this->response->setJSON(['status' => 'success', 'message' => 'Documento excluído com sucesso.']);
 }
-
-
-
 
 
 }

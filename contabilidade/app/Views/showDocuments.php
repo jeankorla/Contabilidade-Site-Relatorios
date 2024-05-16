@@ -306,7 +306,7 @@ button.btn.btn-link i {
                             <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
                         </div>
                         <button type="button" class="btn btn-danger btn-sm"
-                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($fileName) ?>', '<?= addslashes($docPath) ?>', '<?= $data['empresa']['id'] ?>')">
+                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
                             Excluir
                         </button>
                     </div>
@@ -321,7 +321,6 @@ button.btn.btn-link i {
 
 
 
-
             <div class="d-flex justify-content-between mt-5">
                 <div class="col-6">
                     <a class="beautiful-button" style="text-decoration: none;" href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">
@@ -331,7 +330,6 @@ button.btn.btn-link i {
             </div>
             
 <!-- Modal de Exclusão de Documento -->
-
 <div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -358,7 +356,6 @@ button.btn.btn-link i {
                         <label class="form-check-label" for="notifyCheck">Notificar Cliente</label>
                     </div>
                     <input type="hidden" id="documentId" name="documentId">
-                    <input type="hidden" id="empresaId" name="empresaId"> <!-- Campo oculto para empresaId -->
                 </form>
             </div>
             <div class="modal-footer">
@@ -368,7 +365,6 @@ button.btn.btn-link i {
         </div>
     </div>
 </div>
-
 
             
         </form>
@@ -755,30 +751,26 @@ button.btn.btn-link i {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <script>
-function openDeleteModal(email, fileName, docPath, empresaId) {
+function openDeleteModal(email, documentName, documentId) {
     document.getElementById('documentEmail').value = email;
-    document.getElementById('documentName').value = fileName;
-    document.getElementById('documentId').value = docPath;
-    document.getElementById('empresaId').value = empresaId; 
+    document.getElementById('documentName').value = documentName;
     document.getElementById('deleteReason').value = '';
+    document.getElementById('documentId').value = documentId;
     document.getElementById('notifyCheck').checked = false;
     $('#deleteDocumentModal').modal('show');
 }
 
-
 function sendDeletion() {
     var email = document.getElementById('documentEmail').value;
     var documentName = document.getElementById('documentName').value;
-    var docPath = document.getElementById('documentId').value;
-    var empresaId = document.getElementById('empresaId').value;  // Recupera o ID da empresa
+    var documentId = document.getElementById('documentId').value;
     var reason = document.getElementById('deleteReason').value;
     var notify = document.getElementById('notifyCheck').checked;
 
     $.post('<?= base_url("EmailController/deleteDocument") ?>', {
         email: email,
         documentName: documentName,
-        documentId: docPath,
-        empresaId: empresaId,
+        documentId: documentId,
         reason: reason,
         notify: notify
     }, function(response) {
@@ -793,7 +785,6 @@ function sendDeletion() {
         alert('Erro ao excluir documento: ' + xhr.responseText);
     });
 }
-
 
 </script>
 
