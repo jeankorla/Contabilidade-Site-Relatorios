@@ -192,12 +192,14 @@ $pdfName = uniqid() . '.pdf';
 
         file_put_contents($pdfPath, $dompdf->output());
 
+        $socioEmail = $socio['email'];
+
         // Call createDocument directly after saving the file
-        return $this->createDocument($pdfPath);
+        return $this->createDocument($pdfPath, $socioEmail);
     }
 
     
-    public function createDocument($filePath)
+    public function createDocument($filePath, $socioEmail)
     {
         $token = getenv('GRAPHQL_BEARER_TOKEN');
         $url = 'https://api.autentique.com.br/v2/graphql';
@@ -217,7 +219,7 @@ $variables = [
     ],
     'signers' => [
         [
-            'email' => $socio['email'],
+            'email' => $socioEmail,
             'action' => 'SIGN'
         ]
     ]
