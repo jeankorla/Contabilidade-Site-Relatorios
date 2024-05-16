@@ -389,27 +389,26 @@
                             <div class="w-100">
                                 <label for="social_registrado" class="form-label"><strong>Contrato Social Registrado:</strong></label>
                                 <input type="file" class="form-control" id="social_registrado" name="social_registrado" accept=".pdf,.doc,.docx">
+                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
                             </div>
                         </div>
                     <?php endif; ?>
+                </div>
+            </div>
 
-                    <!-- Certificado Digital -->
+            <!-- Certificado Digital -->
 
-                    <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
-                        <div class="mb-3">
-                            <label class="form-label">Certificado Digital:</label>
-                            <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary">Baixar Imagem</a>
-                        </div>
-                    <?php else: ?>
-                        <div class="mb-3">
-                            <label for="certificado_digital" class="form-label">Certificado Digital:</label>
-                            <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
-                        </div>
-                    <?php endif; ?>
-                        </div>
-                    </div>
-
-            
+            <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
+                <div class="mb-3">
+                    <label class="form-label">Certificado Digital:</label>
+                    <a href="<?= base_url($data['documents']['certificado_digital']) ?>" class="btn btn-primary">Baixar Imagem</a>
+                </div>
+            <?php else: ?>
+                <div class="mb-3">
+                    <label for="certificado_digital" class="form-label">Certificado Digital:</label>
+                    <input type="file" class="form-control" id="certificado_digital" name="certificado_digital" accept="image/jpeg,image/png">
+                </div>
+            <?php endif; ?>
 
             <!-- senha certificado DEPOIS FAZER EINNN -->
 
@@ -580,5 +579,29 @@
 
 </section>
 
+<script>
+function deleteDocument(docKey, empresaId) {
+    if (confirm('Tem certeza que deseja excluir este documento?')) {
+        // Enviar requisição para o servidor para excluir o documento
+        fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Documento excluído com sucesso.');
+                location.reload(); // Recarrega a página para atualizar a lista
+            } else {
+                alert('Falha ao excluir o documento.');
+            }
+        });
+    }
+}
+</script>
 </body>
 </html>
