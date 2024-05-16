@@ -305,7 +305,7 @@ button.btn.btn-link i {
                             <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
                         </div>
                         <button type="button" class="btn btn-danger btn-sm"
-                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= ucwords(str_replace('_', ' ', $key)) ?>', '<?= $key ?>')">
+                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($fileName) ?>', '<?= $key ?>')">
                             Excluir
                         </button>
                     </div>
@@ -751,13 +751,12 @@ button.btn.btn-link i {
 <script>
 function openDeleteModal(email, documentName, documentId) {
     document.getElementById('documentEmail').value = email;
-    document.getElementById('documentName').value = ucwords(str_replace('_', ' ', documentName));
+    document.getElementById('documentName').value = documentName;
     document.getElementById('deleteReason').value = '';
     document.getElementById('documentId').value = documentId;
     document.getElementById('notifyCheck').checked = false;
     $('#deleteDocumentModal').modal('show');
 }
-
 
 function sendDeletion() {
     var email = document.getElementById('documentEmail').value;
