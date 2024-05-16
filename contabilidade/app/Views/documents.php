@@ -400,22 +400,10 @@
                             <?php endif; ?>
                         </div>
                     </div>
+                    
+                    <!-- Certificado Digital -->
 
-
-                </div>
-            </div>
-
-            
-        
-
-
-                
-
-
-            <!-- Certificado Digital -->
-
-            <div class="container mt-3">
-                <div class="list-group">
+                    <div class="list-group">
                     <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
                         <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                             <div>
@@ -432,6 +420,9 @@
                             </div>
                         </div>
                     <?php endif; ?>
+                </div>
+
+
                 </div>
             </div>
 
