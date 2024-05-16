@@ -324,7 +324,7 @@ button.btn.btn-link i {
         </form>
 
 
-      <!-- Modal para confirmação e motivo da exclusão -->
+<!-- Modal para confirmação e motivo da exclusão -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -342,6 +342,8 @@ button.btn.btn-link i {
             <label for="message-text" class="col-form-label">Motivo:</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
+          <input type="hidden" id="docKey">
+          <input type="hidden" id="empresaId">
         </form>
       </div>
       <div class="modal-footer">
@@ -736,24 +738,29 @@ button.btn.btn-link i {
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<script> 
+<script>
+// Função para abrir o modal e definir valores
+function deleteDocument(docKey, empresaId) {
+    document.getElementById('docKey').value = docKey;
+    document.getElementById('empresaId').value = empresaId;
+    $('#deleteModal').modal('show');
+}
+
+// Função para confirmar a exclusão e enviar email se necessário
 function confirmDelete() {
     var email = document.getElementById('email-input').value;
     var message = document.getElementById('message-text').value;
-    var notifyClient = document.getElementById('notify-client').checked;
     var docKey = document.getElementById('docKey').value;
     var empresaId = document.getElementById('empresaId').value;
 
-    // Objeto com informações para enviar ao servidor
     var dataToSend = {
         email: email,
         message: message,
         docKey: docKey,
-        empresaId: empresaId,
-        notifyClient: notifyClient
+        empresaId: empresaId
     };
 
-    fetch('<?= base_url("DocumentsController/handleDocumentDeletion") ?>', {
+    fetch('<?= base_url("DocumentsController/deleteDocument") ?>', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -769,34 +776,10 @@ function confirmDelete() {
         } else {
             alert('Falha ao excluir o documento: ' + data.message);
         }
+    }).catch(error => {
+        alert('Erro ao processar a requisição: ' + error);
     });
 }
-
-function confirmDelete() {
-    var email = document.getElementById('email-input').value;
-    var message = document.getElementById('message-text').value;
-    var docKey = document.getElementById('docKey').value;
-    var empresaId = document.getElementById('empresaId').value;
-
-    // Enviar requisição para excluir o documento e enviar email
-    $.post('<?= base_url("EmailController/contatoExcluirArquivo") ?>', {
-        email: email,
-        message: message,
-        docKey: docKey,
-        empresaId: empresaId
-    }, function(response) {
-        $('#deleteModal').modal('hide'); // Esconder o modal
-        if (response.status === 'success') {
-            alert('Documento excluído e e-mail enviado com sucesso!');
-            location.reload();
-        } else {
-            alert('Falha ao excluir o documento: ' + response.message);
-        }
-    }, 'json').fail(function(xhr, status, error) {
-        alert('Erro ao excluir documento: ' + xhr.responseText);
-    });
-}
-
 </script>
 
 
