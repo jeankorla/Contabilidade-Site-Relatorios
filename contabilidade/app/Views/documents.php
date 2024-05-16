@@ -382,7 +382,7 @@
         <!-- Coluna dos Documentos -->
         <div class="col-md-9">
             <!-- Contrato Social Registrado -->
-            <div class="list-group">
+            <div class="list-group mb-3">
                 <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
                     <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                         <div>
