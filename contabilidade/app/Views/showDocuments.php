@@ -286,69 +286,81 @@ button.btn.btn-link i {
 
             </div>
         
-        <form class="row g-3" method="post">
-    <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
-    <input type="hidden" id="docKeyToDelete" name="docKey">
-    <input type="hidden" id="empresaIdToDelete" name="empresaId">
+        <form class="row g-3" method="post" >
 
-    <div class="container mt-3">
-        <h2>Gestão de Documentos</h2>
-        <div class="list-group">
-            <?php if (!empty($data['documents']) && is_array($data['documents'])): ?>
-                <?php foreach ($data['documents'] as $key => $docPath): ?>
-                    <?php if (file_exists($docPath)): ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
-                                <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
+        <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
+
+            <div class="container mt-3">
+            <h2>Gestão de Documentos</h2>
+            <div class="list-group">
+                <?php if (!empty($data['documents']) && is_array($data['documents'])): ?>
+                    <?php foreach ($data['documents'] as $key => $docPath): ?>
+                        <?php if (file_exists($docPath)): ?>
+                            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong><?= ucwords(str_replace('_', ' ', $key)) ?>:</strong>
+                                    <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
                             </div>
-                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('<?= $key ?>', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                        </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>Nenhum documento disponível para mostrar.</p>
-            <?php endif; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Nenhum documento disponível para mostrar.</p>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-between mt-5">
-        <div class="col-6">
-            <a class="beautiful-button" style="text-decoration: none;" href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">
-                Abrir Forms
-            </a>
-        </div>
-    </div>
-</form>
 
 
-        <!-- Modal de Envio de E-mail -->
-<div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="d-flex justify-content-between mt-5">
+                <div class="col-6">
+                    <a class="beautiful-button" style="text-decoration: none;" href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">
+                        Abrir Forms
+                    </a>
+                </div>
+            </div>
+
+
+
+<!-- Modal de Exclusão de Documento com Opção de Envio de E-mail -->
+<div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="emailModalLabel">Enviar E-mail</h5>
+                <h5 class="modal-title" id="deleteDocumentModalLabel">Excluir Documento</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="emailForm">
+                <form id="deleteDocumentForm">
                     <div class="mb-3">
-                        <label for="recipientEmail" class="form-label">E-mail do Cliente:</label>
-                        <input type="email" class="form-control" id="recipientEmail" name="email" value="<?= $data['socio_asses']['email']; ?>" required>
+                        <label for="reason" class="form-label">Motivo da Exclusão (opcional):</label>
+                        <textarea class="form-control" id="reason" name="reason"></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label for="emailMessage" class="form-label">Mensagem:</label>
-                        <textarea class="form-control" id="emailMessage" name="message" required></textarea>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="sendEmail" name="sendEmail">
+                        <label class="form-check-label" for="sendEmail">
+                            Enviar e-mail com motivo da exclusão
+                        </label>
                     </div>
+                    <input type="hidden" id="docKeyToDelete" name="docKey">
+                    <input type="hidden" id="empresaIdToDelete" name="empresaId">
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="sendEmail()">Enviar E-mail</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Confirmar Exclusão</button>
             </div>
         </div>
     </div>
 </div>
 
+
+
+
+
+
+            
+        </form>
 
 <br>
 <br>
@@ -731,77 +743,29 @@ button.btn.btn-link i {
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-
-    
-<script>
-    function openEmailModal() {
-    $('#emailModal').modal('show');
-}
-
-function sendEmail() {
-    var email = document.getElementById('recipientEmail').value;
-    var message = document.getElementById('emailMessage').value;
-
-    $.post('<?= base_url("EmailController/contatoExcluirArquivo") ?>', {
-        email: email,
-        message: message
-    }, function(response) {
-        $('#emailModal').modal('hide');
-        if (response.status === 'success') {
-            alert('E-mail enviado com sucesso!');
-        } else {
-            alert('Erro ao enviar o e-mail: ' + response.message);
-        }
-    }, 'json').fail(function(xhr, status, error) {
-        alert('Erro ao enviar o e-mail: ' + xhr.responseText);
-    });
-}
-</script>
 <script>
 function deleteDocument(docKey, empresaId) {
-    // Set document key and empresa ID in hidden inputs
-    document.getElementById('docKeyToDelete').value = docKey;
-    document.getElementById('empresaIdToDelete').value = empresaId;
-
-    // Show modal
-    $('#deleteDocumentModal').modal('show');
+    if (confirm('Tem certeza que deseja excluir este documento?')) {
+        // Enviar requisição para o servidor para excluir o documento
+        fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Documento excluído com sucesso.');
+                location.reload(); // Recarrega a página para atualizar a lista
+            } else {
+                alert('Falha ao excluir o documento.');
+            }
+        });
+    }
 }
-
-function confirmDelete() {
-    var docKey = document.getElementById('docKeyToDelete').value;
-    var empresaId = document.getElementById('empresaIdToDelete').value;
-    var reason = document.getElementById('reason').value;
-    var sendEmail = document.getElementById('sendEmail').checked;
-
-    // Prepare data
-    var data = {
-        docKey: docKey,
-        empresaId: empresaId,
-        reason: reason,
-        sendEmail: sendEmail
-    };
-
-    // Send deletion request to server
-    fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Documento excluído com sucesso.');
-            $('#deleteDocumentModal').modal('hide');
-            location.reload(); // Reload page to update list
-        } else {
-            alert('Falha ao excluir o documento.');
-        }
-    });
-}
-
 </script>
 
 
