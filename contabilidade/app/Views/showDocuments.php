@@ -320,6 +320,45 @@ button.btn.btn-link i {
                 </div>
             </div>
 
+
+
+<!-- Modal de Exclusão de Documento com Opção de Envio de E-mail -->
+<div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteDocumentModalLabel">Excluir Documento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="deleteDocumentForm">
+                    <div class="mb-3">
+                        <label for="reason" class="form-label">Motivo da Exclusão (opcional):</label>
+                        <textarea class="form-control" id="reason" name="reason"></textarea>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="sendEmail" name="sendEmail">
+                        <label class="form-check-label" for="sendEmail">
+                            Enviar e-mail com motivo da exclusão
+                        </label>
+                    </div>
+                    <input type="hidden" id="docKeyToDelete" name="docKey">
+                    <input type="hidden" id="empresaIdToDelete" name="empresaId">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Confirmar Exclusão</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
             
         </form>
 
@@ -706,27 +745,49 @@ button.btn.btn-link i {
 
 <script>
 function deleteDocument(docKey, empresaId) {
-    if (confirm('Tem certeza que deseja excluir este documento?')) {
-        // Enviar requisição para o servidor para excluir o documento
-        fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Documento excluído com sucesso.');
-                location.reload(); // Recarrega a página para atualizar a lista
-            } else {
-                alert('Falha ao excluir o documento.');
-            }
-        });
-    }
+    // Set document key and empresa ID in hidden inputs
+    document.getElementById('docKeyToDelete').value = docKey;
+    document.getElementById('empresaIdToDelete').value = empresaId;
+
+    // Show modal
+    $('#deleteDocumentModal').modal('show');
 }
+
+function confirmDelete() {
+    var docKey = document.getElementById('docKeyToDelete').value;
+    var empresaId = document.getElementById('empresaIdToDelete').value;
+    var reason = document.getElementById('reason').value;
+    var sendEmail = document.getElementById('sendEmail').checked;
+
+    // Prepare data
+    var data = {
+        docKey: docKey,
+        empresaId: empresaId,
+        reason: reason,
+        sendEmail: sendEmail
+    };
+
+    // Send deletion request to server
+    fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Documento excluído com sucesso.');
+            $('#deleteDocumentModal').modal('hide');
+            location.reload(); // Reload page to update list
+        } else {
+            alert('Falha ao excluir o documento.');
+        }
+    });
+}
+
 </script>
 
 
