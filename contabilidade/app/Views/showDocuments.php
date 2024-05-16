@@ -318,49 +318,37 @@ button.btn.btn-link i {
                         Abrir Forms
                     </a>
                 </div>
-            </div>
+                </div>            
+        </form>
 
-
-
-<!-- Modal de Exclusão de Documento com Opção de Envio de E-mail -->
-<div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
+        <!-- Modal de Envio de E-mail -->
+<div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteDocumentModalLabel">Excluir Documento</h5>
+                <h5 class="modal-title" id="emailModalLabel">Enviar E-mail</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="deleteDocumentForm">
+                <form id="emailForm">
                     <div class="mb-3">
-                        <label for="reason" class="form-label">Motivo da Exclusão (opcional):</label>
-                        <textarea class="form-control" id="reason" name="reason"></textarea>
+                        <label for="recipientEmail" class="form-label">E-mail do Cliente:</label>
+                        <input type="email" class="form-control" id="recipientEmail" name="email" value="<?= $socio['email']; ?>" required>
                     </div>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="sendEmail" name="sendEmail">
-                        <label class="form-check-label" for="sendEmail">
-                            Enviar e-mail com motivo da exclusão
-                        </label>
+                    <div class="mb-3">
+                        <label for="emailMessage" class="form-label">Mensagem:</label>
+                        <textarea class="form-control" id="emailMessage" name="message" required></textarea>
                     </div>
-                    <input type="hidden" id="docKeyToDelete" name="docKey">
-                    <input type="hidden" id="empresaIdToDelete" name="empresaId">
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Confirmar Exclusão</button>
+                <button type="button" class="btn btn-primary" onclick="sendEmail()">Enviar E-mail</button>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-
-
-            
-        </form>
 
 <br>
 <br>
@@ -743,6 +731,32 @@ button.btn.btn-link i {
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+
+    
+<script>
+    function openEmailModal() {
+    $('#emailModal').modal('show');
+}
+
+function sendEmail() {
+    var email = document.getElementById('recipientEmail').value;
+    var message = document.getElementById('emailMessage').value;
+
+    $.post('<?= base_url("EmailController/contatoExcluirArquivo") ?>', {
+        email: email,
+        message: message
+    }, function(response) {
+        $('#emailModal').modal('hide');
+        if (response.status === 'success') {
+            alert('E-mail enviado com sucesso!');
+        } else {
+            alert('Erro ao enviar o e-mail: ' + response.message);
+        }
+    }, 'json').fail(function(xhr, status, error) {
+        alert('Erro ao enviar o e-mail: ' + xhr.responseText);
+    });
+}
+</script>
 <script>
 function deleteDocument(docKey, empresaId) {
     // Set document key and empresa ID in hidden inputs

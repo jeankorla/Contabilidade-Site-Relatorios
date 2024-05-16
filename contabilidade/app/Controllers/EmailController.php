@@ -594,4 +594,23 @@ public function contatoEmailDiretoria($data)
         return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
     }
 }
+
+public function contatoExcluirArquivo()
+{
+    $email = $this->request->getPost('email');
+    $message = $this->request->getPost('message');
+
+    $emailService = \Config\Services::email();
+    $emailService->setFrom('controladoria@sccontab.com.br', 'Spolaor Contabilidade');
+    $emailService->setTo($email);
+    $emailService->setSubject('Resposta de Contato');
+    $emailService->setMessage($message);  // Aqui você pode definir um template HTML com a variável $message
+
+    if ($emailService->send()) {
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Email enviado com sucesso.']);
+    } else {
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Falha ao enviar o email.']);
+    }
+}
+
 }
