@@ -846,39 +846,34 @@ function confirmarEnvio() {
 </script>
 
 <script>
-    document.getElementById("generateProposalBtn").onclick = async function() {
-    const confirmation = confirm("Você clicou em gerar proposta. Antes de continuar com a proposta, atualize os dados que foram modificados. Caso já tenha atualizado, clique em OK para continuar. Caso não tenha atualizado, clique em CANCELAR e atualize.");
-    if (!confirmation) return;
+    document.getElementById("generateProposalBtn").onclick = function() {
+    const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
 
-    const clienteId = "<?= $data['cliente']['id'] ?>";
-    try {
-        const proposalResponse = await fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
-            method: 'GET'
+    if (confirmation) {
+        const formElement = document.querySelector('form'); // Supondo que só existe um form na página, ou ajuste o seletor conforme necessário
+        const formData = new FormData(formElement);
+        const clienteId = "<?= $data['cliente']['id'] ?>";
+        
+        // Adiciona clienteId ao FormData
+        formData.append('cliente_id', clienteId);
+
+        fetch('<?= base_url('PropostaController/gerarProposta/') ?>', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById("proposalMessage").innerText = data.message;
+                document.getElementById("proposalLink").href = data.link;
+            } else {
+                document.getElementById("proposalMessage").innerText = data.message;
+                document.getElementById("proposalLink").style.display = 'none';
+            }
+
+            var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
+            modal.show();
         });
-
-        if (!proposalResponse.ok) {
-            throw new Error('Resposta do servidor não foi OK.');
-        }
-
-        const contentType = proposalResponse.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-            throw new Error('Resposta esperada como JSON, mas recebida como: ' + contentType);
-        }
-
-        const data = await proposalResponse.json();
-
-        if (data.status === 'success') {
-            document.getElementById("proposalMessage").innerText = data.message;
-            document.getElementById("proposalLink").href = data.link;
-        } else {
-            document.getElementById("proposalMessage").innerText = data.message;
-            document.getElementById("proposalLink").style.display = 'none';
-        }
-
-        var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-        modal.show();
-    } catch (error) {
-        alert('Falha na comunicação com o servidor: ' + error);
     }
 };
 
