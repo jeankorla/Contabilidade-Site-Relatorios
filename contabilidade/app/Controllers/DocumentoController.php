@@ -193,13 +193,14 @@ $pdfName = uniqid() . '.pdf';
         file_put_contents($pdfPath, $dompdf->output());
 
         $socioEmail = $socio['email'];
+        $socioNome = $socio['nome'];
 
         // Call createDocument directly after saving the file
         return $this->createDocument($pdfPath, $socioEmail);
     }
 
     
-    public function createDocument($filePath, $socioEmail)
+    public function createDocument($filePath, $socioEmail, $socioNome)
     {
         $token = getenv('GRAPHQL_BEARER_TOKEN');
         $url = 'https://api.autentique.com.br/v2/graphql';
@@ -259,6 +260,33 @@ $variables = [
         $response = curl_exec($ch);
         curl_close($ch);
 
-        return $this->response->setJSON(json_decode($response, true));
+         return $this->gerarPaginaParabens($socioNome, $socioEmail);
     }
+
+    public function gerarPaginaParabens($socioNome, $socioEmail) {
+
+        $fileName = preg_replace('/[^A-Za-z0-9]/', '', $socioNome) . 'Congratulations.php';
+        $filePath = './parabens/' . $fileName;
+
+        if (!is_dir('parabens')) {
+            mkdir('parabens', 0755, true);
+        }
+
+        $htmlContent = "<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Parabéns</title>
+    </head>
+    <body>
+        <h1>Parabéns, $socioNome!</h1>
+        <p>Estamos muito felizes por você escolher nossos serviços. Esperamos atender sempre suas expectativas!</p>
+    </body>
+    </html>";
+
+        file_put_contents($filePath, $htmlContent);
+
+        // Redirecionar para a página de parabéns
+        return redirect()->to(base_url("parabens/$fileName"));
+    }
+
 }

@@ -717,67 +717,67 @@ class PropostaController extends Controller
           <div class="w3-row-padding">
             <div class="w3-col m7">
               <label for="socio_asses_nome" class="w3-label">Nome do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_nome" name="socio_asses_nome">
+              <input type="text" class="w3-input w3-border" id="socio_asses_nome" name="socio_asses_nome" required>
             </div>
             <div class="w3-col m3">
               <label for="socio_asses_nacional" class="w3-label">Nacionalidade do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_nacional" name="socio_asses_nacional">
+              <input type="text" class="w3-input w3-border" id="socio_asses_nacional" name="socio_asses_nacional" required>
             </div>
             <div class="w3-col m2">
               <label for="socio_asses_idade" class="w3-label">Idade do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_idade" name="socio_asses_idade">
+              <input type="text" class="w3-input w3-border" id="socio_asses_idade" name="socio_asses_idade" required>
             </div>
           </div>
 
           <div class="w3-row-padding">
             <div class="w3-col m6">
               <label for="socio_asses_rg" class="w3-label">RG do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_rg" name="socio_asses_rg" oninput="aplicarMascaraRG(this)" maxlength="12">
+              <input type="text" class="w3-input w3-border" id="socio_asses_rg" name="socio_asses_rg" oninput="aplicarMascaraRG(this)" maxlength="12" required>
             </div>
             <div class="w3-col m6">
               <label for="socio_asses_cpf" class="w3-label">CPF do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_cpf" name="socio_asses_cpf" oninput="aplicarMascaraCPF(this)" maxlength="14">
+              <input type="text" class="w3-input w3-border" id="socio_asses_cpf" name="socio_asses_cpf" oninput="aplicarMascaraCPF(this)" maxlength="14" required>
             </div>
           </div>
 
           <div class="w3-row-padding">
             <div class="w3-col m3">
               <label for="socio_asses_endereco_cep" class="w3-label">CEP do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_cep" name="socio_asses_endereco_cep" oninput="aplicarMascaraCEP(this)" maxlength="9">
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_cep" name="socio_asses_endereco_cep" oninput="aplicarMascaraCEP(this)" maxlength="9" required>
             </div>
             <div class="w3-col m6">
               <label for="socio_asses_endereco_cidade" class="w3-label">Cidade do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_cidade" name="socio_asses_endereco_cidade">
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_cidade" name="socio_asses_endereco_cidade" required>
             </div>
             <div class="w3-col m3">
               <label for="socio_asses_endereco_estado" class="w3-label">Estado do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_estado" name="socio_asses_endereco_estado">
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_estado" name="socio_asses_endereco_estado" required>
             </div>
           </div>
 
           <div class="w3-row-padding">
             <div class="w3-col m5">
               <label for="socio_asses_endereco_rua" class="w3-label">Rua do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_rua" name="socio_asses_endereco_rua">
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_rua" name="socio_asses_endereco_rua" required>
             </div>
             <div class="w3-col m2">
               <label for="socio_asses_endereco_numero" class="w3-label">Número:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_numero" name="socio_asses_endereco_numero">
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_numero" name="socio_asses_endereco_numero" required>
             </div>
             <div class="w3-col m5">
               <label for="socio_asses_endereco_bairro" class="w3-label">Bairro do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_bairro" name="socio_asses_endereco_bairro">
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_bairro" name="socio_asses_endereco_bairro" required>
             </div>
           </div>
 
           <div class="w3-row-padding">
             <div class="w3-col m5">
               <label for="socio_asses_endereco_complemento" class="w3-label">Complemento do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_complemento" name="socio_asses_endereco_complemento">
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_complemento" name="socio_asses_endereco_complemento" required>
             </div>
             <div class="w3-col m7">
               <label for="socio_asses_email" class="w3-label">E-mail do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_email" name="socio_asses_email">
+              <input type="text" class="w3-input w3-border" id="socio_asses_email" name="socio_asses_email" required>
             </div>
           </div>
 
