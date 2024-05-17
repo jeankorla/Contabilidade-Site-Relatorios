@@ -206,8 +206,9 @@ public function atualizarCliente($id = null)
             $atividadeModel->insert($atividade);
         }
 
-        // Redirecionar de volta com uma mensagem de sucesso
-        return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
+        // Adapte o método de atualização aqui
+            $response = $this->ClienteService->updateCliente($clienteId, $this->request->getPost());
+            return $this->response->setJSON($response);
     }
 
 
