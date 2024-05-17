@@ -196,7 +196,7 @@ $pdfName = uniqid() . '.pdf';
         $socioNome = $socio['nome'];
 
         // Call createDocument directly after saving the file
-        return $this->createDocument($pdfPath, $socioEmail);
+        return $this->createDocument($pdfPath, $socioEmail, $socioNome);
     }
 
     
