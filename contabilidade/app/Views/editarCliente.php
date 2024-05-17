@@ -689,21 +689,19 @@
                     
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                   <a type="button" href="javascript:void(0);" class="continue-application" id="generateProposalBtn" style="text-decoration: none;">
-                        <div>
-                            <div class="pencil"></div>
-                            <div class="folder">
-                                <div class="top">
-                                    <svg viewBox="0 0 24 27">
-                                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 1.01453063e-16,0.44771525 1,0 Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="paper"></div>
+                   <a type="button" href="javascript:void(0);" class="continue-application" id="generateProposalBtn" style="text-decoration: none;" data-cliente-id="<?= $data['cliente']['id'] ?>">
+                    <div>
+                        <div class="pencil"></div>
+                        <div class="folder">
+                            <div class="top">
+                                <svg viewBox="0 0 24 27"></svg>
                             </div>
+                            <div class="paper"></div>
                         </div>
                         Gerar Proposta
                     </a>
-                    </div>
+                </div>
+
                     </div>
 
                     <!-- Código HTML do modal -->
@@ -846,32 +844,34 @@ function confirmarEnvio() {
 </script>
 
 <script>
-    document.getElementById("generateProposalBtn").onclick = function() {
-        const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
+   document.getElementById("generateProposalBtn").onclick = function() {
+    const clienteId = this.getAttribute("data-cliente-id");
+    const formData = new FormData(document.querySelector('form'));
+    let queryString = new URLSearchParams(formData).toString();
+    
+    const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
 
-        // Verifica se o usuário confirmou
-        if (confirmation) {
-            const clienteId = "<?= $data['cliente']['id'] ?>";
-            fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
-                method: 'GET'
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Mostrar mensagem e link no modal
-                if (data.status === 'success') {
-                    document.getElementById("proposalMessage").innerText = data.message;
-                    document.getElementById("proposalLink").href = data.link;
-                } else {
-                    document.getElementById("proposalMessage").innerText = data.message;
-                    document.getElementById("proposalLink").style.display = 'none';
-                }
+    if (confirmation) {
+        fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}?${queryString}`, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById("proposalMessage").innerText = data.message;
+                document.getElementById("proposalLink").href = data.link;
+                document.getElementById("proposalLink").style.display = 'block';
+            } else {
+                document.getElementById("proposalMessage").innerText = data.message;
+                document.getElementById("proposalLink").style.display = 'none';
+            }
 
-                // Criar uma instância do modal e exibi-lo
-                var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-                modal.show();
-            });
-        }
-    };
+            var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
+            modal.show();
+        });
+    }
+};
+
 </script>
 
 
