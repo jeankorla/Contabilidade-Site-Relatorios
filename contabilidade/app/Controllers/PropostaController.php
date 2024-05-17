@@ -96,7 +96,7 @@ class PropostaController extends Controller
 
         // Conteúdo do arquivo
         $htmlContent = '
-        <!DOCTYPE html>
+         <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -121,8 +121,11 @@ class PropostaController extends Controller
   <meta property="og:image:alt" content="Imagem ilustrativa" />
   
   <title>Página Inicial</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="assetsClientes/web/assets/mobirise-icons2/mobirise2.css">
@@ -157,6 +160,31 @@ class PropostaController extends Controller
 #input{
     background-color: #eee;
 }
+#formularioModal {
+    font-family: "Poppins", sans-serif;
+  }
+  .w3-modal-content {
+    font-family: "Poppins", sans-serif; /* Fonte mais legível */
+    font-size: 16px; /* Tamanho maior de fonte */
+  }
+
+  .w3-container {
+    margin-top: 20px; /* Mais espaço no topo do container */
+    line-height: 1.6; /* Aumenta o espaçamento das linhas para melhor legibilidade */
+  }
+
+  .w3-button {
+    margin: 10px; /* Espaço ao redor dos botões */
+    padding: 10px 20px; /* Mais padding nos botões para uma aparência melhor */
+  }
+
+  h2 {
+    margin-bottom: 15px; /* Espaçamento abaixo do título */
+  }
+
+  p {
+    margin-bottom: 20px; /* Espaçamento abaixo do parágrafo */
+  }
     </style>
 </head>
 <body>
@@ -666,107 +694,120 @@ class PropostaController extends Controller
     
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-10">
-                <div class="mbr-section-btn align-center"><a type="button" data-bs-toggle="modal" data-bs-target="#formularioModal" class="btn btn-danger display-4" href="">Aceitar Proposta</a></div>
+            <div class="col-md-12 col-lg-10"><div class="mbr-section-btn align-center"><button onclick="document.getElementById(' . 'formularioModal' . ').style.display=' . 'block' . '" class="w3-button w3-large" style="font-family: "Poppins", sans-serif; background-color: #FF931E; color: white;">Aceitar Proposta</button></div>
+               
             </div>
         </div>
     </div>
 </section>
 
 <!-- Modal Principal -->
-<div class="modal fade" id="formularioModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalLabel">Informações Necessárias</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ <div id="formularioModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:900px">
+
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById(' . 'formularioModal' . ').style.display=' . 'none' . '" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+        <h5 class="w3-modal-title">Informações Necessárias</h5>
       </div>
-      <div class="modal-body">
-        <form id="propostaForm" action="' . base_url("PropostaController/store") . '" method="post">
-          <input type="hidden" name="empresa_id" value="' . $empresa['id'] . '">
-          <div class="row">
-            <div class="col-md-7">
-              <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_nome" name="socio_asses_nome" required>
+
+      <form class="w3-container" id="propostaForm" method="post">
+        <input type="hidden" name="empresa_id" value="' . $empresa['id'] . '">
+        <div class="w3-section">
+
+          <div class="w3-row-padding">
+            <div class="w3-col m7">
+              <label for="socio_asses_nome" class="w3-label">Nome do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_nome" name="socio_asses_nome">
             </div>
-            <div class="col-3">
-              <label for="socio_asses_nacional" class="form-label">Nacionalidade do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_nacional" name="socio_asses_nacional" required>
+            <div class="w3-col m3">
+              <label for="socio_asses_nacional" class="w3-label">Nacionalidade do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_nacional" name="socio_asses_nacional">
             </div>
-            <div class="col-2">
-              <label for="socio_asses_idade" class="form-label">Idade do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_idade" name="socio_asses_idade" required>
-            </div>
-            <div class="col-6">
-              <label for="socio_asses_rg" class="form-label">RG do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_rg" name="socio_asses_rg" required oninput="aplicarMascaraRG(this)" maxlength="12">
-            </div>
-            <div class="col-6">
-              <label for="socio_asses_cpf" class="form-label">CPF do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_cpf" name="socio_asses_cpf" required oninput="aplicarMascaraCPF(this)" maxlength="14">
-            </div>
-            <div class="col-3">
-              <label for="socio_asses_endereco_cep" class="form-label">CEP do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_cep" name="socio_asses_endereco_cep" required oninput="aplicarMascaraCEP(this)" maxlength="9">
-            </div>
-            <div class="col-md-6">
-              <label for="socio_asses_endereco_cidade" class="form-label">Cidade do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_cidade" name="socio_asses_endereco_cidade" required>
-            </div>
-            <div class="col-3">
-              <label for="socio_asses_endereco_estado" class="form-label">Estado do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_estado" name="socio_asses_endereco_estado" required>
-            </div>
-            <div class="col-5">
-              <label for="socio_asses_endereco_rua" class="form-label">Rua do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_rua" name="socio_asses_endereco_rua" required>
-            </div>
-            <div class="col-md-2">
-              <label for="socio_asses_endereco_numero" class="form-label">Número:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_numero" name="socio_asses_endereco_numero" required>
-            </div>
-            <div class="col-md-5">
-              <label for="socio_asses_endereco_bairro" class="form-label">Bairro do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_bairro" name="socio_asses_endereco_bairro" required>
-            </div>
-            
-            <div class="col-5">
-              <label for="socio_asses_endereco_complemento" class="form-label">Complemento do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_endereco_complemento" name="socio_asses_endereco_complemento" required>
-            </div>
-             <div class="col-md-7">
-              <label for="socio_asses_email" class="form-label">E-mail do Sócio:</label>
-              <input type="text" class="form-control" id="socio_asses_email" name="socio_asses_email" required>
+            <div class="w3-col m2">
+              <label for="socio_asses_idade" class="w3-label">Idade do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_idade" name="socio_asses_idade">
             </div>
           </div>
-          <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Próximo Passo</button>
+
+          <div class="w3-row-padding">
+            <div class="w3-col m6">
+              <label for="socio_asses_rg" class="w3-label">RG do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_rg" name="socio_asses_rg" oninput="aplicarMascaraRG(this)" maxlength="12">
+            </div>
+            <div class="w3-col m6">
+              <label for="socio_asses_cpf" class="w3-label">CPF do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_cpf" name="socio_asses_cpf" oninput="aplicarMascaraCPF(this)" maxlength="14">
+            </div>
           </div>
-        </form>
+
+          <div class="w3-row-padding">
+            <div class="w3-col m3">
+              <label for="socio_asses_endereco_cep" class="w3-label">CEP do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_cep" name="socio_asses_endereco_cep" oninput="aplicarMascaraCEP(this)" maxlength="9">
+            </div>
+            <div class="w3-col m6">
+              <label for="socio_asses_endereco_cidade" class="w3-label">Cidade do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_cidade" name="socio_asses_endereco_cidade">
+            </div>
+            <div class="w3-col m3">
+              <label for="socio_asses_endereco_estado" class="w3-label">Estado do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_estado" name="socio_asses_endereco_estado">
+            </div>
+          </div>
+
+          <div class="w3-row-padding">
+            <div class="w3-col m5">
+              <label for="socio_asses_endereco_rua" class="w3-label">Rua do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_rua" name="socio_asses_endereco_rua">
+            </div>
+            <div class="w3-col m2">
+              <label for="socio_asses_endereco_numero" class="w3-label">Número:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_numero" name="socio_asses_endereco_numero">
+            </div>
+            <div class="w3-col m5">
+              <label for="socio_asses_endereco_bairro" class="w3-label">Bairro do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_bairro" name="socio_asses_endereco_bairro">
+            </div>
+          </div>
+
+          <div class="w3-row-padding">
+            <div class="w3-col m5">
+              <label for="socio_asses_endereco_complemento" class="w3-label">Complemento do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_endereco_complemento" name="socio_asses_endereco_complemento">
+            </div>
+            <div class="w3-col m7">
+              <label for="socio_asses_email" class="w3-label">E-mail do Sócio:</label>
+              <input type="text" class="w3-input w3-border" id="socio_asses_email" name="socio_asses_email">
+            </div>
+          </div>
+
+          <!-- Botão de submissão do formulário -->
+          <div class="w3-container w3-padding-16" style="text-align: right;">
+          <button type="submit" class="w3-button w3-green">Próximo Passo</button>
+        </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+<div id="confirmModal" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+    <div class="w3-container w3-teal">
+      <span onclick="document.getElementById(' . 'confirmModal' .').style.display=' . 'none' . '"
+      class="w3-button w3-display-topright">&times;</span>
+      <h2>Confirmação de Dados</h2>
+    </div>
+    <div class="w3-container">
+      <p>Por favor, confirme que todos os dados inseridos estão corretos e que você autoriza o uso desses dados de acordo com a nossa política de privacidade conforme a LGPD.</p>
+      <div>
+        <button onclick="document.getElementById(' . 'confirmModal' .').style.display=' . 'none' . '" class="w3-button w3-red">Cancelar</button>
+        <button id="confirmarEnvio" class="w3-button w3-green">Confirmar</button>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Modal de Confirmação -->
-<div class="modal fade" id="confirmacaoModal" tabindex="-1" aria-labelledby="confirmacaoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="confirmacaoModalLabel">Confirmação</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" style="width: 0.5rem !important;">
-        <p>Você tem certeza que quer enviar essa proposta?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary" id="confirmarEnvio">Sim</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <section data-bs-version="5.1" class="footer7 cid-sFHu2wLoQp" once="footers" id="footer7-9">
 
@@ -780,21 +821,23 @@ class PropostaController extends Controller
 </section><section class="display-7"><script src="assetsClientes/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assetsClientes/parallax/jarallax.js"></script>  <script src="assetsClientes/smoothscroll/smooth-scroll.js"></script>  <script src="assetsClientes/ytplayer/index.js"></script>  <script src="assetsClientes/dropdown/js/navbar-dropdown.js"></script>  <script src="assetsClientes/embla/embla.min.js"></script>  <script src="assetsClientes/embla/script.js"></script>  <script src="assetsClientes/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assetsClientes/theme/js/script.js"></script>  
     
 
-<script>
+
+    <script>
 document.addEventListener("DOMContentLoaded", function() {
   var form = document.getElementById("propostaForm");
-  var confirmacaoModal = new bootstrap.Modal(document.getElementById("confirmacaoModal"), {});
 
   form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    confirmacaoModal.show();
+    event.preventDefault(); // Previne a submissão imediata do formulário
+    document.getElementById(' . 'confirmModal' . ').style.display = ' . 'block' .'; // Mostra o modal de confirmação
   });
 
   document.getElementById("confirmarEnvio").addEventListener("click", function() {
-    form.submit();
+    form.submit(); // Submete o formulário após confirmação
   });
 });
+
 </script>
+
 
 <script>
 function aplicarMascaraCPF(input) {
