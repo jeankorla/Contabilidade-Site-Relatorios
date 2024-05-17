@@ -850,35 +850,31 @@ function confirmarEnvio() {
     const confirmation = confirm("Você clicou em gerar proposta. Antes de continuar com a proposta, atualize os dados que foram modificados. Caso já tenha atualizado, clique em OK para continuar. Caso não tenha atualizado, clique em CANCELAR e atualize.");
     if (!confirmation) return;
 
-    // Atualizando o cliente primeiro
+    const clienteId = "<?= $data['cliente']['id'] ?>";
     try {
-        const clienteId = "<?= $data['cliente']['id'] ?>";
-        const updateResponse = await fetch(`<?= base_url('ClienteController/atualizarCliente/') ?>${clienteId}`, {
-            method: 'POST',
-            body: new FormData(document.querySelector('form')) // Supondo que seu formulário contém dados do cliente
-        });
-        const updateData = await updateResponse.json();
-
-        if (updateData.status !== 'success') {
-            alert('Erro ao atualizar cliente: ' + updateData.message);
-            return;
-        }
-
-        // Se a atualização foi bem-sucedida, proceda com a geração da proposta
         const proposalResponse = await fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
             method: 'GET'
         });
-        const proposalData = await proposalResponse.json();
 
-        if (proposalData.status === 'success') {
-            document.getElementById("proposalMessage").innerText = proposalData.message;
-            document.getElementById("proposalLink").href = proposalData.link;
+        if (!proposalResponse.ok) {
+            throw new Error('Resposta do servidor não foi OK.');
+        }
+
+        const contentType = proposalResponse.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw new Error('Resposta esperada como JSON, mas recebida como: ' + contentType);
+        }
+
+        const data = await proposalResponse.json();
+
+        if (data.status === 'success') {
+            document.getElementById("proposalMessage").innerText = data.message;
+            document.getElementById("proposalLink").href = data.link;
         } else {
-            document.getElementById("proposalMessage").innerText = proposalData.message;
+            document.getElementById("proposalMessage").innerText = data.message;
             document.getElementById("proposalLink").style.display = 'none';
         }
 
-        // Exibir modal com o resultado
         var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
         modal.show();
     } catch (error) {
