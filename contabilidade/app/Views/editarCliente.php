@@ -685,7 +685,7 @@
             <div class="d-flex justify-content-between">
                 <div class="col-6">
                     <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Salvar</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
                     
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
@@ -846,42 +846,32 @@ function confirmarEnvio() {
 </script>
 
 <script>
-   document.getElementById("generateProposalBtn").onclick = function() {
-    const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
-    if (confirmation) {
-        // Enviar dados do formulário para atualizar o cliente
-        const formData = new FormData(document.querySelector('form'));
-        fetch(`<?= base_url('PropostaController/atualizarCliente/') ?>${formData.get('cliente_id')}`, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                // Continuar com a geração da proposta
-                fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${formData.get('cliente_id')}`, {
-                    method: 'GET'
-                })
-                .then(response => response.json())
-                .then(data => handleProposalResponse(data));
-            } else {
-                alert('Falha ao atualizar os dados do cliente.');
-            }
-        });
-    }
-};
+    document.getElementById("generateProposalBtn").onclick = function() {
+        const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
 
-function handleProposalResponse(data) {
-    document.getElementById("proposalMessage").innerText = data.message;
-    if (data.status === 'success') {
-        document.getElementById("proposalLink").href = data.link;
-        document.getElementById("proposalLink").style.display = 'block';
-    } else {
-        document.getElementById("proposalLink").style.display = 'none';
-    }
-    var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-    modal.show();
-}
+        // Verifica se o usuário confirmou
+        if (confirmation) {
+            const clienteId = "<?= $data['cliente']['id'] ?>";
+            fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Mostrar mensagem e link no modal
+                if (data.status === 'success') {
+                    document.getElementById("proposalMessage").innerText = data.message;
+                    document.getElementById("proposalLink").href = data.link;
+                } else {
+                    document.getElementById("proposalMessage").innerText = data.message;
+                    document.getElementById("proposalLink").style.display = 'none';
+                }
+
+                // Criar uma instância do modal e exibi-lo
+                var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
+                modal.show();
+            });
+        }
+    };
 </script>
 
 
