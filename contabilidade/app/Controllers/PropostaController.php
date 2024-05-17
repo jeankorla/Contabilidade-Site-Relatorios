@@ -2,11 +2,15 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\Controller;
+
 use App\Models\Cliente_lead;
 use App\Models\Empresa;
+use App\Models\Atividade;
 use App\Models\Contabilidade;
+use App\Models\Socio;
 use App\Models\Socio_ass;
-use CodeIgniter\Controller;
+
 
 
 date_default_timezone_set('America/Sao_Paulo');
@@ -206,9 +210,7 @@ public function atualizarCliente($id = null)
             $atividadeModel->insert($atividade);
         }
 
-        // Adapte o método de atualização aqui
-            $response = $this->ClienteService->updateCliente($clienteId, $this->request->getPost());
-            return $this->response->setJSON($response);
+         return $this->response->setJSON(['status' => 'success', 'message' => 'Cliente e empresa atualizados com sucesso.']);
     }
 
 
