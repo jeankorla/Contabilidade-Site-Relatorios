@@ -71,7 +71,7 @@ class PropostaController extends Controller
         }
     }
 
-    public function gerarProposta($clienteId, $empresaId)
+    public function gerarProposta($clienteId)
 {
 
 
