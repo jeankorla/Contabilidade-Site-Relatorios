@@ -166,7 +166,7 @@
             <label for="filterSituacao" class="form-label">Filtrar por Situação:</label>
             <select id="filterSituacao" class="form-select" onchange="applyFilters()">
                 <option value="all">Todos</option>
-                <option value="Lead" selected>Lead</option>
+                <option value="Lead">Lead</option>
                 <option value="Arquivado">Arquivado</option>
                 <option value="Proposta">Proposta</option>
                 <option value="Contrato">Contrato</option>
@@ -228,7 +228,7 @@
 
 <script>
   function applyFilters() {
-    var motivoFilter = document.getElementById('filterMotivo').value;
+    var motivoFilter = document.getElementById('filterMotivo').value; // Verifique se esse ID está correto
     var situacaoFilter = document.getElementById('filterSituacao').value;
     var rows = document.querySelectorAll('table tbody tr');
 
@@ -237,7 +237,6 @@
         var situacaoCell = row.cells[8].textContent; // Ajuste o índice conforme necessário
         var displayRow = true;
 
-        // Adicione esta condição para não mostrar linhas onde a situação é 'Cliente'
         if (situacaoCell.trim() === 'Cliente') {
             displayRow = false;
         }
@@ -245,7 +244,11 @@
         if (motivoFilter !== 'all' && motivoCell.trim() !== motivoFilter) {
             displayRow = false;
         }
-        if (situacaoFilter !== 'all' && situacaoCell.trim() !== situacaoFilter) {
+
+        // Altera a lógica para a situação 'all' para excluir 'Arquivado'
+        if (situacaoFilter === 'all' && situacaoCell.trim() === 'Arquivado') {
+            displayRow = false;
+        } else if (situacaoFilter !== 'all' && situacaoFilter !== situacaoCell.trim()) {
             displayRow = false;
         }
 
@@ -256,7 +259,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     applyFilters(); // Aplica os filtros iniciais ao carregar a página
 });
-
 </script>
 
 
