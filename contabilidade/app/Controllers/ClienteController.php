@@ -340,8 +340,8 @@ class ClienteController extends BaseController
             $atividadeModel->insert($atividade);
         }
 
-        // Redirecionar de volta com uma mensagem de sucesso
-        return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
+        // Redirecionar de volta para a mesma página com uma mensagem de sucesso
+        return redirect()->to(previous_url())->with('success', 'Registro atualizado com sucesso.');
     }
 
     public function arquivarCliente($id = null)
