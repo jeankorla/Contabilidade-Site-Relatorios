@@ -323,6 +323,7 @@ $variables = [
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul>
                     <li class="nav-item"><a class="nav-link link text-white display-4" href="https://sccontab.com.br/cliente">Baixe nosso App</a>
                     </li></ul>
                 
