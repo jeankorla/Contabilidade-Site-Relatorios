@@ -390,7 +390,14 @@
     <div class="jp1 jp2"></div>
     <div class="jp1 jp3"></div>
 
-      <!-- Exibe a mensagem de erro, caso exista -->
+      
+
+    <div class="container">
+    <div class="card mt-5 mb-5 p-5 shadow-lg">
+        <div class="col-12 mb-5">
+            <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Voltar</a>
+        </div>
+        <!-- Exibe a mensagem de erro, caso exista -->
       <?php if (session()->has('error')) : ?>
         <div class="alert alert-danger" role="alert">
           <?= session('error') ?>
@@ -405,12 +412,6 @@
           <?= session('success') ?>
         </div>
       <?php endif; ?>
-
-    <div class="container">
-    <div class="card mt-5 mb-5 p-5 shadow-lg">
-        <div class="col-12 mb-5">
-            <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Voltar</a>
-        </div>
         <h1 class="mb-5">Editar Cliente</h1>
 
         <div class="alert alert-danger" style="display: none;"> 
