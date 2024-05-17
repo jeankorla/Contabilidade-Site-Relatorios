@@ -318,7 +318,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #024A7F; z-index: 1;">
     <div class="container-fluid navbar-container">
-        <a class="navbar-brand" href="sccontab.com.br">
+        <a class="navbar-brand" href="https://sccontab.com.br/">
             <img class="img-fluid" src="<?php echo base_url('img/logo-nav.svg') ?>" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
