@@ -846,48 +846,42 @@ function confirmarEnvio() {
 </script>
 
 <script>
-    document.getElementById("generateProposalBtn").onclick = function() {
+   document.getElementById("generateProposalBtn").onclick = function() {
     const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
-
     if (confirmation) {
-        const formElement = document.querySelector('form'); // Supondo que só existe um form na página, ou ajuste o seletor conforme necessário
-        const formData = new FormData(formElement);
-        const clienteId = "<?= $data['cliente']['id'] ?>";
-        
-        // Adiciona clienteId ao FormData
-        formData.append('cliente_id', clienteId);
-
-        fetch('<?= base_url('PropostaController/gerarProposta/') ?>', {
+        // Enviar dados do formulário para atualizar o cliente
+        const formData = new FormData(document.querySelector('form'));
+        fetch(`<?= base_url('PropostaController/atualizarCliente/') ?>${formData.get('cliente_id')}`, {
             method: 'POST',
             body: formData
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok: ' + response.statusText);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                document.getElementById("proposalMessage").innerText = data.message;
-                document.getElementById("proposalLink").href = data.link;
+                // Continuar com a geração da proposta
+                fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${formData.get('cliente_id')}`, {
+                    method: 'GET'
+                })
+                .then(response => response.json())
+                .then(data => handleProposalResponse(data));
             } else {
-                document.getElementById("proposalMessage").innerText = data.message;
-                document.getElementById("proposalLink").style.display = 'none';
+                alert('Falha ao atualizar os dados do cliente.');
             }
-            var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-            modal.show();
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-            // Handle errors here, such as displaying a notification to the user
-            alert('An error occurred while processing your request. Please try again.');
         });
     }
 };
 
-
-
+function handleProposalResponse(data) {
+    document.getElementById("proposalMessage").innerText = data.message;
+    if (data.status === 'success') {
+        document.getElementById("proposalLink").href = data.link;
+        document.getElementById("proposalLink").style.display = 'block';
+    } else {
+        document.getElementById("proposalLink").style.display = 'none';
+    }
+    var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
+    modal.show();
+}
 </script>
 
 

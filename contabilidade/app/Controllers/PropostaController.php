@@ -71,12 +71,11 @@ class PropostaController extends Controller
         }
     }
 
-    public function gerarProposta($clienteId)
-{
 
 
 
-
+public function atualizarCliente($id = null)
+    {   
         $empresaId = $this->request->getPost('empresa_id');
         if (!$empresaId) {
             return redirect()->back()->with('error', 'ID da empresa não fornecido.');
@@ -207,6 +206,9 @@ class PropostaController extends Controller
             $atividadeModel->insert($atividade);
         }
 
+        // Redirecionar de volta com uma mensagem de sucesso
+        return redirect()->to('AdminController')->with('success', 'Registro atualizado com sucesso.');
+    }
 
 
 
@@ -218,26 +220,8 @@ class PropostaController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function gerarProposta($clienteId, $empresaId)
+{
     
     $clienteModel = new Cliente_lead();
     $cliente = $clienteModel->find($clienteId);
