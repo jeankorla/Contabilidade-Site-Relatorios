@@ -73,20 +73,6 @@ class PropostaController extends Controller
 
     public function gerarProposta($clienteId)
 {
-
-    $requestData = $this->request->getVar();  // Pega todos os dados enviados
-
-    // Convertendo os dados para JSON e retornando na resposta HTTP
-    return $this->response->setJSON([
-        'clienteId' => $clienteId,
-        'requestData' => $requestData
-    ]);
-
-    exit;
-
-
-
-
     $clienteModel = new Cliente_lead();
     $cliente = $clienteModel->find($clienteId);
 
