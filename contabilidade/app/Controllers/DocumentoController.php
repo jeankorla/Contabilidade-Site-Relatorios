@@ -280,21 +280,21 @@ $variables = [
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="https://sccontab.com.br/assets/images/design-sem-nome-10.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/design-sem-nome-10.png" type="image/x-icon">
   <meta name="description" content="">
   
   
   <title>Home</title>
-  <link rel="stylesheet" href="https://sccontab.com.br/assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="https://sccontab.com.br/assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://sccontab.com.br/assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="https://sccontab.com.br/assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="https://sccontab.com.br/assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="https://sccontab.com.br/assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="https://sccontab.com.br/assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="https://sccontab.com.br/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
   
   
@@ -309,7 +309,7 @@ $variables = [
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="">
-                        <img src="https://sccontab.com.br/assets/images/design-sem-nome-10.png" style="height: 3rem;">
+                        <img src="assets/images/design-sem-nome-10.png" style="height: 3rem;">
                     </a>
                 </span>
                 
@@ -343,7 +343,7 @@ $variables = [
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-6 image-wrapper">
-                <img src="https://sccontab.com.br/assets/images/contabilidade.png" alt="">
+                <img src="assets/images/contabilidade.png" alt="">
             </div>
             <div class="col-12 col-md">
                 <div class="text-wrapper">
@@ -418,7 +418,7 @@ Você irá receber um e-mail em ' . $socioEmail . ' com seu contrato!
                             <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
                         </a>
                     </div><div class="soc-item">
-                        <a href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20https://sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank">
+                        <a href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank">
                             <span class="mbr-iconfont mbr-iconfont-social socicon-whatsapp socicon"></span>
                         </a>
                     </div><div class="soc-item">
@@ -434,7 +434,7 @@ Você irá receber um e-mail em ' . $socioEmail . ' com seu contrato!
             </div>
         </div>
     </div>
-</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><script src="https://sccontab.com.br/assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="https://sccontab.com.br/assets/smoothscroll/smooth-scroll.js"></script>  <script src="https://sccontab.com.br/assets/ytplayer/index.js"></script>  <script src="https://sccontab.com.br/assets/dropdown/js/navbar-dropdown.js"></script>  <script src="https://sccontab.com.br/assets/theme/js/script.js"></script>  
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
