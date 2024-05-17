@@ -157,6 +157,14 @@ class PropostaController extends Controller
 #input{
     background-color: #eee;
 }
+
+#confirmacaoModal .modal-body {
+  padding: 1rem;
+}
+
+#confirmacaoModal .modal-footer {
+  padding: 0.5rem;
+}
     </style>
 </head>
 <body>
@@ -750,14 +758,14 @@ class PropostaController extends Controller
 
 <!-- Modal de Confirmação -->
 <div class="modal fade" id="confirmacaoModal" tabindex="-1" aria-labelledby="confirmacaoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="confirmacaoModalLabel">Confirmação</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Você tem certeza que quer enviar essa proposta?
+        <p>Você tem certeza que quer enviar essa proposta?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
