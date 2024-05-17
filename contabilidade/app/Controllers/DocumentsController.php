@@ -147,7 +147,7 @@ class DocumentsController extends BaseController
         }
 
         // Redirecionar de volta para a mesma página com uma mensagem de sucesso
-        return redirect()->to(previous_url())->with('success', 'Registro atualizado com sucesso.');
+        return redirect()->to(previous_url())->with('success', 'Documentos atualizados com sucesso.');
     }
 
 
