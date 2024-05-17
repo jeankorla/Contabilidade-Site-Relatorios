@@ -710,7 +710,7 @@ class PropostaController extends Controller
         <h5 class="w3-modal-title">Informações Necessárias</h5>
       </div>
 
-      <form class="w3-container" id="propostaForm" method="post">
+      <form class="w3-container" id="propostaForm" action="<?php echo base_url(' . 'PropostaController/store' . '); ?>" method="post">
         <input type="hidden" name="empresa_id" value="' . $empresa['id'] . '">
         <div class="w3-section">
 
