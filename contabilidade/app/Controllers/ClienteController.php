@@ -309,6 +309,11 @@ class ClienteController extends BaseController
         $socioModel = new Socio();
         $socios = $this->request->getPost('socios');
 
+        // Verifica se socios é um array; caso contrário, define como array vazio
+        if (!is_array($socios)) {
+            $socios = [];
+        }
+
         foreach ($socios as $socio) {
             // Preencher o ID da empresa
             $socio['empresa_id'] = $empresaId;
@@ -317,7 +322,7 @@ class ClienteController extends BaseController
             $existingSocio = $socioModel->where([
                 'nome' => $socio['nome'],
                 'qualifica' => $socio['qualifica'],
-                'empresa_id' => $socio['empresa_id']
+                'empresa_id' => $empresaId,
             ])->first();
 
             if ($existingSocio) {
@@ -328,6 +333,7 @@ class ClienteController extends BaseController
                 $socioModel->insert($socio);
             }
         }
+
 
         // Atualizando atividades secundárias
         $atividadeModel = new Atividade();
