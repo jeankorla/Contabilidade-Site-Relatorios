@@ -123,7 +123,6 @@ class PropostaController extends Controller
   <title>Página Inicial</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="assetsClientes/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="assetsClientes/web/assets/mobirise-icons/mobirise-icons.css">
@@ -134,12 +133,10 @@ class PropostaController extends Controller
   <link rel="stylesheet" href="assetsClientes/dropdown/css/style.css">
   <link rel="stylesheet" href="assetsClientes/socicon/css/styles.css">
   <link rel="stylesheet" href="assetsClientes/theme/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel="stylesheet"">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
   <link rel="preload" as="style" href="assetsClientes/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assetsClientes/mobirise/css/mbr-additional.css" type="text/css">
-
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Adicione o SweetAlert2 -->
   <style>
     /* Estilo para dispositivos móveis */
     @media (max-width: 767px) { /* limite para celular */
@@ -682,7 +679,7 @@ class PropostaController extends Controller
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="propostaForm" action="' . base_url("PropostaController/store") . '" method="post">
+        <form id="propostaForm" action="' . base_url("PropostaController/store") . '" method="post" onsubmit="return confirmSubmit()"> <!-- Adicionada função de confirmação -->
         <input type="hidden" name="empresa_id" value="' . $empresa['id'] . '">
           <div class="row">
             <div class="col-md-7">
@@ -748,6 +745,23 @@ class PropostaController extends Controller
   </div>
 </div>
 
+<script>
+function confirmarEnvio() {
+    return Swal.fire({
+        title: "Tem certeza?",
+        text: "Você não poderá reverter isso!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sim, enviar!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById("propostaForm").submit();
+        }
+    });
+}
+</script>
 
 <section data-bs-version="5.1" class="footer7 cid-sFHu2wLoQp" once="footers" id="footer7-9">
 
@@ -832,6 +846,7 @@ function aplicarMascaraCEP(input) {
 </script>
 </body>
 </html>
+
         ';
 
         
