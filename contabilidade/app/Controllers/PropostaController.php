@@ -73,6 +73,7 @@ class PropostaController extends Controller
 
     public function gerarProposta($clienteId)
 {
+    
     $clienteModel = new Cliente_lead();
     $cliente = $clienteModel->find($clienteId);
 

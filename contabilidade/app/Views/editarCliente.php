@@ -685,7 +685,7 @@
             <div class="d-flex justify-content-between">
                 <div class="col-6">
                     <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Salvar</button>
                     
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
@@ -846,32 +846,46 @@ function confirmarEnvio() {
 </script>
 
 <script>
-    document.getElementById("generateProposalBtn").onclick = function() {
-        const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
+    document.getElementById("generateProposalBtn").onclick = async function() {
+    const confirmation = confirm("Você clicou em gerar proposta. Antes de continuar com a proposta, atualize os dados que foram modificados. Caso já tenha atualizado, clique em OK para continuar. Caso não tenha atualizado, clique em CANCELAR e atualize.");
+    if (!confirmation) return;
 
-        // Verifica se o usuário confirmou
-        if (confirmation) {
-            const clienteId = "<?= $data['cliente']['id'] ?>";
-            fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
-                method: 'GET'
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Mostrar mensagem e link no modal
-                if (data.status === 'success') {
-                    document.getElementById("proposalMessage").innerText = data.message;
-                    document.getElementById("proposalLink").href = data.link;
-                } else {
-                    document.getElementById("proposalMessage").innerText = data.message;
-                    document.getElementById("proposalLink").style.display = 'none';
-                }
+    // Atualizando o cliente primeiro
+    try {
+        const clienteId = "<?= $data['cliente']['id'] ?>";
+        const updateResponse = await fetch(`<?= base_url('ClienteController/atualizarCliente/') ?>${clienteId}`, {
+            method: 'POST',
+            body: new FormData(document.querySelector('form')) // Supondo que seu formulário contém dados do cliente
+        });
+        const updateData = await updateResponse.json();
 
-                // Criar uma instância do modal e exibi-lo
-                var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-                modal.show();
-            });
+        if (updateData.status !== 'success') {
+            alert('Erro ao atualizar cliente: ' + updateData.message);
+            return;
         }
-    };
+
+        // Se a atualização foi bem-sucedida, proceda com a geração da proposta
+        const proposalResponse = await fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
+            method: 'GET'
+        });
+        const proposalData = await proposalResponse.json();
+
+        if (proposalData.status === 'success') {
+            document.getElementById("proposalMessage").innerText = proposalData.message;
+            document.getElementById("proposalLink").href = proposalData.link;
+        } else {
+            document.getElementById("proposalMessage").innerText = proposalData.message;
+            document.getElementById("proposalLink").style.display = 'none';
+        }
+
+        // Exibir modal com o resultado
+        var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
+        modal.show();
+    } catch (error) {
+        alert('Falha na comunicação com o servidor: ' + error);
+    }
+};
+
 </script>
 
 
