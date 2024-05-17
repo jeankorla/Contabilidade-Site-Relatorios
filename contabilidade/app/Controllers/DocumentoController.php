@@ -276,25 +276,48 @@ $variables = [
         <!DOCTYPE html>
 <html  >
 <head>
-  <meta charset="UTF-8">
+   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
+  <meta name="generator" content="Mobirise v5.9.4, mobirise.com">
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image:src" content="assetsClientes/images/index-meta.png">
+  <meta property="og:image" content="assetsClientes/images/index-meta.png">
+  <meta name="twitter:title" content="Página Inicial">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/design-sem-nome-10.png" type="image/x-icon">
-  <meta name="description" content="">
+  <link rel="shortcut icon" href="assetsClientes/images/design-sem-nome-8-128x128.png" type="image/x-icon">
+  <meta name="description" content="25 anos no mercado, englobando uma rede de empresas! TUDO QUE VOCÊ PRECISA, EM UM SÓ LUGAR! > SC CONTABILIDADE > SPOLAOR CONSULT > SPOLAOR IMOVÉIS > SC COWORKING">
+  <meta property="og:title" content="SC Contabilidade" />
+  <meta property="og:description" content="Acesse nosso site!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://spolaorcompany.com.br">
+  <meta property="og:image" content="https://spolaorcompany.com.br/assets/images/banner-capa.png" />
+  <meta property="og:image:type" content="https://spolaorcompany.com.br/assets/images/banner-capa.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Imagem ilustrativa" />
   
-  
-  <title>Home</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assetsClientes/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assetsClientes/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assetsClientes/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assetsClientes/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assetsClientes/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assetsClientes/parallax/jarallax.css">
+  <link rel="stylesheet" href="assetsClientes/dropdown/css/style.css">
+  <link rel="stylesheet" href="assetsClientes/socicon/css/styles.css">
+  <link rel="stylesheet" href="assetsClientes/theme/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel="stylesheet"">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assetsClientes/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assetsClientes/mobirise/css/mbr-additional.css" type="text/css">
 
   
   
