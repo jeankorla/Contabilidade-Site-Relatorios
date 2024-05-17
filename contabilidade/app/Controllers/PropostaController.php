@@ -755,8 +755,6 @@ class PropostaController extends Controller
       <div class="modal-header">
         <h5 class="modal-title" id="confirmacaoModalLabel">Confirmação</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" style="heigth: 0.5rem !important;">
         <p>Você tem certeza que quer enviar essa proposta?</p>
       </div>
       <div class="modal-footer">
