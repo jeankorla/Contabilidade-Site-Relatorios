@@ -846,33 +846,27 @@ function confirmarEnvio() {
 </script>
 
 <script>
-    document.getElementById("generateProposalBtn").onclick = function() {
+ document.getElementById("generateProposalBtn").onclick = function() {
     const clienteId = this.getAttribute("data-cliente-id");
     const formData = new FormData(document.querySelector('form'));
     let queryString = new URLSearchParams(formData).toString();
-    
+
     const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
 
     if (confirmation) {
         fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}?${queryString}`, {
             method: 'GET'
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                document.getElementById("proposalMessage").innerText = data.message;
-                document.getElementById("proposalLink").href = data.link;
-                document.getElementById("proposalLink").style.display = 'block';
-            } else {
-                document.getElementById("proposalMessage").innerText = data.message;
-                document.getElementById("proposalLink").style.display = 'none';
-            }
-
-            var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-            modal.show();
+        .then(response => response.json())  // Alterado para processar como JSON
+        .then(json => {
+            console.log(json);  // Logar o objeto JSON no console do navegador
+        })
+        .catch(error => {
+            console.error('Erro ao buscar dados:', error);
         });
     }
 };
+
 
 </script>
 
