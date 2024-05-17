@@ -861,7 +861,12 @@ function confirmarEnvio() {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.status === 'success') {
                 document.getElementById("proposalMessage").innerText = data.message;
@@ -870,12 +875,18 @@ function confirmarEnvio() {
                 document.getElementById("proposalMessage").innerText = data.message;
                 document.getElementById("proposalLink").style.display = 'none';
             }
-
             var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
             modal.show();
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            // Handle errors here, such as displaying a notification to the user
+            alert('An error occurred while processing your request. Please try again.');
         });
     }
 };
+
+
 
 </script>
 
