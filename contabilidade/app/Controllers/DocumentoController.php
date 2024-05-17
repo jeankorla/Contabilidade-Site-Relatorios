@@ -323,9 +323,7 @@ $variables = [
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="#top"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="index.html#features1-1i">Abertura de empresa</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="index.html#header14-1j">Trocar de contador</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="index.html#content4-1q">Baixe nosso App</a>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="https://sccontab.com.br/cliente">Baixe nosso App</a>
                     </li></ul>
                 
                 <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning-outline display-4" href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank">Dúvidas</a></div>
@@ -348,10 +346,10 @@ $variables = [
             <div class="col-12 col-md">
                 <div class="text-wrapper">
                     <h1 class="mbr-section-title mbr-fonts-style mb-3 display-2"><strong>Prezado(a) ' . $socioNome . '</strong></h1>
-                    <p class="mbr-text mbr-fonts-style display-7">Nós, da<strong>Spolaor Company</strong>, não podemos deixar de agradecer por essa nova parceria de sucesso que estamos firmando! Com certeza, trata-se de uma nova oportunidade de sucesso para ambas as partes e que colheremos muitos frutos dela.
-Esperamos que seja somente o início de uma longa jornada juntos e saibam que podem contar conosco sempre!
+                    <p class="mbr-text mbr-fonts-style display-7">Nós, da<strong style="color: #FF931E "> Spolaor Company</strong>, não podemos deixar de agradecer por essa nova parceria de <strong style="color: #FF931E ">sucesso </strong> que estamos firmando! Com certeza, trata-se de uma nova oportunidade de sucesso para ambas as partes e que colheremos muitos frutos dela.
+Esperamos que seja somente o início de uma longa jornada juntos e saibam que podem contar conosco <strong style="color: #FF931E "> sempre!</strong>
 <br>
-Você irá receber um e-mail em ' . $socioEmail . ' com seu contrato!
+Você irá receber um e-mail em <strong style="color: #FF931E "> ' . $socioEmail . '</strong> com seu contrato!
 <br>Grande abraço,</p>    
                 </div>
             </div>
@@ -434,7 +432,7 @@ Você irá receber um e-mail em ' . $socioEmail . ' com seu contrato!
             </div>
         </div>
     </div>
-</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
