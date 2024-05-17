@@ -694,25 +694,25 @@ class PropostaController extends Controller
     
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-10"><div class="mbr-section-btn align-center"><button onclick="document.getElementById(' . 'formularioModal' . ').style.display=' . 'block' . '" class="w3-button w3-large" style="font-family: "Poppins", sans-serif; background-color: #FF931E; color: white;">Aceitar Proposta</button></div>
+            <div class="col-md-12 col-lg-10"><div class="mbr-section-btn align-center"><button onclick="document.getElementById(\'formularioModal\').style.display=\'block\'" class="w3-button w3-large" style="font-family: \'Poppins\', sans-serif; background-color: #FF931E; color: white;">Aceitar Proposta</button>
+</div>
                
             </div>
         </div>
     </div>
 </section>
 
-<!-- Modal Principal -->
- <div id="formularioModal" class="w3-modal">
+<<!-- Modal Principal -->
+<div id="formularioModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:900px">
+        <div class="w3-center"><br>
+            <span onclick="document.getElementById(\'formularioModal\').style.display=\'none\'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            <h5 class="w3-modal-title">Informações Necessárias</h5>
+        </div>
 
-      <div class="w3-center"><br>
-        <span onclick="document.getElementById(' . 'formularioModal' . ').style.display=' . 'none' . '" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-        <h5 class="w3-modal-title">Informações Necessárias</h5>
-      </div>
-
-      <form class="w3-container" id="propostaForm" action="<?php echo base_url(' . 'PropostaController/store' . '); ?>" method="post">
-        <input type="hidden" name="empresa_id" value="' . $empresa['id'] . '">
-        <div class="w3-section">
+        <form class="w3-container" id="propostaForm" action="' . base_url('PropostaController/store') . '" method="post">
+            <input type="hidden" name="empresa_id" value="' . $empresa['id'] . '">
+            <div class="w3-section">
 
           <div class="w3-row-padding">
             <div class="w3-col m7">
@@ -795,14 +795,14 @@ class PropostaController extends Controller
 <div id="confirmModal" class="w3-modal">
   <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
     <div class="w3-container w3-teal">
-      <span onclick="document.getElementById(' . 'confirmModal' .').style.display=' . 'none' . '"
+      <span onclick="document.getElementById(\'confirmModal\').style.display=\'none\'"
       class="w3-button w3-display-topright">&times;</span>
       <h2>Confirmação de Dados</h2>
     </div>
     <div class="w3-container">
       <p>Por favor, confirme que todos os dados inseridos estão corretos e que você autoriza o uso desses dados de acordo com a nossa política de privacidade conforme a LGPD.</p>
       <div>
-        <button onclick="document.getElementById(' . 'confirmModal' .').style.display=' . 'none' . '" class="w3-button w3-red">Cancelar</button>
+        <button onclick="document.getElementById(\'confirmModal\').style.display=\'none\'" class="w3-button w3-red">Cancelar</button>
         <button id="confirmarEnvio" class="w3-button w3-green">Confirmar</button>
       </div>
     </div>
@@ -824,18 +824,24 @@ class PropostaController extends Controller
 
     <script>
 document.addEventListener("DOMContentLoaded", function() {
-  var form = document.getElementById("propostaForm");
+    var form = document.getElementById("propostaForm");
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault(); // Previne a submissão imediata do formulário
-    document.getElementById(' . 'confirmModal' . ').style.display = ' . 'block' .'; // Mostra o modal de confirmação
-  });
+    // Intercepta o evento de submit do formulário
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Previne a submissão imediata do formulário
+        document.getElementById("confirmModal").style.display = "block"; // Mostra o modal de confirmação
+    });
 
-  document.getElementById("confirmarEnvio").addEventListener("click", function() {
-    form.submit(); // Submete o formulário após confirmação
-  });
+    // Adiciona evento no botão de confirmação para submeter o formulário
+    document.getElementById("confirmarEnvio").addEventListener("click", function() {
+        form.submit(); // Submete o formulário após confirmação
+    });
+
+    // Evento para fechar o modal de confirmação e cancelar a operação
+    document.getElementById("confirmModal").querySelector(".w3-display-topright").addEventListener("click", function() {
+        document.getElementById("confirmModal").style.display = "none"; // Esconde o modal de confirmação
+    });
 });
-
 </script>
 
 
