@@ -146,7 +146,8 @@ class DocumentsController extends BaseController
             return redirect()->back()->with('error', 'Falha ao salvar os documentos.');
         }
 
-        return redirect()->to('/some/route')->with('success', 'Arquivos carregados com sucesso.');
+        // Redirecionar de volta para a mesma página com uma mensagem de sucesso
+        return redirect()->to(previous_url())->with('success', 'Registro atualizado com sucesso.');
     }
 
 

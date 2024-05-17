@@ -346,6 +346,23 @@
                 <li>Erro exemplo</li>
             </ul>
         </div>
+
+        <!-- Exibe a mensagem de erro, caso exista -->
+      <?php if (session()->has('error')) : ?>
+        <div class="alert alert-danger" role="alert">
+          <?= session('error') ?>
+        </div>
+      <?php endif; ?>
+
+
+
+      <!-- Exibe a mensagem de erro, caso exista -->
+      <?php if (session()->has('success')) : ?>
+        <div class="alert alert-success" role="alert">
+          <?= session('success') ?>
+        </div>
+      <?php endif; ?>
+      
 <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
         <div class="container mt-3">
             <div class="row ">
