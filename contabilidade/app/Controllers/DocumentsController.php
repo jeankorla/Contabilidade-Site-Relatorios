@@ -161,28 +161,26 @@ class DocumentsController extends BaseController
     $document = $documentModel->where('empresa_id', $empresaId)->first();
 
     if (!$document) {
-        // Documento não encontrado para essa empresa
         return $this->response->setJSON(['success' => false, 'message' => 'Documento não encontrado.']);
     }
 
     if (empty($document[$docKey])) {
-        // Campo específico do documento não encontrado ou já nulo
         return $this->response->setJSON(['success' => false, 'message' => 'Arquivo não encontrado ou já excluído.']);
     }
 
-    // Remove o arquivo do servidor, se existir
     if (file_exists($document[$docKey])) {
         unlink($document[$docKey]);
     }
 
-    // Atualiza apenas o campo específico no banco de dados para nulo
     $updateData = [$docKey => null];
     if ($documentModel->update($document['id'], $updateData)) {
-        return $this->response->setJSON(['success' => true, 'message' => 'Documento excluído com sucesso.']);
+        session()->setFlashdata('success', 'Documento excluído com sucesso.');
+        return $this->response->setJSON(['success' => true]);
     }
 
     return $this->response->setJSON(['success' => false, 'message' => 'Falha ao atualizar o registro.']);
 }
+
 
 
 

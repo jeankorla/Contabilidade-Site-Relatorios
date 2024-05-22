@@ -363,6 +363,7 @@
         </div>
       <?php endif; ?>
       
+      
 <form class="row g-3" action="<?= base_url('DocumentsController/storeDocuments/' . $data['empresa']['id']) ?>" method="post" enctype="multipart/form-data">
         <div class="container mt-3">
             <div class="row ">
@@ -726,34 +727,59 @@
     </div>
     </div>
                 
-    
+    <!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja excluir este documento?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </section>
 
 <script>
+let docKeyToDelete;
+let empresaIdToDelete;
+
 function deleteDocument(docKey, empresaId) {
-    if (confirm('Tem certeza que deseja excluir este documento?')) {
-        // Enviar requisição para o servidor para excluir o documento
-        fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify({ docKey: docKey, empresaId: empresaId })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Documento excluído com sucesso.');
-                location.reload(); // Recarrega a página para atualizar a lista
-            } else {
-                alert('Falha ao excluir o documento.');
-            }
-        });
-    }
+    docKeyToDelete = docKey;
+    empresaIdToDelete = empresaId;
+    // Abre o modal do Bootstrap
+    var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    deleteModal.show();
 }
+
+document.getElementById('confirmDeleteButton').addEventListener('click', function() {
+    fetch(`<?= base_url('DocumentsController/deleteDocument') ?>`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({ docKey: docKeyToDelete, empresaId: empresaIdToDelete })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload(); // Recarrega a página para atualizar a lista
+        } else {
+            alert('Falha ao excluir o documento.');
+        }
+    });
+});
 </script>
+
 </body>
 </html>
