@@ -723,10 +723,6 @@ class PropostaController extends Controller
               <label for="socio_asses_nacional" class="w3-label">Nacionalidade do Sócio:</label>
               <input type="text" class="w3-input w3-border" id="socio_asses_nacional" name="socio_asses_nacional" required>
             </div>
-            <div class="w3-col m2">
-              <label for="socio_asses_idade" class="w3-label">Idade do Sócio:</label>
-              <input type="text" class="w3-input w3-border" id="socio_asses_idade" name="socio_asses_idade" required>
-            </div>
           </div>
 
           <div class="w3-row-padding">

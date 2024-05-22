@@ -421,7 +421,7 @@
             </ul>
         </div>
         
-        <form class="row g-3" action="<?= base_url('ClienteController/atualizarCliente/' . $data['cliente']['id']) ?>" method="post" >
+        <form class="row g-3" id="updateForm" action="<?= base_url('ClienteController/atualizarCliente/' . $data['cliente']['id']) ?>" method="post" >
 
         <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
@@ -700,29 +700,52 @@
             <!-- BOTÃO GERAR PROPOSTA -->
            
 
-            <div class="d-flex justify-content-between">
-                <div class="col-6">
-                    <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Atualizar</button>
-                    
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                   <a type="button" href="javascript:void(0);" class="continue-application" id="generateProposalBtn" style="text-decoration: none;">
-                        <div>
-                            <div class="pencil"></div>
-                            <div class="folder">
-                                <div class="top">
-                                    <svg viewBox="0 0 24 27">
-                                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 1.01453063e-16,0.44771525 1,0 Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="paper"></div>
-                            </div>
+             <div class="d-flex justify-content-between">
+        <div class="col-6">
+            <a class="btn btn-danger" href="<?= base_url('AdminController/index') ?>">Cancelar</a>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise" style="margin-right: 5px;"></i>Salvar</button>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+            <a href="javascript:void(0);" class="continue-application" id="generateProposalBtn" style="text-decoration: none;">
+                <div>
+                    <div class="pencil"></div>
+                    <div class="folder">
+                        <div class="top">
+                            <svg viewBox="0 0 24 27">
+                                <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 1.01453063e-16,0.44771525 1,0 Z"></path>
+                            </svg>
                         </div>
-                        Gerar Proposta
-                    </a>
+                        <div class="paper"></div>
                     </div>
-                    </div>
+                </div>
+                Gerar Proposta
+            </a>
+        </div>
+    </div>
+
+
+
+
+<!-- Modal para Gerar Proposta -->
+<div class="modal fade" id="generateProposalModal" tabindex="-1" aria-labelledby="generateProposalModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="generateProposalModalLabel">Confirmação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Você clicou em GERAR PROPOSTA, Caso tenha certeza que quer gerar uma proposta clique em 'OK'.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmGenerateProposal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
                     <!-- Código HTML do modal -->
                     <div class="modal fade" id="proposalModal" tabindex="-1" aria-labelledby="proposalModalLabel" aria-hidden="true">
@@ -742,6 +765,7 @@
                             </div>
                         </div>
                     </div>
+
 
 
 
@@ -838,6 +862,26 @@
                                 </a>
                             </div>
 
+
+                            <!-- Modal para Gerar Contrato SEM Proposta -->
+<div class="modal fade" id="generateContractModal" tabindex="-1" aria-labelledby="generateContractModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="generateContractModalLabel">Confirmação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Você está prestes a Enviar um Contrato SEM gerar Proposta, caso tenha certeza da sua ação clique em 'OK'.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmGenerateContract">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
                 
             </div>
@@ -851,46 +895,80 @@
 </section>
 
 <script>
-function confirmarEnvio() {
-    var confirmacao1 = confirm("Você está prestes a Enviar um Contrato SEM gerar Proposta, antes disso ATUALIZE as informações que forem alteradas, e depois disso clique em 'OK'.");
-    if (confirmacao1) {
-        var confirmacao2 = confirm("Você está prestes a Enviar um Contrato SEM gerar Proposta, caso tenha certeza da sua ação clique em 'OK'.");
-        if (confirmacao2) {
-            // Redirecionar para a URL após a confirmação do usuário
-            window.location.href = "<?= base_url('PropostaController/contratoSemProposta/' . $data['empresa']['id']) ?>";
+function atualizarFormulario(callback) {
+    const updateForm = document.getElementById("updateForm");
+    const formData = new FormData(updateForm);
+
+    fetch(updateForm.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text(); // Ou response.json(), dependendo do tipo de resposta
+        } else {
+            throw new Error('Erro ao atualizar os dados.');
         }
-    }
+    })
+    .then(data => {
+        callback(); // Chama a função callback fornecida após a atualização
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
 }
+
+// Gerar Proposta
+document.getElementById("generateProposalBtn").onclick = function() {
+    var modal = new bootstrap.Modal(document.getElementById('generateProposalModal'));
+    modal.show();
+};
+
+document.getElementById("confirmGenerateProposal").onclick = function() {
+    document.getElementById("generateProposalBtn").disabled = true;
+
+    atualizarFormulario(() => {
+        const clienteId = "<?= $data['cliente']['id'] ?>";
+        fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById("proposalMessage").innerText = data.message;
+                document.getElementById("proposalLink").href = data.link;
+            } else {
+                document.getElementById("proposalMessage").innerText = data.message;
+                document.getElementById("proposalLink").style.display = 'none';
+            }
+
+            var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
+            modal.show();
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        })
+        .finally(() => {
+            document.getElementById("generateProposalBtn").disabled = false;
+        });
+    });
+};
+
+// Gerar Contrato SEM Proposta
+function confirmarEnvio() {
+    var modal = new bootstrap.Modal(document.getElementById('generateContractModal'));
+    modal.show();
+}
+
+document.getElementById("confirmGenerateContract").onclick = function() {
+    atualizarFormulario(() => {
+        window.location.href = "<?= base_url('PropostaController/contratoSemProposta/' . $data['empresa']['id']) ?>";
+    });
+};
 </script>
 
-<script>
-    document.getElementById("generateProposalBtn").onclick = function() {
-        const confirmation = confirm("Você clicou em gerar proposta, antes de continuar com a proposta, atualize os dados que foram modificados, caso já tenha atualizado clique em OK para continuar, caso não tenha atualizado, clique em CANCELAR e atualize.");
 
-        // Verifica se o usuário confirmou
-        if (confirmation) {
-            const clienteId = "<?= $data['cliente']['id'] ?>";
-            fetch(`<?= base_url('PropostaController/gerarProposta/') ?>${clienteId}`, {
-                method: 'GET'
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Mostrar mensagem e link no modal
-                if (data.status === 'success') {
-                    document.getElementById("proposalMessage").innerText = data.message;
-                    document.getElementById("proposalLink").href = data.link;
-                } else {
-                    document.getElementById("proposalMessage").innerText = data.message;
-                    document.getElementById("proposalLink").style.display = 'none';
-                }
 
-                // Criar uma instância do modal e exibi-lo
-                var modal = new bootstrap.Modal(document.getElementById("proposalModal"));
-                modal.show();
-            });
-        }
-    };
-</script>
 
 
 <script>
