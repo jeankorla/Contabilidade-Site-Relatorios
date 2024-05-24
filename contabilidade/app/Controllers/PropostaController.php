@@ -227,8 +227,7 @@ class PropostaController extends Controller
 </section>
 
 <section data-bs-version="5.1" class="header4 mbr-fullscreen mbr-parallax-background" id="header4-2" style="position: relative;">
-    <img src="assetsClientes/images/contabilidade.webp" class="img-fluid" alt="Imagem responsiva" style="width: 100%">
-    
+    <img src="assetsClientes/images/contabilidade.webp" class="img-fluid" alt="Imagem responsiva" style="width: 100%; height: 100vh; object-fit: cover;">
     <div class="container-fluid">
         <div class="row">
             <div class="content-wrap">
@@ -237,6 +236,7 @@ class PropostaController extends Controller
         </div>
     </div>
 </section>
+
 
 <section data-bs-version="5.1" class="slider4 mbr-embla cid-ub5dqf75K9" id="slider4-v">
     
