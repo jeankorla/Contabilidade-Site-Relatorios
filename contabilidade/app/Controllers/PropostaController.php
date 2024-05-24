@@ -153,6 +153,14 @@ class PropostaController extends Controller
         }
     }
 
+     /* Estilo para telas ultra wide */
+    @media (min-width: 1920px) {
+        #header4-2 img {
+            height: 100vh;  /* Faz com que a imagem cubra toda a altura da viewport */
+            object-fit: cover; /* Garante que a imagem cubra o espaço disponível sem distorção */
+        }
+    }
+
     /* Estilo para aplicar a fonte Montserrat à tabela */
 .table-wrapper {
     font-family: "Montserrat", sans-serif; /* Define a fonte para a tabela */
@@ -226,15 +234,18 @@ class PropostaController extends Controller
     </nav>
 </section>
 
-<section data-bs-version="5.1" class="header4 mbr-fullscreen mbr-parallax-background" id="header4-2" style="position: relative; background-image: url(\'assetsClientes/images/contabilidade.webp\'); background-size: cover; background-position: center;">
+<section data-bs-version="5.1" class="header4 mbr-fullscreen mbr-parallax-background" id="header4-2" style="position: relative;">
+    <img src="assetsClientes/images/contabilidade.webp" class="img-fluid" alt="Imagem responsiva" style="width: 100%">
+    
     <div class="container-fluid">
         <div class="row">
             <div class="content-wrap">
-                <!-- Conteúdo aqui -->
+                
             </div>
         </div>
     </div>
 </section>
+
 
 
 <section data-bs-version="5.1" class="slider4 mbr-embla cid-ub5dqf75K9" id="slider4-v">
