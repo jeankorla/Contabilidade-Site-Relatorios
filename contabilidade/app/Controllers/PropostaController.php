@@ -159,7 +159,7 @@ class PropostaController extends Controller
             height: 100vh;  /* Faz com que a imagem cubra toda a altura da viewport */
             object-fit: cover; /* Garante que a imagem cubra o espaço disponível sem distorção */
             width: 100%; /* Assegura que a largura cobre todo o espaço horizontal */
-            left: -50%; /* Move a imagem para o meio */
+            left: -500%; /* Move a imagem para o meio */
             transform: translateX(-50%); /* Centraliza exatamente no meio horizontalmente */
         }
     }
