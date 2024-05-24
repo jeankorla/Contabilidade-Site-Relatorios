@@ -481,9 +481,9 @@ class PropostaController extends Controller
         <div class="row justify-content-center">
             <div class="col-12 col-md-10">
                 <div class="mbr-section-head align-center mb-4">
-                    <h3 class="mbr-section-title mb-0 mbr-fonts-style display-5"><span style="font-size: 2rem;"><strong>À RADIO DA GRANDE SERRA LTDA</strong></span><div><strong>A/C DIRETORES</strong></div></h3>
-                    <h4 class="mbr-section-subtitle mb-0 mt-2 mbr-fonts-style display-7">Ref.: Proposta de Prestação de Serviços Contábeis para empresa Tributada pelo Regime Federal do Simples Nacional.<br><br><strong>DO OBJETO<br></strong><br>
-<div>O objeto da presente consiste em propor prestação de Serviços Contábeis pela <strong>SPOLAOR CONTABILIDADE LTDA, CNPJ nº 39.897.569/0001-37, CRC nº 2SP042992/O-6,</strong> à favor da <strong>RADIO DA GRANDE SERRA, CNPJ nº 11.570.272/0001-43, </strong>dos seguintes serviços profissionais:</div></h4>
+                    <h3 class="mbr-section-title mb-0 mbr-fonts-style display-5"><span style="font-size: 2rem;"><strong>À ' . $empresa['nome'] . '</strong></span><div><strong>A/C DIRETORES</strong></div></h3>
+                    <h4 class="mbr-section-subtitle mb-0 mt-2 mbr-fonts-style display-7">Ref.: Proposta de Prestação de Serviços Contábeis para empresa Tributada pelo Regime Federal do ' . $empresa['tributacao'] . '.<br><br><strong>DO OBJETO<br></strong><br>
+<div>O objeto da presente consiste em propor prestação de Serviços Contábeis pela <strong>SPOLAOR CONTABILIDADE LTDA, CNPJ nº 39.897.569/0001-37, CRC nº 2SP042992/O-6,</strong> à favor da <strong>' . $empresa['nome'] . ', CNPJ nº ' . $empresa['cnpj'] . ', </strong>dos seguintes serviços profissionais:</div></h4>
                 </div>
                 <div id="bootstrap-accordion_8" class="panel-group accordionStyles accordion" role="tablist" aria-multiselectable="true">
                     <div class="card mb-3">
@@ -540,7 +540,7 @@ class PropostaController extends Controller
                         </div>
                         <div id="collapse4_8" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_8">
                             <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4"><strong>4.1</strong> - Para a execução dos serviços constantes nos itens 1 à 3, relacionados acima, <strong>à partir da competência Janeiro/2023 à Spolaor Contabilidade </strong>propõe os honorários profissionais mensais correspondentes à <strong>R$ 1.800,00,00 </strong>(Hum mil e oitocentos reais) até o dia 01 do mês subsequente ao vencido, podendo a cobrança ser veiculada através de cobrança bancária.<br>  
+                                <p class="mbr-fonts-style panel-text display-4"><strong>4.1</strong> - Para a execução dos serviços constantes nos itens 1 à 3, relacionados acima, <strong>à partir da competência '. $contabilidade['competencia']  .' à Spolaor Contabilidade </strong>propõe os honorários profissionais mensais correspondentes à <strong>' . $contabilidade['honorario'] .' </strong>(Hum mil e oitocentos reais) até o dia 01 do mês subsequente ao vencido, podendo a cobrança ser veiculada através de cobrança bancária.<br>  
 <br><strong>4.2</strong> - Para a execução dos serviços em cumprimento das obrigações acessórias mensais e anuais, os serviços não serão cobrados à parte, exceto, caso seja criado nova obrigação acessória pelo erário público e o imposto de renda da pessoa física, caso seja feito pela contabilidade.<br> 
 <br><strong>4.3 </strong>– Os Honorários serão reajustados de acordo com o índice de reajuste do salário mínimo vigente, desta forma, sempre que atualizar o salário mínimo e independentemente do tempo de contrato com a contabilidade, será aplicado o reajuste nos honorários da época vigente.<br>
 <br><strong>4.4 </strong>– Sem prejuízo do previsto no item 4.3, os honorários poderão ser aumentados de comum acordo entre as partes, conforme volume de aumento do trabalho executado pela contabilidade.&nbsp;<br></p>
