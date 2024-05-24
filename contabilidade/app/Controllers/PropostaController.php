@@ -160,7 +160,7 @@ class PropostaController extends Controller
             object-fit: cover; /* Garante que a imagem cubra o espaço disponível sem distorção */
             width: 100%; /* Assegura que a largura cobre todo o espaço horizontal */
             left: 50%; /* Move a imagem para o meio */
-            transform: translateX(0%); /* Centraliza exatamente no meio horizontalmente */
+            transform: translateX(5%); /* Centraliza exatamente no meio horizontalmente */
         }
     }
     /* Estilo para aplicar a fonte Montserrat à tabela */
