@@ -226,12 +226,11 @@ class PropostaController extends Controller
     </nav>
 </section>
 
-<section data-bs-version="5.1" class="header4 mbr-fullscreen mbr-parallax-background" id="header4-2" style="position: relative;">
-    <img src="assetsClientes/images/contabilidade.webp" class="img-fluid" alt="Imagem responsiva" style="width: 100%; height: 100vh; object-fit: cover;">
+<section data-bs-version="5.1" class="header4 mbr-fullscreen mbr-parallax-background" id="header4-2" style="position: relative; background-image: url(\'assetsClientes/images/contabilidade.webp\'); background-size: cover; background-position: center;">
     <div class="container-fluid">
         <div class="row">
             <div class="content-wrap">
-                
+                <!-- Conteúdo aqui -->
             </div>
         </div>
     </div>
