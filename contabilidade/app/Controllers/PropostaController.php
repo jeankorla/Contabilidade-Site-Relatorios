@@ -97,116 +97,90 @@ class PropostaController extends Controller
         // Conteúdo do arquivo
         $htmlContent = '
          <!DOCTYPE html>
-<html>
+<html  >
 <head>
+  <!-- Site made with Mobirise Website Builder v5.9.0, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.9.4, mobirise.com">
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image:src" content="assetsClientes/images/index-meta.png">
-  <meta property="og:image" content="assetsClientes/images/index-meta.png">
-  <meta name="twitter:title" content="Página Inicial">
+  <meta name="generator" content="Mobirise v5.9.0, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assetsClientes/images/design-sem-nome-8-128x128.png" type="image/x-icon">
-  <meta name="description" content="25 anos no mercado, englobando uma rede de empresas! TUDO QUE VOCÊ PRECISA, EM UM SÓ LUGAR! > SC CONTABILIDADE > SPOLAOR CONSULT > SPOLAOR IMOVÉIS > SC COWORKING">
-  <meta property="og:title" content="SC Contabilidade" />
-  <meta property="og:description" content="Acesse nosso site!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:url" content="https://spolaorcompany.com.br">
-  <meta property="og:image" content="https://spolaorcompany.com.br/assets/images/banner-capa.png" />
-  <meta property="og:image:type" content="https://spolaorcompany.com.br/assets/images/banner-capa.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Imagem ilustrativa" />
+  <link rel="shortcut icon" href="assets/images/design-sem-nome-10.png" type="image/x-icon">
+  <meta name="description" content="">
   
-  <title>Página Inicial</title>
+  
+  <title>Home</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/parallax/jarallax.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
-    <!-- Option 1: Include in HTML -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="assetsClientes/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="assetsClientes/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assetsClientes/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assetsClientes/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assetsClientes/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assetsClientes/parallax/jarallax.css">
-  <link rel="stylesheet" href="assetsClientes/dropdown/css/style.css">
-  <link rel="stylesheet" href="assetsClientes/socicon/css/styles.css">
-  <link rel="stylesheet" href="assetsClientes/theme/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel="stylesheet"">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="assetsClientes/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assetsClientes/mobirise/css/mbr-additional.css" type="text/css">
-
-
-  <style>
-    /* Estilo para dispositivos móveis */
-    @media (max-width: 767px) { /* limite para celular */
-        .features12 .image-wrapper img {
-            width: 100%; /* Certifica-se de que a largura é adequada para a tela do celular */
-            height: auto; /* Mantém a proporção da imagem */
-            max-width: 300px; /* Limita o tamanho máximo da imagem */
-        }
-    }
-
-     /* Estilo para telas ultra wide */
-    @media (min-width: 1920px) {
-        #header4-2 img {
-            height: 100vh;  /* Faz com que a imagem cubra toda a altura da viewport */
-            object-fit: cover; /* Garante que a imagem cubra o espaço disponível sem distorção */
-            width: 100%; /* Assegura que a largura cobre todo o espaço horizontal */
-            left: 50%; /* Move a imagem para o meio */
-            transform: translateX(5%); /* Centraliza exatamente no meio horizontalmente */
-        }
-    }
-    /* Estilo para aplicar a fonte Montserrat à tabela */
-.table-wrapper {
-    font-family: "Montserrat", sans-serif; /* Define a fonte para a tabela */
+  
+  
+    <style>
+    .custom-btn-outline {
+    border: 2px solid #FF931E; /* A cor primária do Bootstrap */
+    color: #FF931E;
+    background-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
 }
-#input{
-    background-color: #eee;
+
+.custom-btn-outline:hover {
+    color: #fff;
+    background-color: #FF931E;
+    border-color: #FF931E;
 }
-#formularioModal {
-    font-family: "Poppins", sans-serif;
-  }
-  .w3-modal-content {
-    font-family: "Poppins", sans-serif; /* Fonte mais legível */
-    font-size: 16px; /* Tamanho maior de fonte */
-  }
 
-  .w3-container {
-    margin-top: 20px; /* Mais espaço no topo do container */
-    line-height: 1.6; /* Aumenta o espaçamento das linhas para melhor legibilidade */
-  }
+.custom-btn-outline:focus, .custom-btn-outline:active {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* O foco "glow" do Bootstrap */
+}
 
-  .w3-button {
-    margin: 10px; /* Espaço ao redor dos botões */
-    padding: 10px 20px; /* Mais padding nos botões para uma aparência melhor */
-  }
+ .custom-btn-outline2 {
+    border: 2px solid #08B81A; /* A cor primária do Bootstrap */
+    color: #08B81A;
+    background-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+}
 
-  h2 {
-    margin-bottom: 15px; /* Espaçamento abaixo do título */
-  }
+.custom-btn-outline2:hover {
+    color: #fff;
+    background-color: #08B81A;
+    border-color: #08B81A;
+}
 
-  p {
-    margin-bottom: 20px; /* Espaçamento abaixo do parágrafo */
-  }
-    </style>
+.custom-btn-outline2:focus, .custom-btn-outline:active {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* O foco "glow" do Bootstrap */
+}
+  </style>
+  
 </head>
 <body>
   
-  <section data-bs-version="5.1" class="menu menu3 cid-tPyWbr8wEr" once="menu" id="menu3-3">
+  <section data-bs-version="5.1" class="menu menu2 cid-sFCw1qGFAI" once="menu" id="menu2-23">
     
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color: #232323 !important;">
+    <nav class="navbar navbar-dropdown navbar-expand-lg">
         <div class="container">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="index.html#top">
-                        <img src="assetsClientes/images/png-transparente-sc-fundo-azul-removebg-preview-90x64.webp" alt="Logo da página inicial" style="height: 3.9rem;">
+                    <a href="https://mobiri.se">
+                        <img src="assets/images/design-sem-nome-10.png" alt="Mobirise Website Builder" style="height: 3rem;">
                     </a>
                 </span>
                 
@@ -220,138 +194,140 @@ class PropostaController extends Controller
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="https://www.canva.com/design/DAF6047mnK4/bR11P-sWup_XI64qHHE6dw/view?utm_content=DAF6047mnK4&utm_campaign=designshare&utm_medium=link&utm_source=editor#2" target="_blank">QUEM SOMOS</a></li></ul>
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="https://www.canva.com/design/DAF6047mnK4/bR11P-sWup_XI64qHHE6dw/view?utm_content=DAF6047mnK4&utm_campaign=designshare&utm_medium=link&utm_source=editor#2" target="_blank">QUEM SOMOS</a>
+                    </li></ul>
                 <div class="icons-menu">
-                    <a class="iconfont-wrapper" href="https://www.instagram.com/spolaorcompany/?igshid=NzZhOTFlYzFmZQ%3D%3D" target="_blank">
-                        <span class="p-2 mbr-iconfont"><i class="bi bi-instagram"></i></span>
-                    <a class="iconfont-wrapper" href="https://www.linkedin.com/company/spolaor-contabilidade/" target="_blank">
-                        <span class="p-2 mbr-iconfont"><i class="bi bi-linkedin"></i></span>
-                    <a class="iconfont-wrapper" href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1." target="_blank">
-                        <span class="p-2 mbr-iconfont"><i class="bi bi-whatsapp"></i></span>
+                    <a class="iconfont-wrapper" href="https://www.instagram.com/spolaorcompany" target="_blank">
+                        <span class="p-2 mbr-iconfont socicon-instagram socicon"></span>
                     </a>
+                    <a class="iconfont-wrapper" href="https://www.linkedin.com/company/spolaor-contabilidade/" target="_blank">
+                        <span class="p-2 mbr-iconfont socicon-linkedin socicon"></span>
+                    </a>
+                    <a class="iconfont-wrapper" href="https://www.facebook.com/SCspolaorCompany/" target="_blank">
+                        <span class="p-2 mbr-iconfont socicon-facebook socicon"></span>
+                    </a>
+                    
                 </div>
-                
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning-outline display-4" href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank">Dúvidas</a></div>
             </div>
         </div>
     </nav>
 </section>
 
-<section data-bs-version="5.1" class="header4 mbr-fullscreen mbr-parallax-background" id="header4-2" style="position: relative;">
-    <img src="assetsClientes/images/contabilidade.webp" class="img-fluid" alt="Imagem responsiva" style="width: 100%">
+<section data-bs-version="5.1" class="header14 cid-sFzxmVl7J6" id="header14-1f">
+
+    
+
+    
+
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-6 image-wrapper">
+                <img src="assets/images/contabilidade.png" alt="Mobirise Website Builder">
+            </div>
+            <div class="col-12 col-md">
+                <div class="text-wrapper">
+                    <h1 class="mbr-section-title mbr-fonts-style mb-3 display-2"><strong><strong><span style="color: #FF931E;">Descomplique</span></strong> seu Negócio</strong></h1>
+                    <p class="mbr-text mbr-fonts-style display-7">Tudo que você precisa <span style="color: #0097C4">num só lugar!</span></p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="features1 cid-udH04OHeuI" id="features1-z">
+    
+
     
     <div class="container-fluid">
         <div class="row">
-            <div class="content-wrap">
+            <div class="col-12 col-lg-9">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-1"><strong>Nossos serviços</strong></h3>
                 
             </div>
         </div>
-    </div>
-</section>
-
-
-
-<section data-bs-version="5.1" class="slider4 mbr-embla cid-ub5dqf75K9" id="slider4-v">
-    
-    
-    <div class="position-relative text-center">
-        
-        <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play="true" data-auto-play-interval="6" data-draggable="true">
-            <div class="embla__viewport container-fluid">
-                <div class="embla__container">
-                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
-                        <div class="slide-content">
-                            <div class="item-wrapper">
-                                <div class="item-img">
-                                    <img src="assetsClientes/images/11-800x500.webp" alt="Mobirise Website Builder">
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                
-                                <h6 class="item-subtitle mbr-fonts-style mt-1 display-7"><em>Nosso departamento contábil está pronto a atender as necessidades legais da sua empresa</em></h6>
-                                
-                            </div>
-                            
+        <div class="row">
+            <div class="card col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper">
+                    <div class="card-box align-center">
+                        <div class="iconfont-wrapper">
+                            <span style="color: #FF931E;" class="mbr-iconfont mobi-mbri-contact-form mobi-mbri"></span>
                         </div>
-                    </div>
-                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
-                        <div class="slide-content">
-                            <div class="item-wrapper">
-                                <div class="item-img">
-                                    <img src="assetsClientes/images/21-800x500.webp" alt="Mobirise Website Builder">
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                
-                                <h6 class="item-subtitle mbr-fonts-style mt-1 display-7"><em>Imprescindível para qualquer empresa, sendo responsável pela execução de toda a rotina de departamento de pessoal.</em></h6>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
-                        <div class="slide-content">
-                            <div class="item-wrapper">
-                                <div class="item-img">
-                                    <img src="assetsClientes/images/31-800x500.webp" alt="Mobirise Website Builder">
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                
-                                <h6 class="item-subtitle mbr-fonts-style mt-1 display-7"><em>Sua empresa com uma assessoria completa para atender a todas as obrigações fiscais.</em></h6>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
-                        <div class="slide-content">
-                            <div class="item-wrapper">
-                                <div class="item-img">
-                                    <img src="assetsClientes/images/41-800x500.webp" alt="Mobirise Website Builder">
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                
-                                <h6 class="item-subtitle mbr-fonts-style mt-1 display-7"><em>Abra sua empresa com a estrutura societária mais adequada, sempre com foco na economia tributária.</em></h6>
-                                
-                            </div>
-                            
-                        </div>
-                    </div><div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
-                        <div class="slide-content">
-                            <div class="item-wrapper">
-                                <div class="item-img">
-                                    <img src="assetsClientes/images/51-800x500.webp" alt="Mobirise Website Builder" data-slide-to="4" data-bs-slide-to="5">
-                                </div>
-                            </div>
-                            <div class="item-content">
-                                
-                                <h6 class="item-subtitle mbr-fonts-style mt-1 display-7"><em>Está buscando soluções específicas para o seu negócio? Os melhores planos de trabalho para o seu ramo de atuação.</em></h6>
-                                
-                            </div>
-                            
-                        </div>
+                        <h5 class="card-title mbr-fonts-style display-5"><strong>Contábil</strong></h5>
+                        <p class="card-text mbr-fonts-style display-7">Nosso departamento contábil está pronto a atender as necessidades legais da sua empresa.</p>
                     </div>
                 </div>
             </div>
-            <button class="embla__button embla__button--prev">
-                <span class="mobi-mbri mobi-mbri-arrow-prev mbr-iconfont" aria-hidden="true"></span>
-                <span class="sr-only visually-hidden visually-hidden">Previous</span>
-            </button>
-            <button class="embla__button embla__button--next">
-                <span class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont" aria-hidden="true"></span>
-                <span class="sr-only visually-hidden visually-hidden">Next</span>
-            </button>
+            <div class="card col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper">
+                    <div class="card-box align-center">
+                        <div class="iconfont-wrapper">
+                            <span style="color: #FF931E;" class="mbr-iconfont mobi-mbri-growing-chart mobi-mbri"></span>
+                        </div>
+                        <h5 class="card-title mbr-fonts-style display-5"><strong>Fiscal</strong></h5>
+                        <p class="card-text mbr-fonts-style display-7">Sua empresa com uma assessoria completa para atender a todas as obrigações fiscais.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper">
+                    <div class="card-box align-center">
+                        <div class="iconfont-wrapper">
+                            <span style="color: #FF931E;" class="mbr-iconfont mobi-mbri-cash mobi-mbri"></span>
+                        </div>
+                        <h5 class="card-title mbr-fonts-style display-5"><strong>Pessoal</strong></h5>
+                        <p class="card-text mbr-fonts-style display-7">Imprescindível para qualquer empresa, sendo responsável pela execução de toda a rotina de departamento de pessoal.</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </section>
 
-
-<section data-bs-version="5.1" class="info1 cid-ub4XNbd3ep mbr-parallax-background" id="info1-n">
+<section data-bs-version="5.1" class="features1 cid-udH0bViU0e" id="features1-10">
     
 
     
-    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(68, 121, 217);"></div>
+    <div class="container-fluid">
+        <div class="row">
+            
+        </div>
+        <div class="row">
+            <div class="card col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper">
+                    <div class="card-box align-center">
+                        <div class="iconfont-wrapper">
+                            <span style="color: #FF931E;" class="mbr-iconfont mbrib-briefcase"></span>
+                        </div>
+                        <h5 class="card-title mbr-fonts-style display-5"><strong>Abertura de Empresa</strong></h5>
+                        <p class="card-text mbr-fonts-style display-7">Abra sua empresa com a estrutura societária mais adequada, sempre com foco na economia tributária.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper">
+                    <div class="card-box align-center">
+                        <div class="iconfont-wrapper">
+                            <span style="color: #FF931E;" class="mbr-iconfont mobi-mbri-growing-chart mobi-mbri"></span>
+                        </div>
+                        <h5 class="card-title mbr-fonts-style display-5"><strong>Consultoria e Assessoria</strong></h5>
+                        <p class="card-text mbr-fonts-style display-7">Está buscando soluções específicas para o seu negócio? Os melhores planos de trabalho para o seu ramo de atuação.</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="info1 cid-udH2HVPxWO mbr-parallax-background" id="info1-12">
+    
+
+    
+    <div class="mbr-overlay" style="opacity: 0.6; background-color: #0097C4;"></div>
     <div class="align-center container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
@@ -364,42 +340,44 @@ class PropostaController extends Controller
     </div>
 </section>
 
-<section data-bs-version="5.1" class="features12 cid-ub50lfSgbA" id="features12-o">
+<section data-bs-version="5.1" class="features12 cid-udH2QFLQyR" id="features12-13">
+
+    
+
+    
+    
     <div class="container">
         <div class="m-0 row align-items-center">
             <div class="col-12 col-lg">
                 <div class="card-wrapper">
                     <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style mb-4 display-5"><strong>AUTOMAÇÕES</strong></h4>
+                        <h4 class="card-title mbr-fonts-style mb-4 display-5">
+                            <strong>AUTOMAÇÕES</strong></h4>
                         <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                            Foco em desenvolver recursos "automatizados" e não "robotizados", trazendo agilidade e precisão com interação pessoal e não robótica, nossa equipe está sempre preparada para melhor lhe atender.
-                        </p>
+                            Foco em desenvolver recursos "automatizados" e não "robotizados", trazendo agilidade e precisão com interação pessoal e não robótica, nossa equipe esta sempre preparada para melhor lhe atender. </p>
                         <div class="mbr-text mbr-fonts-style counter-container display-7">
                             <ul>
-                                <li><span style="font-size: 1rem;">Busca de notas</span></li>
-                                <li><span style="font-size: 1rem;">Importação da Movimentação Financeira com extratos bancários</span></li>
-                                <li><span style="font-size: 1rem;">Verifica situação fiscal</span></li>
-                                <li><span style="font-size: 1rem;">Baixas e envio de CND’s</span></li>
-                                <li><span style="font-size: 1rem;">Aplicativo <em>Próprio</em> para comunicação e entrega de documentos</span></li>
-                                <li>Parceiro oficial Omie</li>
-                                <li><span style="font-size: 1rem;">Entrega de Holerites por e-mail ou APP</span></li>
-                                <li><span style="font-size: 1rem;">RH Online</span></li>
-                                <li>Documentos em Nuvem</li>
+                                <li><span style="font-size: 1rem;">Busca de notas&nbsp;</span></li><li><span style="font-size: 1rem;">Importação da Movimentação Financeira com extratos bancários</span></li><li><span style="font-size: 1rem;">Verifica situação fiscal</span></li><li><span style="font-size: 1rem;">Baixas e envio de CND’s</span></li><li><span style="font-size: 1rem;">Aplicativo <em>Próprio </em>para comunicação e entrega de documentos</span><br></li><li>Parceiro oficial Omie</li><li><span style="font-size: 1rem;">Entrega de Holerites por e-mail ou APP&nbsp;</span></li><li><span style="font-size: 1rem;">RH Online</span><br></li><li>Documentos em Nuvem</li>
                             </ul>
                         </div>
+                        
                     </div>
                 </div>
             </div>
-
             <div class="p-0 col-12 col-lg-4 md-pb">
-                <div class="image-wrapper"  style="display: flex; justify-content: center; align-items: center;"> <!-- Centraliza a imagem -->
-                    <img src="assetsClientes/images/mbr-858x572.webp" alt="Imagem representando automações" style="width: 65%; height: auto;"> <!-- Tamanho adaptável -->
+                <div class="image-wrapper">
+                    <img src="assets/images/mbr-858x572.webp" alt="Automacoes">
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section data-bs-version="5.1" class="features12 cid-ub5267iwYJ" id="features12-p">
+
+<section data-bs-version="5.1" class="features12 cid-udH2S3hxRd" id="features12-14">
+
+    
+
+    
     
     <div class="container">
         <div class="m-0 row align-items-center">
@@ -420,238 +398,159 @@ class PropostaController extends Controller
                 </div>
             </div>
             <div class="p-0 col-12 col-lg-6 md-pb">
-                <div class="image-wrapper" style="display: flex; justify-content: center; align-items: center;">
-                    <img src="assetsClientes/images/sc-smarth-1073x604.webp" alt="Mobirise Website Builder"  style="width: 75%; height: auto;">
+                <div class="image-wrapper">
+                    <img src="assets/images/sc-smarth-1073x604.webp" alt="app">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section data-bs-version="5.1" class="slider4 mbr-embla cid-ub5nWaI3EZ" id="slider4-w" style="background-color: #fdfdfd;">
-    
-    
-    <div class="position-relative text-center">
-        <div class="mbr-section-head">
-            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-5">
-                <strong>ACESSE</strong></h4>
+<section data-bs-version="5.1" class="features10 cid-tT91nc5Sk7" id="features010-9">
+  
+
+  
+  
+  <div class="container">
+    <div class="row mb-5 mt-5">
+      <div class="col-12 mb-0">
+        <h3 class="mbr-section-title mbr-fonts-style align-center display-2"><strong>Área do cliente</strong></h3>
+        <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-4 display-2">Aplicativos para nossos clientes!</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="item features-without-image col-12 col-md-6 col-lg-4 active">
+        <div class="item-wrapper">
+          <div class="card-box align-left">
+            <div class="iconfont-wrapper mb-3" style="text-align: center;font-size: 48px; color: #FF931E;">
+              <span class="mbr-iconfont socicon-apple socicon" ></span>
+            </div>
+            <h5 class="card-title mbr-fonts-style display-5" style="text-align: center;">
+              <strong>iOS</strong>
+            </h5>
+            <p class="card-text mbr-fonts-style mb-3 display-7" style="text-align: center;" >
+              <a class="btn custom-btn-outline display-4" href="https://apps.apple.com/br/app/spolaor-contabilidade/id1592899809?l=en" >Clique aqui</a>
+            </p>
             
+          </div>
         </div>
-        <div class="embla mt-4" 
-        data-skip-snaps="true" 
-        data-align="center" 
-        data-contain-scroll="trimSnaps" 
-        data-loop="true" 
-        data-auto-play="true" 
-        data-auto-play-interval="4" 
-        data-draggable="true">
-        
-        <div class="embla__viewport container-fluid">
-            <div class="embla__container" style="display: flex;"> <!-- Flexbox para centralizar os slides -->
-                <!-- Slide 1 -->
-                <div class="embla__slide slider-image item" style="margin: 1rem;">
-                    <div class="slide-content">
-                        <div class="item-wrapper">
-                            <div class="item-img">
-                                <a href="https://play.google.com/store/apps/details?id=com.spolaorcontabilidade&pli=1">
-                                    <img src="assetsClientes/images/2-1-800x500.webp" alt="ANDROID">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mbr-section-btn item-footer mt-2" style="display: flex; justify-content: center;"> <!-- Centraliza o botão -->
-                            <a href="https://play.google.com/store/apps/details?id=com.spolaorcontabilidade&pli=1" class="btn item-btn btn-danger display-7" target="_blank">Android</a>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Slide 2 -->
-                <div class="embla__slide slider-image item" style="margin: 1rem;">
-                    <div class="slide-content">
-                        <div class="item-wrapper">
-                            <div class="item-img">
-                                <a href="https://apps.apple.com/br/app/spolaor-contabilidade/id1592899809?l=en&platform=iphone">
-                                    <img src="assetsClientes/images/1-400x250.webp" alt="Apple Store">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mbr-section-btn item-footer mt-2" style="display: flex; justify-content: center;"> <!-- Centraliza o botão -->
-                            <a href="https://apps.apple.com/br/app/spolaor-contabilidade/id1592899809?l=en&platform=iphone" class="btn item-btn btn-danger display-7" target="_blank">IOS</a>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Slide 3 -->
-                <div class="embla__slide slider-image item" style="margin: 1rem;">
-                    <div class="slide-content">
-                        <div class="item-wrapper">
-                            <div class="item-img">
-                                <a href="https://apps.apple.com/br/app/spolaor-contabilidade/id1592899809?l=en&platform=iphone">
-                                    <img src="assetsClientes/images/internet-400x250.webp" alt="Apple Store">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mbr-section-btn item-footer mt-2" style="display: flex; justify-content: center;"> <!-- Centraliza o botão -->
-                            <a href="https://vip.acessorias.com/spolaorcontabilidade" class="btn item-btn btn-danger display-7" target="_blank">Web</a>
-                        </div>
-                    </div>
-                </div>
+      </div>
+      
+      <div class="item features-without-image col-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+          <div class="card-box align-left">
+            <div class="iconfont-wrapper mb-3" style="text-align: center;font-size: 48px; color: #FF931E;">
+              <span class="mbr-iconfont socicon-android socicon"></span>
             </div>
+            <h5 class="card-title mbr-fonts-style display-5" style="text-align: center;">
+              <strong>Android</strong>
+            </h5>
+            <p class="card-text mbr-fonts-style mb-3 display-7" style="text-align: center;">
+              <a class="btn custom-btn-outline display-4" href="https://play.google.com/store/apps/details?id=com.spolaorcontabilidade">Clique aqui</a>
+            </p>
+            
+          </div>
         </div>
-    
-        <!-- Botões de navegação -->
-        <button class="embla__button embla__button--prev">
-            <span class="mobi-mbri mobi-mbri-arrow-prev mbr-iconfont" aria-hidden="true"></span>
-            <span class="sr-only visually-hidden">Previous</span>
-        </button>
-        
-        <button class="embla__button embla__button--next">
-            <span class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont" aria-hidden="true"></span>
-            <span class="sr-only visually-hidden">Next</span>
-        </button>
+      </div><div class="item features-without-image col-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+          <div class="card-box align-left">
+            <div class="iconfont-wrapper mb-3" style="text-align: center;font-size: 48px; color: #FF931E;">
+              <span class="mbr-iconfont mobi-mbri-cursor-click mobi-mbri"></span>
+            </div>
+            <h5 class="card-title mbr-fonts-style display-5" style="text-align: center;">
+              <strong>Web</strong></h5>
+            <p class="card-text mbr-fonts-style mb-3 display-7" style="text-align: center;">
+             <a class="btn custom-btn-outline display-4" href="https://vip.acessorias.com/spolaorcontabilidade" >Clique aqui</a>
+            </p>
+            
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
+<section data-bs-version="5.1" class="content16 cid-udH6gFl6uq" id="content16-19">
 
-<section data-bs-version="5.1" class="content16 cid-ubmk1R3QRS" id="content16-x" style="background-color: #fdfdfd">
-    <div class="container-fluid">
+    
+
+    
+    
+    <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10">
                 <div class="mbr-section-head align-center mb-4">
-                    <h3 class="mbr-section-title mb-0 mbr-fonts-style display-5">
-                        <span style="font-size: 2rem;">
-                            <strong>À <span style="background-color: yellow; font-weight: bold;">' . $empresa['nome'] . '</span> </strong> 
-                        </span>
-                        <div>
-                            <strong>A/C DIRETORES</strong>
-                        </div>
-                    </h3>
-                    <h4 class="mbr-section-subtitle mb-0 mt-2 mbr-fonts-style display-7">
-                        Ref.: Proposta de Prestação de Serviços Contábeis para empresa Tributada pelo Regime Federal 
-                        <span style="background-color: yellow;">
-                            <strong>do ' . $empresa['tributacao'] . '</strong>.
-                        </span>
-                        <br><br>
-                        <span style="text-decoration: underline;">
-                        <strong>DO OBJETO<br></strong><br>
-                    </span>
-                        <div>
-                            O objeto da presente consiste em propor prestação de Serviços Contábeis pela 
-                            <strong>SPOLAOR CONTABILIDADE LTDA, CNPJ nº 39.897.569/0001-37, CRC nº 2SP042992/O-6,</strong> à favor da 
-                            <span style="background-color: yellow;">
-                                <strong>' . $empresa['nome'] . ', CNPJ nº ' . $empresa['cnpj'] . '</strong>
-                            </span>, dos seguintes serviços profissionais:
-                        </div>
-                    </h4>
+                    <h3 class="mbr-section-title mb-0 mbr-fonts-style display-5"><span style="font-size: 2rem;"><strong>À RADIO DA GRANDE SERRA LTDA</strong></span><div><strong>A/C DIRETORES</strong></div></h3>
+                    <h4 class="mbr-section-subtitle mb-0 mt-2 mbr-fonts-style display-7">Ref.: Proposta de Prestação de Serviços Contábeis para empresa Tributada pelo Regime Federal do Simples Nacional.<br><br><strong>DO OBJETO<br></strong><br>
+<div>O objeto da presente consiste em propor prestação de Serviços Contábeis pela <strong>SPOLAOR CONTABILIDADE LTDA, CNPJ nº 39.897.569/0001-37, CRC nº 2SP042992/O-6,</strong> à favor da <strong>RADIO DA GRANDE SERRA, CNPJ nº 11.570.272/0001-43, </strong>dos seguintes serviços profissionais:</div></h4>
                 </div>
-                <div id="bootstrap-accordion_7" class="panel-group accordionStyles accordion" role="tablist" aria-multiselectable="true">
+                <div id="bootstrap-accordion_8" class="panel-group accordionStyles accordion" role="tablist" aria-multiselectable="true">
                     <div class="card mb-3">
                         <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse1_7" aria-expanded="false" aria-controls="collapse1">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>1 - ÁREA CONTÁBIL</strong></h6>
+                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse1_8" aria-expanded="false" aria-controls="collapse1">
+                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>1 - 	ÁREA CONTÁBIL</strong></h6>
                                 <span class="sign mbr-iconfont mbri-arrow-down"></span>
                             </a>
                         </div>
-                        <div id="collapse1_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_7">
+                        <div id="collapse1_8" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_8">
                             <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">
-                                    <strong>1.1.1</strong> - Classificação e escrituração da contabilidade de acordo com as normas e princípios contábeis vigentes;
-                                    <br><strong>1.1.2</strong> - Apuração de balancetes;
-                                    <br><strong>1.1.3</strong> - Elaboração do Balanço Anual e Demonstrativo de Resultados.&nbsp;<br>
-                                </p>
+                                <p class="mbr-fonts-style panel-text display-4"><strong>1.1.1</strong> - Classificação e escrituração da contabilidade de acordo com as normas e princípios contábeis vigentes;
+<br><strong>	1.1.2</strong> - Apuração de balancetes;
+<br><strong>	1.1.3 </strong>- Elaboração do Balanço Anual e Demonstrativo de Resultados.&nbsp;<br></p>
                             </div>
                         </div>
                     </div>
                     <div class="card mb-3">
                         <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse2_7" aria-expanded="false" aria-controls="collapse2">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>2 - ÁREA FISCAL</strong></h6>
+                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse2_8" aria-expanded="false" aria-controls="collapse2">
+                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>2 - 	ÁREA FISCAL</strong></h6>
                                 <span class="sign mbr-iconfont mbri-arrow-down"></span>
                             </a>
                         </div>
-                        <div id="collapse2_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#bootstrap-accordion_7">
+                        <div id="collapse2_8" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_8">
                             <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">
-                                    <strong>2.2.1</strong> - Orientação e controle da aplicação dos dispositivos legais vigentes, sejam federais, estaduais ou municipais;
-                                    <br><strong>2.2.2</strong> - Escrituração dos registros fiscais quando devido, do IPI, ICMS, ISS e elaboração das guias de informação e de recolhimento dos tributos devidos;
-                                    <br><strong>2.2.3</strong> - Atendimento das demais exigências previstas em atos normativos, bem como de eventuais procedimentos de fiscalização tributária.&nbsp;<br>
-                                </p>
+                                <p class="mbr-fonts-style panel-text display-4"><strong>2.2.1</strong> - Orientação e controle da aplicação dos dispositivos legais vigentes, sejam federais, estaduais ou municipais;
+<br><strong>	2.2.2</strong> - Escrituração dos registros fiscais quando devido, do IPI, ICMS, ISS e elaboração das guias de informação e de recolhimento dos tributos devidos;
+<br><strong>	2.2.3</strong> - Atendimento das demais exigências previstas em atos normativos, bem como de eventuais procedimentos de fiscalização tributária.&nbsp;<br></p>
                             </div>
                         </div>
                     </div>
                     <div class="card mb-3">
                         <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse3_7" aria-expanded="false" aria-controls="collapse3">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>3 - ÁREA DO IMPOSTO DE RENDA PESSOA JURÍDICA</strong></h6>
+                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse3_8" aria-expanded="false" aria-controls="collapse3">
+                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>3 - 	ÁREA DO IMPOSTO DE RENDA PESSOA JURÍDICA</strong></h6>
                                 <span class="sign mbr-iconfont mbri-arrow-down"></span>
                             </a>
                         </div>
-                        <div id="collapse3_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_7">
+                        <div id="collapse3_8" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_8">
                             <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">
-                                    <strong>3.3.1</strong> - Orientação e controle de aplicação dos dispositivos legais vigentes;
-                                    <br><strong>3.3.2</strong> - Elaboração da declaração anual de rendimentos e documentos correlatos;
-                                    <br><strong>3.3.3</strong> - Atendimento das demais exigências previstas em atos normativos, bem como de eventuais procedimentos de fiscalização.&nbsp;<br>
-                                </p>
+                                <p class="mbr-fonts-style panel-text display-4"><strong>3.3.1 </strong>- Orientação e controle de aplicação dos dispositivos legais vigentes;
+<br><strong>	3.3.2 </strong>- Elaboração da declaração anual de rendimentos e documentos correlatos;
+<br><strong>	3.3.3 </strong>- Atendimento das demais exigências previstas em atos normativos, bem como de eventuais procedimentos de fiscalização.&nbsp;<br></p>
                             </div>
                         </div>
                     </div>
                     <div class="card mb-3">
                         <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse4_7" aria-expanded="false" aria-controls="collapse4">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>4 - DO VALOR DOS SERVIÇOS</strong></h6>
+                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse4_8" aria-expanded="false" aria-controls="collapse4">
+                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>4 - 	DO VALOR DOS SERVIÇOS</strong></h6>
                                 <span class="sign mbr-iconfont mbri-arrow-down"></span>
                             </a>
                         </div>
-                        <div id="collapse4_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#bootstrap-accordion_7">
+                        <div id="collapse4_8" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_8">
                             <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">
-                                    <strong>4.1</strong> - Para a execução dos serviços constantes nos itens 1 à 3, relacionados acima, <b>à partir da competência </b>
-                                    <span style="background-color: yellow;">
-                                        <strong>'. $contabilidade['competencia']  .'</strong>
-                                    </span> 
-                                    à <b>Spolaor Contabilidade</b> propõe os honorários profissionais mensais correspondentes à 
-                                    <span style="background-color: yellow;">
-                                        <strong>' . $contabilidade['honorario'] .'</strong>
-                                    </span> 
-
-                                    até o dia 01 do mês subsequente ao vencido, podendo a cobrança ser veiculada através de cobrança bancária.
-                                    <br>
-                                    <strong>4.2</strong> - Para a execução dos serviços em cumprimento das obrigações acessórias mensais e anuais, os serviços <b>não serão cobrados à parte, exceto,</b> caso seja criado nova obrigação acessória pelo erário público e o imposto de renda da pessoa física, caso seja feito pela contabilidade.
-                                    <br>
-                                    <strong>4.3</strong> – Os Honorários serão reajustados de acordo com o índice de reajuste do salário mínimo vigente, desta forma, sempre que atualizar o salário mínimo e independentemente do tempo de contrato com a contabilidade, será aplicado o reajuste nos honorários da época vigente.
-                                    <br>
-                                    <strong>4.4</strong> – Sem prejuízo do previsto no item 4.3, os honorários poderão ser aumentados de comum acordo entre as partes, conforme volume de aumento do trabalho executado pela contabilidade.
-                                    <br>
-                                </p>
+                                <p class="mbr-fonts-style panel-text display-4"><strong>4.1</strong> - Para a execução dos serviços constantes nos itens 1 à 3, relacionados acima, <strong>à partir da competência Janeiro/2023 à Spolaor Contabilidade </strong>propõe os honorários profissionais mensais correspondentes à <strong>R$ 1.800,00,00 </strong>(Hum mil e oitocentos reais) até o dia 01 do mês subsequente ao vencido, podendo a cobrança ser veiculada através de cobrança bancária.<br>  
+<br><strong>4.2</strong> - Para a execução dos serviços em cumprimento das obrigações acessórias mensais e anuais, os serviços não serão cobrados à parte, exceto, caso seja criado nova obrigação acessória pelo erário público e o imposto de renda da pessoa física, caso seja feito pela contabilidade.<br> 
+<br><strong>4.3 </strong>– Os Honorários serão reajustados de acordo com o índice de reajuste do salário mínimo vigente, desta forma, sempre que atualizar o salário mínimo e independentemente do tempo de contrato com a contabilidade, será aplicado o reajuste nos honorários da época vigente.<br>
+<br><strong>4.4 </strong>– Sem prejuízo do previsto no item 4.3, os honorários poderão ser aumentados de comum acordo entre as partes, conforme volume de aumento do trabalho executado pela contabilidade.&nbsp;<br></p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="content4 cid-ubmq0U5pmr" id="content4-11">
-    
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="title col-md-12 col-lg-12">
-                
-                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">Os parâmetros de fixação dos honorários tiveram como base o volume de papéis e informações fornecidas pela CONTRATANTE, como segue:</h4>
-                
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="image3 cid-ubmpPj7caV" id="image3-10">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <div class="table-wrapper"> <!-- Substituição da imagem por uma tabela -->
-                    <div class="table-wrapper"> <!-- Aplicando a fonte Montserrat -->
-                    <table class="table"> <!-- Criação da tabela -->
+                        <div class="mt-5">
+                            <p>Os parâmetros de fixação dos honorários tiveram como base o volume de papéis e informações fornecidas pela CONTRATANTE, como segue:</p>
+                        </div>
+                        <div class="table-wrapper mt-5"> 
+                    <div class="table-wrapper"> 
+                    <table class="table"> 
                         <tbody>
                             <tr>
                                 <td>Quantidade de Funcionários:</td>
@@ -669,28 +568,11 @@ class PropostaController extends Controller
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+                <div class="mt-5">
+                    <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7"><strong>' . $dataAtual . '</strong><br></h4>
+                </div>
 
-
-<section data-bs-version="5.1" class="content4 cid-ubmwTd017X" id="content4-12">
-    
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="title col-md-12 col-lg-12">
-                
-                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7"><strong>' . $dataAtual . '</strong><br></h4>
-                
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="image3 cid-ubmxaARWoA" id="image3-13">
-    
-    <div class="container-fluid">
+                <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-4">
                 <div class="image-wrapper">
@@ -700,7 +582,15 @@ class PropostaController extends Controller
             </div>
         </div>
     </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
 
 <section data-bs-version="5.1" class="content11 cid-ubmByrNyPh" id="content11-14">
     
@@ -714,7 +604,7 @@ class PropostaController extends Controller
     </div>
 </section>
 
-<<!-- Modal Principal -->
+<!-- Modal Principal -->
 <div id="formularioModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:900px">
         <div class="w3-center"><br>
@@ -817,19 +707,52 @@ class PropostaController extends Controller
   </div>
 </div>
 
-<section data-bs-version="5.1" class="footer7 cid-sFHu2wLoQp" once="footers" id="footer7-9">
+
+
+
+<section data-bs-version="5.1" class="footer3 cid-sFCygHrmNf" once="footers" id="footer3-24">
+
+    
+
+    
 
     <div class="container">
         <div class="row align-center mbr-white">
-            <div class="col-12">
-                <p class="mbr-text mb-0 mbr-fonts-style display-7">Copyright © 2024 Spolaor Company&nbsp;- Todos os direitos reservados</p>
+            
+            <div class="row social-row">
+                <div class="social-list align-right pb-2">
+                    
+                    
+                    
+                    
+                    
+                    
+                <div class="soc-item">
+                        <a href="https://www.facebook.com/spolaorcontabilidade/?paipv=0&eav=AfZgEast7gbz-AXXb65BoXmkE4Zm5qg-N_8k_BbPJ_4-nM1TF-0gjeER-aScEh12YVE&_rdr" target="_blank">
+                            <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://www.instagram.com/sccontab/" target="_blank">
+                            <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank">
+                            <span class="mbr-iconfont mbr-iconfont-social socicon-whatsapp socicon"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://www.linkedin.com/company/spolaor-contabilidade/mycompany/" target="_blank">
+                            <span class="mbr-iconfont mbr-iconfont-social socicon-linkedin socicon"></span>
+                        </a>
+                    </div></div>
+            </div>
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    © Copyright 2025 SpolaorCompany. All Rights Reserved.
+                </p>
             </div>
         </div>
     </div>
-</section><section class="display-7"><script src="assetsClientes/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assetsClientes/parallax/jarallax.js"></script>  <script src="assetsClientes/smoothscroll/smooth-scroll.js"></script>  <script src="assetsClientes/ytplayer/index.js"></script>  <script src="assetsClientes/dropdown/js/navbar-dropdown.js"></script>  <script src="assetsClientes/embla/embla.min.js"></script>  <script src="assetsClientes/embla/script.js"></script>  <script src="assetsClientes/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assetsClientes/theme/js/script.js"></script>  
-    
-
-
+</section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/parallax/jarallax.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  
     <script>
 document.addEventListener("DOMContentLoaded", function() {
     var form = document.getElementById("propostaForm");
@@ -923,6 +846,7 @@ function aplicarMascaraCEP(input) {
     input.value = valor;
 }
 </script>
+  
 </body>
 </html>
         ';
