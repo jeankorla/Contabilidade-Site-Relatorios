@@ -157,7 +157,6 @@ class PropostaController extends Controller
     @media (min-width: 1920px) {
         #header4-2 img {
             height: 100vh;  /* Faz com que a imagem cubra toda a altura da viewport */
-            object-fit: cover; /* Garante que a imagem cubra o espaço disponível sem distorção */
             width: 100%; /* Assegura que a largura cobre todo o espaço horizontal */
             left: 50%; /* Move a imagem para o meio */
             position: absolute; /* Posicionamento absoluto para melhor controle */
