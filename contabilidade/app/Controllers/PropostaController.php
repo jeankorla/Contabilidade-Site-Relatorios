@@ -228,7 +228,7 @@ class PropostaController extends Controller
             <div class="col-12 col-md">
                 <div class="text-wrapper">
                     <h1 class="mbr-section-title mbr-fonts-style mb-3 display-2" style="font-size: 5rem"><strong><strong><span style="color: #FF931E;">Descomplique</span></strong> seu Negócio</strong></h1>
-                    <p class="mbr-text mbr-fonts-style display-7">Tudo que você precisa <span style="color: #0097C4">num só lugar!</span></p>
+                    <p class="mbr-text mbr-fonts-style display-7" style="font-size: 2.5rem;">Tudo que você precisa <span style="color: #0097C4">num só lugar!</span></p>
                     
                 </div>
             </div>
