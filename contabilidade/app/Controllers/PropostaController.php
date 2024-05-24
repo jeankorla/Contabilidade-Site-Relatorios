@@ -594,7 +594,7 @@ class PropostaController extends Controller
 
 <section data-bs-version="5.1" class="content11 cid-ubmByrNyPh" id="content11-14">
     
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10"><div class="mbr-section-btn align-center"><button onclick="document.getElementById(\'formularioModal\').style.display=\'block\'" class="w3-button w3-large" style="font-family: \'Poppins\', sans-serif; background-color: #FF931E; color: white;">Aceitar Proposta</button>
 </div>
