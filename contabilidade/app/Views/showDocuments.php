@@ -200,6 +200,9 @@ button.btn.btn-link i {
                  <li class="nav-item">
                     <a class="nav-link" href="https://sccontab.com.br/ClienteController" style="color: white; font-size: 20px;">Cliente</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sccontab.com.br/UploadController" style="color: white; font-size: 20px;">Gerar Link</a>
+                </li>
             </ul>
 
             <!-- Botão de Configurações -->
