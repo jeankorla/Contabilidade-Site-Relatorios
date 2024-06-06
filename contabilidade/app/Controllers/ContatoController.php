@@ -54,11 +54,18 @@ class ContatoController extends BaseController
         'textarea' => $textarea,
     ];
 
+    if($data == null)
+    {
+       echo "error message NULL";
+    }else{
+
+
     $Contato->insert($data);
 
     $this->emailController->contatoEmailDiretoria($data);
 
     return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
+        }
     }
 
     public function excluirContato($id = null)

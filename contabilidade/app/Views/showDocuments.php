@@ -293,20 +293,35 @@ button.btn.btn-link i {
 
         <input type="hidden" name="empresa_id" value="<?= $data['empresa']['id'] ?>">
 
-            <div class="container mt-3">
+
+
+
+           <div class="container mt-3">
     <h2>Gestão de Documentos</h2>
     <div class="list-group">
-        <?php if (!empty($data['documents']) && is_array($data['documents'])): ?>
-            <?php foreach ($data['documents'] as $key => $docPath): ?>
-                <?php if (file_exists($docPath)): ?>
-                    <?php
-                    $documentTitle = ucwords(str_replace('_', ' ', $key));  // Nome formatado para exibição
-                    $fileName = basename($docPath);  // Pega apenas o nome do arquivo, excluindo o caminho
-                    ?>
+        <?php 
+        // Defina os campos que não devem ser exibidos
+        $excludedFields = ['id', 'empresa_id', 'created_at', 'updated_at', 'deleted_at'];
+
+        if (!empty($data['documents']) && is_array($data['documents'])): ?>
+            <?php foreach ($data['documents'] as $key => $docValue): ?>
+                <!-- Verifica se o campo está na lista de excluídos ou se o valor é nulo/vazio -->
+                <?php if (!in_array($key, $excludedFields) && !is_null($docValue) && $docValue !== ''): ?>
                     <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <?php $documentTitle = ucwords(str_replace('_', ' ', $key)); ?>
                         <div>
                             <strong><?= $documentTitle ?>:</strong>
-                            <a href="<?= base_url($docPath) ?>" class="btn btn-primary btn-sm">Baixar</a>
+                            <?php 
+                            // Verifica se o valor parece ser um caminho de arquivo
+                            if (preg_match("/\.(pdf|docx|doc|jpeg|jpg|png)$/", $docValue) && file_exists($docValue)): ?>
+                                <!-- Tratar como arquivo -->
+                                <a href="<?= base_url($docValue) ?>" class="btn btn-primary btn-sm">Baixar</a>
+                            <?php elseif (!preg_match("/\.(pdf|docx|doc|jpeg|jpg|png)$/", $docValue)): ?>
+                                <!-- Tratar como texto -->
+                                <span><?= esc($docValue) ?></span>
+                            <?php else: ?>
+                                <span>Documento "excluido" pelo cliente!</span>
+                            <?php endif; ?>
                         </div>
                         <button type="button" class="btn btn-danger btn-sm"
                                 onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
@@ -320,6 +335,10 @@ button.btn.btn-link i {
         <?php endif; ?>
     </div>
 </div>
+
+
+
+
 
 
 
