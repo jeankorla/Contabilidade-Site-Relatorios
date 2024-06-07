@@ -160,7 +160,8 @@
         <div>
             <label for="filterSituacao" class="form-label">Filtro:</label>
             <select id="filterSituacao" class="form-select" onchange="applyFilters()">
-                <option value="Cliente">Cliente</option>
+                <option value="Cliente" selected>Cliente</option>
+                <option value="Contrato">Contrato</option>
             </select>
         </div>
     </div>

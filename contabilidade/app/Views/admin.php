@@ -173,6 +173,7 @@
                 <option value="Arquivado">Arquivado</option>
                 <option value="Proposta">Proposta</option>
                 <option value="Contrato">Contrato</option>
+                <option value="Cliente">Cliente</option>
             </select>
         </div>
     </div>
@@ -231,7 +232,7 @@
 
 <script>
   function applyFilters() {
-    var motivoFilter = document.getElementById('filterMotivo').value; // Verifique se esse ID está correto
+    var motivoFilter = document.getElementById('filterMotivo').value;
     var situacaoFilter = document.getElementById('filterSituacao').value;
     var rows = document.querySelectorAll('table tbody tr');
 
@@ -240,18 +241,14 @@
         var situacaoCell = row.cells[8].textContent; // Ajuste o índice conforme necessário
         var displayRow = true;
 
-        if (situacaoCell.trim() === 'Cliente') {
+        // Altera a lógica para a situação 'all' para excluir 'Arquivado' e 'Cliente'
+        if (situacaoFilter === 'all' && (situacaoCell.trim() === 'Arquivado' || situacaoCell.trim() === 'Cliente')) {
+            displayRow = false;
+        } else if (situacaoFilter !== 'all' && situacaoFilter !== situacaoCell.trim()) {
             displayRow = false;
         }
 
         if (motivoFilter !== 'all' && motivoCell.trim() !== motivoFilter) {
-            displayRow = false;
-        }
-
-        // Altera a lógica para a situação 'all' para excluir 'Arquivado'
-        if (situacaoFilter === 'all' && situacaoCell.trim() === 'Arquivado') {
-            displayRow = false;
-        } else if (situacaoFilter !== 'all' && situacaoFilter !== situacaoCell.trim()) {
             displayRow = false;
         }
 
@@ -262,6 +259,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     applyFilters(); // Aplica os filtros iniciais ao carregar a página
 });
+
+
 </script>
 
 
