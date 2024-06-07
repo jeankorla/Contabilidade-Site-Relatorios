@@ -101,87 +101,54 @@ class DocumentsController extends BaseController
     }
 
 
- public function storeDocuments($id = null)
-{
-    helper('text');
-    $empresaModel = new Empresa();
-    $documentModel = new Documents();
+    public function storeDocuments($id = null)
+    {
+        helper('text');
+        $empresaModel = new Empresa();
+        $documentModel = new Documents();
 
-    $empresa = $empresaModel->find($id);
-    if (!$empresa) {
-        return redirect()->back()->with('error', 'Empresa não encontrada.');
-    }
-
-    $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
-    $dirPath = './documents/' . $cnpj;
-
-    if (!is_dir($dirPath) && !mkdir($dirPath, 0755, true)) {
-        log_message('error', "Falha ao criar o diretório: $dirPath");
-        return redirect()->back()->with('error', 'Falha ao criar diretório para documentos.');
-    }
-
-    $files = $this->request->getFiles();
-    $existingDocument = $documentModel->where('empresa_id', $id)->first();
-    $data = $existingDocument ? ['id' => $existingDocument['id']] : ['empresa_id' => $id];
-
-    // Campo sempre texto
-    $data['senha_certificado_digital'] = $this->request->getPost('senha_certificado_digital');
-
-    // Campos que são sempre arquivos
-    $singleFileFields = [
-        'social_registrado', 'certificado_digital', 'ctps', 'convencao_coletiva', 
-        'alvara_funcionamento', 'balancete_ultimo', 'balanco_patrimonial', 
-        'livro_corrente', 'livro_encerrado'
-    ];
-
-    foreach ($singleFileFields as $field) {
-        $file = $this->request->getFile($field);
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            if ($file->move($dirPath, $newName)) {
-                $data[$field] = $dirPath . '/' . $newName;
-            } else {
-                log_message('error', "Falha ao mover o arquivo $field");
-            }
+        $empresa = $empresaModel->find($id);
+        if (!$empresa) {
+            return redirect()->back()->with('error', 'Empresa não encontrada.');
         }
-    }
 
-    // Campos que podem ser arquivo ou texto
-foreach (['posto_fiscal', 'simples_nacional', 'prefeitura_nfse', 'previdencia_social'] as $field) {
-    $typeField = $this->request->getPost("tipo_{$field}");
-    if ($typeField === 'texto') {
-        $data[$field] = $this->request->getPost("{$field}_text");
-    } elseif ($typeField === 'arquivo') {
-        $file = $files["{$field}_file"] ?? null; // Use the null coalescing operator to handle undefined index
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            if ($file->move($dirPath, $newName)) {
-                $data[$field] = $dirPath . '/' . $newName;
-            } else {
-                log_message('error', "Falha ao mover o arquivo $field");
-            }
+        $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
+        $dirPath = './documents/' . $cnpj;
+
+        if (!is_dir($dirPath) && !mkdir($dirPath, 0755, true)) {
+            log_message('error', "Falha ao criar o diretório: $dirPath");
+            return redirect()->back()->with('error', 'Falha ao criar diretório para documentos.');
+        }
+
+        $files = $this->request->getFiles();
+        $existingDocument = $documentModel->where('empresa_id', $id)->first();
+
+        if ($existingDocument) {
+            $data = ['id' => $existingDocument['id']]; // Usando o ID do registro existente para atualização
         } else {
-            // Handle cases where no file is uploaded but 'arquivo' is selected
-            if (!$file) {
-                log_message('error', "Nenhum arquivo enviado para $field, mas 'arquivo' foi selecionado.");
+            $data = ['empresa_id' => $id]; // Criando um novo registro se não existir
+        }
+
+        foreach ($files as $fileKey => $file) {
+            if ($file->isValid() && !$file->hasMoved()) {
+                $newName = $file->getRandomName();
+                if (!$file->move($dirPath, $newName)) {
+                    log_message('error', "Falha ao mover o arquivo $fileKey");
+                    continue; // Não interrompe o loop, tenta processar os próximos arquivos
+                }
+                $data[$fileKey] = $dirPath . '/' . $newName;
             }
         }
+
+        // Salvar ou atualizar os dados no banco
+        if (!$documentModel->save($data)) {
+            log_message('error', 'Falha ao salvar os dados do documento no banco de dados.');
+            return redirect()->back()->with('error', 'Falha ao salvar os documentos.');
+        }
+
+        // Redirecionar de volta para a mesma página com uma mensagem de sucesso
+        return redirect()->to(previous_url())->with('success', 'Documentos atualizados com sucesso.');
     }
-}
-
-
-    // Salvar ou atualizar os dados no banco
-    if (!$documentModel->save($data)) {
-        log_message('error', 'Falha ao salvar os dados do documento no banco de dados.');
-        return redirect()->back()->with('error', 'Falha ao salvar os documentos.');
-    }
-
-    return redirect()->to(previous_url())->with('success', 'Documentos atualizados com sucesso.');
-}
-
-
-
-
 
 
    public function deleteDocument()
