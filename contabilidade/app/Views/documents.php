@@ -472,7 +472,7 @@
             <div class="container mt-3">
     <div class="list-group">
         <?php if (empty($data['documents'])): ?>
-            <?php $data['documents'] = ['posto_fiscal' => '']; // Assegura que sempre exista pelo menos uma entrada vazia para 'posto_fiscal' ?>
+            <?php $data['documents'] = ['posto_fiscal' => '']; ?>
         <?php endif; ?>
 
         <?php foreach ($data['documents'] as $key => $docValue): ?>
@@ -485,14 +485,11 @@
                     </select>
                     <div id="posto_fiscal_arquivo" style="<?= preg_match("/\.(pdf|docx|doc)$/", $docValue) ? '' : 'display: none;' ?>">
                         <?php if (preg_match("/\.(pdf|docx|doc)$/", $docValue)): ?>
-                            <br>
                             <a href="<?= base_url($docValue) ?>" class="btn btn-primary btn-sm">Baixar Documento Atual</a>
                             <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('posto_fiscal', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                            <br><br>
-                        <?php else: ?>
-                            <!-- Mostrar input de arquivo somente se não existir um arquivo atual -->
-                            <input type="file" class="form-control" id="posto_fiscal_file" name="posto_fiscal_file" accept=".pdf,.doc,.docx">
                         <?php endif; ?>
+                        <br><br>
+                        <input type="file" class="form-control" id="posto_fiscal_file" name="posto_fiscal_file" accept=".pdf,.doc,.docx">
                     </div>
                     <div id="posto_fiscal_texto" style="<?= !preg_match("/\.(pdf|docx|doc)$/", $docValue) ? '' : 'display: none;' ?>">
                         <textarea class="form-control" id="posto_fiscal_text" name="posto_fiscal_text" placeholder="Digite o texto aqui..."><?= !preg_match("/\.(pdf|docx|doc)$/", $docValue) ? esc($docValue) : '' ?></textarea>
@@ -509,7 +506,8 @@
 
 
 
-            <!-- Dados de Acesso ao Simples Nacional teste -->
+
+            <!-- Dados de Acesso ao Simples Nacional -->
 
             <div class="container mt-3">
     <div class="list-group">
@@ -527,14 +525,11 @@
                     </select>
                     <div id="simples_nacional_arquivo" style="<?= preg_match("/\.(pdf|docx|doc)$/", $docValue) ? '' : 'display: none;' ?>">
                         <?php if (preg_match("/\.(pdf|docx|doc)$/", $docValue)): ?>
-                            <br>
                             <a href="<?= base_url($docValue) ?>" class="btn btn-primary btn-sm">Baixar Documento Atual</a>
                             <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('simples_nacional', '<?= $data['empresa']['id'] ?>')">Excluir</button>
                             <br><br>
-                        <?php else: ?>
-                            <!-- Mostrar input de arquivo somente se não existir um arquivo atual -->
-                            <input type="file" class="form-control" id="simples_nacional_file" name="simples_nacional_file" accept=".pdf,.doc,.docx">
                         <?php endif; ?>
+                        <input type="file" class="form-control" id="simples_nacional_file" name="simples_nacional_file" accept=".pdf,.doc,.docx">
                     </div>
                     <div id="simples_nacional_texto" style="<?= !preg_match("/\.(pdf|docx|doc)$/", $docValue) ? '' : 'display: none;' ?>">
                         <textarea class="form-control" id="simples_nacional_text" name="simples_nacional_text" placeholder="Digite o texto aqui..."><?= !preg_match("/\.(pdf|docx|doc)$/", $docValue) ? esc($docValue) : '' ?></textarea>
