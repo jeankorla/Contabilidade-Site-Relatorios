@@ -401,6 +401,7 @@
         <div class="col-md-9">
             <!-- Contrato Social Registrado -->
             <h4 class="mb-3"><strong>Arquivos Principais:</strong></h4>
+
             <div class="list-group mb-3">
                 <?php if (isset($data['documents']['social_registrado']) && file_exists($data['documents']['social_registrado'])): ?>
                     <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
@@ -421,7 +422,7 @@
             </div>
             
             <!-- Certificado Digital -->
-            <div class="list-group">
+            <div class="list-group mb-3">
                 <?php if (isset($data['documents']['certificado_digital']) && file_exists($data['documents']['certificado_digital'])): ?>
                     <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                         <div>
@@ -439,6 +440,20 @@
                     </div>
                 <?php endif; ?>
             </div>
+
+            <!-- Senha Certificado Digital -->
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div class="w-100">
+                        <label for="senha_certificado_digital" class="form-label"><strong>Senha Certificado Digital:</strong></label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="senha_certificado_digital" name="senha_certificado_digital" value="<?= $data['documents']['senha_certificado_digital'] ?? '' ?>">
+                            <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('senha_certificado_digital')"><i class="bi bi-eye-slash" id="togglePasswordIcon"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="list-group m-5">
             <button type="submit" class="btn btn-success">Postar</button>
             </div>
@@ -457,98 +472,54 @@
             </div>
 
 
-            <div class="container mt-3">
-                <div class="list-group">
-                    <?php if (isset($data['documents']['posto_fiscal']) && file_exists($data['documents']['posto_fiscal'])): ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Dados de Acesso ao Posto Fiscal:</strong>
-                                <a href="<?= base_url($data['documents']['posto_fiscal']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
-                            </div>
-                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('posto_fiscal', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                        </div>
-                    <?php else: ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div class="w-100">
-                                <label for="posto_fiscal" class="form-label"><strong>Dados de Acesso ao Posto Fiscal:</strong></label>
-                                <input type="file" class="form-control" id="posto_fiscal" name="posto_fiscal" accept=".pdf,.doc,.docx">
-                            </div>
-                        </div>
-                    <?php endif; ?>
+       <!-- Dados de Acesso ao Posto Fiscal -->
+        <div class="container mt-3">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div class="w-100">
+                        <label for="posto_fiscal_text" class="form-label"><strong>Dados de Acesso ao Posto Fiscal:</strong></label>
+                        <input type="text" class="form-control" id="posto_fiscal_text" name="posto_fiscal_text" value="<?= $data['documents']['posto_fiscal'] ?? '' ?>">
+                    </div>
                 </div>
             </div>
+        </div>
 
-
-            <!-- Dados de Acesso ao Simples Nacional -->
-
-            <div class="container mt-3">
-                <div class="list-group">
-                    <?php if (isset($data['documents']['simples_nacional']) && file_exists($data['documents']['simples_nacional'])): ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Dados de Acesso ao Simples Nacional:</strong>
-                                <a href="<?= base_url($data['documents']['simples_nacional']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
-                            </div>
-                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('simples_nacional', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                        </div>
-                    <?php else: ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div class="w-100">
-                                <label for="simples_nacional" class="form-label"><strong>Dados de Acesso ao Simples Nacional:</strong></label>
-                                <input type="file" class="form-control" id="simples_nacional" name="simples_nacional" accept=".pdf,.doc,.docx">
-                            </div>
-                        </div>
-                    <?php endif; ?>
+        <!-- Dados de Acesso ao Simples Nacional -->
+        <div class="container mt-3">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div class="w-100">
+                        <label for="simples_nacional_text" class="form-label"><strong>Dados de Acesso ao Simples Nacional:</strong></label>
+                        <input type="text" class="form-control" id="simples_nacional_text" name="simples_nacional_text" value="<?= $data['documents']['simples_nacional'] ?? '' ?>">
+                    </div>
                 </div>
             </div>
+        </div>
 
-
-            <!-- Dados de Acesso da Prefeitura em Emissão de NFSe -->
-
-             <div class="container mt-3">
-                <div class="list-group">
-                    <?php if (isset($data['documents']['prefeitura_nfse']) && file_exists($data['documents']['prefeitura_nfse'])): ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Dados de Acesso da Prefeitura em Emissão de NFSe:</strong>
-                                <a href="<?= base_url($data['documents']['prefeitura_nfse']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
-                            </div>
-                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('prefeitura_nfse', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                        </div>
-                    <?php else: ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div class="w-100">
-                                <label for="prefeitura_nfse" class="form-label"><strong>Dados de Acesso da Prefeitura em Emissão de NFSe:</strong></label>
-                                <input type="file" class="form-control" id="prefeitura_nfse" name="prefeitura_nfse" accept=".pdf,.doc,.docx">
-                            </div>
-                        </div>
-                    <?php endif; ?>
+        <!-- Dados de Acesso da Prefeitura em Emissão de NFSe -->
+        <div class="container mt-3">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div class="w-100">
+                        <label for="prefeitura_nfse_text" class="form-label"><strong>Dados de Acesso da Prefeitura em Emissão de NFSe:</strong></label>
+                        <input type="text" class="form-control" id="prefeitura_nfse_text" name="prefeitura_nfse_text" value="<?= $data['documents']['prefeitura_nfse'] ?? '' ?>">
+                    </div>
                 </div>
             </div>
+        </div>
 
-
-            <!-- Dados de Acesso a Previdência Social -->
-
-             <div class="container mt-3">
-                <div class="list-group">
-                    <?php if (isset($data['documents']['previdencia_social']) && file_exists($data['documents']['previdencia_social'])): ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Dados de Acesso a Previdência Social:</strong>
-                                <a href="<?= base_url($data['documents']['previdencia_social']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
-                            </div>
-                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('previdencia_social', '<?= $data['empresa']['id'] ?>')">Excluir</button>
-                        </div>
-                    <?php else: ?>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div class="w-100">
-                                <label for="previdencia_social" class="form-label"><strong>Dados de Acesso a Previdência Social:</strong></label>
-                                <input type="file" class="form-control" id="previdencia_social" name="previdencia_social" accept=".pdf,.doc,.docx">
-                            </div>
-                        </div>
-                    <?php endif; ?>
+        <!-- Dados de Acesso a Previdência Social -->
+        <div class="container mt-3">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div class="w-100">
+                        <label for="previdencia_social_text" class="form-label"><strong>Dados de Acesso a Previdência Social:</strong></label>
+                        <input type="text" class="form-control" id="previdencia_social_text" name="previdencia_social_text" value="<?= $data['documents']['previdencia_social'] ?? '' ?>">
+                    </div>
                 </div>
             </div>
+        </div>
+
 
 
             <!-- Ficha de Registro com a atualização da CTPS -->
@@ -780,6 +751,32 @@ document.getElementById('confirmDeleteButton').addEventListener('click', functio
     });
 });
 </script>
-
+<script>
+function togglePasswordVisibility(id) {
+    var input = document.getElementById(id);
+    var icon = document.getElementById('togglePasswordIcon');
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove('bi-eye-slash');
+        icon.classList.add('bi-eye');
+    } else {
+        input.type = "password";
+        icon.classList.remove('bi-eye');
+        icon.classList.add('bi-eye-slash');
+    }
+}
+</script>
+<script>
+function toggleInputType(id) {
+    var type = document.getElementById(id + '_type').value;
+    if (type === 'file') {
+        document.getElementById(id + '_file').style.display = 'flex';
+        document.getElementById(id + '_text').style.display = 'none';
+    } else {
+        document.getElementById(id + '_file').style.display = 'none';
+        document.getElementById(id + '_text').style.display = 'flex';
+    }
+}
+</script>
 </body>
 </html>

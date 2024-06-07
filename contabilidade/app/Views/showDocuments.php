@@ -296,7 +296,7 @@ button.btn.btn-link i {
 
 
 
-           <div class="container mt-3">
+          <div class="container mt-3">
     <h2>Gestão de Documentos</h2>
     <div class="list-group">
         <?php 
@@ -307,27 +307,53 @@ button.btn.btn-link i {
             <?php foreach ($data['documents'] as $key => $docValue): ?>
                 <!-- Verifica se o campo está na lista de excluídos ou se o valor é nulo/vazio -->
                 <?php if (!in_array($key, $excludedFields) && !is_null($docValue) && $docValue !== ''): ?>
-                    <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                        <?php $documentTitle = ucwords(str_replace('_', ' ', $key)); ?>
-                        <div>
-                            <strong><?= $documentTitle ?>:</strong>
-                            <?php 
-                            // Verifica se o valor parece ser um caminho de arquivo
-                            if (preg_match("/\.(pdf|docx|doc|jpeg|jpg|png)$/", $docValue) && file_exists($docValue)): ?>
-                                <!-- Tratar como arquivo -->
-                                <a href="<?= base_url($docValue) ?>" class="btn btn-primary btn-sm">Baixar</a>
-                            <?php elseif (!preg_match("/\.(pdf|docx|doc|jpeg|jpg|png)$/", $docValue)): ?>
-                                <!-- Tratar como texto -->
+                    <?php $documentTitle = ucwords(str_replace('_', ' ', $key)); ?>
+                    <!-- Verifica se o valor parece ser um caminho de arquivo -->
+                    <?php if ($key === 'senha_certificado_digital'): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong><?= $documentTitle ?>:</strong>
                                 <span><?= esc($docValue) ?></span>
-                            <?php else: ?>
-                                <span>Documento "excluido" pelo cliente!</span>
-                            <?php endif; ?>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
+                                Excluir
+                            </button>
                         </div>
-                        <button type="button" class="btn btn-danger btn-sm"
-                                onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
-                            Excluir
-                        </button>
-                    </div>
+                    <?php elseif (preg_match("/\.(pdf|docx|doc|jpeg|jpg|png)$/", $docValue) && file_exists($docValue)): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong><?= $documentTitle ?>:</strong>
+                                <a href="<?= base_url($docValue) ?>" class="btn btn-primary btn-sm">Baixar</a>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
+                                Excluir
+                            </button>
+                        </div>
+                    <?php elseif (!preg_match("/\.(pdf|docx|doc|jpeg|jpg|png)$/", $docValue)): ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong><?= $documentTitle ?>:</strong>
+                                <span><?= esc($docValue) ?></span>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
+                                Excluir
+                            </button>
+                        </div>
+                    <?php else: ?>
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong><?= $documentTitle ?>:</strong>
+                                <span>Documento "excluido" pelo cliente!</span>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="openDeleteModal('<?= $data['socio_asses']['email'] ?>', '<?= addslashes($documentTitle) ?>', '<?= $key ?>')">
+                                Excluir
+                            </button>
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             <?php endforeach; ?>
         <?php else: ?>
@@ -335,6 +361,7 @@ button.btn.btn-link i {
         <?php endif; ?>
     </div>
 </div>
+
 
 
 
