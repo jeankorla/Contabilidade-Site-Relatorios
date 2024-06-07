@@ -589,7 +589,7 @@ class PropostaController extends Controller
         <div class="row justify-content-center">
             <div class="col-12 col-lg-4">
                 <div class="image-wrapper">
-                    <img src="propostas/assets/images/ass.webp" alt="ASS">
+                    <img src="https://sccontab.com.br/propostas/assets/images/ass.webp" alt="ASS">
                 </div>
             </div>
         </div>
