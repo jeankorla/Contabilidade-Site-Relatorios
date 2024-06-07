@@ -8,6 +8,8 @@ use App\Models\Contabilidade;
 use App\Models\Socio_ass;
 use CodeIgniter\Controller;
 
+use App\Controllers\EmailController;
+
 
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -75,6 +77,16 @@ class PropostaController extends Controller
 {
     $clienteModel = new Cliente_lead();
     $cliente = $clienteModel->find($clienteId);
+
+    $clienteEmail = $clienteModel->asArray()->find($clienteId);
+    // Verificar se o cliente foi encontrado e se possui um email
+    if ($clienteEmail && isset($clienteEmail['email'])) {
+        $email = $clienteEmail['email'];
+    } else {
+        // Tratar o caso em que o cliente não foi encontrado ou o email não está disponível
+        $email = "Email não disponível";
+    }
+    
 
     $empresaModel = new Empresa();
     $empresa = $empresaModel->where('cliente_id', $clienteId)->first();
@@ -873,12 +885,23 @@ function aplicarMascaraCEP(input) {
         ]);
     }
 
+    $proposta = base_url("propostas/$fileName");
+
+    // Criar instância do EmailController
+    $emailController = new \App\Controllers\EmailController();
+
+    // Chamada para enviar o email usando a instância criada
+    $emailController->emailPropostaCliente($email, $proposta);
+
     return $this->response->setJSON([
         'status' => 'success',
         'message' => 'Proposta gerada com sucesso!',
         'link' => base_url("propostas/$fileName")
     ]);
 }
+
+
+
 
     public function contratoSemProposta($empresaId)
     {
