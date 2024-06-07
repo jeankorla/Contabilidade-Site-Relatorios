@@ -619,7 +619,7 @@
 
 
             <div class="col-md-12">
-                <h2 class="mb-5">Representante da Contratante</h2>
+                <h2 class="mb-5">Representante Legal</h2>
             </div>
 
             <div class="col-md-7">
