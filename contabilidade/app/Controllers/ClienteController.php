@@ -263,6 +263,7 @@ class ClienteController extends BaseController
         $dataSocioAss = [
             'nome' => $this->request->getPost('socio_asses_nome'),
             'nacionalidade' => $this->request->getPost('socio_asses_nacional'),
+            'email' => $this->request->getPost('socio_asses_email'),
             'idade' => $this->request->getPost('socio_asses_idade'),
             'rg' => $this->request->getPost('socio_asses_rg'),
             'cpf' => $this->request->getPost('socio_asses_cpf'),

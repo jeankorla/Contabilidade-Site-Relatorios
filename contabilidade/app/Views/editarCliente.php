@@ -626,13 +626,9 @@
                 <label for="socio_asses_nome" class="form-label">Nome do Sócio:</label>
                 <input id="input" type="text" id="socio_asses_nome" class="form-control" name="socio_asses_nome" value="<?= $data['socio_asses']['nome'] ?? 'N/A' ?>">
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <label for="socio_asses_nacional" class="form-label">Nacionalidade do Sócio:</label>
                 <input id="input" type="text" id="socio_asses_nacional" class="form-control" name="socio_asses_nacional" value="<?= $data['socio_asses']['nacionalidade'] ?? 'N/A' ?>">
-            </div>
-            <div class="col-2">
-                <label for="socio_asses_idade" class="form-label">Idade do Sócio:</label>
-                <input id="input" type="text" id="socio_asses_idade" class="form-control" name="socio_asses_idade" value="<?= $data['socio_asses']['idade'] ?? 'N/A' ?>">
             </div>
             <div class="col-6">
                 <label for="socio_asses_rg" class="form-label">RG do Sócio:</label>
@@ -649,9 +645,13 @@
                 <label for="socio_asses_endereco_cep" class="form-label">CEP do Sócio:</label>
                 <input id="input" type="text" id="socio_asses_endereco_cep" class="form-control" name="socio_asses_endereco_cep" oninput="aplicarMascaraCEP(this)" maxlength="9" value="<?= $data['socio_asses']['endereco_cep'] ?? 'N/A' ?>">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="socio_asses_endereco_cidade" class="form-label">Cidade do Sócio:</label>
                 <input id="input" type="text" id="socio_asses_endereco_cidade" class="form-control" name="socio_asses_endereco_cidade" value="<?= $data['socio_asses']['endereco_cidade'] ?? 'N/A' ?>">
+            </div>
+            <div class="col-md-5">
+                <label for="socio_asses_email" class="form-label">Email do Sócio:</label>
+                <input id="input" type="text" id="socio_asses_email" class="form-control" name="socio_asses_email" value="<?= $data['socio_asses']['email'] ?? 'N/A' ?>">
             </div>
             <div class="col-md-5">
                 <label for="socio_asses_endereco_bairro" class="form-label">Bairro do Sócio:</label>
