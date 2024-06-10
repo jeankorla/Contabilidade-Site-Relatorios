@@ -890,7 +890,7 @@ function aplicarMascaraCEP(input) {
     $emailController = new \App\Controllers\EmailController();
 
     // Chamada para enviar o email usando a instância criada
-    // $emailController->emailPropostaCliente($email, $proposta);
+    $emailController->emailPropostaCliente($email, $proposta);
 
     return $this->response->setJSON([
         'status' => 'success',
