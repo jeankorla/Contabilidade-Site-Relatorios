@@ -41,32 +41,31 @@ class ContatoController extends BaseController
         exit;
     }
 
-    // Continua com o processamento dos dados submetidos pelo usuário
-    $name = $this->request->getPost('name');
+        $name = $this->request->getPost('name');
     $email = $this->request->getPost('email');
     $textarea = $this->request->getPost('textarea');
 
-    $Contato = new Contato;
+    // Verifica se todos os campos estão vazios
+    if (empty($name) && empty($email) && empty($textarea)) {
+        // Se todos os campos estiverem vazios, não faça nada ou retorne uma mensagem de erro
+        return redirect()->back()->with('error', 'O formulário está vazio.')->withInput();
+    } else {
+        // Se algum campo estiver preenchido, continue com o processo
+        $Contato = new Contato;
 
-    $data = [
-        'name' => $name,
-        'email' => $email,
-        'textarea' => $textarea,
-    ];
+        $data = [
+            'name' => $name,
+            'email' => $email,
+            'textarea' => $textarea,
+        ];
 
-    if($data == null)
-    {
-       echo "error message NULL";
-    }else{
+        $Contato->insert($data);
 
+        $this->emailController->contatoEmailDiretoria($data);
 
-    $Contato->insert($data);
-
-    $this->emailController->contatoEmailDiretoria($data);
-
-    return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
-        }
+        return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
     }
+}
 
     public function excluirContato($id = null)
     {
