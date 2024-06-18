@@ -505,40 +505,137 @@
             </div>
 
         <!-- Dados de Acesso ao Simples Nacional -->
-        <div class="container mt-3">
-            <div class="list-group">
-                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    <div class="w-100">
-                        <label for="simples_nacional_text" class="form-label"><strong>Dados de Acesso ao Simples Nacional:</strong></label>
-                        <input type="text" class="form-control" id="simples_nacional_text" name="simples_nacional_text" value="<?= $data['documents']['simples_nacional'] ?? '' ?>">
-                    </div>
+<div class="container mt-3">
+    <div class="list-group">
+        <div class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="w-100">
+                    <label for="simples_nacional_texto" class="form-label">
+                        <strong>Dados de Acesso ao Simples Nacional (Texto):</strong>
+                    </label>
+                    <input type="text" class="form-control" id="simples_nacional_texto" name="simples_nacional_texto" value="<?= $data['documents']['simples_nacional_texto'] ?? '' ?>" placeholder="Digite aqui os dados de acesso ao Simples Nacional se preferir texto">
                 </div>
             </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <?php if (isset($data['documents']['simples_nacional']) && file_exists($data['documents']['simples_nacional'])): ?>
+                    <div>
+                        <strong>Documento de Acesso ao Simples Nacional:</strong>
+                        <a href="<?= base_url($data['documents']['simples_nacional']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('simples_nacional', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                    </div>
+                <?php else: ?>
+                    <div class="w-100">
+                        <label for="simples_nacional" class="form-label">
+                            <strong>Envio de Documento de Acesso ao Simples Nacional (Arquivo):</strong>
+                        </label>
+                        <input type="file" class="form-control" id="simples_nacional" name="simples_nacional" accept=".pdf,.doc,.docx">
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
+    </div>
+</div>
+
 
         <!-- Dados de Acesso da Prefeitura em Emissão de NFSe -->
-        <div class="container mt-3">
-            <div class="list-group">
-                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    <div class="w-100">
-                        <label for="prefeitura_nfse_text" class="form-label"><strong>Dados de Acesso da Prefeitura em Emissão de NFSe:</strong></label>
-                        <input type="text" class="form-control" id="prefeitura_nfse_text" name="prefeitura_nfse_text" value="<?= $data['documents']['prefeitura_nfse'] ?? '' ?>">
-                    </div>
+<div class="container mt-3">
+    <div class="list-group">
+        <div class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="w-100">
+                    <label for="prefeitura_nfse_texto" class="form-label">
+                        <strong>Dados de Acesso da Prefeitura em Emissão de NFSe (Texto):</strong>
+                    </label>
+                    <input type="text" class="form-control" id="prefeitura_nfse_texto" name="prefeitura_nfse_texto" value="<?= $data['documents']['prefeitura_nfse_texto'] ?? '' ?>" placeholder="Digite aqui os dados de acesso para emissão de NFSe se preferir texto">
                 </div>
             </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <?php if (isset($data['documents']['prefeitura_nfse']) && file_exists($data['documents']['prefeitura_nfse'])): ?>
+                    <div>
+                        <strong>Documento de Emissão de NFSe:</strong>
+                        <a href="<?= base_url($data['documents']['prefeitura_nfse']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('prefeitura_nfse', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                    </div>
+                <?php else: ?>
+                    <div class="w-100">
+                        <label for="prefeitura_nfse" class="form-label">
+                            <strong>Envio de Documento de Emissão de NFSe (Arquivo):</strong>
+                        </label>
+                        <input type="file" class="form-control" id="prefeitura_nfse" name="prefeitura_nfse" accept=".pdf,.doc,.docx">
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
+    </div>
+</div>
+
+
+<!-- Dados de Acesso à Prefeitura para o Portal de PF -->
+<div class="container mt-3">
+    <div class="list-group">
+        <div class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="w-100">
+                    <label for="prefeitura_pf_texto" class="form-label">
+                        <strong>Dados de Acesso à Prefeitura para o Portal de PF (Texto):</strong>
+                    </label>
+                    <input type="text" class="form-control" id="prefeitura_pf_texto" name="prefeitura_pf_texto" value="<?= $data['documents']['prefeitura_pf_texto'] ?? '' ?>" placeholder="Digite aqui os dados de acesso ao Portal de PF se preferir texto">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <?php if (isset($data['documents']['prefeitura_pf']) && file_exists($data['documents']['prefeitura_pf'])): ?>
+                    <div>
+                        <strong>Documento de Acesso ao Portal de PF:</strong>
+                        <a href="<?= base_url($data['documents']['prefeitura_pf']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('prefeitura_pf', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                    </div>
+                <?php else: ?>
+                    <div class="w-100">
+                        <label for="prefeitura_pf" class="form-label">
+                            <strong>Envio de Documento de Acesso ao Portal de PF (Arquivo):</strong>
+                        </label>
+                        <input type="file" class="form-control" id="prefeitura_pf" name="prefeitura_pf" accept=".pdf,.doc,.docx">
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
         <!-- Dados de Acesso a Previdência Social -->
-        <div class="container mt-3">
-            <div class="list-group">
-                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    <div class="w-100">
-                        <label for="previdencia_social_text" class="form-label"><strong>Dados de Acesso a Previdência Social:</strong></label>
-                        <input type="text" class="form-control" id="previdencia_social_text" name="previdencia_social_text" value="<?= $data['documents']['previdencia_social'] ?? '' ?>">
-                    </div>
+<div class="container mt-3">
+    <div class="list-group">
+        <div class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="w-100">
+                    <label for="previdencia_social_texto" class="form-label">
+                        <strong>Dados de Acesso a Previdência Social (Texto):</strong>
+                    </label>
+                    <input type="text" class="form-control" id="previdencia_social_texto" name="previdencia_social_texto" value="<?= $data['documents']['previdencia_social_texto'] ?? '' ?>" placeholder="Digite aqui os dados de acesso à Previdência Social se preferir texto">
                 </div>
             </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <?php if (isset($data['documents']['previdencia_social']) && file_exists($data['documents']['previdencia_social'])): ?>
+                    <div>
+                        <strong>Documento de Acesso à Previdência Social:</strong>
+                        <a href="<?= base_url($data['documents']['previdencia_social']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('previdencia_social', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                    </div>
+                <?php else: ?>
+                    <div class="w-100">
+                        <label for="previdencia_social" class="form-label">
+                            <strong>Envio de Documento de Acesso à Previdência Social (Arquivo):</strong>
+                        </label>
+                        <input type="file" class="form-control" id="previdencia_social" name="previdencia_social" accept=".pdf,.doc,.docx">
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
+    </div>
+</div>
+
 
 
 
