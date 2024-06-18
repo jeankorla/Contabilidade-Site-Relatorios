@@ -478,10 +478,10 @@
         <div class="list-group-item list-group-item-action">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="w-100">
-                    <label for="posto_fiscal_text" class="form-label">
+                    <label for="posto_fiscal_texto" class="form-label">
                         <strong>Dados de Acesso ao Posto Fiscal (Texto):</strong>
                     </label>
-                    <input type="text" class="form-control" id="posto_fiscal_text" name="posto_fiscal_text" value="<?= $data['documents']['posto_fiscal_text'] ?? '' ?>" placeholder="Digite aqui os dados de acesso ao posto fiscal se preferir texto">
+                    <input type="text" class="form-control" id="posto_fiscal_texto" name="posto_fiscal_texto" value="<?= $data['documents']['posto_fiscal_texto'] ?? '' ?>" placeholder="Digite aqui os dados de acesso ao posto fiscal se preferir texto">
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center mt-3">
