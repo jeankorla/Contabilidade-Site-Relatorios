@@ -485,12 +485,20 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center mt-3">
-                <div class="w-100">
-                    <label for="posto_fiscal" class="form-label">
-                        <strong>Dados de Acesso ao Posto Fiscal (Arquivo):</strong>
-                    </label>
-                    <input type="file" class="form-control" id="posto_fiscal" name="posto_fiscal" accept=".pdf,.doc,.docx">
-                </div>
+                <?php if (isset($data['documents']['posto_fiscal']) && file_exists($data['documents']['posto_fiscal'])): ?>
+                    <div>
+                        <strong>Documento de Acesso ao Posto Fiscal:</strong>
+                        <a href="<?= base_url($data['documents']['posto_fiscal']) ?>" class="btn btn-primary btn-sm">Baixar Documento</a>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDocument('posto_fiscal', '<?= $data['empresa']['id'] ?>')">Excluir</button>
+                    </div>
+                <?php else: ?>
+                    <div class="w-100">
+                        <label for="posto_fiscal" class="form-label">
+                            <strong>Envio de Documento de Acesso ao Posto Fiscal (Arquivo):</strong>
+                        </label>
+                        <input type="file" class="form-control" id="posto_fiscal" name="posto_fiscal" accept=".pdf,.doc,.docx">
+                    </div>
+                <?php endif; ?>
             </div>
             </div>
             </div>
