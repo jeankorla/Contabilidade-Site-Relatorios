@@ -102,53 +102,69 @@ class DocumentsController extends BaseController
 
 
 public function storeDocuments($id = null)
-    {
-        helper('text');
-        $empresaModel = new Empresa();
-        $documentModel = new Documents();
+{
+    helper('text');
+    $empresaModel = new Empresa();
+    $documentModel = new Documents();
 
-        $empresa = $empresaModel->find($id);
-        if (!$empresa) {
-            return redirect()->back()->with('error', 'Empresa não encontrada.');
-        }
-
-        $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
-        $dirPath = './documents/' . $cnpj;
-
-        if (!is_dir($dirPath) && !mkdir($dirPath, 0755, true)) {
-            log_message('error', "Falha ao criar o diretório: $dirPath");
-            return redirect()->back()->with('error', 'Falha ao criar diretório para documentos.');
-        }
-
-        $files = $this->request->getFiles();
-        $existingDocument = $documentModel->where('empresa_id', $id)->first();
-
-        if ($existingDocument) {
-            $data = ['id' => $existingDocument['id']]; // Usando o ID do registro existente para atualização
-        } else {
-            $data = ['empresa_id' => $id]; // Criando um novo registro se não existir
-        }
-
-        foreach ($files as $fileKey => $file) {
-            if ($file->isValid() && !$file->hasMoved()) {
-                $newName = $file->getRandomName();
-                if (!$file->move($dirPath, $newName)) {
-                    log_message('error', "Falha ao mover o arquivo $fileKey");
-                    continue; // Não interrompe o loop, tenta processar os próximos arquivos
-                }
-                $data[$fileKey] = $dirPath . '/' . $newName;
-            }
-        }
-
-        // Salvar ou atualizar os dados no banco
-        if (!$documentModel->save($data)) {
-            log_message('error', 'Falha ao salvar os dados do documento no banco de dados.');
-            return redirect()->back()->with('error', 'Falha ao salvar os documentos.');
-        }
-
-        // Redirecionar de volta para a mesma página com uma mensagem de sucesso
-        return redirect()->to(previous_url())->with('success', 'Documentos atualizados com sucesso.');
+    $empresa = $empresaModel->find($id);
+    if (!$empresa) {
+        return redirect()->back()->with('error', 'Empresa não encontrada.');
     }
+
+    $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
+    $dirPath = './documents/' . $cnpj;
+
+    if (!is_dir($dirPath) && !mkdir($dirPath, 0755, true)) {
+        log_message('error', "Falha ao criar o diretório: $dirPath");
+        return redirect()->back()->with('error', 'Falha ao criar diretório para documentos.');
+    }
+
+    $data = ['empresa_id' => $id];
+    $files = $this->request->getFiles();
+    $postData = $this->request->getPost();
+    
+    foreach ($files as $fileKey => $file) {
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            if (!$file->move($dirPath, $newName)) {
+                log_message('error', "Falha ao mover o arquivo $fileKey");
+                continue; // Não interrompe o loop, tenta processar os próximos arquivos
+            }
+            $data[$fileKey] = $dirPath . '/' . $newName;
+        }
+    }
+
+    // Coletar e validar dados de texto
+    foreach ($postData as $key => $value) {
+        if (in_array($key, $documentModel->allowedFields) && !empty($value)) {
+            $data[$key] = $value;
+        }
+    }
+
+    // Checando se há dados válidos para atualizar ou inserir
+    if (empty($data)) {
+        log_message('error', 'Nenhum dado válido para atualização ou inserção.');
+        return redirect()->back()->with('error', 'Nenhum dado válido para atualização ou inserção.');
+    }
+
+    // Atualizar ou inserir os dados
+    if ($existingDocument = $documentModel->where('empresa_id', $id)->first()) {
+        if (!$documentModel->update($existingDocument['id'], $data)) {
+            log_message('error', 'Falha ao atualizar os dados do documento no banco de dados.');
+            return redirect()->back()->with('error', 'Falha ao atualizar os documentos.');
+        }
+    } else {
+        if (!$documentModel->insert($data)) {
+            log_message('error', 'Falha ao inserir os dados do documento no banco de dados.');
+            return redirect()->back()->with('error', 'Falha ao inserir os documentos.');
+        }
+    }
+
+    // Redirecionar de volta para a mesma página com uma mensagem de sucesso
+    return redirect()->to(previous_url())->with('success', 'Documentos atualizados com sucesso.');
+}
+
 
 
 
