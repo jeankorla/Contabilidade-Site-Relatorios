@@ -101,49 +101,54 @@ class DocumentsController extends BaseController
     }
 
 
- public function storeDocuments($id = null)
-{
-    helper('text');
-    $empresaModel = new Empresa();
-    $documentModel = new Documents();
+public function storeDocuments($id = null)
+    {
+        helper('text');
+        $empresaModel = new Empresa();
+        $documentModel = new Documents();
 
-    $empresa = $empresaModel->find($id);
-    if (!$empresa) {
-        return redirect()->back()->with('error', 'Empresa não encontrada.');
-    }
-
-    $postData = $this->request->getPost();
-    $existingDocument = $documentModel->where('empresa_id', $id)->first();
-
-    if ($existingDocument) {
-        $data = ['id' => $existingDocument['id']]; // Usando o ID do registro existente para atualização
-    } else {
-        $data = ['empresa_id' => $id]; // Criando um novo registro se não existir
-    }
-
-    // Processamento dos campos de texto
-    $fields = ['posto_fiscal', 'simples_nacional', 'prefeitura_nfse', 'previdencia_social'];
-    foreach ($fields as $field) {
-        $textField = $field . '_text';
-        if (isset($postData[$textField])) {
-            $data[$field] = $postData[$textField];
+        $empresa = $empresaModel->find($id);
+        if (!$empresa) {
+            return redirect()->back()->with('error', 'Empresa não encontrada.');
         }
-    }
 
-    // Adiciona o campo senha_certificado_digital ao array de dados
-    if (isset($postData['senha_certificado_digital'])) {
-        $data['senha_certificado_digital'] = $postData['senha_certificado_digital'];
-    }
+        $cnpj = preg_replace('/[^0-9]/', '', $empresa['cnpj']);
+        $dirPath = './documents/' . $cnpj;
 
-    // Salvar ou atualizar os dados no banco
-    if (!$documentModel->save($data)) {
-        log_message('error', 'Falha ao salvar os dados do documento no banco de dados.');
-        return redirect()->back()->with('error', 'Falha ao salvar os documentos.');
-    }
+        if (!is_dir($dirPath) && !mkdir($dirPath, 0755, true)) {
+            log_message('error', "Falha ao criar o diretório: $dirPath");
+            return redirect()->back()->with('error', 'Falha ao criar diretório para documentos.');
+        }
 
-    // Redirecionar de volta para a mesma página com uma mensagem de sucesso
-    return redirect()->to(previous_url())->with('success', 'Documentos atualizados com sucesso.');
-}
+        $files = $this->request->getFiles();
+        $existingDocument = $documentModel->where('empresa_id', $id)->first();
+
+        if ($existingDocument) {
+            $data = ['id' => $existingDocument['id']]; // Usando o ID do registro existente para atualização
+        } else {
+            $data = ['empresa_id' => $id]; // Criando um novo registro se não existir
+        }
+
+        foreach ($files as $fileKey => $file) {
+            if ($file->isValid() && !$file->hasMoved()) {
+                $newName = $file->getRandomName();
+                if (!$file->move($dirPath, $newName)) {
+                    log_message('error', "Falha ao mover o arquivo $fileKey");
+                    continue; // Não interrompe o loop, tenta processar os próximos arquivos
+                }
+                $data[$fileKey] = $dirPath . '/' . $newName;
+            }
+        }
+
+        // Salvar ou atualizar os dados no banco
+        if (!$documentModel->save($data)) {
+            log_message('error', 'Falha ao salvar os dados do documento no banco de dados.');
+            return redirect()->back()->with('error', 'Falha ao salvar os documentos.');
+        }
+
+        // Redirecionar de volta para a mesma página com uma mensagem de sucesso
+        return redirect()->to(previous_url())->with('success', 'Documentos atualizados com sucesso.');
+    }
 
 
 

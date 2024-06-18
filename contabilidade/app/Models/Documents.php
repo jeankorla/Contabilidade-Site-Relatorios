@@ -14,8 +14,9 @@ class Documents extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'social_registrado', 'certificado_digital', 'senha_certificado_digital', 'posto_fiscal', 'simples_nacional',
-        'prefeitura_nfse', 'prefeitura_pf', 'previdencia_social', 'ctps', 'convencao_coletiva', 'alvara_funcionamento',
+        'social_registrado', 'certificado_digital', 'senha_certificado_digital', 'posto_fiscal', 'posto_fiscal_texto', 'simples_nacional', 'simples_nacional_texto',
+        'prefeitura_nfse', 'prefeitura_nfse_texto', 'prefeitura_pf', 'prefeitura_pf_texto', 'previdencia_social', 'previdencia_social_texto', 'ctps', 'convencao_coletiva',
+        'alvara_funcionamento',
         'balancete_ultimo', 'balanco_patrimonial', 'livro_corrente', 'livro_encerrado',
 
         'empresa_id',
