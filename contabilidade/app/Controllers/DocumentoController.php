@@ -623,7 +623,7 @@ Você irá receber um e-mail em <strong style="color: #FF931E "> ' . $socioEmail
                                     <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                     <tr>
                                         <td align="left" class="es-m-p0r es-m-p0l" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, , helvetica, sans-serif;line-height:24px;color:#333333;font-size:16px"><span style="font-size:15px">Prezado(a) cliente,<br><br>
-    Temos o prazer de informar que a sua proposta foi elaborada com sucesso! Estamos ansiosos para iniciar nossa parceria e contribuir para o sucesso de seus negócios. <br><br>
+    Temos o prazer de informar que seu contrato foi elaborado com sucesso! Estamos ansiosos para iniciar nossa parceria e contribuir para o sucesso de seus negócios. <br><br>
     Por favor, acesse o link abaixo para enviar os documentos necessários para darmos continuidade ao seu atendimento:<br>
     <a href="' . $link . '">Enviar Documentos</a><br><br></span></p>
                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, , helvetica, sans-serif;line-height:23px;color:#333333;font-size:15px"><br>Agradecemos pela atenção!<br>Equipe gestora</p></td>
