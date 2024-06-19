@@ -29,7 +29,7 @@ class DocumentoController extends BaseController
         // Criar uma instância do Dompdf
         $dompdf = new Dompdf();
 
-        // dd($empresa);
+        dd($empresa);
 
         // Corpo do contrato em HTML
         $htmlContent = '
