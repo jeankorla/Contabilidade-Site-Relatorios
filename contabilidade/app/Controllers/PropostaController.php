@@ -21,8 +21,6 @@ class PropostaController extends Controller
         $empresaId = $this->request->getPost('empresa_id');
         $clienteLeadId = $this->request->getPost('cliente_id');
 
-        var_dump($clienteLeadId);
-
         // Dados do novo sócio ou atualização do existente
         $socioData = [
             'nome' => $this->request->getPost('socio_asses_nome'),
