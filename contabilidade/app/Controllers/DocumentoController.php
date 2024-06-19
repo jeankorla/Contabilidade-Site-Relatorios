@@ -11,10 +11,10 @@ use Dompdf\Dompdf;
 
 class DocumentoController extends BaseController
 {
-    public function gerarDoc($updatedId, $empresaId, $clienteLeadId)
+    public function gerarDoc($insertedId, $empresaId, $clienteLeadId)
     {   
         $socioModel = new Socio_ass();
-        $socio= $socioModel->find($updatedId);
+        $socio= $socioModel->find($insertedId);
 
         $empresaModel = new Empresa(); 
         $empresa = $empresaModel->find($empresaId);
@@ -28,6 +28,8 @@ class DocumentoController extends BaseController
 
         // Criar uma instância do Dompdf
         $dompdf = new Dompdf();
+
+        dd($empresa);
 
         // Corpo do contrato em HTML
         $htmlContent = '
