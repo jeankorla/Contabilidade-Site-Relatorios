@@ -19,6 +19,9 @@ class PropostaController extends Controller
     {
         // Obtém o valor de `empresa_id` do formulário
         $empresaId = $this->request->getPost('empresa_id');
+
+        dd($empresaId);
+
         $clienteLeadId = $this->request->getPost('cliente_id');
 
         // Dados do novo sócio ou atualização do existente
