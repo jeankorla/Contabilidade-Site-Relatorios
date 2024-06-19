@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Socio_ass;
 use App\Models\Empresa;
 use App\Models\Contabilidade;
-use App\Models\Cliente_Lead;
+use App\Models\Cliente_lead;
 use Dompdf\Dompdf;
 
 class DocumentoController extends BaseController
@@ -454,7 +454,7 @@ Você irá receber um e-mail em <strong style="color: #FF931E "> ' . $socioEmail
 
     public function emailDocumentosCliente($socioEmail, $clienteLeadId)
 {
-    $clienteLeadModel = new Cliente_Lead();
+    $clienteLeadModel = new Cliente_lead();
     // Busca o registro do cliente pelo ID e recupera o token
     $clienteLead = $clienteLeadModel->find($clienteLeadId);
     if (!$clienteLead) {
