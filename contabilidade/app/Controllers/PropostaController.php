@@ -20,7 +20,7 @@ class PropostaController extends Controller
         // Obtém o valor de `empresa_id` do formulário
         $empresaId = $this->request->getPost('empresa_id');
 
-        dd($empresaId);
+        var_dump($empresaId);
 
         $clienteLeadId = $this->request->getPost('cliente_id');
 
