@@ -372,7 +372,7 @@ button.btn.btn-link i {
 
             <div class="d-flex justify-content-between mt-5">
                 <div class="col-6">
-                    <a class="beautiful-button" style="text-decoration: none;" href="<?= base_url('DocumentsController/formView/' . $data['cliente']['id']) ?>">
+                    <a class="beautiful-button" style="text-decoration: none;" href="<?= base_url('DocumentsController/formView/' . $data['cliente']['token']) ?>">
                         Abrir Forms
                     </a>
                 </div>

@@ -57,14 +57,16 @@ class DocumentsController extends BaseController
         return view('showDocuments', ['data' => $data]);
     }
 
-    public function formView($id = null)
+    public function formView($token = null)
     {
         $clienteModel = new Cliente_lead();
-        $cliente = $clienteModel->find($id);
+        $cliente = $clienteModel->where('token', $token)->first();
 
         if (!$cliente) {
             return redirect()->back()->with('error', 'Cliente não encontrado.');
         }
+
+        $id = $cliente['id'];
 
         $empresaModel = new Empresa();
         $empresa = $empresaModel->where('cliente_id', $id)->first();
@@ -85,7 +87,6 @@ class DocumentsController extends BaseController
 
         $documentsModel = new Documents();
         $documents = $documentsModel->where('empresa_id', $empresaId)->first();
-        
 
         $data = [
             'cliente' => $cliente,
@@ -99,6 +100,7 @@ class DocumentsController extends BaseController
 
         return view('documents', ['data' => $data]);
     }
+
 
 
 public function storeDocuments($id = null)

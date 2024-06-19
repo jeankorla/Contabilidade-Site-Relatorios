@@ -14,7 +14,7 @@ class cliente_lead extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'motivo', 'nome', 'email', 'tel', 'cpf',
+        'motivo', 'nome', 'email', 'tel', 'cpf', 'token',
     ];
 
     // Dates

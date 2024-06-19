@@ -94,6 +94,10 @@ class ClienteController extends BaseController
             exit;
         }
 
+        // Geração do token único para o cliente
+        $token = bin2hex(random_bytes(16));
+
+
         // Coletar todos os dados do formulário para o cliente
         $data = [
             'motivo' => $this->request->getPost('motivo'),
@@ -101,6 +105,7 @@ class ClienteController extends BaseController
             'email' => $this->request->getPost('email'),
             'tel' => $this->request->getPost('tel'),
             'cpf' => $this->request->getPost('cpf'),
+            'token' => $token,
             'cnpj' => $this->request->getPost('cnpj'),
             'tributacao' => $this->request->getPost('tributacao'),
             'faturamento' => $this->request->getPost('faturamento'),
@@ -339,13 +344,15 @@ class ClienteController extends BaseController
         // Atualizando atividades secundárias
         $atividadeModel = new Atividade();
         $atividades = $this->request->getPost('atividades');
-        // Primeiro, remova as atividades secundárias antigas para evitar duplicações
         $atividadeModel->where('empresa_id', $empresaId)->delete();
-        // Insira as novas atividades secundárias
-        foreach ($atividades as $atividade) {
-            $atividade['empresa_id'] = $empresaId;
-            $atividadeModel->insert($atividade);
+
+        if (is_array($atividades)) {
+            foreach ($atividades as $atividade) {
+                $atividade['empresa_id'] = $empresaId;
+                $atividadeModel->insert($atividade);
+            }
         }
+
 
         // Redirecionar de volta para a mesma página com uma mensagem de sucesso
         return redirect()->to(previous_url())->with('success', 'Registro atualizado com sucesso.');
