@@ -11,10 +11,10 @@ use Dompdf\Dompdf;
 
 class DocumentoController extends BaseController
 {
-    public function gerarDoc($insertedId, $empresaId, $clienteLeadId)
+    public function gerarDoc($updatedId, $empresaId, $clienteLeadId)
     {   
         $socioModel = new Socio_ass();
-        $socio= $socioModel->find($insertedId);
+        $socio= $socioModel->find($updatedId);
 
         $empresaModel = new Empresa(); 
         $empresa = $empresaModel->find($empresaId);
