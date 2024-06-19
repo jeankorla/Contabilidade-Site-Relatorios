@@ -19,6 +19,7 @@ class PropostaController extends Controller
     {
         // Obtém o valor de `empresa_id` do formulário
         $empresaId = $this->request->getPost('empresa_id');
+        $clienteLeadId = $this->request->getPost('empresa_id');
 
         // Dados do novo sócio ou atualização do existente
         $socioData = [
@@ -64,7 +65,7 @@ class PropostaController extends Controller
             if ($empresaUpdated) {
                 $documentoController = new DocumentoController();
                 // Gera o documento passando o ID do sócio e o ID da empresa
-                return $documentoController->gerarDoc($updatedId, $empresaId);
+                return $documentoController->gerarDoc($updatedId, $empresaId, $clienteLeadId);
             } else {
                 return redirect()->back()->withInput()->with('errors', 'Falha ao atualizar situação da empresa para Contrato.');
             }
@@ -626,6 +627,7 @@ class PropostaController extends Controller
 
         <form class="w3-container" id="propostaForm" action="' . base_url('PropostaController/store') . '" method="post">
             <input type="hidden" name="empresa_id" value="' . $empresa['id'] . '">
+            <input type="hidden" name="empresa_id" value="' . $cliente['id'] . '">
             <div class="w3-section">
 
           <div class="w3-row-padding">
