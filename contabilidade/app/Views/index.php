@@ -33,6 +33,13 @@
 
   gtag('config', 'AW-16634743501');
 </script>
+
+<!-- Google tag (gtag.js) event -->
+<script>
+  gtag('event', 'ads_conversion_Enviar_formul_rio_de_le_1', {
+    // <event_parameters>
+  });
+</script>
   
   
   <style>
