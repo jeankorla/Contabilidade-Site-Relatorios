@@ -348,13 +348,10 @@ public function contatoEmailDiretoria($data)
             <li>Email: {$data['email']}</li>
             <li>Mensagem: {$data['textarea']}</li>
         </ul>
-        <ul>
-        Para mais detalhes ou para tomar os próximos passos, por favor, acesse nossa plataforma de gestão:
-        
-        <a href='https://sccontab.com.br/LoginController'>Clique aqui para acessar a plataforma</a>
-        </ul>
-        <p>Atenciosamente,</p>
-        <p>Equipe de Contabilidade</p>
+        <p>Para mais detalhes ou para tomar os próximos passos, por favor, acesse nossa plataforma de gestão:</p>
+            <p><a href='https://sccontab.com.br/LoginController'>Clique aqui para acessar a plataforma</a></p>
+            <p>Atenciosamente,</p>
+            <p>Equipe Spolaor Contabilidade</p>
     </body>
     </html>";
 
