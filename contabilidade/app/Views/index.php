@@ -189,7 +189,7 @@ form .website {
             <div class="card col-12 col-lg-10">
                 <div class="card-wrapper">
                     <div class="card-box align-center">
-                        <h4 class="card-title mbr-fonts-style align-center mb-4 display-1"><strong>A <span style="color: #FF931E;">Contabilidade</span> pode ajudar</strong></h4>
+                        <h4 class="card-title mbr-fonts-style align-center mb-4 display-1"><strong>A <span style="color: #FF931E;">Contabilidade</span> pode te ajudar</strong></h4>
                         <p class="mbr-text mbr-fonts-style mb-4 display-7">
                             Entender a necessidade da sua empresa, encontrar soluções inovadoras e compatíveis com o mercado, associados à melhor solução técnica, faz parte da essência da Spolaor Contabilidade, uma empresa diferenciada e moderna, pois sempre busca a satisfação do cliente na sua expectativa máxima.</p>
                         <div class="mbr-section-btn mt-3"><a class=" btn custom-btn-outline display-4" href="#contato" style="color: white !important; ">Entrar em contato</a></div>
