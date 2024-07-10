@@ -22,9 +22,4 @@ class Home extends BaseController
     {
         return view('cliente');
     }
-
-    public function mateus()
-    {
-        return view('teste');
-    }
 }
