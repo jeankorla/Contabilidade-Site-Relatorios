@@ -157,10 +157,12 @@ class ClienteController extends BaseController
             }
         }
 
+        if($data['cnpj']){
         // Enviar o CNPJ e clienteId para o EmpresaController
         $empresaController = new EmpresaController();
         $empresaData = $empresaController->fetchCnpjData($data['cnpj'], $clienteId, $additionalData);
-
+        }
+        
         // Usando métodos do EmailController (presumindo que ele esteja disponível)
         $this->emailController->emailCliente($data);
         $this->emailController->emailDiretoria($data);
