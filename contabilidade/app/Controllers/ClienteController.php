@@ -142,6 +142,7 @@ class ClienteController extends BaseController
             'endereco_cidade' => $this->request->getPost('endereco_empresa_cidade'),
             'endereco_estado' => $this->request->getPost('endereco_empresa_estado'),
             'cliente_id' => $clienteId,
+            'situacao' => 'Lead',
         ];
 
         // Verificar se os campos obrigatórios da empresa estão preenchidos
