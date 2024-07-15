@@ -73,6 +73,7 @@ class EmpresaController extends BaseController
             'capital_social'                        => $data['capital_social'],
             'abertura'                              => $data['abertura'],
             'tipo'                                  => $data['tipo'],
+            'situacao'                              => 'Lead',
 
 
 
