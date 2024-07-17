@@ -78,6 +78,7 @@ class ContatoController extends BaseController
             $Contato->insert($data);
 
             $this->emailController->contatoEmailDiretoria($data);
+            $this->emailController->contatoEmailCliente($data);
 
             return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
         }

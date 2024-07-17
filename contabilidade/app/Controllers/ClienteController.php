@@ -142,6 +142,7 @@ class ClienteController extends BaseController
             'endereco_cidade' => $this->request->getPost('endereco_empresa_cidade'),
             'endereco_estado' => $this->request->getPost('endereco_empresa_estado'),
             'cliente_id' => $clienteId,
+            'situacao' => 'Lead',
         ];
 
         // Verificar se os campos obrigatórios da empresa estão preenchidos
@@ -157,10 +158,12 @@ class ClienteController extends BaseController
             }
         }
 
+        if($data['cnpj']){
         // Enviar o CNPJ e clienteId para o EmpresaController
         $empresaController = new EmpresaController();
         $empresaData = $empresaController->fetchCnpjData($data['cnpj'], $clienteId, $additionalData);
-
+        }
+        
         // Usando métodos do EmailController (presumindo que ele esteja disponível)
         $this->emailController->emailCliente($data);
         $this->emailController->emailDiretoria($data);
