@@ -610,7 +610,7 @@ button.btn.btn-link i {
             <div class="item-header" id="headingAddress">
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
-                        Empresa Endereço
+                        Endereço da Empresa
                         <i class="fa fa-angle-down"></i>
                     </button>
                 </h2>
