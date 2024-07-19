@@ -379,6 +379,7 @@ button.btn.btn-link i {
             </div>
             
 <!-- Modal de Exclusão de Documento -->
+<!-- Modal de Exclusão de Documento -->
 <div class="modal fade" id="deleteDocumentModal" tabindex="-1" aria-labelledby="deleteDocumentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -401,7 +402,7 @@ button.btn.btn-link i {
                         <textarea class="form-control" id="deleteReason"></textarea>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="notifyCheck">
+                        <input type="checkbox" class="form-check-input" id="notifyCheck" checked>
                         <label class="form-check-label" for="notifyCheck">Notificar Cliente</label>
                     </div>
                     <input type="hidden" id="documentId" name="documentId">
@@ -805,34 +806,40 @@ function openDeleteModal(email, documentName, documentId) {
     document.getElementById('documentName').value = documentName;
     document.getElementById('deleteReason').value = '';
     document.getElementById('documentId').value = documentId;
-    document.getElementById('notifyCheck').checked = false;
+    document.getElementById('notifyCheck').checked = true;
     $('#deleteDocumentModal').modal('show');
 }
 
 function sendDeletion() {
     var email = document.getElementById('documentEmail').value;
     var documentName = document.getElementById('documentName').value;
-    var docKey = document.getElementById('documentId').value; // Essa linha pode precisar de ajuste
+    var docKey = document.getElementById('documentId').value;
     var reason = document.getElementById('deleteReason').value;
     var notify = document.getElementById('notifyCheck').checked;
 
-    $.post('<?= base_url("EmailController/deleteDocument") ?>', {
-        email: email,
-        documentName: documentName,
-        documentId: docKey, // Presumo que isso possa ser a chave do documento
-        reason: reason,
-        notify: notify
-    }, function(response) {
+    if (notify) {
+        $.post('<?= base_url("EmailController/deleteDocument") ?>', {
+            email: email,
+            documentName: documentName,
+            documentId: docKey,
+            reason: reason,
+            notify: notify
+        }, function(response) {
+            $('#deleteDocumentModal').modal('hide');
+            if (response.status === 'success') {
+                alert('Email enviado com sucesso! Procedendo para exclusão do arquivo...');
+                deleteDocumentFromServer(docKey, '<?= $data['empresa']['id'] ?>');
+            } else {
+                alert('Falha ao excluir o documento: ' + response.message);
+            }
+        }, 'json').fail(function(xhr, status, error) {
+            alert('Erro ao excluir documento: ' + xhr.responseText);
+        });
+    } else {
+        // Se o checkbox não estiver marcado, apenas exclua o documento do servidor
         $('#deleteDocumentModal').modal('hide');
-        if (response.status === 'success') {
-            alert('Email enviado com sucesso! Procedendo para exclusão do arquivo...');
-            deleteDocumentFromServer(docKey, '<?= $data['empresa']['id'] ?>');
-        } else {
-            alert('Falha ao excluir o documento: ' + response.message);
-        }
-    }, 'json').fail(function(xhr, status, error) {
-        alert('Erro ao excluir documento: ' + xhr.responseText);
-    });
+        deleteDocumentFromServer(docKey, '<?= $data['empresa']['id'] ?>');
+    }
 }
 
 function deleteDocumentFromServer(docKey, empresaId) {
