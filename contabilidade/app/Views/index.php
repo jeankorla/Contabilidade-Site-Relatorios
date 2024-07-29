@@ -111,17 +111,19 @@ form .website {
                     <span></span>
                 </div>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/trocar">Trocar de contador</a></li>
-                    <li class="nav-item"><a class="nav-link link text-white display-4" href="/cliente">Área do cliente</a>
-                        <li class="nav-item"><a class="nav-link link text-white display-4">(13) 3361-4324</a>
-
-                    </li></ul>
-                
-                <div class="navbar-buttons mbr-section-btn"><a class="btn custom-btn-outline2 display-4" href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank" >Dúvidas</a></div>
-            </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+            <li class="nav-item"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
+            <li class="nav-item"><a class="nav-link link text-white display-4" href="/trocar">Trocar de contador</a></li>
+            <li class="nav-item"><a class="nav-link link text-white display-4" href="/cliente">Área do cliente</a></li>
+            <li class="nav-item"><a class="nav-link link text-white display-4" href="https://tally.so/r/mB1QxY" target="_blank">Trabalhe Conosco</a></li>
+            <li class="nav-item"><a class="nav-link link text-white display-4">(13) 3361-4324</a></li>
+        </ul>
+        <div class="navbar-buttons mbr-section-btn">
+            <a class="btn custom-btn-outline2 display-4" href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank">Dúvidas</a>
         </div>
+</div>
+
     </nav>
 </section>
 <section data-bs-version="5.1" class="header14 cid-sFzxmVl7J6" id="header14-1f">
