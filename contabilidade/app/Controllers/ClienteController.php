@@ -166,14 +166,6 @@ class ClienteController extends BaseController
             }
         }
 
-        $existingCompany = $clienteModel->where('cnpj', $data['cnpj'])
-                                    ->first();
-
-        if ($existingCompany) {
-            return redirect()->back()->with('error', 'Erro: O Cnpj já está registrado.')->withInput();
-        }
-
-
         if ($data['cnpj']) {
             // Enviar o CNPJ e clienteId para o EmpresaController
             $empresaController = new EmpresaController();
