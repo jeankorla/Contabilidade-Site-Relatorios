@@ -97,7 +97,6 @@ class ClienteController extends BaseController
         // Geração do token único para o cliente
         $token = bin2hex(random_bytes(16));
 
-
         // Coletar todos os dados do formulário para o cliente
         $data = [
             'motivo' => $this->request->getPost('motivo'),
@@ -114,17 +113,26 @@ class ClienteController extends BaseController
             'lancamento' => $this->request->getPost('lancamento')
         ];
 
+        // Verificar se o email ou cpf já existem no banco de dados
+        $clienteModel = new Cliente_lead();
+        $existingClient = $clienteModel->where('email', $data['email'])
+                                    ->orWhere('cpf', $data['cpf'])
+                                    ->first();
+
+        if ($existingClient) {
+            return redirect()->back()->with('error', 'Erro: O e-mail ou CPF já está registrado.')->withInput();
+        }
+
         // Coletar todos os dados do formulário para a Empresa
         $additionalData = [
-        'tributacao' => $this->request->getPost('tributacao'),
-        'faturamento' => $this->request->getPost('faturamento'),
-        'funcionarios' => $this->request->getPost('funcionarios'),
-        'nfe' => $this->request->getPost('nfe'),
-        'lancamento' => $this->request->getPost('lancamento'),
+            'tributacao' => $this->request->getPost('tributacao'),
+            'faturamento' => $this->request->getPost('faturamento'),
+            'funcionarios' => $this->request->getPost('funcionarios'),
+            'nfe' => $this->request->getPost('nfe'),
+            'lancamento' => $this->request->getPost('lancamento'),
         ];
 
-        // Instanciar o modelo do cliente e inserir os dados
-        $clienteModel = new Cliente_lead();
+        // Inserir os dados do cliente
         $inserted = $clienteModel->insert($data);
 
         // Verificar se a inserção do cliente foi bem-sucedida
@@ -158,12 +166,12 @@ class ClienteController extends BaseController
             }
         }
 
-        if($data['cnpj']){
-        // Enviar o CNPJ e clienteId para o EmpresaController
-        $empresaController = new EmpresaController();
-        $empresaData = $empresaController->fetchCnpjData($data['cnpj'], $clienteId, $additionalData);
+        if ($data['cnpj']) {
+            // Enviar o CNPJ e clienteId para o EmpresaController
+            $empresaController = new EmpresaController();
+            $empresaData = $empresaController->fetchCnpjData($data['cnpj'], $clienteId, $additionalData);
         }
-        
+
         // Usando métodos do EmailController (presumindo que ele esteja disponível)
         $this->emailController->emailCliente($data);
         $this->emailController->emailDiretoria($data);
@@ -171,6 +179,7 @@ class ClienteController extends BaseController
         // Retornar com mensagem de sucesso
         return redirect()->back()->with('success', 'Formulário enviado com sucesso.')->withInput();
     }
+
 
 
 
