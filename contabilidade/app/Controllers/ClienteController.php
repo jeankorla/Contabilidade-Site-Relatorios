@@ -96,7 +96,7 @@ class ClienteController extends BaseController
 
         // Geração do token único para o cliente
         $token = bin2hex(random_bytes(16));
-
+        
         // Coletar todos os dados do formulário para o cliente
         $data = [
             'motivo' => $this->request->getPost('motivo'),
@@ -117,10 +117,11 @@ class ClienteController extends BaseController
         $clienteModel = new Cliente_lead();
         $existingClient = $clienteModel->where('email', $data['email'])
                                     ->orWhere('cpf', $data['cpf'])
+                                    ->orWhere('cnpj', $data['cnpj'])
                                     ->first();
 
         if ($existingClient) {
-            return redirect()->back()->with('error', 'Erro: O e-mail ou CPF já está registrado.')->withInput();
+            return redirect()->back()->with('error', 'Erro: O e-mail, CPF ou CNPJ já está registrado.')->withInput();
         }
 
         // Coletar todos os dados do formulário para a Empresa
