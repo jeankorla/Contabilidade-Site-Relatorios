@@ -181,9 +181,6 @@ class ClienteController extends BaseController
     }
 
 
-
-
-
     public function editarCliente($id = null)
     {
         $clienteModel = new Cliente_lead();
