@@ -307,6 +307,11 @@ form .website2 {
         <div class="form-box">
             <h2>Trocar de Contabilidade</h2>
             <p> Já é cliente? Faça <a href="/cliente"> Login </a> </p>
+
+            <!-- 
+                FORMULARIO PARA TROCA DE CONTADOR
+            -->
+
             <form action="<?php echo base_url('ClienteController/store') ?>" method="post">
                 <!-- Exibe a mensagem de sucesso, caso exista -->
             <?php if (session()->has('success')) : ?>
@@ -314,15 +319,20 @@ form .website2 {
                 <?= session('success') ?>
             </div>
             <?php endif; ?>
+
+
                 <div class="input-group">
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
                 </div>
 
+
+
                 <div class="input-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255"> 
                 </div>
+
 
                 <input type="text" name="website2" class="website2" />
                 
@@ -331,6 +341,7 @@ form .website2 {
                     <label for="tel">Telefone</label>
                     <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
                 </div>
+                
 
                 <div class="input-group">
                     <label for="cnpj">CNPJ</label>
