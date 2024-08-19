@@ -277,7 +277,7 @@ form .website2 {
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
                     <li class="nav-item"><a class="nav-link link text-white display-4" href="/trocar">Trocar de contador</a></li>
                     <li class="nav-item"><a class="nav-link link text-white display-4" href="/cliente">Área do cliente</a>
-                        <li class="nav-item"><a class="nav-link link text-white display-4">(13) 3361-4324</a>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="https://tally.so/r/mB1QxY" target="_blank">Trabalhe Conosco</a></li>
 
                     </li></ul>
                 
