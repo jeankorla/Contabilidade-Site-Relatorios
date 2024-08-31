@@ -14,7 +14,7 @@ use App\Controllers\EmailController;
 date_default_timezone_set('America/Sao_Paulo');
 
 class ClienteController extends BaseController
-{   
+{
     protected $emailController;
 
     public function __construct()
@@ -43,7 +43,7 @@ class ClienteController extends BaseController
         $socioModel = new Socio();
         $socios = $socioModel->findAll();
 
-        $socioAssModel = new Socio_ass(); 
+        $socioAssModel = new Socio_ass();
         $socioAsses = $socioAssModel->findAll();
 
         $data = [];
@@ -81,15 +81,15 @@ class ClienteController extends BaseController
                 'socio_asses' => $socioAssList
             ];
         }
-        
+
         return view('adminCliente', ['data' => $data]);
     }
 
-    
+
     public function store()
     {
         // Verificação de proteção antispam
-        if (isset($_POST["website2"]) && $_POST["website2"] !== "") {
+        if (isset($_POST["website"]) && $_POST["website"] !== "") {
             http_response_code(400);
             exit;
         }
@@ -116,8 +116,8 @@ class ClienteController extends BaseController
         // Verificar se o email ou cpf já existem no banco de dados
         $clienteModel = new Cliente_lead();
         $existingClient = $clienteModel->where('email', $data['email'])
-                                    ->orWhere('cpf', $data['cpf'])
-                                    ->first();
+            ->orWhere('cpf', $data['cpf'])
+            ->first();
 
         if ($existingClient) {
             return redirect()->back()->with('error', 'Erro: O e-mail ou CPF já está registrado.')->withInput();
@@ -206,7 +206,7 @@ class ClienteController extends BaseController
 
         $socio_assModel = new Socio_ass();
         $socio_asses = $socio_assModel->where('empresa_id', $empresaId)->first();
-        
+
 
         $data = [
             'cliente' => $cliente,
@@ -223,7 +223,7 @@ class ClienteController extends BaseController
 
 
     public function atualizarCliente($id = null)
-    {   
+    {
         $empresaId = $this->request->getPost('empresa_id');
         if (!$empresaId) {
             return redirect()->back()->with('error', 'ID da empresa não fornecido.');
@@ -375,7 +375,7 @@ class ClienteController extends BaseController
         }
 
         $empresaModel = new Empresa();
-        
+
         // Confirme se existe um registro com esse ID antes de tentar atualizar
         $empresa = $empresaModel->find($id);
         if (!$empresa) {
