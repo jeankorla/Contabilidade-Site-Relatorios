@@ -62,6 +62,10 @@
         gtag('config', 'AW-16634743501');
         </script>   
 
+<!-- Event snippet for Visualização de página conversion page --> <script> gtag('event', 'conversion', {'send_to': 'AW-16634743501/GUbGCICrpMAZEM2ViPw9'}); 
+    
+</script> 
+
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
