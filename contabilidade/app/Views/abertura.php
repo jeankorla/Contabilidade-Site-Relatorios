@@ -51,20 +51,25 @@
         <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
         <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
-            <!-- Google tag (gtag.js) -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16634743501">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16634743501">
         </script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
 
-        gtag('config', 'AW-16634743501');
-        </script>   
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'AW-16634743501');
+        </script>
 
-<!-- Event snippet for Visualização de página conversion page --> <script> gtag('event', 'conversion', {'send_to': 'AW-16634743501/GUbGCICrpMAZEM2ViPw9'}); 
-    
-</script> 
+        <!-- Event snippet for Visualização de página conversion page -->
+        <script>
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16634743501/GUbGCICrpMAZEM2ViPw9'
+            });
+        </script>
 
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
