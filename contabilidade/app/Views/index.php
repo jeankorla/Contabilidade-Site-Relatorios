@@ -22,26 +22,6 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   
- <!-- Google tag (gtag.js) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16634743501">
-        </script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', 'AW-16634743501');
-        </script>
-
-        <!-- Event snippet for Visualização de página conversion page -->
-        <script>
-            gtag('event', 'conversion', {
-                'send_to': 'AW-16634743501/GUbGCICrpMAZEM2ViPw9'
-            });
-        </script>
-
   <style>
     .custom-btn-outline {
     border: 2px solid #FF931E; /* A cor primária do Bootstrap */
