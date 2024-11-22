@@ -56,6 +56,12 @@ class ContatoController extends BaseController
             'withrow.john@gmail.com',
             'whitfeld.kristen@gmail.com',
             'joannariggs278@gmail.com',
+            'abuse@registry.godaddy',
+            'Gemma@registry.godaddy',
+            'registry-help@registry.godaddy',
+            'help@registry.godaddy',
+            'iana@registry.godaddy',
+            'sales@crestinfosystems.com',
         ];
 
         // Verifica se todos os campos estão vazios
