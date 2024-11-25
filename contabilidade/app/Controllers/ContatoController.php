@@ -45,8 +45,13 @@ class ContatoController extends BaseController
         $email = $this->request->getPost('email');
         $textarea = $this->request->getPost('textarea');
 
+        // Lista de nomes bloqueados
+        $blacklistNames = [
+            'Robertpainy',
+        ];
+        
         // Lista de e-mails na blacklist
-        $blacklist = [
+        $blacklistEmails = [
             'ericjonesmyemail@gmail.com',
             'hudspeth.roberta@outlook.com',
             'lamontagne.drusilla@gmail.com',
@@ -88,23 +93,29 @@ class ContatoController extends BaseController
             'scovensdiane@gmail.com',
         ];
 
-        // Verifica se todos os campos estão vazios
+            // Verifica se todos os campos estão vazios
         if (empty($name) && empty($email) && empty($textarea)) {
             // Se todos os campos estiverem vazios, não faça nada ou retorne uma mensagem de erro
             return redirect()->back()->with('error', 'O formulário está vazio.')->withInput();
-        } elseif (in_array($email, $blacklist)) {
-            // Se o e-mail estiver na blacklist, retorne uma mensagem de erro
+        } 
+        // Verifica se o nome está na blacklist
+        elseif (in_array($name, $blacklistNames)) {
+            return redirect()->back()->with('error', 'Este nome está bloqueado.')->withInput();
+        } 
+        // Verifica se o e-mail está na blacklist
+        elseif (in_array($email, $this->blacklistEmails)) { // 
             return redirect()->back()->with('error', 'Este e-mail está bloqueado.')->withInput();
-        } else {
-            // Se algum campo estiver preenchido e o e-mail não estiver na blacklist, continue com o processo
+        } 
+        else {
+            // Se passar nas verificações, continue com o processo
             $Contato = new Contato;
 
-            $data = [
-                'name' => $name,
-                'email' => $email,
-                'textarea' => $textarea,
-            ];
-
+        $data = [
+            'name' => $name,
+            'email' => $email,
+            'textarea' => $textarea,
+        ];
+       
             $Contato->insert($data);
 
             $this->emailController->contatoEmailDiretoria($data);
