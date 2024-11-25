@@ -103,7 +103,7 @@ class ContatoController extends BaseController
             return redirect()->back()->with('error', 'Este nome está bloqueado.')->withInput();
         } 
         // Verifica se o e-mail está na blacklist
-        elseif (in_array($email, $this->blacklistEmails)) { // 
+        elseif (in_array($email, $blacklistEmails)) { // 
             return redirect()->back()->with('error', 'Este e-mail está bloqueado.')->withInput();
         } 
         else {
