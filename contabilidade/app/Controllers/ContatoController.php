@@ -85,6 +85,7 @@ class ContatoController extends BaseController
             'tlawson@ripleymetalworks.com',
             'm.jabbar.bcs@gmail.com',
             'ccarden@coolmanbuilt.com',
+            'scovensdiane@gmail.com',
         ];
 
         // Verifica se todos os campos estão vazios
