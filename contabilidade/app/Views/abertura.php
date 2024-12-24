@@ -248,9 +248,9 @@
 
 
             .custom-btn-outline {
-                border: 2px solid #FF931E;
+                border: 2px solid #08B81A;
                 /* A cor primária do Bootstrap */
-                color: #FF931E;
+                color: #08B81A;
                 background-color: transparent;
                 padding: .375rem .75rem;
                 font-size: 1rem;
@@ -459,7 +459,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto align-center">
-                <a href="https://wa.me/seu-numero-aqui" target="_blank" class="btn custom-btn-outline display-4">
+                <a href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank" class="btn custom-btn-outline display-4">
                     Fale conosco
                 </a>
             </div>
