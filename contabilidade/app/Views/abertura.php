@@ -450,18 +450,17 @@
 
 
 
-    <section data-bs-version="5.1" class="form5 cid-sFzDs3t9EG" id="form5-1m">
-    <div class="container" id="contato">
-        <div class="mbr-section-head">
-            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                <strong>Entre em contato conosco</strong>
-            </h3>
-        </div>
-        <div class="row justify-content-center mt-4">
-            <div class="col-lg-8 mx-auto align-center">
-                <a href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank" class="btn custom-btn-outline display-4">
-                    Fale conosco
-                </a>
+<section data-bs-version="5.1" class="info1 cid-tT8XN4RKid" id="info1-5">
+    
+    <div class="align-center container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <h3 class="mbr-section-title mb-4 mbr-fonts-style display-1"><strong>Como podemos te <span style="color: 
+#08B81A;">ajudar?</strong></span></h3>
+                <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                    Atendimento completo e ágil, resolvemos suas questões via <span style="color:#08B81A;">WhatsApp</span>
+                </p>
+                <div class="mbr-section-btn"><a class="btn custom-btn-outline2 display-4" href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank">Tenho dúvidas</a></div>
             </div>
         </div>
     </div>
