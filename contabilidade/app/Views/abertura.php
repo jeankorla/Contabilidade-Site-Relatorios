@@ -451,43 +451,22 @@
 
 
     <section data-bs-version="5.1" class="form5 cid-sFzDs3t9EG" id="form5-1m">
-
-
-        <div class="container" id="contato">
-            <div class="mbr-section-head">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Entre em contato conosco</strong></h3>
-
-            </div>
-            <div class="row justify-content-center mt-4">
-                <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                    <form action="<?php echo base_url('ContatoController/store') ?>" method="post" class="mbr-form form-with-styler" data-form-title="Form Name">
-                        <!-- Exibe a mensagem de sucesso, caso exista -->
-                        <?php if (session()->has('success')) : ?>
-                            <div class="alert alert-success" role="alert">
-                                <?= session('success') ?>
-                            </div>
-                        <?php endif; ?>
-                        <div class="dragArea row">
-                            <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                                <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name" required>
-                            </div>
-
-                            <input type="text" name="website" class="website" />
-
-                            <div class="col-md col-sm-12 form-group mb-3" data-for="email">
-                                <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email" required>
-                            </div>
-
-                            <div class="col-12 form-group mb-3" data-for="textarea">
-                                <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea" required></textarea>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn custom-btn-outline display-4">Send message</button></div>
-                        </div>
-                    </form>
-                </div>
+    <div class="container" id="contato">
+        <div class="mbr-section-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                <strong>Entre em contato conosco</strong>
+            </h3>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8 mx-auto align-center">
+                <a href="https://wa.me/seu-numero-aqui" target="_blank" class="btn custom-btn-outline display-4">
+                    Fale conosco
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section data-bs-version="5.1" class="map2 cid-sFAxp7Y5iM" id="map2-1y">
 
