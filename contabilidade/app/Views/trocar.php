@@ -528,7 +528,7 @@ form .website2 {
             </div>
             <div class="row row-copirayt">
                 <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-                    © Copyright 2024 SpolaorCompany. All Rights Reserved.
+                    © Copyright 2025 SpolaorCompany. All Rights Reserved.
                 </p>
             </div>
         </div>
