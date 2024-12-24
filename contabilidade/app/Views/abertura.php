@@ -261,8 +261,8 @@
 
             .custom-btn-outline:hover {
                 color: #fff;
-                background-color: #FF931E;
-                border-color: #FF931E;
+                background-color: #08B81A;
+                border-color: #08B81A;
             }
 
             .custom-btn-outline:focus,
