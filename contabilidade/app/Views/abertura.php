@@ -248,9 +248,9 @@
 
 
             .custom-btn-outline {
-                border: 2px solid #FF931E;
+                border: 2px solid #08B81A;
                 /* A cor primária do Bootstrap */
-                color: #FF931E;
+                color: #08B81A;
                 background-color: transparent;
                 padding: .375rem .75rem;
                 font-size: 1rem;
@@ -261,8 +261,8 @@
 
             .custom-btn-outline:hover {
                 color: #fff;
-                background-color: #FF931E;
-                border-color: #FF931E;
+                background-color: #08B81A;
+                border-color: #08B81A;
             }
 
             .custom-btn-outline:focus,
@@ -450,44 +450,22 @@
 
 
 
-    <section data-bs-version="5.1" class="form5 cid-sFzDs3t9EG" id="form5-1m">
-
-
-        <div class="container" id="contato">
-            <div class="mbr-section-head">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Entre em contato conosco</strong></h3>
-
-            </div>
-            <div class="row justify-content-center mt-4">
-                <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                    <form action="<?php echo base_url('ContatoController/store') ?>" method="post" class="mbr-form form-with-styler" data-form-title="Form Name">
-                        <!-- Exibe a mensagem de sucesso, caso exista -->
-                        <?php if (session()->has('success')) : ?>
-                            <div class="alert alert-success" role="alert">
-                                <?= session('success') ?>
-                            </div>
-                        <?php endif; ?>
-                        <div class="dragArea row">
-                            <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                                <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name" required>
-                            </div>
-
-                            <input type="text" name="website" class="website" />
-
-                            <div class="col-md col-sm-12 form-group mb-3" data-for="email">
-                                <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email" required>
-                            </div>
-
-                            <div class="col-12 form-group mb-3" data-for="textarea">
-                                <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea" required></textarea>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn custom-btn-outline display-4">Send message</button></div>
-                        </div>
-                    </form>
-                </div>
+<section data-bs-version="5.1" class="info1 cid-tT8XN4RKid" id="info1-5">
+    
+    <div class="align-center container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <h3 class="mbr-section-title mb-4 mbr-fonts-style display-1"><strong>Como podemos te <span style="color: 
+#08B81A;">ajudar?</strong></span></h3>
+                <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                    Atendimento completo e ágil, resolvemos suas questões via <span style="color:#08B81A;">WhatsApp</span>
+                </p>
+                <div class="mbr-section-btn"><a class="btn custom-btn-outline2 display-4" href="https://api.whatsapp.com/send?phone=551333614324&text=Ol%C3%A1,%20vim%20do%20site%20sccontab.com.br%20e%20tenho%20d%C3%BAvidas%20sobre%20algum%20assunto!" target="_blank">Tenho dúvidas</a></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section data-bs-version="5.1" class="map2 cid-sFAxp7Y5iM" id="map2-1y">
 
@@ -539,7 +517,7 @@
                 </div>
                 <div class="row row-copirayt">
                     <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-                        © Copyright 2024 SpolaorCompany. All Rights Reserved.
+                        © Copyright 2025 SpolaorCompany. All Rights Reserved.
                     </p>
                 </div>
             </div>
