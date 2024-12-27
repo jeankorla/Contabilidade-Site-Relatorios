@@ -48,6 +48,7 @@ class ContatoController extends BaseController
         // Lista de nomes bloqueados
         $blacklistNames = [
             'Robertpainy',
+            'TESTE Mateus',
         ];
         
         // Lista de e-mails na blacklist
