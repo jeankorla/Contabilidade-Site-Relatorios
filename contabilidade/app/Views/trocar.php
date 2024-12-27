@@ -42,9 +42,26 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   
+ <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16634743501">
+        </script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-    <style>
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'AW-16634743501');
+        </script>
 
+        <!-- Event snippet for Visualização de página conversion page -->
+        <script>
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16634743501/GUbGCICrpMAZEM2ViPw9'
+            });
+        </script>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 .scale-down {
     transform: scale(0.8);
@@ -273,7 +290,7 @@ form .website2 {
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><a class="nav-link link text-white display-4" href="/abertura">Abertura de empresa</a></li>
                     <li class="nav-item"><a class="nav-link link text-white display-4" href="/trocar">Trocar de contador</a></li>
                     <li class="nav-item"><a class="nav-link link text-white display-4" href="/cliente">Área do cliente</a>
-                        <li class="nav-item"><a class="nav-link link text-white display-4">(13) 3361-4324</a>
+                    <li class="nav-item"><a class="nav-link link text-white display-4" href="https://tally.so/r/mB1QxY" target="_blank">Trabalhe Conosco</a></li>
 
                     </li></ul>
                 
@@ -303,6 +320,11 @@ form .website2 {
         <div class="form-box">
             <h2>Trocar de Contabilidade</h2>
             <p> Já é cliente? Faça <a href="/cliente"> Login </a> </p>
+
+            <!-- 
+                FORMULARIO PARA TROCA DE CONTADOR
+            -->
+
             <form action="<?php echo base_url('ClienteController/store') ?>" method="post">
                 <!-- Exibe a mensagem de sucesso, caso exista -->
             <?php if (session()->has('success')) : ?>
@@ -310,15 +332,20 @@ form .website2 {
                 <?= session('success') ?>
             </div>
             <?php endif; ?>
+
+
                 <div class="input-group">
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
                 </div>
 
+
+
                 <div class="input-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255"> 
                 </div>
+
 
                 <input type="text" name="website2" class="website2" />
                 
@@ -327,6 +354,7 @@ form .website2 {
                     <label for="tel">Telefone</label>
                     <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
                 </div>
+                
 
                 <div class="input-group">
                     <label for="cnpj">CNPJ</label>
