@@ -301,14 +301,14 @@ form .website2 {
 </section>
 
 
-<!-- Formulário do Tally -->
-<div class="form-box">
-    <h2>Trocar de Contabilidade</h2>
-    <p> Já é cliente? Faça <a href="/cliente"> Login </a> </p>
 
-    <iframe data-tally-src="https://tally.so/embed/3EZLGr?alignLeft=1&hideTitle=1&dynamicHeight=1"
-        loading="lazy" width="100%" height="602" frameborder="0" marginheight="0" marginwidth="0"
-        title="Troca de Contabilidade">
+<div class="form-box">
+    <h2 style="margin-top: 2rem;">Trocar de Contabilidade</h2>
+    <p style="margin-bottom: 1.5rem;"> Já é cliente? Faça <a href="/cliente" style="color: #FF931E; text-decoration: none;">Login</a> </p>
+
+    <iframe data-tally-src="https://tally.so/embed/3EZLGr?hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy" width="100%" height="630" frameborder="0" marginheight="0" marginwidth="0"
+        title="Registration form">
     </iframe>
 
     <script>
@@ -325,6 +325,7 @@ form .website2 {
         }
     </script>
 </div>
+
 
 
 
