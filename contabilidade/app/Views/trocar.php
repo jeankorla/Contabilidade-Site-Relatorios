@@ -302,29 +302,145 @@ form .website2 {
 
 
 
-<div class="form-box">
-    <h2 style="margin-top: 2rem;">Trocar de Contabilidade</h2>
-    <p style="margin-bottom: 1.5rem;"> Já é cliente? Faça <a href="/cliente" style="color: #FF931E; text-decoration: none;">Login</a> </p>
+ <section>
 
-    <iframe data-tally-src="https://tally.so/embed/3EZLGr?hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        loading="lazy" width="100%" height="630" frameborder="0" marginheight="0" marginwidth="0"
-        title="Registration form">
-    </iframe>
 
-    <script>
-        var d = document, w = "https://tally.so/widgets/embed.js", v = function () {
-            "undefined" != typeof Tally ? Tally.loadEmbeds() :
-                d.querySelectorAll("iframe[data-tally-src]:not([src])")
-                .forEach((e) => { e.src = e.dataset.tallySrc });
-        };
-        if ("undefined" != typeof Tally) v();
-        else if (d.querySelector('script[src="' + w + '"]') == null) {
-            var s = d.createElement("script");
-            s.src = w; s.onload = v; s.onerror = v;
-            d.body.appendChild(s);
-        }
-    </script>
-</div>
+
+    <div class="jp1"></div>
+    <div class="jp1 jp2"></div>
+    <div class="jp1 jp3"></div>
+
+    <div class="tudo scale-down">
+        <div class="tudo-body">
+            <!-- 
+     <div class="box" style="margin-top: -1rem; ">
+        <div class="img-box">
+            <img src="img/tutorial.jpg">
+        </div> -->
+        <div class="form-box">
+            <h2>Trocar de Contabilidade</h2>
+            <p> Já é cliente? Faça <a href="/cliente"> Login </a> </p>
+
+            <!-- 
+                FORMULARIO PARA TROCA DE CONTADOR
+            -->
+
+            <form action="<?php echo base_url('ClienteController/store') ?>" method="post">
+                <!-- Exibe a mensagem de sucesso, caso exista -->
+            <?php if (session()->has('success')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session('success') ?>
+            </div>
+            <?php endif; ?>
+
+
+                <div class="input-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" required maxlength="50">
+                </div>
+
+
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite o seu email" required maxlength="255"> 
+                </div>
+
+
+                <input type="text" name="website2" class="website2" />
+                
+
+                <div class="input-group">
+                    <label for="tel">Telefone</label>
+                    <input type="tel" id="tel" name="tel" placeholder="Digite o seu telefone" oninput="mascaraTelefone(event);" required maxlength="15">
+                </div>
+                
+
+                <div class="input-group">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" required oninput="aplicarMascaraCNPJ(this)" maxlength="18">
+                </div>
+
+                <!-- <div class="input-group">
+                    <label for="nome_empresa">Nome da empresa</label>
+                    <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Digite o Nome de sua empresa" required maxlength="255">
+                </div> -->
+
+                <div class="input-group">
+                    <label for="faturamento">Faturamento Médio mensal</label>
+                    <input type="text" id="faturamento" name="faturamento" placeholder="Faturamento mensal da empresa" onkeyup="formatarMoeda();" required maxlength="18">
+                </div>
+
+                <div class="input-group">
+                    <label for="funcionarios">Quantidade de funcionários</label>
+                    <input type="number" id="funcionarios" name="funcionarios" placeholder="Quantidade de funcionários da empresa" required maxlength="5">
+                </div>
+
+                 <div class="">
+                    <label for="tributacao">Tributação</label>
+                    <select class="input-group form-control" id="tributacao" name="tributacao" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
+                        <option value="Simples Nacional">Simples Nacional</option>
+                        <option value="Lucro Presumido" selected>Lucro Presumido</option>
+                        <option value="Lucro Real">Lucro Real</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="nfe">Quantidade de Notas-Fiscais - mês (Entrada/Saída/Serviços):</label>
+                    <input type="number" id="nfe" name="nfe" placeholder="Quantidade de Notas Fiscais por mês">
+                </div>
+
+                <div class="input-group">
+                    <label for="lancamento">Quantidade de Lançamentos Contábeis:</label>
+                    <input type="number" id="lancamento" name="lancamento" placeholder="Quantidade de Lançamentos Contábeis">
+                </div>
+
+                 <!-- <div class="">
+                    <label for="endereco_empresa_estado">Estado</label>
+                    <select class="input-group form-control" id="endereco_empresa_estado" name="endereco_empresa_estado" style="background-color: rgba(255, 255, 255, 0.32); border-radius: 0px 30px 30px 0px; height: 1rem;">
+                        <option value="SP">São Paulo</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div> -->
+
+            <input type="text" class="hidden" id="motivo" name="motivo" value="Trocar"/>
+
+                <div class="input-group">
+                    <button type="submit">Cadastrar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+
 
 
 
